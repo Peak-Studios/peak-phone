@@ -46,9 +46,25 @@ with sync_playwright() as p:
  page.locator('.duo-side-power').click();page.wait_for_timeout(500);assert page.locator('.duo-lock-screen').is_visible();page.screenshot(path=str(out/'lock-portrait.png'))
  page.locator('.duo-orientation-button').click();page.wait_for_timeout(800);page.screenshot(path=str(out/'lock-landscape.png'))
  page.locator('.duo-fold-button').click();page.wait_for_timeout(800);page.screenshot(path=str(out/'lock-folded.png'))
- page.locator('.duo-lock-screen input').fill('9999');page.locator('.duo-lock-submit').click();page.wait_for_timeout(300);assert page.locator('.duo-lock-screen').is_visible()
- page.locator('.duo-lock-screen input').fill('1234');page.locator('.duo-lock-submit').click();page.wait_for_timeout(300)
- assert page.locator('.duo-lock-screen').is_visible()
+ lock=page.locator('.duo-lock-screen')
+ assert lock.get_attribute('data-stage')=='lock' and page.locator('.duo-lock-time').is_visible()
+ # Typing a digit on the glance opens the keypad with that digit entered.
+ lock.focus();page.keyboard.press('9');page.wait_for_timeout(300)
+ assert lock.get_attribute('data-stage')=='passcode' and page.locator('.duo-lock-dot.is-filled').count()==1
+ assert page.locator('.duo-key').count()==10 and page.locator('.duo-key[data-digit="2"] .duo-key-letters').inner_text()=='ABC'
+ assert page.locator('.duo-lock-submit').is_hidden()
+ for d in '99':page.locator(f'.duo-key[data-digit="{d}"]').click()
+ assert page.locator('.duo-key-text',has_text='Delete').count()==1
+ page.locator('.duo-key-text',has_text='Delete').click();assert page.locator('.duo-lock-dot.is-filled').count()==2
+ for d in '99':page.locator(f'.duo-key[data-digit="{d}"]').click()
+ assert page.locator('.duo-lock-dot.is-filled').count()==4 and page.locator('.duo-lock-submit').is_visible()
+ page.screenshot(path=str(out/'lock-passcode.png'))
+ page.locator('.duo-lock-submit').click();page.wait_for_timeout(400)
+ assert lock.is_visible() and page.locator('.duo-lock-dot.is-filled').count()==0 and page.locator('.duo-lock-error').inner_text().strip()
+ # Six digits submit automatically; the preview cannot unlock, so the screen stays locked.
+ page.locator('.duo-lock-screen input').fill('123456');page.wait_for_timeout(400)
+ assert lock.is_visible() and page.locator('.duo-lock-dot.is-filled').count()==0
+ page.locator('.duo-key-text',has_text='Cancel').click();page.wait_for_timeout(300);assert lock.get_attribute('data-stage')=='lock'
  preview_unlock = page.evaluate("async()=>{try{await PeakPhoneTransport('Devices/unlock',{PIN:'1234'});return 'resolved'}catch(error){return error.message}}")
  assert 'needs the live FiveM server' in preview_unlock
  print('POWER LOCK PASS; errors:',errors);assert not errors

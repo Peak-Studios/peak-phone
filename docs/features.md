@@ -13,7 +13,7 @@ Each app's behavior and requirements. "Built in" means the app works with only t
 | **Home Screen** | Several pages, a dock with up to 4 apps, and long-press editing to move or remove apps. The **Home Screen** app edits the layout. |
 | **Appearance** | Light and dark mode, Reduce Motion and Reduce Transparency, wallpapers, and text and contrast tuning. |
 | **Control Center** | Now Playing controls, Do Not Disturb and Focus, Flashlight, Dark Mode, ShareDrop, connectivity, and Camera and Calculator shortcuts. |
-| **Lock screen** | Per-device PIN with an attempt limit and timed lockout. |
+| **Lock screen** | iOS-style glance (date and time over your wallpaper), then swipe up, tap or start typing to open a passcode keypad with dots. Per-device 4–6 digit PIN, auto-submit at 6 digits, an attempt limit with a timed lockout, and recovery-code or owner-reset options. |
 | **Notifications** | Banners and a notification list, per-app unread badges, and per-app settings. |
 | **Ringtones** | Built-in tones plus your own (`PhoneConfig.Ringtones.Custom`). |
 | **Hardware buttons** | Power, volume and side buttons on the 3D prop and in the UI. |

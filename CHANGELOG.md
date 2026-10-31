@@ -1,5 +1,10 @@
 # Changelog
 
+## 3.1.0 (2026-10-31)
+
+### Changed
+- **Redesigned lock screen** in the style of modern iOS: a glance with the date and a large clock, then swipe up, tap or type to open a passcode keypad. The keypad has round frosted keys with letters, filling dots, Delete and Cancel, a shake on a wrong passcode, and auto-submit at 6 digits. It has layouts for the folded, unfolded, portrait and landscape screens, and recovery and reset keep their own sheet.
+
 ## 3.0.0: open-source release (2026-10-30)
 
 Peak Duo is now free and open source under the GPL-3.0.

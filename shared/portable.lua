@@ -1,4 +1,4 @@
-Phone = Phone or { Version = '3.0.0' }
+Phone = Phone or { Version = '3.1.0' }
 PhonePeak = PhonePeak or { Functions = {}, Shared = {}, Player = {}, Commands = {}, VSync = {} }
 PhoneServices = PhoneServices or {}
 PhoneIntegration = PhoneIntegration or { Callbacks = {}, Client = {}, Capabilities = {} }

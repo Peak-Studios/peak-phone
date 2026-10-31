@@ -7,7 +7,8 @@
 [![License: GPL-3.0](https://img.shields.io/badge/license-GPL--3.0-blue.svg)](LICENSE)
 ![FiveM](https://img.shields.io/badge/FiveM-cerulean-orange)
 ![Frameworks](https://img.shields.io/badge/frameworks-ESX%20%7C%20QBCore%20%7C%20Qbox-6f42c1)
-![Version](https://img.shields.io/badge/version-3.0.0-green)
+![Version](https://img.shields.io/badge/version-3.1.0-green)
+[![PRs welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
 <img src="docs/images/hero-unfolded.webp" alt="Peak Duo unfolded home screen" width="900">
 
@@ -34,7 +35,7 @@
 
 - **A foldable handset.** Press <kbd>E</kbd> to unfold the cover screen into a wide inner display. The custom 3D prop folds in the player's hand, with fold and SIM-tray animations for male and female freemode peds.
 - **Split View and multitasking.** Run two apps side by side, resize the split, swap panes, use the App Switcher, and switch between portrait and landscape.
-- **iOS-style design.** Light and dark appearance, a Control Center, lock screen with PIN, notifications, a Home Screen editor with pages and a dock, wallpapers and ringtones.
+- **iOS-style design.** Light and dark appearance, a Control Center, an iOS-style lock screen with a passcode keypad, notifications, a Home Screen editor with pages and a dock, wallpapers and ringtones.
 - **Real communication.** Server-authoritative voice calls through `pma-voice`, and FaceTime-style video calls that stream the *game camera* over WebRTC with a TURN relay (Cloudflare or self-hosted coturn).
 - **Messages and social.** Direct and group chats with voice notes, reactions and images, plus Mail, Contacts, **Y** (an X-style feed), **KiloGram** (photos, stories, live streams and gifts) and **Binge**.
 - **Everyday apps.** Maps with a GTA V atlas and Find My, Weather, Clock (alarms, timers, world clock), Notes, Calendar, Calculator, Voice Memos, Photos and Camera, and Peak Music (free Audius catalog).
@@ -48,7 +49,7 @@
 <table>
 <tr>
 <td align="center"><img src="docs/images/home-folded.webp" width="230"><br><sub>Home (folded)</sub></td>
-<td align="center"><img src="docs/images/lock-screen.webp" width="230"><br><sub>Lock screen</sub></td>
+<td align="center"><img src="docs/images/lock-passcode.webp" width="230"><br><sub>Passcode</sub></td>
 <td align="center"><img src="docs/images/messages.webp" width="230"><br><sub>Messages</sub></td>
 <td align="center"><img src="docs/images/calls.webp" width="230"><br><sub>Phone</sub></td>
 </tr>
@@ -69,6 +70,16 @@
 <td align="center"><img src="docs/images/photos.webp" width="230"><br><sub>Photos</sub></td>
 <td align="center"><img src="docs/images/app-store.webp" width="230"><br><sub>App Store</sub></td>
 <td align="center"><img src="docs/images/calculator.webp" width="230"><br><sub>Calculator</sub></td>
+</tr>
+</table>
+
+**Lock screen.** A glanceable clock, then an iOS-style passcode keypad (4–6 digits):
+
+<table>
+<tr>
+<td align="center"><img src="docs/images/lock-screen.webp" width="230"><br><sub>Lock screen</sub></td>
+<td align="center"><img src="docs/images/lock-passcode-entry.webp" width="230"><br><sub>Entering a passcode</sub></td>
+<td align="center"><img src="docs/images/lock-passcode-wrong.webp" width="230"><br><sub>Wrong passcode</sub></td>
 </tr>
 </table>
 
@@ -161,6 +172,18 @@ npm run verify       # check runtime files against the integrity manifest
 ```
 
 See [docs/development.md](docs/development.md) for the architecture, browser tests and how to add an app.
+
+## Contributions welcome
+
+Peak Duo is a community project now, and **pull requests are very welcome**, from small bug fixes to bigger quality-of-life features. Some ideas:
+
+- Quality-of-life polish for existing apps (more settings, shortcuts, small UX fixes)
+- Adapters for popular garages, housing, racing or job scripts, so more of the gameplay apps work out of the box
+- Translations and localization
+- New native apps built with the Duo shell
+- Performance improvements and bug fixes found on real servers
+
+Read [CONTRIBUTING.md](CONTRIBUTING.md) and [docs/development.md](docs/development.md) to get started. You can work on most of the UI in the browser preview without a FiveM server.
 
 ## Support and maintenance
 

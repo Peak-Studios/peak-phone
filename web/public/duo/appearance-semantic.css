@@ -912,7 +912,7 @@
 }
 
 /* Lock-screen wallpaper stays independent of appearance; its fields and sheet adapt. */
-#duo[data-theme] .duo-lock-screen :is(.duo-lock-card, .duo-lock-input, input) {
+#duo[data-theme] .duo-lock-screen :is(.duo-lock-card, .duo-lock-card input) {
   background: var(--theme-elevated) !important;
   color: var(--theme-label) !important;
   border-color: var(--theme-separator) !important;
@@ -926,10 +926,10 @@
 #duo[data-theme] .duo-lock-screen .duo-lock-links button {
   color: var(--theme-accent-text) !important;
 }
-#duo[data-theme] .duo-lock-screen .duo-lock-error {
+#duo[data-theme] .duo-lock-screen .duo-lock-card .duo-lock-error {
   color: var(--theme-destructive) !important;
 }
-#duo[data-theme] .duo-lock-screen :is(.duo-lock-submit, .duo-lock-screen button[type="submit"]) {
+#duo[data-theme] .duo-lock-screen .duo-lock-card-submit {
   background: var(--theme-accent) !important;
   color: var(--theme-on-accent) !important;
 }
