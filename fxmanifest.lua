@@ -6,7 +6,7 @@ author 'Peak Studios'
 description 'Peak Duo - open-source foldable phone for ESX, QBCore and Qbox'
 repository 'https://github.com/Peak-Studios/peak-phone'
 license 'GPL-3.0-only'
-version '3.0.0'
+version '3.1.0'
 ui_page 'web/public/index.html'
 files { 'web/public/**/*', 'sql/*.sql', 'stream/peak_duo_live.ytyp', 'stream/peak_duo_broken.ytyp', 'stream/peak_duo_break_v2.ytyp' }
 dependencies { '/onesync', 'ox_lib', 'oxmysql', 'peak-bridge', 'peak-duo-prop', 'peak-sim-assets' }
