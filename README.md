@@ -12,6 +12,8 @@
 
 <img src="docs/images/hero-unfolded.webp" alt="Peak Duo unfolded home screen" width="900">
 
+### [▶ Try the live demo in your browser](https://peak-studios.github.io/peak-phone/)
+
 </div>
 
 > [!NOTE]
@@ -152,7 +154,9 @@ The full guide is in [docs/installation.md](docs/installation.md). Video calls n
 
 ## Try the UI in your browser
 
-You can explore the interface without a FiveM server:
+**Live demo:** https://peak-studios.github.io/peak-phone/ (press <kbd>E</kbd> to unfold, use **Display** for Split View).
+
+Or run it locally:
 
 ```sh
 git clone https://github.com/Peak-Studios/peak-phone.git
