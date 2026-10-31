@@ -1,0 +1,268 @@
+/* Peak Duo / iOS-inspired presentation. Original geometry and interaction contracts retained.
+   Glass is approximated with bounded gradients, highlights and translucency: NO backdrop blur,
+   SVG filter, backdrop sampling, document dimmer or composited full-screen material. */
+:root{--ios-bg:#0b0c10;--ios-group:#191b22;--ios-raised:#25272e;--ios-text:#f8f9fc;--ios-secondary:#afb2c0;--ios-line:#ffffff12;--ios-blue:#419cff;--ios-red:#ff496a;--ios-glass:linear-gradient(145deg,#ffffff25,#ffffff0a 44%,#ffffff0d);--ios-ease:cubic-bezier(.2,.72,.18,1)}
+.sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+#duo{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;--color-background:var(--ios-bg);--color-background-dark:#090a0e;--color-background-light:#1a1c22;--color-surface:#1b1d25;--color-surface-elevated:#292b34;--color-primary:#58a8ff;--color-text-primary:var(--ios-text);--color-text-secondary:var(--ios-secondary);--glass-bg:#191b23;--glass-border:#ffffff14;--radius-lg:1.7vh;--radius-xl:2.2vh}
+#duo button:focus-visible,#duo input:focus-visible,#duo textarea:focus-visible{outline:2px solid #8dc7ff!important;outline-offset:2px}
+#duo .duo-wallpaper:not(.duo-custom-wallpaper){background:radial-gradient(ellipse at 82% 9%,#c9e1ff 0,transparent 52%),radial-gradient(ellipse at 5% 24%,#6098dc 0,transparent 55%),radial-gradient(ellipse at 86% 78%,#5276b6 0,transparent 55%),linear-gradient(160deg,#bdd7f9,#4877b5 48%,#162a52)}
+#duo .duo-wallpaper:not(.duo-custom-wallpaper):after{width:51vh;height:83vh;left:-32vh;top:-7vh;border:3vh solid #d0ebff5c;box-shadow:inset 0 0 0 .13vh #fff7,0 0 0 .15vh #ffffff24;transform:rotate(34deg);border-radius:48%;filter:none}
+#duo[data-accent=tide] .duo-wallpaper:not(.duo-custom-wallpaper){background:radial-gradient(ellipse at 85% 0,#c4f7ef,transparent 56%),radial-gradient(ellipse at 12% 60%,#277f88,transparent 62%),linear-gradient(150deg,#6abeb1,#123845)}
+#duo[data-accent=ember] .duo-wallpaper:not(.duo-custom-wallpaper){background:radial-gradient(ellipse at 90% 0,#ffe1c9,transparent 55%),radial-gradient(ellipse at 12% 65%,#b9637b,transparent 62%),linear-gradient(150deg,#dca5a1,#422446)}
+#duo .duo-home-heading h1{font-size:2.7vh;font-weight:690;letter-spacing:-.055em;line-height:1.1;text-shadow:0 .1vh .8vh #132b4a20}
+#duo .duo-eyebrow{font-size:.73vh;font-weight:650;letter-spacing:.16em;opacity:.84}
+#duo .duo-profile{background:linear-gradient(140deg,#ffffff3d,#ffffff10);border:1px solid #ffffff52;box-shadow:inset 0 1px 0 #fff4,0 .4vh 1vh #17345712;font-weight:600}
+#duo .duo-widgets{gap:1vh}
+#duo .duo-weather-widget,#duo .duo-workspace-widget{background:linear-gradient(145deg,#eff9ff40,#2949752e 60%,#eef8ff1f)!important;border:1px solid #ffffff40!important;box-shadow:inset 0 .1vh 0 #ffffff3d,inset 0 -.1vh 0 #ffffff0a,0 .5vh 1.5vh #142c5012;border-radius:2vh!important}
+#duo .duo-workspace-widget{background:linear-gradient(145deg,#1b355990,#162b508e)!important}
+#duo .duo-weather-label{font-size:2.35vh;font-weight:540;letter-spacing:-.04em}
+#duo .duo-weather-caption{font-size:.83vh;color:#e9f3ff}
+#duo .duo-workspace-widget strong{font-size:1.9vh;font-weight:600;letter-spacing:-.04em;line-height:1.15}
+#duo .duo-workspace-widget>span{font-size:.76vh;color:#ddeaff}
+#duo .duo-widget-top{font-size:.79vh;font-weight:600;letter-spacing:.025em}
+#duo .duo-search{border-radius:5vh;background:linear-gradient(140deg,#ecf6ff23,#09264438);border:1px solid #ffffff35;box-shadow:inset 0 1px 0 #ffffff1c;height:3.45vh}
+#duo .duo-search input{font-size:1.04vh}#duo .duo-search>span{display:none}
+#duo .duo-app-grid{grid-auto-rows:7.1vh;row-gap:.72vh;padding-top:.7vh}
+#duo .duo-icon-tile{border:0;background:none;box-shadow:0 .35vh .7vh #11234024;border-radius:1.25vh;width:5.05vh;height:5.05vh;overflow:visible;transition:transform 160ms var(--ios-ease)}
+#duo .duo-icon-tile>svg.ios-app-icon{width:100%;height:100%;overflow:visible;stroke:none}
+#duo .duo-app-button:hover .duo-icon-tile{filter:none;transform:translateY(-.15vh) scale(1.035)}
+#duo .duo-app-button:active .duo-icon-tile{transform:scale(.91)}
+#duo .duo-app-name{font-size:.88vh;letter-spacing:-.015em;font-weight:510;color:#fff;text-shadow:0 .1vh .35vh #1029519c}
+#duo .duo-dock{height:6.7vh;border-radius:2.2vh;background:linear-gradient(150deg,#edf7ff37,#eaf4ff17)!important;border:1px solid #ffffff48;box-shadow:inset 0 1px 0 #ffffff4a,0 .6vh 1.8vh #00000010}
+#duo .duo-dock .duo-icon-tile{width:5.05vh;height:5.05vh}
+#duo .duo-pane-navigation{background:linear-gradient(130deg,#242a37f5,#19202ee8)!important;height:3.65vh;border-top:1px solid #ffffff13;padding:0 1.2vh .05vh}
+#duo .duo-pane-navigation button{height:2.55vh;border-radius:5vh;font-size:.85vh;color:#dce3f1;padding:.5vh .85vh}
+#duo .duo-pane-navigation .duo-resume{background:#ffffff0b;border:1px solid #ffffff0b}
+#duo .duo-home-button:hover,#duo .duo-close-app:hover{background:#ffffff12}
+#duo .duo-focus-dot{background:#8196b4}#duo .duo-pane[data-active=true] .duo-focus-dot{background:#8fcbff;box-shadow:none}
+#duo .duo-button{border-radius:4vh;background:linear-gradient(135deg,#293549ef,#1c2531f0);border:1px solid #ffffff24}
+#duo .duo-control-center{background:linear-gradient(135deg,#28364af7,#151e2efc)!important;border-color:#ffffff2a;border-radius:2.5vh}
+#duo .duo-control-tile{background:linear-gradient(135deg,#f0f7ff19,#d4e3ff09);border:1px solid #ffffff19;border-radius:2.1vh;box-shadow:inset 0 1px 0 #ffffff13;height:8.15vh}
+#duo .duo-control-tile strong{font-size:1.06vh}#duo .duo-control-tile span{color:#bfcddd}
+#duo .duo-center-heading h2{font-weight:680;font-size:1.85vh}
+#duo[data-icons=clear] .ios-app-icon .icon-base{fill:#f1f8ff2b;stroke:#fff8}
+#duo[data-icons=clear] .ios-app-icon .icon-color{opacity:.68}
+#duo[data-transparency=reduced] .duo-dock,#duo[data-transparency=reduced] .duo-weather-widget{background:#4c7098!important}
+#duo[data-transparency=reduced] .duo-workspace-widget{background:#273b58!important}
+#duo[data-transparency=reduced] .duo-search{background:#385171!important}
+#duo[data-transparency=reduced] .duo-control-center{background:#202b3e!important}
+/* Shared applications: large titles, grouped content, unified controls and restrained accents. */
+#duo .duo-app-mount,#duo .duo-app-instance{background:var(--ios-bg)}
+#duo .duo-app-instance{--color-primary:var(--app-accent,#419cff);font-size:1.16vh;line-height:1.45}
+#duo .duo-app-instance .phone-app-wrapper,#duo .duo-app-instance .glass-container,#duo .duo-app-instance .glass-bg,#duo .duo-app-instance .background-glass{background:var(--ios-bg)!important}
+#duo .duo-app-instance .glass-container{box-shadow:none!important;border:0!important}
+#duo .duo-app-instance .glass-header{background:var(--ios-bg)!important;padding:1.35vh 1.8vh 1.05vh!important;border:0!important;gap:1vh}
+#duo .duo-app-instance :is(.gh-title,.gallery-title,.sh-title,.garage-title){font-size:3vh!important;line-height:1.1!important;font-weight:720!important;letter-spacing:-.055em!important;color:var(--ios-text)!important}
+#duo .duo-app-instance :is(.gh-add,.sh-refresh,.garage-icon,.gallery-import-btn){height:3.4vh;min-width:3.4vh;border-radius:50%!important;background:linear-gradient(145deg,#ffffff20,#ffffff09)!important;border:1px solid #ffffff18!important;color:var(--app-accent,#419cff)!important;box-shadow:inset 0 1px 0 #ffffff15!important}
+#duo .duo-app-instance :is(.glass-search,.search-bar,.search-container,.garage-search,.searchbar){background:#23252d!important;border:1px solid #ffffff08!important;border-radius:1.25vh!important;box-shadow:none!important;min-height:3.5vh}
+#duo .duo-app-instance :is(.glass-search,.search-bar,.search-container,.garage-search) input{font-size:1.2vh!important;color:var(--ios-text)!important}
+#duo .duo-app-instance :is(input,textarea)::placeholder{color:#9296a4!important}
+#duo .duo-app-instance :is(.glass-tabs,.services-tabs,.garage-tabs,.nav-tabs,.gh-tabs,.notes-filters){background:#1c1e26!important;border:1px solid #ffffff0c!important;border-radius:5vh!important;padding:.35vh!important;box-shadow:inset 0 1px 0 #ffffff05!important}
+#duo .duo-app-instance :is(.tab-btn,.gh-tab,.notes-filter-chip){border-radius:5vh!important;font-size:1.05vh!important;font-weight:600!important;padding:.72vh 1vh!important;color:#a7abb8!important}
+#duo .duo-app-instance :is(.tab-btn.active,.gh-tab.active,.notes-filter-chip.active){background:linear-gradient(140deg,#ffffff23,#ffffff12)!important;border:0!important;color:#fff!important;box-shadow:inset 0 1px 0 #ffffff20,0 .2vh .5vh #0002!important}
+#duo .duo-app-instance .glass-row{border-radius:1.55vh!important;background:var(--ios-group)!important;border:1px solid #ffffff07!important;box-shadow:none!important;margin-bottom:.65vh;min-height:5.6vh}
+#duo .duo-app-instance .glass-row:hover{background:#252731!important;transform:none!important}
+#duo .duo-app-instance .gr-name{font-size:1.32vh!important;font-weight:630!important;letter-spacing:-.025em!important;color:#f7f8fc!important}
+#duo .duo-app-instance :is(.gr-sub,.gr-btm,.mcg-number){font-size:1.08vh!important;color:#a4a8b5!important}
+#duo .duo-app-instance :is(.gr-time,.msg-time){font-size:.91vh!important;color:#959cac!important}
+#duo .duo-app-instance .gr-avatar{background:linear-gradient(145deg,#414f68,#2c3545)!important;border:1px solid #ffffff16!important;color:#eff6ff!important;box-shadow:inset 0 1px 0 #ffffff12!important;font-weight:600!important}
+#duo .duo-app-instance .my-card-glass{background:linear-gradient(130deg,#273547,#182231)!important;border:1px solid #ffffff14!important;border-radius:2vh!important;box-shadow:inset 0 1px 0 #ffffff10!important}
+#duo .duo-app-instance .mcg-name{font-size:1.6vh!important;font-weight:650!important}
+#duo .duo-app-instance .mcg-avatar{background:linear-gradient(145deg,#88a9d5,#577495)!important;border:1px solid #c3ddff30!important;box-shadow:none!important}
+#duo .duo-app-instance :is(.gl-marker,.section-title){font-size:.93vh!important;letter-spacing:.09em!important;color:#9197a7!important;font-weight:600!important;padding-left:.9vh;text-transform:uppercase}
+#duo .duo-app-instance :is(.glass-empty,.empty-state,.services-empty,.gallery-empty,.empty-feed){color:#9ba3b5!important;text-align:center;line-height:1.55!important;padding:3vh 2vh!important}
+#duo .duo-app-instance :is(.glass-empty,.empty-state,.services-empty,.gallery-empty,.empty-feed) i{opacity:.7;color:var(--app-accent,#73b4ff)!important}
+#duo .duo-app-instance :is(.glass-overlay,.go-body){background:#101218!important}
+#duo .duo-app-instance .go-header{background:#1a1e28!important;border-bottom:1px solid #ffffff0d!important;box-shadow:none!important}
+#duo .duo-app-instance :is(.glass-btn,.glass-icon-btn){border-radius:5vh!important;border:1px solid #ffffff12!important;background:linear-gradient(135deg,#ffffff1c,#ffffff08)!important;box-shadow:none!important}
+#duo .duo-app-instance :is(.glass-modal,.glass-dropdown){border-radius:2vh!important;background:#242a37fa!important;border:1px solid #ffffff20!important}
+#duo .duo-app-instance :is(.phone-card-component,.phone-container-paper,.phone-paper){border-radius:1.6vh!important;border:1px solid #ffffff10!important;background:#1c202a!important;box-shadow:none!important}
+#duo .duo-app-instance :is(.ui-button,.btn-primary){border-radius:5vh!important;box-shadow:none!important}
+#duo .duo-app-instance .ios-added-heading{margin:0 1.7vh 1.2vh;position:relative;z-index:2;flex-shrink:0}
+#duo .duo-app-instance .ios-added-heading h1{font-size:2.85vh;font-weight:720;line-height:1.15;letter-spacing:-.055em;margin:0;color:#f8f9fd}
+#duo .duo-app-instance .ios-added-heading p{font-size:.99vh;color:#929caf;margin:.5vh 0 0}
+#duo .duo-app-instance .ios-has-heading>.phone-misc-icons{top:1.1vh!important}
+#duo .duo-app-instance .ios-has-heading>.phone-paperlist{max-height:calc(100% - 11vh);overflow:auto}
+#duo .duo-app-instance :is(.phone-misc-empty){color:#9ba5b9!important;font-size:1.25vh!important;padding:4vh 2vh}
+/* Phone, messages and contacts. */
+#duo [data-app=calls] .keypad-btn{border-radius:50%!important;background:#292c34!important;color:#fff!important;border:1px solid #ffffff0b!important;box-shadow:inset 0 1px 0 #ffffff0a!important}
+#duo [data-app=calls] .call-btn-glass{background:#30c85a!important;border-radius:6vh!important;box-shadow:none!important}
+#duo [data-app=messages] .bubble{background:#2b2d36!important;border-radius:1.65vh!important;border:0!important;box-shadow:none!important;font-size:1.2vh!important;line-height:1.5!important}
+#duo [data-app=messages] .msg-bubble-row.sent .bubble,#duo [data-app=messages] .bubble.sent{background:#0c80f6!important;color:white!important}
+#duo [data-app=messages] .input-bar-glass{background:#12161f!important;padding:.75vh 1vh!important}
+#duo [data-app=messages] .input-wrapper{background:#232630!important;border:1px solid #ffffff1a!important;border-radius:4vh!important}
+#duo [data-app=messages] .glass-icon-btn.send{background:#1689fa!important;color:white!important}
+#duo [data-app=messages] .ctb-avatar{background:linear-gradient(145deg,#658fb9,#365576)!important;border-radius:50%!important}
+#duo [data-app=contacts] .contact-list-body{padding:0 1.5vh 1.5vh!important}
+/* Mail and documents. */
+#duo [data-app=mails] .mails-app{background:var(--ios-bg)!important}
+#duo [data-app=mails] .app-header{padding:1.4vh 1.8vh 1vh!important;background:transparent!important}
+#duo [data-app=mails] .app-header h1{font-size:3vh!important;line-height:1.1;font-weight:720!important;letter-spacing:-.055em!important}
+#duo [data-app=mails] .header-actions button{border-radius:50%!important;background:linear-gradient(140deg,#ffffff1e,#ffffff09)!important;border:1px solid #ffffff12!important;color:#65b0ff!important}
+#duo [data-app=mails] .search-bar{margin:.5vh 1.6vh 1vh!important}
+#duo [data-app=mails] .mail-list{padding:0 1.5vh!important}
+#duo [data-app=mails] .group-header{font-size:.88vh!important;font-weight:650!important;color:#969fb1!important;letter-spacing:.11em!important}
+#duo [data-app=mails] .group-items{border-radius:1.65vh!important;overflow:hidden;border:1px solid #ffffff06}
+#duo [data-app=mails] .mail-item{background:#1b1e27!important;border-bottom:1px solid #ffffff0b!important;padding:1.2vh!important;border-radius:0!important}
+#duo [data-app=mails] .mail-item .avatar{background:linear-gradient(145deg,#5e8cb7,#324967)!important;border-radius:50%!important;box-shadow:none!important}
+#duo [data-app=mails] .sender{font-size:1.26vh!important;font-weight:650!important}
+#duo [data-app=mails] .subject{font-size:1.12vh!important;font-weight:530!important}
+#duo [data-app=mails] .preview{font-size:1.06vh!important;color:#9aa3b4!important}
+#duo [data-app=mails] .compose-btn,#duo [data-app=mails] .primary-btn,#duo [data-app=mails] .send-fab{background:#288df8!important;border-radius:5vh!important}
+#duo [data-app=mails] :is(.detail-header,.mail-content,.compose-form){background:#141822!important}
+#duo [data-app=documents] .notes-filters{margin:.5vh 1.5vh 1vh!important}
+#duo [data-app=documents] .gr-icon{background:#fdc94a1e!important;color:#ffd25a!important;border-radius:1.3vh!important}
+#duo [data-app=documents] .go-title-input{font-size:2.4vh!important;font-weight:680!important}
+#duo [data-app=documents] .ck-content{background:#fffdf6!important;color:#242629!important;border-radius:0 0 1vh 1vh;font-size:1.3vh!important}
+#duo .ck.ck-toolbar{background:#ecebe6!important;color:#222!important;border-color:#d5d5d0!important}
+/* Photos, identity and preferences. */
+#duo [data-app=gallery] .gallery-header{background:var(--ios-bg)!important;padding:1.35vh 1.7vh!important}
+#duo [data-app=gallery] .gallery-grid{gap:.45vh!important;padding:.6vh 1.1vh!important}
+#duo [data-app=gallery] .gallery-item{border-radius:1vh!important;overflow:hidden}
+#duo [data-app=details] .app-container{background:var(--ios-bg)!important}
+#duo [data-app=details] .profile-header{background:radial-gradient(ellipse at 50% 0,#38638b66,transparent 80%)!important;padding:1.5vh 1.8vh 2vh!important}
+#duo [data-app=details] .player-name{font-size:2.5vh!important;font-weight:720!important;letter-spacing:-.04em!important}
+#duo [data-app=details] .profile-placeholder{background:linear-gradient(150deg,#84aed5,#46698a)!important}
+#duo [data-app=details] :is(.stat-card,.wallet-card,.license-item){background:#1c202a!important;border:1px solid #ffffff12!important;border-radius:1.8vh!important;box-shadow:none!important}
+#duo [data-app=details] .cash-card{background:linear-gradient(130deg,#203e34,#162a26)!important}
+#duo [data-app=details] .bank-card{background:linear-gradient(130deg,#263c5a,#1b2639)!important}
+#duo [data-app=settings] .glass-row{border-radius:1.3vh!important}
+#duo [data-app=settings] .toggle-switch{border-radius:5vh!important}
+#duo [data-app=settings] .wallpaper-card{border-radius:1.4vh!important;overflow:hidden}
+/* Finance / services / garage. */
+#duo [data-app=wenmo] .app-container,#duo [data-app=debt] .app-container,#duo [data-app=crypto] .crypto-app{background:var(--ios-bg)!important}
+#duo [data-app=wenmo] :is(.balance-card,.balance-section){background:linear-gradient(130deg,#17477d,#152844)!important;border:1px solid #75b6ff29!important;border-radius:2.2vh!important;box-shadow:inset 0 1px 0 #ffffff10!important}
+#duo [data-app=debt] .total-card{background:linear-gradient(140deg,#463324,#2e231d)!important;border:1px solid #ffa76b19!important;border-radius:2vh!important;box-shadow:none!important}
+#duo [data-app=crypto] .header{background:radial-gradient(ellipse at 70% -20%,#9f7fe536,transparent 75%)!important}
+#duo [data-app=crypto] .portfolio-value{font-size:3.65vh!important;font-weight:690!important;letter-spacing:-.06em!important}
+#duo [data-app=crypto] .nav-tabs .tab{border-radius:5vh!important;background:transparent!important;border:0!important}
+#duo [data-app=crypto] .nav-tabs .tab.active{background:#ffffff18!important;color:#fff!important}
+#duo [data-app=services] :is(.services-bg,.services-container,.services-header){background:var(--ios-bg)!important}
+#duo [data-app=services] .services-header{padding:1.4vh 1.6vh!important}
+#duo [data-app=services] .services-footer{font-size:.92vh!important;color:#8b95a8!important;background:#121720!important;border-top:1px solid #ffffff0b!important}
+#duo [data-app=vehicles] :is(.garage-container,.garage-bg,.garage-header){background:var(--ios-bg)!important}
+#duo [data-app=vehicles] .garage-header{padding:1.4vh 1.6vh!important}
+#duo [data-app=vehicles] :is(.vehicle-card,.vehicle-item){border-radius:1.8vh!important;background:#1a1f2c!important;border:1px solid #ffffff0e!important;box-shadow:none!important}
+/* Work apps: consistent useful dashboard metrics, no fake charts or values. */
+#duo :is([data-app=busdriver],[data-app=lumberjack]) :is(.busdriver-phone,.lumberjack-phone){background:var(--ios-bg)!important;padding:4.6vh 1.6vh 1.5vh!important}
+#duo :is([data-app=busdriver],[data-app=lumberjack]) .header{padding:0 0 1.7vh!important;background:transparent!important;border-bottom:1px solid #ffffff0c!important}
+#duo :is([data-app=busdriver],[data-app=lumberjack]) .title{font-size:2.9vh!important;letter-spacing:-.055em!important;font-weight:720!important}
+#duo :is([data-app=busdriver],[data-app=lumberjack]) .subtitle{font-size:1.02vh!important;color:#9ea7b8!important}
+#duo :is([data-app=busdriver],[data-app=lumberjack]) :is(.stat-card,.progress-section){border-radius:1.8vh!important;background:#1b202a!important;border:1px solid #ffffff0a!important;box-shadow:none!important}
+#duo :is([data-app=busdriver],[data-app=lumberjack]) .level-badge{border-radius:1.4vh!important;background:linear-gradient(130deg,#ffffff22,#ffffff0b)!important;border:1px solid #ffffff20!important}
+#duo :is([data-app=busdriver],[data-app=lumberjack]) .stat-value{font-size:2.6vh!important;font-weight:670!important;letter-spacing:-.04em!important}
+#duo :is([data-app=busdriver],[data-app=lumberjack]) .refresh-btn{border-radius:5vh!important;background:#ffffff15!important;border:1px solid #ffffff10!important}
+#duo [data-app=employment] .employment-app{background:var(--ios-bg)!important}
+#duo [data-app=employment] .header{background:transparent!important;padding:1.6vh!important}
+#duo [data-app=employment] .title{font-size:2.9vh!important;font-weight:720!important;letter-spacing:-.055em!important}
+#duo [data-app=employment] :is(.business-card,.business-item){border-radius:1.8vh!important;background:#1a202b!important;border:1px solid #ffffff0e!important;box-shadow:none!important}
+#duo [data-app=housing] .phone-housing-topbar{background:#1d232e!important;border:1px solid #ffffff10!important;border-radius:5vh!important;overflow:hidden}
+#duo [data-app=housing] .phone-housing-option-active{background:#3a485d!important;border-radius:5vh!important;border:0!important}
+/* Community, news, utilities and optional gameplay views. */
+#duo [data-app=y] .y-app{background:var(--ios-bg)!important}
+#duo [data-app=y] .header{background:#0b0e15!important;border-bottom:1px solid #ffffff0a!important}
+#duo [data-app=y] .bottom-nav{background:linear-gradient(140deg,#222937f8,#171e2afa)!important;border:1px solid #ffffff1a!important;border-radius:5vh!important;margin:.6vh 1.2vh 1.2vh!important;left:0!important;right:0!important}
+#duo [data-app=y] .post{background:#151a24!important;border-bottom:1px solid #ffffff0c!important;border-radius:1.4vh!important}
+#duo [data-app=yellowpages] :is(.yp-container,.yp-header,.yp-content){background:var(--ios-bg)!important}
+#duo [data-app=yellowpages] .yp-header{padding:1.4vh 1.6vh!important}
+#duo [data-app=yellowpages] :is(.yp-title){font-size:2.8vh!important;font-weight:720!important;letter-spacing:-.05em!important}
+#duo [data-app=yellowpages] .fab{background:#e9bc48!important;color:#28210e!important;box-shadow:0 .4vh 1.4vh #0003!important}
+#duo [data-app=guber] .guber-app{background:var(--ios-bg)!important;padding-top:3.6vh!important}
+#duo [data-app=guber] .header{background:transparent!important;padding:1.6vh!important}
+#duo [data-app=guber] .logo{font-size:3.5vh!important;font-weight:760!important;letter-spacing:-.065em!important}
+#duo [data-app=guber] .card{background:#1e2633!important;border:1px solid #ffffff0b!important;border-radius:2vh!important;box-shadow:none!important}
+#duo [data-app=guber] .btn{border-radius:4vh!important;background:#e4eef9!important;color:#172236!important;font-weight:650!important}
+#duo [data-app=pinger] .pinger-container{background:var(--ios-bg)!important}
+#duo [data-app=pinger] :is(.input-card,.pinger-card){background:#1b2130!important;border:1px solid #ffffff10!important;border-radius:2vh!important;box-shadow:none!important}
+#duo :is([data-app=news],[data-app=bin],[data-app=doj],[data-app=cars],[data-app=bankbusters],[data-app=tierup]) .phone-paperlist{padding:.8vh 1.4vh!important}
+#duo :is([data-app=racing],[data-app=time-trials]) .glass-header-custom{background:#0b0c10!important;box-shadow:none!important;padding:0 1.5vh 1vh!important}
+#duo .duo-app-unavailable{padding:7vh 2.5vh 2vh!important;background:radial-gradient(ellipse at 80% 0,#4368a52d,transparent 60%),#0b0c10!important}
+#duo .duo-app-unavailable h2{font-size:2.8vh;letter-spacing:-.05em;font-weight:710}
+#duo .duo-app-unavailable p{font-size:1.2vh;color:#a7b2c7;line-height:1.7}
+#duo .duo-app-unavailable code{display:block;padding:1.4vh;background:#1c2432;border:1px solid #ffffff10;border-radius:1.5vh;font-size:1vh;white-space:normal}
+#duo [data-app=calculator] .calculator{background:var(--ios-bg)!important;padding:1.3vh 1.4vh!important}
+#duo [data-app=calculator] .display{background:transparent!important;border:0!important;box-shadow:none!important;border-radius:0!important;padding:2vh 1.2vh!important}
+#duo [data-app=calculator] .display-result{font-size:5.2vh!important;font-weight:320!important;letter-spacing:-.045em!important}
+#duo [data-app=calculator] .calc-btn{border:0!important;border-radius:50%!important;box-shadow:inset 0 1px 0 #ffffff0a!important;font-size:2.25vh!important;font-weight:480!important}
+#duo [data-app=calculator] .btn-number{background:#2a2c33!important;color:#fff!important}
+#duo [data-app=calculator] .btn-function{background:#646773!important;color:#fff!important}
+#duo [data-app=calculator] :is(.btn-operator,.btn-equals){background:#ff9e23!important;color:white!important}
+#duo [data-app=calculator] .btn-zero{border-radius:6vh!important}
+#duo .duo-video-header h2{font-size:2.8vh;letter-spacing:-.05em}
+#duo .duo-video-contact{border-radius:1.5vh!important;background:#1c232c!important;border:1px solid #ffffff10!important}
+#duo .duo-video-controls{background:linear-gradient(145deg,#2b3545f5,#18212ff5)!important;border:1px solid #ffffff1b!important;border-radius:5vh!important}
+/* Global sheets: rounded, contained and legible, never a viewport-wide material. */
+#duo .duo-input-host .bottom-sheet{background:#202633!important;border:1px solid #ffffff20!important;border-radius:2.5vh 2.5vh 0 0!important;box-shadow:0 -.8vh 3vh #0004!important}
+#duo .duo-input-host .sheet-header{background:transparent!important}
+#duo .duo-input-host button{border-radius:5vh!important}
+#duo #duo-notifications .phone-notification{background:linear-gradient(130deg,#343e50f8,#242e3dfb)!important;border:1px solid #c9e0ff33!important;border-radius:2vh!important;box-shadow:inset 0 1px 0 #fff2,0 .8vh 2.5vh #0004!important}
+#duo .duo-toast{background:#27364ef7;border:1px solid #ffffff2a;border-radius:4vh;font-size:clamp(11px,1.12vh,14px)}
+/* Common primitives for new readable applications. */
+.ios-round-button{width:3.2vh;height:3.2vh;padding:.75vh;border-radius:50%;border:1px solid #ffffff15;background:linear-gradient(145deg,#ffffff1d,#ffffff09);color:#cad0df;display:inline-flex;align-items:center;justify-content:center}
+.ios-round-button svg{width:1.5vh;height:1.5vh;flex:none}.ios-round-button:hover{background:#ffffff22}
+.ios-segmented{display:flex;padding:.35vh;background:#20232c;border:1px solid #ffffff0b;border-radius:4vh;gap:.3vh}
+.ios-segmented button{flex:1;border:0;background:transparent;color:#989fab;padding:.75vh;border-radius:4vh;font-size:1.08vh;font-weight:600}
+.ios-segmented button[data-active=true]{color:#fff;background:linear-gradient(145deg,#ffffff25,#ffffff13);box-shadow:inset 0 1px 0 #ffffff12}
+.ios-empty-state{padding:3vh 1.4vh;display:flex;align-items:center;flex-direction:column;text-align:center;gap:.8vh;color:#9da5b6}
+.ios-empty-state>svg{width:3.4vh;height:3.4vh;stroke-width:1.5;color:#889ebd;margin-bottom:.5vh}
+.ios-empty-state h3{font-size:1.55vh;letter-spacing:-.035em;margin:0;font-weight:650;color:#e7ecf6}
+.ios-empty-state p{font-size:1.07vh;line-height:1.6;margin:0;max-width:25vh}
+.ios-kicker{font-size:.78vh;font-weight:700;letter-spacing:.1em;color:#9daabe;text-transform:uppercase}
+/* App Store: preserved install events, new editorial layout. */
+.ios-store{position:absolute;inset:3.4vh 0 0;display:flex;flex-direction:column;background:#0b0d13;color:#f7f9fd}
+.ios-store-header{padding:1.4vh 1.7vh 1vh;flex-shrink:0}
+.ios-store-header h1{font-size:3.1vh;font-weight:750;letter-spacing:-.065em;margin:.3vh 0 1.2vh;line-height:1.1}
+.ios-store-search{display:flex;background:#202530;border:1px solid #ffffff09;border-radius:1.25vh;padding:0 1vh;margin-bottom:1vh}
+.ios-store-search input{height:3.5vh;background:none;color:white;border:none;width:100%;font-size:1.1vh;outline:none}
+.ios-store-content{overflow:auto;min-height:0;padding:.5vh 1.7vh 2vh;flex:1}
+.ios-store-featured{width:100%;text-align:left;border-radius:2.1vh;background:radial-gradient(ellipse at 100% 0,#ff938a76,transparent 70%),linear-gradient(135deg,#6b243e,#291b32);border:1px solid #ffa0bc27;padding:1.7vh;color:#fff;display:flex;align-items:center;gap:1vh;box-shadow:inset 0 1px 0 #ffffff13}
+.ios-store-featured .ios-kicker{color:#ffc1c9;font-size:.71vh}
+.ios-store-featured strong{display:block;font-size:2.55vh;letter-spacing:-.055em;margin:.5vh 0;font-weight:730;line-height:1.2}
+.ios-store-featured p{font-size:1.05vh;white-space:pre-line;color:#e8b5c2;line-height:1.5;margin:0}
+.ios-store-featured-icon{width:7.3vh;height:7.3vh;flex-shrink:0;transform:rotate(8deg);margin-left:auto}.ios-store-featured-icon svg{width:100%;height:100%}
+.ios-store-section h2{font-size:1.8vh;font-weight:680;letter-spacing:-.045em;margin:1.8vh 0 .5vh}
+.ios-store-row{display:flex;align-items:center;gap:1vh;padding:1.2vh 0;border-bottom:1px solid #ffffff0a}
+.ios-store-icon{width:4.6vh;height:4.6vh;flex-shrink:0}.ios-store-icon svg{width:100%;height:100%}
+.ios-store-copy{flex:1;min-width:0}.ios-store-copy h3{font-size:1.24vh;font-weight:650;margin:0;letter-spacing:-.025em}.ios-store-copy p{font-size:.97vh;color:#919bae;margin:.3vh 0 0;line-height:1.4}
+.ios-store-get{color:#68b2ff;border:0;border-radius:4vh;background:#25344b;font-size:1.02vh;font-weight:730;padding:.7vh 1.1vh;min-width:4.5vh}.ios-store-get[data-installed=true]{color:#b6bfce;background:#222834;font-weight:530;font-size:.9vh}
+.ios-store-footnote{font-size:.87vh;line-height:1.6;color:#838fa3;margin:1.8vh .2vh}.ios-store-live{font-size:.93vh;color:#92bef6;padding:0 1.7vh;flex-shrink:0}.ios-store-live:not(:empty){padding-bottom:1vh;padding-top:.7vh;background:#192437}
+@media(prefers-reduced-motion:reduce){#duo .ios-app-icon,#duo .ios-store-featured-icon{transition:none!important}.pm-app *{scroll-behavior:auto!important}}
+/* One consistent safe area, independent of the legacy app's old phone bezel. */
+#duo .duo-app-instance.ios-app:not([data-app=peakify]):not([data-app=store]):not(.duo-app-unavailable){top:3.35vh!important}
+#duo [data-app=mails] .view-wrapper{padding-top:0!important}
+#duo :is([data-app=busdriver],[data-app=lumberjack]) :is(.busdriver-phone,.lumberjack-phone){padding-top:1.3vh!important}
+#duo [data-app=guber] .guber-app{padding-top:0!important}
+#duo [data-app=debt] .header-section{padding:1.4vh 1.65vh 1.6vh!important;background:transparent!important}
+#duo [data-app=debt] .header-title{font-size:2.8vh!important;font-weight:720!important;letter-spacing:-.05em!important;margin-bottom:1.3vh!important}
+#duo [data-app=crypto] .header{padding-top:1.8vh!important}
+#duo [data-app=details] .app-container{padding-top:0!important}
+#duo [data-app=vehicles] .garage-header{height:auto!important;min-height:5.6vh!important;gap:.5vh;padding:1.3vh 1.7vh!important}
+#duo [data-app=vehicles] .garage-header>i:first-child{display:none}
+#duo [data-app=vehicles] .garage-header-title{font-size:2.8vh!important;font-weight:720!important;letter-spacing:-.05em!important;text-align:left;flex:1}
+#duo [data-app=vehicles] .garage-header-icon{display:flex;align-items:center;justify-content:center;width:3vh;height:3vh;border:1px solid #ffffff15;border-radius:50%;background:#ffffff0d;color:#90b4ff!important}
+#duo [data-app=vehicles] .garage-search-container{padding:1vh 1.5vh!important}
+#duo [data-app=vehicles] .garage-search-input{background:#232731!important;border:1px solid #ffffff09!important;border-radius:1.25vh!important;min-height:3.5vh;font-size:1.08vh!important}
+#duo [data-app=vehicles] .garage-tab{background:transparent!important;border:0!important;border-radius:5vh!important;font-size:1vh!important;color:#9eacc7!important;padding:.7vh 1vh!important}
+#duo [data-app=vehicles] .garage-tab.active{background:#ffffff1b!important;color:#fff!important}
+#duo [data-app=employment] .employment-header{padding:1.4vh 1.6vh!important;background:transparent!important}
+#duo [data-app=employment] .employment-title{font-size:2.8vh!important;font-weight:720!important;letter-spacing:-.05em!important}
+#duo [data-app=employment] .employment-subtitle{font-size:1.05vh!important;color:#919aae!important;margin-top:.4vh}
+#duo [data-app=y] .header-top{padding-top:1vh!important}
+#duo .duo-app-instance .ios-added-heading{padding-top:1.3vh}
+#duo .duo-app-instance .ios-has-heading>.phone-misc-icons{top:1.3vh!important}
+#duo .duo-app-instance .ios-has-heading>.phone-misc-input{margin-top:1vh!important}
+#duo .duo-app-instance .ios-has-heading .glass-header-custom{flex-shrink:0}
+/* Older material-style fields keep their original inputs and listeners, with iOS field geometry. */
+#duo .duo-app-instance .textfield-component-container{position:relative!important;margin-bottom:1.4vh;display:grid!important;grid-template-columns:1fr;gap:.6vh}
+#duo .duo-app-instance .textfield-title{font-size:1.08vh!important;color:#b5bdcc!important;line-height:1.35!important;margin:0!important}
+#duo .duo-app-instance .textfield-component-container>input{box-sizing:border-box!important;width:100%!important;min-width:0;height:3.8vh!important;margin:0!important;padding:.8vh 1vh .8vh 3.1vh!important;background:#252a34!important;border:1px solid #ffffff12!important;border-radius:1.2vh!important;color:#f3f6fc!important;font:inherit!important;outline:none!important}
+#duo .duo-app-instance .textfield-component-container>input:focus{border-color:#8bbcff85!important;box-shadow:0 0 0 .2vh #69a9ff14!important}
+#duo .duo-app-instance .textfield-component-container>i{position:absolute!important;left:1vh!important;top:3.2vh!important;font-size:1.1vh!important;color:#939dad!important;pointer-events:none}
+#duo .duo-app-instance .textfield-underline{display:none!important}
+#duo .duo-app-instance .textfield-sub{margin:0!important;font-size:.94vh!important;line-height:1.4;color:#929cad!important}
+#duo .duo-app-instance .textfield-sub:empty{display:none}
+#duo [data-app=housing] .phone-housing-topbar{position:relative!important;top:0!important;height:4.8vh!important;width:calc(100% - 3.4vh)!important;margin:0 1.7vh!important}
+#duo [data-app=housing] .phone-paperlist{top:13.4vh!important;bottom:1vh!important;height:auto!important;max-height:none!important}
+#duo :is([data-app=news],[data-app=bin],[data-app=doj],[data-app=cars]) .phone-paperlist{top:15.5vh!important;bottom:1vh!important;height:auto!important;max-height:none!important}
+#duo [data-app=guber] .mode-select .card.btn{background:linear-gradient(140deg,#263346,#1b2432)!important;color:#eaf0fc!important;padding:3vh 1.5vh!important;border:1px solid #ffffff15!important}
+#duo [data-app=guber] .mode-select .card.btn>i{color:#80bcff!important;font-size:3.8vh!important}

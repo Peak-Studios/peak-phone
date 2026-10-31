@@ -1,0 +1,46 @@
+{
+  "name": "peak-phone",
+  "version": "3.0.0",
+  "private": true,
+  "description": "Peak Duo: an open-source foldable smartphone for FiveM (ESX, QBCore, Qbox)",
+  "scripts": {
+    "build": "node tools/build-duo.cjs",
+    "test": "python tests/appearance/generator_test.py && node --test tests/appearance.test.mjs tests/control-center.test.mjs tests/workspace.test.mjs tests/app-switcher.test.mjs tests/transport.test.mjs tests/cef-visibility.test.mjs tests/ios-refresh/contracts.test.mjs tests/continuous-display/workspace.test.mjs tests/portable/turn.test.cjs tests/integrity.test.mjs tests/screen-first-upgrade/contracts.test.mjs tests/clock-service.test.mjs tests/jobs.test.mjs tests/devices.test.mjs tests/camera/camera.test.mjs tests/messages/audio-lifecycle.test.mjs tests/messages/send-lifecycle.test.mjs tests/sim-integration.test.mjs tests/call-live-fix/rtc.test.mjs tests/call-live-fix/integrity.test.mjs tests/hardware-controls/media-output.test.mjs tests/music-search/search.test.mjs tests/ringtones.test.mjs tests/mail/mail.test.mjs tests/find-my/maps.test.mjs tests/notifications/notifications.test.mjs tests/notes/notes.test.mjs tests/weather/weather-core.test.mjs tests/owner-config/owner-config.test.mjs",
+    "preview": "node tools/serve-preview.cjs",
+    "preview:standalone": "node tools/build-preview.cjs",
+    "verify": "node tools/verify-package.cjs",
+    "manifest:write": "node tools/verify-package.cjs --write",
+    "icons": "node tools/export-ios-icons.mjs",
+    "test:upgrade": "node --test tests/screen-first-upgrade/contracts.test.mjs",
+    "test:lua": "python -X utf8 tests/portable/lua_runner.py",
+    "test:browser": "python tests/screen-first-upgrade/browser.py",
+    "test:browser:restored-apps": "python -X utf8 tests/ios-refresh/restored-apps-browser.py",
+    "test:browser:messages": "python -X utf8 tests/messages/browser.py",
+    "test:browser:physical-screen": "python tests/physical-screen/browser.py",
+    "test:calls": "node --test tests/call-live-fix/*.test.mjs",
+    "test:browser:calls": "python tests/call-live-fix/browser_ui.py",
+    "test:browser:rtc": "python tests/portable/browser_video.py",
+    "test:browser:live": "python tests/call-live-fix/browser_live.py",
+    "test:hardware": "node --test tests/hardware-controls/media-output.test.mjs && python tests/hardware-controls/run_native.py",
+    "test:music": "node --test tests/music-search/search.test.mjs && python tests/music-search/run_native.py",
+    "test:browser:music": "python tests/music-search/browser.py",
+    "test:find-my": "node --test tests/find-my/maps.test.mjs",
+    "test:browser:find-my": "python tests/find-my/browser.py",
+    "theme:generate": "python tools/generate-appearance.py",
+    "test:browser:appearance": "python tests/appearance/browser.py",
+    "test:browser:mail": "python tests/mail/browser.py",
+    "test:browser:notifications": "python -X utf8 tests/notifications/browser.py",
+    "test:browser:notes": "python tests/notes/browser.py",
+    "test:kilogram": "python tests/kilogram/browser.py",
+    "test:browser:clock": "python -X utf8 tests/clock-view-browser.py",
+    "package": "python tools/package-release.py"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "GPL-3.0-only",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Peak-Studios/peak-phone.git"
+  }
+}

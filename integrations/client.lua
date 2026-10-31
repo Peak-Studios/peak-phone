@@ -1,0 +1,2 @@
+-- Optional client integration hook point. This runs before the feature modules.
+-- See docs/integrations.md for registering an explicit NUI -> callback route.

@@ -1,0 +1,353 @@
+/* App editors use their own navigation and content hierarchy inside the shared sheet controller. */
+#duo .nx-native-sheet.cf-sheet{gap:.5vh}
+#duo .cf-sheet-nav{position:sticky;top:1.15vh;z-index:3;display:grid;grid-template-columns:1fr minmax(0,2fr) 1fr;align-items:center;min-height:4.2vh;margin:0 -.2vh .35vh;padding:.1vh .2vh .45vh;border-bottom:1px solid var(--sheet-line);background:var(--sheet-bg)}
+#duo .cf-sheet-nav::before{content:"";position:absolute;left:-1.3vh;right:-1.3vh;bottom:100%;height:3.3vh;background:var(--sheet-bg);pointer-events:none}
+#duo .cf-sheet>.nx-sheet-grip{z-index:4}
+#duo .cf-sheet-nav h2{grid-column:2;margin:0;overflow:hidden;color:var(--sheet-fg);font-size:clamp(13px,1.65vh,20px);font-weight:650;letter-spacing:-.02em;text-align:center;text-overflow:ellipsis;white-space:nowrap}
+#duo .cf-sheet-nav .cf-nav-leading,#duo .cf-sheet-nav .cf-nav-trailing{width:auto;min-height:3.4vh;padding:.35vh .55vh;border:0;border-radius:.8vh;background:transparent;color:var(--theme-accent-text,#0a84ff);font-size:clamp(12px,1.38vh,17px);font-weight:550;box-shadow:none}
+#duo .cf-sheet-nav .cf-nav-leading{grid-column:1;justify-self:start}
+#duo .cf-sheet-nav .cf-nav-trailing{grid-column:3;justify-self:end}
+#duo .cf-sheet-nav .cf-nav-trailing:disabled{opacity:.38}
+#duo .cf-sheet-nav .cf-nav-trailing:active{opacity:.68}
+#duo .cf-sheet .cf-sheet-intro{margin:.6vh 0;color:var(--sheet-muted);font-size:clamp(11px,1.24vh,15px);line-height:1.4}
+#duo .cf-sheet .cf-context-row{display:flex;align-items:center;gap:1.1vh;min-height:5.8vh;padding:.8vh 1vh;border-radius:1.15vh;background:var(--sheet-field)}
+#duo .cf-sheet .cf-context-row strong{display:block;color:var(--sheet-fg);font-size:clamp(12px,1.4vh,17px);font-weight:600}
+#duo .cf-sheet .cf-context-row small{display:block;margin-top:.18vh;color:var(--sheet-muted);font-size:clamp(10px,1.12vh,14px)}
+#duo .cf-sheet .cf-avatar-preview{width:6.4vh;height:6.4vh;flex:none;border-radius:50%;overflow:hidden;background:var(--sheet-line)}
+#duo .cf-sheet .cf-avatar-preview img{width:100%;height:100%;object-fit:cover}
+#duo .cf-sheet .cf-section-label{margin:1.2vh 0 .45vh;color:var(--sheet-muted);font-size:clamp(9px,1.02vh,12px);font-weight:650;letter-spacing:.08em}
+#duo .cf-sheet .cf-editor-field{display:flex;flex-direction:column;gap:.3vh;margin:.55vh 0;padding:.5vh 0;border-bottom:1px solid var(--sheet-line);color:var(--sheet-muted)}
+#duo .cf-sheet .cf-editor-field>span{color:var(--sheet-muted);font-size:clamp(10px,1.08vh,13px)}
+#duo .cf-sheet .cf-editor-field :is(input,textarea,select){width:100%;min-height:3.3vh;padding:.25vh 0;border:0;border-radius:0;background:transparent;color:var(--sheet-fg);font:inherit;font-size:clamp(12px,1.35vh,16px);box-shadow:none;outline:none}
+#duo .cf-sheet .cf-editor-field textarea{min-height:7vh;resize:vertical;line-height:1.4}
+#duo .cf-sheet .cf-editor-field :is(input,textarea,select):focus-visible{box-shadow:0 .12vh 0 var(--theme-accent-text,#0a84ff)}
+#duo .cf-sheet .cf-editor-field :is(input,textarea)::placeholder{color:var(--sheet-muted)}
+#duo .cf-sheet .cf-inline-actions{display:flex;align-items:center;gap:.8vh;flex-wrap:wrap;margin:.55vh 0}
+#duo .cf-sheet .cf-tool-button{display:inline-flex;align-items:center;justify-content:center;gap:.45vh;min-height:3.6vh;padding:.45vh .9vh;border:1px solid var(--sheet-line);border-radius:2vh;background:var(--sheet-field);color:var(--theme-accent-text,#0a84ff);font-size:clamp(10px,1.12vh,14px);font-weight:550}
+#duo .cf-sheet .cf-compact-action{min-height:3.5vh;padding:.45vh 1.25vh;border:1px solid var(--sheet-line);border-radius:2vh;background:var(--sheet-field);color:var(--sheet-fg);font-size:clamp(11px,1.2vh,15px);font-weight:600}
+#duo .cf-sheet .cf-editor-actions{position:sticky;bottom:-2.4vh;display:flex;gap:.7vh;margin:auto -1.5vh -2.4vh;padding:.9vh 1.5vh max(2.4vh,env(safe-area-inset-bottom));border-top:1px solid var(--sheet-line);background:var(--sheet-bg)}
+#duo .cf-sheet .cf-editor-actions>*{flex:1;min-height:3.8vh;border:1px solid var(--sheet-line);border-radius:2vh;background:var(--sheet-field);color:var(--sheet-fg);font-size:clamp(11px,1.2vh,15px);font-weight:600}
+#duo .cf-sheet .cf-editor-actions .cf-primary-action{border-color:transparent;background:var(--theme-accent,#0a84ff);color:#fff}
+#duo .cf-sheet .gx-status-error,#duo .cf-sheet .nx-status-error{margin:.5vh 0;padding:.55vh .8vh;border-radius:.8vh;background:color-mix(in srgb,#ff453a 14%,var(--sheet-bg));color:#ff8279;font-size:clamp(10px,1.15vh,14px);line-height:1.35}
+#duo .cf-sheet .cf-sheet-error{margin:.45vh 0;padding:.65vh .8vh;border-radius:.9vh;background:color-mix(in srgb,#ff453a 13%,var(--sheet-bg));color:#ff8279;font-size:clamp(10px,1.12vh,14px);line-height:1.4}
+
+/* Music owns its sheet controller; give its editor states the same native navigation. */
+#duo .pm-sheet.pm-editor-sheet{max-height:calc(100% - 3.5vh);padding:0 1.4vh max(2.5vh,env(safe-area-inset-bottom));border:0;border-radius:2.3vh 2.3vh 0 0;background:#1c1c1e;color:#f5f5f7;box-shadow:0 -1vh 3vh #0007}
+#duo .pm-editor-sheet .pm-sheet-handle{width:3.8vh;height:.45vh;min-height:4px;margin:.7vh auto .45vh;background:#77777c}
+#duo .pm-editor-sheet .pm-editor-nav{display:grid;grid-template-columns:1fr minmax(0,2fr) 1fr;align-items:center;flex:none;gap:.4vh;min-height:4.4vh;padding:.2vh 0 .6vh;border-bottom:1px solid #ffffff21}
+#duo .pm-editor-sheet .pm-editor-nav h2{grid-column:2;margin:0;overflow:hidden;color:#f5f5f7;font-size:clamp(13px,1.65vh,20px);font-weight:650;text-align:center;text-overflow:ellipsis;white-space:nowrap}
+#duo .pm-editor-sheet .pm-editor-nav :is(.pm-editor-cancel,.pm-editor-done){width:auto;min-width:0;min-height:3.6vh;padding:.35vh .45vh;border:0;border-radius:.8vh;background:transparent;color:#ff6b89;font-size:clamp(12px,1.36vh,17px);font-weight:560;box-shadow:none}
+#duo .pm-editor-sheet .pm-editor-nav .pm-editor-cancel{grid-column:1;justify-self:start}
+#duo .pm-editor-sheet .pm-editor-nav .pm-editor-done{grid-column:3;justify-self:end;font-weight:650}
+#duo .pm-editor-sheet .pm-editor-nav .pm-editor-done:disabled{opacity:.4}
+#duo .pm-editor-sheet .pm-editor-body{flex:1;min-height:0;padding:.9vh 0 .3vh;overflow-y:auto}
+#duo .pm-editor-sheet .pm-form{gap:.7vh}
+#duo .pm-editor-sheet .pm-form-field{gap:.3vh;padding:.45vh .75vh;border-radius:1vh;background:#2c2c2e}
+#duo .pm-editor-sheet .pm-form-field>span{color:#c2c2c7;font-size:clamp(10px,1.05vh,13px)}
+#duo .pm-editor-sheet .pm-form-field :is(input,textarea){width:100%;min-height:3.4vh;padding:.2vh 0;border:0;border-radius:0;background:transparent;color:#f5f5f7;font-size:clamp(12px,1.3vh,16px);box-shadow:none}
+#duo .pm-editor-sheet .pm-form-field textarea{min-height:6.5vh;line-height:1.4}
+#duo .pm-editor-sheet .pm-form-field :is(input,textarea)::placeholder{color:#a3a3aa}
+#duo .pm-editor-sheet .pm-helper{color:#b8b8c0;font-size:clamp(10px,1.05vh,13px);line-height:1.4}
+#duo .pm-editor-sheet .pm-form-error,#duo .pm-editor-sheet .pm-editor-error{padding:.55vh .7vh;border-radius:.8vh;background:#3a2327;color:#ffd4d8;font-size:clamp(10px,1.08vh,14px)}
+#duo .pm-editor-sheet .pm-form-error:empty{display:none}
+#duo .pm-editor-sheet .pm-confirm-context{display:flex;align-items:center;gap:.9vh;margin:.5vh 0;padding:1vh;border-radius:1vh;background:#2c2c2e}
+#duo .pm-editor-sheet .pm-confirm-copy{margin:0;color:#f5f5f7;font-size:clamp(11px,1.2vh,15px);line-height:1.4}
+#duo .pm-editor-sheet .pm-editor-nav .pm-danger-button{color:#ff6a61}
+
+/* Y uses mounted sheets for profile, report and post composition. */
+#duo .nx-native-sheet.nx-y-editor{gap:.55vh}
+#duo .nx-y-editor .nx-y-editor-nav{position:sticky;top:1.15vh;z-index:3;display:grid;grid-template-columns:1fr minmax(0,2fr) 1fr;align-items:center;gap:.4vh;min-height:4.2vh;margin:0 -.2vh .35vh;padding:.1vh .2vh .45vh;border-bottom:1px solid var(--sheet-line);background:var(--sheet-bg)}
+#duo .nx-y-editor .nx-y-editor-nav::before{content:"";position:absolute;left:-1.3vh;right:-1.3vh;bottom:100%;height:3.3vh;background:var(--sheet-bg);pointer-events:none}
+#duo .nx-y-editor>.nx-sheet-grip{z-index:4}
+#duo .nx-y-editor .nx-y-editor-nav h2{grid-column:2;margin:0;overflow:hidden;color:var(--sheet-fg);font-size:clamp(13px,1.65vh,20px);font-weight:650;text-align:center;text-overflow:ellipsis;white-space:nowrap}
+#duo .nx-y-editor .nx-y-editor-nav :is(.nx-y-editor-cancel,.nx-y-editor-done){width:auto;min-width:0;min-height:3.4vh;padding:.35vh .55vh;border:0;border-radius:.8vh;background:transparent;color:var(--theme-accent-text,#0a84ff);font-size:clamp(12px,1.36vh,17px);font-weight:550;box-shadow:none}
+#duo .nx-y-editor .nx-y-editor-nav .nx-y-editor-cancel{grid-column:1;justify-self:start}
+#duo .nx-y-editor .nx-y-editor-nav .nx-y-editor-done{grid-column:3;justify-self:end;font-weight:650}
+#duo .nx-y-editor .nx-y-editor-nav .nx-y-editor-done:disabled{opacity:.4}
+#duo .nx-y-editor .nx-y-profile-preview{overflow:hidden;margin:.4vh 0 .8vh;border-radius:1.2vh;background:var(--sheet-field)}
+#duo .nx-y-editor .nx-y-profile-banner-preview:empty{display:none}
+#duo .nx-y-editor .nx-y-profile-banner-preview:not(:empty){height:8vh;overflow:hidden}
+#duo .nx-y-editor .nx-y-profile-banner-preview img{width:100%;height:100%;max-height:none;object-fit:cover}
+#duo .nx-y-editor .nx-y-profile-identity{display:flex;align-items:center;gap:.85vh;min-height:6.5vh;padding:.7vh .85vh}
+#duo .nx-y-editor .nx-y-profile-identity .nx-avatar{width:5vh;height:5vh;flex:0 0 5vh;aspect-ratio:1;overflow:hidden;border-radius:50%}
+#duo .nx-y-editor .nx-y-profile-identity .nx-avatar img{width:100%;height:100%;object-fit:cover}
+#duo .nx-y-editor .nx-y-profile-identity strong,#duo .nx-y-editor .nx-y-profile-identity small{display:block}
+#duo .nx-y-editor .nx-y-profile-identity strong{color:var(--sheet-fg);font-size:clamp(12px,1.38vh,17px)}
+#duo .nx-y-editor .nx-y-profile-identity small{margin-top:.2vh;color:var(--sheet-muted);font-size:clamp(10px,1.05vh,13px)}
+#duo .nx-y-editor .nx-y-editor-section{margin:.65vh 0 .2vh;color:var(--sheet-muted);font-size:clamp(9px,1.02vh,12px);font-weight:650;letter-spacing:.08em}
+#duo .nx-y-editor .nx-field{display:flex;flex-direction:column;align-items:stretch;gap:.3vh;min-height:0;margin:.3vh 0;padding:.65vh .85vh;border:0;border-radius:.95vh;background:var(--sheet-field)}
+#duo .nx-y-editor .nx-field>span{color:var(--sheet-muted);font-size:clamp(10px,1.05vh,13px)}
+#duo .nx-y-editor .nx-field :is(input,textarea){width:100%;min-height:3vh;padding:.2vh 0;border:0;border-radius:0;background:transparent;color:var(--sheet-fg);font-size:clamp(12px,1.3vh,16px);text-align:left;box-shadow:none}
+#duo .nx-y-editor .nx-field textarea{min-height:6vh;line-height:1.4;resize:vertical}
+#duo .nx-y-editor .nx-field :is(input,textarea):focus-visible{outline:none!important;box-shadow:inset 0 -.18vh var(--theme-accent-text,#0a84ff)!important}
+#duo .nx-y-editor .nx-note{color:var(--sheet-muted);font-size:clamp(10px,1.05vh,13px);line-height:1.4}
+#duo .nx-y-editor .nx-y-editor-error{padding:.65vh .8vh;border-radius:.9vh;background:#3a2327;color:#ffd4d8;font-size:clamp(10px,1.08vh,14px)}
+#duo .nx-y-editor .nx-composer-author{display:flex;align-items:center;gap:.75vh;padding:.4vh 0;color:var(--sheet-fg)}
+#duo .nx-y-editor .nx-composer-author .nx-avatar{width:4.5vh;height:4.5vh;flex:0 0 4.5vh;aspect-ratio:1}
+#duo .nx-y-editor .nx-composer-text{width:100%;min-height:12vh;padding:.8vh .2vh;border:0;background:transparent;color:var(--sheet-fg);font-size:clamp(14px,1.55vh,19px);line-height:1.4;resize:vertical;outline:none}
+#duo .nx-y-editor .nx-composer-text::placeholder{color:var(--sheet-muted)}
+#duo .nx-y-editor .nx-composer-text:focus-visible{outline:none!important;box-shadow:inset 0 -.18vh var(--theme-accent-text,#0a84ff)!important}
+#duo .nx-y-editor .nx-composer-tools{display:flex;align-items:center;gap:.7vh;padding:.55vh 0;border-top:1px solid var(--sheet-line)}
+#duo .nx-y-editor .nx-composer-tools .nx-button{width:3.5vh;height:3.5vh;min-width:3.5vh;border:0;border-radius:50%;background:var(--sheet-field);color:var(--theme-accent-text,#0a84ff)}
+#duo .nx-y-editor .nx-composer-footer{display:flex;align-items:center;justify-content:space-between;gap:.5vh;color:var(--sheet-muted);font-size:clamp(10px,1vh,13px)}
+
+/* Shared sheets keep their app context, action navigation, and transport payloads. */
+#duo .nx-native-sheet.cf-sheet.gx-helper-sheet{gap:.65vh}
+#duo .gx-helper-sheet .cf-sheet-nav .gx-danger{color:#ff453a!important}
+#duo .gx-native-confirm-sheet .cf-context-row{display:flex;align-items:center;gap:.85vh}
+#duo .gx-native-confirm-sheet .cf-confirm-mark{display:grid;place-items:center;flex:none;width:3.8vh;height:3.8vh;border-radius:1.05vh;background:color-mix(in srgb,var(--theme-accent,#0a84ff) 15%,transparent);color:var(--theme-accent-text,#0a84ff);font-size:clamp(14px,1.6vh,19px);font-weight:700}
+#duo .gx-native-confirm-sheet .cf-confirm-copy{display:flex;flex-direction:column;gap:.2vh;color:var(--sheet-muted);font-size:clamp(10px,1.07vh,13px)}
+#duo .gx-native-confirm-sheet .cf-context-row .cf-confirm-copy strong{color:var(--sheet-fg);font-size:clamp(12px,1.25vh,15px);font-weight:650}
+#duo .gx-native-confirm-sheet .cf-context-row .cf-confirm-copy small{color:var(--sheet-muted);font-size:clamp(9px,.98vh,12px)}
+#duo .gx-message-compose-sheet{min-height:min(48vh,38rem)}
+#duo .gx-message-recipient{display:flex;align-items:center;gap:.7vh;min-height:4vh;padding:.65vh .8vh;border-bottom:1px solid var(--sheet-line);color:var(--sheet-fg)}
+#duo .gx-message-recipient-mark{flex:none;color:var(--sheet-muted);font-size:clamp(10px,1vh,12px);font-weight:600}
+#duo .gx-message-recipient-copy{min-width:0;overflow:hidden;color:var(--sheet-fg);font-size:clamp(12px,1.3vh,16px);font-weight:550;text-overflow:ellipsis;white-space:nowrap}
+#duo .gx-message-editor{flex:1 0 15vh;width:100%;min-height:15vh;padding:1vh .15vh;border:0!important;outline:0;background:transparent!important;color:var(--sheet-fg)!important;font:inherit;font-size:clamp(14px,1.52vh,18px);line-height:1.45;resize:none;box-shadow:none!important}
+#duo .gx-message-editor::placeholder{color:var(--sheet-muted)!important}
+#duo .gx-message-editor:focus-visible{outline:0!important;box-shadow:none!important}
+#duo .gx-message-photo-preview{display:flex;align-items:center;min-height:7vh}
+#duo .gx-message-photo-preview[hidden]{display:none!important}
+#duo .gx-message-photo-preview img{width:6.2vh;height:6.2vh;object-fit:cover;border-radius:.9vh}
+#duo .gx-gallery-picker{flex:none;max-height:23vh;overflow-y:auto;margin:.35vh 0;padding:.35vh 0;border-top:1px solid var(--sheet-line)}
+#duo .gx-gallery-picker .gx-photo-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.55vh;margin:.2vh 0}
+#duo .gx-gallery-picker .gx-gallery-photo-tile{display:block;width:100%;min-width:0;min-height:0;aspect-ratio:1;padding:0;border:0;border-radius:.8vh;overflow:hidden;background:var(--sheet-field)}
+#duo .gx-gallery-picker .gx-gallery-photo-tile .gx-image{position:relative;display:block;width:100%;height:100%;min-height:0;border-radius:0;overflow:hidden}
+#duo .gx-gallery-picker .gx-gallery-photo-tile img{position:absolute;inset:0;width:100%;height:100%;max-height:none;object-fit:cover}
+#duo .gx-message-toolbar{display:flex;align-items:center;justify-content:space-between;gap:.8vh;margin-top:auto;padding:.55vh 0;border-top:1px solid var(--sheet-line)}
+#duo .gx-message-attach{min-height:3.5vh;padding:.4vh .7vh;border:0;border-radius:2vh;background:var(--sheet-field);color:var(--theme-accent-text,#0a84ff);font-size:clamp(10px,1.08vh,13px)}
+#duo .gx-message-private{color:var(--sheet-muted);font-size:clamp(9px,.95vh,12px)}
+
+/* Messages pickers and conversation details share one app-owned editor language. */
+#duo .duo-app-instance[data-app="messages"] .nx-native-sheet.gx-messages-editor{display:flex;flex-direction:column;gap:.55vh;min-height:0}
+#duo .duo-app-instance[data-app="messages"] .gx-messages-editor-nav{position:sticky;top:1.15vh;z-index:3;display:grid;grid-template-columns:1fr minmax(0,2fr) 1fr;align-items:center;min-height:4.3vh;margin:0 -.2vh .35vh;padding:.1vh .2vh .45vh;border-bottom:1px solid var(--sheet-line);background:var(--sheet-bg)}
+#duo .duo-app-instance[data-app="messages"] .gx-messages-editor-nav::before{content:"";position:absolute;left:-1.3vh;right:-1.3vh;bottom:100%;height:3.3vh;background:var(--sheet-bg);pointer-events:none}
+#duo .duo-app-instance[data-app="messages"] .gx-messages-editor>.nx-sheet-grip{z-index:4}
+#duo .duo-app-instance[data-app="messages"] .gx-messages-editor-nav h2{grid-column:2;margin:0;overflow:hidden;color:var(--sheet-fg);font-size:clamp(13px,1.6vh,20px);font-weight:650;text-align:center;text-overflow:ellipsis;white-space:nowrap}
+#duo .duo-app-instance[data-app="messages"] .gx-messages-editor-nav .gx-messages-editor-nav-back{grid-column:1;grid-row:1;justify-self:start;width:auto;min-height:3.4vh;padding:.35vh .55vh;border:0;border-radius:.8vh;background:transparent;color:var(--theme-accent-text,#0a84ff);font-size:clamp(12px,1.35vh,17px);font-weight:550;box-shadow:none}
+#duo .duo-app-instance[data-app="messages"] .gx-messages-editor-content{display:flex;flex-direction:column;gap:.6vh;min-height:0}
+#duo .duo-app-instance[data-app="messages"] .gx-messages-editor-search{display:flex;align-items:center;gap:.6vh;min-height:4.1vh;padding:.55vh .85vh;border-radius:1vh;background:var(--sheet-field);color:var(--sheet-muted)}
+#duo .duo-app-instance[data-app="messages"] .gx-messages-editor-search :is(input,textarea){width:100%;min-width:0;min-height:2.9vh;padding:.2vh 0;border:0!important;border-radius:0!important;background:transparent!important;color:var(--sheet-fg)!important;font-size:clamp(12px,1.28vh,16px);box-shadow:none!important}
+#duo .duo-app-instance[data-app="messages"] .gx-messages-editor-search :is(input,textarea):focus-visible{outline:none!important;box-shadow:inset 0 -.18vh var(--theme-accent-text,#0a84ff)!important}
+#duo .duo-app-instance[data-app="messages"] .gx-messages-editor-content>.nx-field:not(.gx-messages-editor-search) :is(input,textarea){border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important}
+#duo .duo-app-instance[data-app="messages"] .gx-messages-editor-content>.nx-field:not(.gx-messages-editor-search) :is(input,textarea):focus-visible{outline:none!important;box-shadow:inset 0 -.18vh var(--theme-accent-text,#0a84ff)!important}
+#duo .duo-app-instance[data-app="messages"] .gx-messages-editor-list{display:flex;flex-direction:column;min-height:0;margin:.2vh 0;overflow-y:auto}
+#duo .duo-app-instance[data-app="messages"] .gx-messages-editor-row{display:flex;align-items:center;justify-content:flex-start;gap:.8vh;width:100%;min-height:5.2vh;padding:.6vh .35vh;border:0;border-bottom:1px solid var(--sheet-line);border-radius:0;background:transparent;color:var(--sheet-fg);font-size:clamp(11px,1.22vh,15px);text-align:left}
+#duo .duo-app-instance[data-app="messages"] .gx-messages-editor-row[aria-pressed="true"]{background:var(--sheet-field)}
+#duo .duo-app-instance[data-app="messages"] .gx-messages-editor-copy{display:flex;flex:1;min-width:0;flex-direction:column;gap:.15vh;overflow:hidden;text-align:left}
+#duo .duo-app-instance[data-app="messages"] .gx-messages-editor-copy strong{overflow:hidden;color:var(--sheet-fg);font-size:clamp(11px,1.2vh,15px);font-weight:600;text-overflow:ellipsis;white-space:nowrap}
+#duo .duo-app-instance[data-app="messages"] .gx-messages-editor-avatar{display:grid;place-items:center;flex:none;width:3.9vh;height:3.9vh;border-radius:50%;background:var(--sheet-field);color:var(--sheet-fg);font-size:clamp(13px,1.4vh,17px);font-weight:650}
+#duo .duo-app-instance[data-app="messages"] .gx-messages-editor-row small{display:block;margin-top:.2vh;color:var(--sheet-muted);font-size:clamp(10px,1.04vh,13px)}
+#duo .duo-app-instance[data-app="messages"] .gx-messages-editor-profile{display:flex;align-items:center;gap:.9vh;min-height:6.2vh;margin:.3vh 0;padding:.8vh 1vh;border-radius:1.1vh;background:var(--sheet-field)}
+#duo .duo-app-instance[data-app="messages"] .gx-messages-editor-profile .gx-messages-editor-avatar{width:4.6vh;height:4.6vh}
+#duo .duo-app-instance[data-app="messages"] .gx-messages-editor-profile-copy{min-width:0}
+#duo .duo-app-instance[data-app="messages"] .gx-messages-editor-profile-copy :is(strong,small){display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#duo .duo-app-instance[data-app="messages"] .gx-messages-editor-profile-copy strong{color:var(--sheet-fg);font-size:clamp(13px,1.42vh,17px)}
+#duo .duo-app-instance[data-app="messages"] .gx-messages-editor-profile-copy small{margin-top:.18vh;color:var(--sheet-muted);font-size:clamp(10px,1.08vh,13px)}
+#duo .duo-app-instance[data-app="messages"] .gx-messages-editor-member{display:grid;flex:none;grid-template-columns:3.9vh minmax(0,1fr) auto;grid-template-rows:auto auto;align-items:center;min-height:5vh;gap:.35vh .8vh;padding:.55vh .2vh;border-bottom:1px solid var(--sheet-line)}
+#duo .duo-app-instance[data-app="messages"] .gx-messages-editor-member>.gx-messages-editor-avatar{grid-column:1;grid-row:1}
+#duo .duo-app-instance[data-app="messages"] .gx-messages-editor-member>.gx-thread-copy{grid-column:2;grid-row:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#duo .duo-app-instance[data-app="messages"] .gx-messages-editor-member>small{grid-column:3;grid-row:1;white-space:nowrap}
+#duo .duo-app-instance[data-app="messages"] .gx-messages-member-actions{grid-column:2/4;grid-row:2;display:flex;flex-wrap:wrap;gap:.5vh}
+#duo .duo-app-instance[data-app="messages"] .gx-messages-member-actions>.gx-group-action{flex:1 1 auto;min-height:3.2vh;padding:.4vh .65vh;border:1px solid var(--sheet-line);border-radius:.85vh;background:var(--sheet-field);color:var(--theme-accent-text,#0a84ff);font-size:clamp(10px,1.02vh,13px);text-align:center}
+#duo .duo-app-instance[data-app="messages"] .gx-messages-editor-selection{display:flex;flex:none;align-items:center;gap:.45vh;flex-wrap:wrap;min-height:3.5vh;padding:.35vh 0}
+#duo .duo-app-instance[data-app="messages"] .gx-messages-editor-selection button{min-height:3vh;padding:.3vh .75vh;border:1px solid var(--sheet-line);border-radius:1.5vh;background:var(--sheet-field);color:var(--sheet-fg);font-size:clamp(10px,1.05vh,13px)}
+#duo .duo-app-instance[data-app="messages"] .gx-messages-editor-actions{position:sticky;bottom:0;z-index:2;display:flex;gap:.6vh;margin:auto 0 0;padding:.7vh 0;border-top:1px solid var(--sheet-line);background:var(--sheet-bg)}
+#duo .duo-app-instance[data-app="messages"] .gx-messages-editor-actions>.nx-button{flex:1;min-height:4vh;border-radius:1.1vh;font-size:clamp(12px,1.25vh,16px)}
+#duo .duo-app-instance[data-app="messages"] .gx-messages-editor-actions:has(>.gx-messages-editor-row){flex-direction:column;align-items:stretch}
+#duo .duo-app-instance[data-app="messages"] .gx-messages-editor-actions:has(>.gx-messages-editor-row)>.nx-button{flex:none;width:100%;text-align:left}
+#duo .gx-nearby-share-sheet .cf-context-row{display:flex;align-items:center;gap:.85vh}
+#duo .gx-nearby-share-sheet .cf-context-row>.nx-avatar{flex:none;width:4.5vh;height:4.5vh}
+#duo .gx-nearby-share-sheet .cf-confirm-copy{min-width:0;overflow-wrap:anywhere;color:var(--sheet-fg);font-size:clamp(11px,1.2vh,15px);font-weight:550}
+#duo .gx-nearby-recipient-list{display:flex;flex-direction:column;gap:.35vh;overflow:auto}
+#duo .gx-nearby-recipient{display:grid;grid-template-columns:minmax(0,1fr);gap:.2vh;width:100%;min-height:4.5vh;padding:.65vh .2vh;border:0;border-bottom:1px solid var(--sheet-line);border-radius:0;background:transparent;color:var(--theme-accent-text,#0a84ff);text-align:left}
+#duo .gx-nearby-recipient small{color:var(--sheet-muted);font-size:clamp(9px,.95vh,12px);font-weight:450}
+#duo .gx-nearby-recipient:disabled{opacity:.45}
+
+/* Settings uses the keypad as the PIN entry surface and the actual SIM as context. */
+#duo .ps-settings .ps-sim-card{display:grid;grid-template-columns:4.2vh 1fr auto;align-items:center;gap:.8vh;margin:.6vh 0;padding:.8vh 1vh;border-radius:1.1vh;background:var(--theme-grouped-secondary,var(--sheet-field))}
+#duo .ps-settings .ps-sim-mark{display:grid;place-items:center;width:4.1vh;height:4.1vh;border-radius:.9vh;background:#ffc83d;color:#3a3108;font-size:1.9vh}
+
+/* Photos collection labels keep their semantic hierarchy after the shared text reset. */
+#duo[data-theme="light"] .duo-app-instance[data-app="gallery"] .duo-photos-library :is(.duo-photos-heading h1,.duo-photo-day-title){color:var(--theme-label,#1c1c1e)!important}
+#duo[data-theme] .duo-app-instance[data-app="gallery"] .duo-photos-library .duo-photos-heading p,
+#duo[data-theme] .duo-app-instance[data-app="gallery"] .duo-media-albums .duo-albums-heading p{color:var(--photos-secondary,var(--theme-secondary))!important}
+#duo[data-theme="light"] .duo-app-instance[data-app="gallery"] .duo-photos-header-actions button{color:var(--theme-accent-text,#0057b8)!important}
+#duo[data-theme] .duo-app-instance[data-app="gallery"] .duo-photos-selection :is(.duo-photo-selection-action,.duo-photo-selection-all){color:var(--photos-accent,var(--theme-accent-text))!important}
+#duo[data-theme] .duo-app-instance[data-app="gallery"] .duo-photos-selection .duo-photo-selection-delete{color:var(--photos-danger,var(--theme-destructive))!important}
+#duo[data-theme] .duo-app-instance[data-app="gallery"] .duo-photo-viewer .duo-photo-viewer-date strong{color:#f5f5f7!important}
+#duo[data-theme] .duo-app-instance[data-app="gallery"] .duo-photo-viewer :is(.duo-photo-viewer-date small,.duo-photo-viewer-count){color:#929298!important}
+#duo[data-theme] .duo-app-instance[data-app="gallery"] .duo-photo-viewer :is(.duo-photo-viewer-back,.duo-photo-viewer-more,.duo-photo-dock-action){color:#0a84ff!important}
+#duo[data-theme] .duo-app-instance[data-app="gallery"] .duo-photo-viewer .duo-photo-delete{color:#ff453a!important}
+#duo[data-theme="light"] .duo-app-instance[data-app="kilogram"] :is(.kg-header .kg-brand.nx-button,.kg-post-header .kg-author.nx-button),
+#duo[data-theme="light"] .duo-app-instance[data-app="kilogram"] :is(.kg-header .kg-brand.nx-button span,.kg-post-header .kg-author.nx-button strong,.kg-post-header .kg-author.nx-button small){color:#1c1c1e!important}
+#duo[data-theme="light"] .duo-app-instance[data-app="kilogram"] .kg-header-tools .kg-icon.nx-button{color:#1c1c1e!important}
+#duo[data-theme="dark"] .ps-settings .ps-sim-mark{color:#3a3108!important}
+#duo[data-theme="dark"] .u27-calendar-event-editor .cf-sheet-nav .cf-nav-trailing{background:#244d74;color:#fff;opacity:1}
+#duo .ps-settings .ps-sim-copy strong,#duo .ps-settings .ps-sim-copy small{display:block}
+#duo .ps-settings .ps-sim-copy strong{font-size:clamp(12px,1.32vh,16px)}
+#duo .ps-settings .ps-sim-copy small{margin-top:.2vh;color:var(--theme-secondary);font-size:clamp(10px,1.05vh,13px)}
+#duo .ps-settings .ps-pin-panel{display:flex;flex-direction:column;align-items:center;gap:.7vh;padding:1vh .4vh}
+#duo .ps-settings .ps-pin-dots{display:flex;justify-content:center;gap:1vh;min-height:2.2vh}
+#duo .ps-settings .ps-pin-dot{width:1.05vh;height:1.05vh;border:1.4px solid var(--theme-secondary);border-radius:50%;background:transparent}
+#duo .ps-settings .ps-pin-dot[data-filled="true"]{border-color:var(--theme-label);background:var(--theme-label)}
+#duo .ps-settings .ps-pin-keypad{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.55vh;width:min(100%,27vh);margin:.35vh auto}
+#duo .ps-settings .ps-pin-key{min-height:4.3vh;border:0;border-radius:1.05vh;background:var(--theme-grouped-secondary,var(--sheet-field));color:var(--theme-label);font-size:clamp(16px,2vh,24px);font-weight:500}
+#duo .ps-settings .ps-pin-key[data-zero="true"]{grid-column:2}
+#duo .ps-settings .ps-pin-key small{display:block;color:var(--theme-secondary);font-size:clamp(7px,.8vh,10px);letter-spacing:.12em}
+#duo .ps-settings .ps-pin-key:active{filter:brightness(1.15)}
+#duo .ps-settings .ps-pin-input{position:absolute;width:1px;height:1px;opacity:.01;pointer-events:none}
+#duo .ps-settings .ps-pin-action{display:block;width:min(100%,30vh);min-height:3.8vh;margin:.45vh auto 0;border:1px solid var(--theme-separator);border-radius:2vh;background:var(--theme-grouped-secondary);color:var(--theme-label);font-size:clamp(11px,1.2vh,15px);font-weight:650}
+#duo .ps-settings .ps-pin-action:disabled{opacity:.48}
+#duo .ps-settings .ps-setting-field{display:flex;align-items:center;justify-content:space-between;gap:.8vh;min-height:4.5vh;padding:.55vh .8vh;border-radius:.9vh;background:var(--theme-grouped-secondary)}
+#duo .ps-settings .ps-setting-field>span{color:var(--theme-label);font-size:clamp(11px,1.18vh,14px)}
+#duo .ps-settings .ps-setting-field input{min-width:0;min-height:3.2vh;border:0;background:transparent;color:var(--theme-label);font-size:clamp(11px,1.2vh,15px);text-align:right;outline:none}
+#duo .ps-settings .ps-setting-field input::placeholder{color:var(--theme-secondary)}
+#duo .ps-settings .cf-settings-confirm .cf-context-row{align-items:flex-start;line-height:1.4}
+#duo .ps-settings .cf-confirm-mark{display:grid;place-items:center;width:3.2vh;height:3.2vh;flex:none;border-radius:50%;background:var(--theme-accent);color:#fff;font-weight:700}
+#duo .ps-settings .cf-confirm-copy{font-size:clamp(11px,1.2vh,15px)}
+#duo .ps-settings .ps-pin-error{margin:.2vh 0;color:#ff8279;font-size:clamp(10px,1.12vh,14px);text-align:center}
+/* Keep Settings' header fixed while its content alone scrolls after PIN focus. */
+#duo[data-theme] .duo-app-instance[data-app="settings"] .nx-app.gx-app.ps-settings{overflow:clip!important;min-height:0}
+#duo[data-theme] .duo-app-instance[data-app="settings"] .ps-settings>.nx-header{position:relative;z-index:2;flex:none}
+#duo[data-theme] .duo-app-instance[data-app="settings"] .ps-settings>.gx-body{min-height:0;overflow-y:auto;overscroll-behavior:contain}
+#duo[data-theme] .duo-app-instance .gx-status.gx-status-error{border:1px solid #e8afb4!important;background:#ffeded!important;color:#89212d!important}
+#duo[data-theme="dark"] .duo-app-instance .gx-status.gx-status-error{border-color:#805057!important;background:#3a2327!important;color:#ffd4d8!important}
+
+/* KiloGram and Binge share controls while keeping the media and character in the foreground. */
+#duo .cf-community-sheet .cf-compose-identity{display:flex;align-items:center;gap:.8vh;padding:.25vh 0 .7vh;border-bottom:1px solid var(--sheet-line)}
+#duo .cf-community-sheet .cf-compose-identity .nx-avatar{width:4.8vh;height:4.8vh;flex:0 0 4.8vh;aspect-ratio:1}
+#duo .cf-community-sheet .cf-compose-identity strong,#duo .cf-community-sheet .cf-compose-identity small{display:block}
+#duo .cf-community-sheet .cf-compose-identity small{margin-top:.15vh;color:var(--sheet-muted);font-size:clamp(10px,1.08vh,13px)}
+#duo .cf-community-sheet .cf-compose-caption textarea{min-height:8vh;font-size:clamp(14px,1.6vh,19px)}
+#duo .cf-community-sheet .cf-media-preview{display:grid;grid-template-columns:repeat(auto-fit,minmax(8vh,1fr));gap:.55vh;margin:.6vh 0}
+#duo .cf-community-sheet .cf-media-preview .gx-image{aspect-ratio:1;min-height:7vh;border-radius:.9vh;overflow:hidden}
+#duo .cf-community-sheet .cf-media-preview img{position:absolute;inset:0;width:100%;height:100%;max-height:none;object-fit:cover}
+#duo .cf-community-sheet .cf-profile-hero{display:flex;flex-direction:column;align-items:center;gap:.4vh;padding:.4vh 0 .8vh;text-align:center}
+#duo .cf-community-sheet .cf-profile-hero .nx-avatar{width:8vh;height:8vh;flex:0 0 8vh;aspect-ratio:1;font-size:2.2vh}
+#duo .cf-community-sheet .cf-profile-hero strong{font-size:clamp(15px,1.8vh,22px)}
+#duo .cf-community-sheet .cf-profile-hero small{color:var(--sheet-muted);font-size:clamp(10px,1.08vh,13px)}
+#duo .cf-community-sheet .cf-report-context{display:flex;align-items:center;gap:.8vh;margin:.6vh 0;padding:.75vh .8vh;border-radius:1vh;background:var(--sheet-field)}
+#duo .cf-community-sheet .cf-report-context .nx-avatar{width:4.4vh;height:4.4vh;flex:0 0 4.4vh;aspect-ratio:1}
+#duo .cf-community-sheet .cf-chat-input{display:grid;grid-template-columns:1fr auto;align-items:end;gap:.6vh;padding:.5vh;border:1px solid var(--sheet-line);border-radius:2vh;background:var(--sheet-field)}
+#duo .cf-community-sheet .cf-chat-input textarea{min-height:3.6vh;max-height:10vh;padding:.6vh .7vh;border:0;background:transparent;color:var(--sheet-fg);resize:none;outline:none}
+#duo .cf-community-sheet .cf-chat-input button{width:3.6vh;height:3.6vh;border:0;border-radius:50%;background:var(--theme-accent,#0a84ff);color:#fff}
+
+/* Photo sharing shows the selected media and its real destination before send. */
+#duo .duo-photo-form-sheet.cf-sheet .cf-photo-destination{display:flex;align-items:center;gap:.7vh;margin:.5vh 0;padding:.65vh .8vh;border-bottom:1px solid var(--sheet-line)}
+#duo .duo-photo-form-sheet.cf-sheet .cf-photo-preview{display:flex;align-items:center;gap:.8vh;min-height:8vh;margin:.4vh 0;padding:.7vh;border-radius:1vh;background:var(--sheet-field)}
+#duo .duo-photo-form-sheet.cf-sheet .cf-photo-preview img{width:7vh;height:7vh;object-fit:cover;border-radius:.75vh}
+#duo .duo-photo-form-sheet.cf-sheet .cf-photo-preview strong,#duo .duo-photo-form-sheet.cf-sheet .cf-photo-preview small{display:block}
+#duo .duo-photo-form-sheet.cf-sheet .cf-photo-preview small{margin-top:.2vh;color:var(--sheet-muted)}
+#duo .duo-photo-form-sheet.cf-sheet .duo-photo-field{display:flex;flex-direction:column;gap:.35vh;margin:.6vh 0;padding:.7vh .8vh;border-radius:.95vh;background:var(--sheet-field);color:var(--sheet-muted);font-size:clamp(10px,1.08vh,13px)}
+#duo .duo-photo-form-sheet.cf-sheet .duo-photo-field :is(input,textarea){width:100%;min-height:3.5vh;padding:.35vh 0;border:0;background:transparent!important;color:var(--sheet-fg)!important;font:inherit;font-size:clamp(12px,1.32vh,16px);outline:none;resize:vertical}
+#duo .duo-photo-form-sheet.cf-sheet .duo-photo-field :is(input,textarea)::placeholder{color:var(--sheet-muted)!important}
+#duo .duo-photo-form-sheet.cf-sheet .duo-photo-message-preview{display:flex;align-items:center;gap:.55vh;margin:.5vh 0;padding:.7vh .8vh;border-radius:1vh;background:var(--sheet-field)}
+#duo .duo-photo-form-sheet.cf-sheet .duo-photo-message-preview img{width:4.4vh;height:4.4vh;object-fit:cover;border-radius:.7vh}
+#duo .duo-photo-form-sheet.cf-sheet .duo-photo-message-preview span{margin-left:auto;color:var(--sheet-muted);font-size:clamp(10px,1.08vh,13px)}
+#duo .duo-photo-form-sheet.cf-sheet .duo-photo-choose-contact{align-self:flex-start;min-height:3.4vh;padding:.45vh .8vh;border:1px solid var(--sheet-line);border-radius:2vh;background:var(--sheet-field);color:var(--theme-accent-text,#0a84ff);font-size:clamp(10px,1.08vh,13px)}
+#duo .duo-photo-form-sheet.cf-sheet .duo-photo-contact-picker{display:flex;flex-direction:column;gap:.3vh;max-height:14vh;overflow:auto}
+#duo .duo-photo-form-sheet.cf-sheet .duo-photo-contact{min-height:3.4vh;text-align:left}
+
+/* Host themes may supply a light card gradient even while the share sheet uses dark ink. */
+#duo .duo-app-instance .u27-memo-share-sheet .u27-share-status[role="status"]:not([data-state="error"]){background:#26272c!important;background-image:none!important;color:#f5f5f7!important}
+#duo[data-theme="light"] .duo-app-instance .u27-memo-share-sheet .u27-share-status[role="status"]:not([data-state="error"]){background:#f2f2f7!important;background-image:none!important;color:#1c1c1e!important}
+
+/* Native range styling survives the semantic theme rules in both the recorder list and detail sheet. */
+#duo[data-theme] .duo-app-instance[data-app] :is(.u27-memo-player,.u27-memo-detail-sheet) input.u27-audio-scrub{appearance:none!important;flex:1;min-width:0;width:100%;height:.55vh;min-height:.55vh;margin:.9vh 0;padding:0!important;border:0!important;border-radius:1vh;background:linear-gradient(90deg,#f06c6e var(--progress,0%),#d5dce5 var(--progress,0%))!important;background-image:linear-gradient(90deg,#f06c6e var(--progress,0%),#d5dce5 var(--progress,0%))!important;box-shadow:none!important;cursor:pointer;accent-color:#f06c6e}
+#duo[data-theme] .duo-app-instance[data-app] :is(.u27-memo-player,.u27-memo-detail-sheet) input.u27-audio-scrub::-webkit-slider-runnable-track{height:.55vh;border-radius:1vh;background:transparent}
+#duo[data-theme] .duo-app-instance[data-app] :is(.u27-memo-player,.u27-memo-detail-sheet) input.u27-audio-scrub::-webkit-slider-thumb{appearance:none;width:1.5vh;height:1.5vh;margin-top:calc((.55vh - 1.5vh)/2);border:2px solid #fff;border-radius:50%;background:#f06c6e;box-shadow:0 .1vh .4vh #24375140}
+#duo[data-theme] .duo-app-instance[data-app] :is(.u27-memo-player,.u27-memo-detail-sheet) input.u27-audio-scrub::-moz-range-track{height:.55vh;border:0;border-radius:1vh;background:#d5dce5}
+#duo[data-theme] .duo-app-instance[data-app] :is(.u27-memo-player,.u27-memo-detail-sheet) input.u27-audio-scrub::-moz-range-progress{height:.55vh;border-radius:1vh;background:#f06c6e}
+#duo[data-theme] .duo-app-instance[data-app] :is(.u27-memo-player,.u27-memo-detail-sheet) input.u27-audio-scrub::-moz-range-thumb{width:1.25vh;height:1.25vh;border:2px solid #fff;border-radius:50%;background:#f06c6e;box-shadow:0 .1vh .4vh #24375140}
+
+/* Transfer confirmation keeps the selected vehicle, plate, recipient, and quoted price together. */
+#duo .nx-native-sheet.cf-vehicle-sheet .cf-vehicle-summary{display:grid;grid-template-columns:1fr auto;gap:.4vh .8vh;padding:.9vh 1vh;border-radius:1.1vh;background:var(--sheet-field)}
+#duo .nx-native-sheet.cf-vehicle-sheet .cf-editor-field{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center;gap:.8vh;min-height:4.6vh;margin:.25vh 0;padding:.55vh .85vh;border:0;border-bottom:1px solid var(--sheet-line);border-radius:0;background:transparent}
+#duo .nx-native-sheet.cf-vehicle-sheet .cf-editor-field>span{min-width:0;max-width:none;flex:none;color:var(--sheet-fg);font-size:clamp(11px,1.18vh,15px);font-weight:550;text-align:left}
+#duo .nx-native-sheet.cf-vehicle-sheet .cf-editor-field>input{min-width:0;width:100%;min-height:3vh;padding:.3vh 0;border:0;border-radius:0;background:transparent;color:var(--sheet-fg);font-size:clamp(12px,1.28vh,16px);text-align:right;box-shadow:none}
+#duo .nx-native-sheet.cf-vehicle-sheet .cf-editor-field>input:focus-visible{outline:none!important;box-shadow:inset 0 -.18vh var(--theme-accent-text,#0a84ff)!important}
+#duo .nx-native-sheet.cf-vehicle-sheet .cf-editor-field>input[type=number]{appearance:textfield;-moz-appearance:textfield}
+#duo .nx-native-sheet.cf-vehicle-sheet .cf-editor-field>input[type=number]::-webkit-inner-spin-button,#duo .nx-native-sheet.cf-vehicle-sheet .cf-editor-field>input[type=number]::-webkit-outer-spin-button{appearance:none;margin:0}
+#duo .nx-native-sheet.cf-vehicle-sheet .cf-vehicle-summary strong{grid-column:1/-1;font-size:clamp(14px,1.6vh,19px)}
+#duo .nx-native-sheet.cf-vehicle-sheet .cf-vehicle-summary span{color:var(--sheet-muted);font-size:clamp(10px,1.1vh,13px)}
+#duo .nx-native-sheet.cf-vehicle-sheet .cf-vehicle-summary b{font-size:clamp(11px,1.22vh,15px);text-align:right}
+#duo .nx-native-sheet.cf-vehicle-sheet .cf-vehicle-destination,#duo .nx-native-sheet.cf-vehicle-sheet .cf-vehicle-price{display:flex;align-items:center;justify-content:space-between;gap:1vh;padding:.7vh .9vh;border-bottom:1px solid var(--sheet-line)}
+#duo .nx-native-sheet.cf-vehicle-sheet .cf-vehicle-destination>span,#duo .nx-native-sheet.cf-vehicle-sheet .cf-vehicle-price>span{color:var(--sheet-muted);font-size:clamp(9px,1vh,12px);font-weight:650;letter-spacing:.07em}
+#duo .nx-native-sheet.cf-vehicle-sheet .cf-vehicle-destination>strong,#duo .nx-native-sheet.cf-vehicle-sheet .cf-vehicle-price>strong{color:var(--sheet-fg);font-size:clamp(12px,1.3vh,16px);overflow-wrap:anywhere}
+#duo .cf-sheet-nav .cf-danger-action{color:#ff453a}
+
+/* The network join surface uses a selectable real network list and a password only for the chosen row. */
+#duo .duo-network-sheet{background:#0b101a}
+#duo .duo-network-panel{gap:.7vh;max-height:89%;padding:1vh 1.5vh max(2vh,env(safe-area-inset-bottom));border:1px solid var(--theme-separator,#3a3a3c);border-bottom:0;border-radius:2.3vh 2.3vh 0 0;background:var(--theme-elevated,#1c1c1e);color:var(--theme-label,#f5f5f7);box-shadow:0 -1vh 3vh #0004;animation:none}
+#duo .duo-network-handle{background:var(--theme-secondary,#77777b)}
+#duo .duo-network-eyebrow{color:var(--theme-secondary,#aeb0b7);font-size:clamp(9px,.96vh,12px);letter-spacing:.1em}
+#duo .duo-network-heading h2{color:var(--theme-label,#f5f5f7);font-size:clamp(19px,2.1vh,25px);font-weight:650;letter-spacing:-.04em}
+#duo .duo-network-heading button{display:grid;place-items:center;width:3.2vh;height:3.2vh;padding:.6vh;border-color:var(--theme-separator,#3a3a3c);background:var(--theme-grouped-secondary,#2c2c2e);color:var(--theme-label,#f5f5f7)}
+#duo .duo-network-intro{margin:0;color:var(--theme-secondary,#aeb0b7);font-size:clamp(10px,1.08vh,13px)}
+#duo .duo-network-list{display:flex;flex-direction:column;gap:.3vh;max-height:33vh;overflow:auto}
+#duo .duo-network-option{display:grid;grid-template-columns:3.7vh minmax(0,1fr) auto;align-items:center;gap:.75vh;width:100%;min-height:5.6vh;padding:.55vh .75vh;border:0;border-bottom:1px solid var(--theme-separator,#3a3a3c);border-radius:.8vh;background:transparent;color:var(--theme-label,#f5f5f7);text-align:left}
+#duo .duo-network-option:hover,#duo .duo-network-option.is-selected{background:var(--theme-grouped-secondary,#2c2c2e)}
+#duo .duo-network-mark{display:grid;place-items:center;width:3.4vh;height:3.4vh;border-radius:50%;background:color-mix(in srgb,var(--theme-accent,#0a84ff) 13%,transparent);color:var(--theme-accent-text,#0a84ff)}
+#duo .duo-network-mark svg{width:1.7vh;height:1.7vh}
+#duo .duo-network-copy strong,#duo .duo-network-copy small{display:block}
+#duo .duo-network-copy strong{font-size:clamp(12px,1.25vh,15px);font-weight:600}
+#duo .duo-network-copy small{margin-top:.12vh;color:var(--theme-secondary,#aeb0b7);font-size:clamp(9px,.94vh,12px)}
+#duo .duo-network-check{color:var(--theme-secondary,#aeb0b7);font-size:clamp(9px,.92vh,11px)}
+#duo .duo-network-option.is-selected .duo-network-check{color:var(--theme-accent-text,#0a84ff)}
+#duo .duo-network-selected-label{margin:.35vh 0 0;color:var(--theme-label,#f5f5f7);font-size:clamp(12px,1.22vh,15px);font-weight:600}
+#duo .duo-network-field{gap:.35vh;padding:.65vh .8vh;border:1px solid var(--theme-separator,#3a3a3c);border-radius:.95vh;background:var(--theme-grouped-secondary,#2c2c2e);box-shadow:none;color:var(--theme-secondary,#aeb0b7)}
+#duo .duo-network-field>span{font-size:clamp(9px,.95vh,12px);font-weight:550}
+#duo .duo-network-password{min-height:3.2vh;padding:.35vh 0;border:0;background:transparent!important;color:var(--theme-label,#f5f5f7);font-size:clamp(12px,1.2vh,15px)}
+#duo .duo-network-password::placeholder{color:var(--theme-secondary,#aeb0b7)}
+#duo .duo-network-status{min-height:1.3vh;margin:0;color:var(--theme-secondary,#aeb0b7);font-size:clamp(10px,1vh,12px)}
+#duo .duo-network-status[data-error="true"]{color:#ff453a}
+#duo .duo-network-actions{margin-top:.3vh}
+#duo .duo-network-actions button{min-height:4vh;border-radius:2vh;font-size:clamp(11px,1.12vh,14px);font-weight:600}
+#duo .duo-network-cancel{border-color:var(--theme-separator,#3a3a3c);background:var(--theme-grouped-secondary,#2c2c2e);color:var(--theme-label,#f5f5f7)}
+#duo .duo-network-submit{border-color:transparent;background:var(--theme-accent,#0a84ff);color:var(--theme-on-accent,#fff)!important}
+#duo .duo-network-option:focus-visible,#duo .duo-network-actions button:focus-visible{outline:2px solid var(--theme-accent,#0a84ff);outline-offset:2px}
+
+/* Keep the opt-in fixture selector interactive inside the preview notice's decorative layer. */
+body.duo-preview .duo-preview-editor-tools,body.duo-preview .duo-preview-editor-tools *{pointer-events:auto}
+body.duo-preview .duo-preview-editor-controls :is(select,button){position:relative;z-index:1;pointer-events:auto}
+
+/* Mailbox and delete sheets retain native selection semantics and surface the actual sender. */
+#duo .duo-app-instance[data-app="mails"] .mail-editor-sheet{gap:.55vh}
+#duo .duo-app-instance[data-app="mails"] .mail-compose-field:focus-within{border-bottom-color:var(--mail-accent);box-shadow:inset 0 -1px var(--mail-accent)}
+#duo .duo-app-instance[data-app="mails"] .mail-compose-message:focus-within{box-shadow:inset 0 -2px var(--mail-accent)}
+#duo .duo-app-instance[data-app="mails"] .mail-compose-field input:focus-visible,#duo .duo-app-instance[data-app="mails"] .mail-compose-message textarea:focus-visible{outline:none!important;outline-offset:0!important}
+#duo .duo-app-instance[data-app="mails"] .mail-editor-nav{position:sticky;top:1.1vh;z-index:2;display:grid;grid-template-columns:1fr 2fr 1fr;align-items:center;min-height:4.2vh;margin:0 -.2vh .3vh;padding:.1vh .2vh .5vh;border-bottom:1px solid var(--sheet-line);background:var(--sheet-bg)}
+#duo .duo-app-instance[data-app="mails"] .mail-editor-nav h2{grid-column:2;margin:0;color:var(--sheet-fg);font-size:clamp(14px,1.62vh,20px);font-weight:650;text-align:center}
+#duo .duo-app-instance[data-app="mails"] .mail-editor-cancel,#duo .duo-app-instance[data-app="mails"] .mail-editor-done{min-height:3.4vh;padding:.35vh .5vh;border:0;background:transparent;color:var(--theme-accent-text,#0a84ff);font-size:clamp(12px,1.3vh,16px);font-weight:550;box-shadow:none}
+#duo .duo-app-instance[data-app="mails"] .mail-editor-cancel{grid-column:1;justify-self:start}
+#duo .duo-app-instance[data-app="mails"] .mail-editor-done{grid-column:3;justify-self:end}
+#duo .duo-app-instance[data-app="mails"] .mail-mailbox-options{overflow:hidden;border-radius:1vh;background:var(--theme-grouped-secondary,#2c2c2e)}
+#duo .duo-app-instance[data-app="mails"] .mail-mailbox-options .mail-sheet-row{justify-content:flex-start!important;min-height:4.4vh;padding:0 .9vh;border-top:0;text-align:left}
+#duo .duo-app-instance[data-app="mails"] .mail-mailbox-options .mail-sheet-row+.mail-sheet-row{border-top:1px solid var(--theme-separator,#3a3a3c)}
+#duo .duo-app-instance[data-app="mails"] .mail-mailbox-options .mail-sheet-row[aria-pressed="true"]::after{content:"✓";margin-left:auto;color:var(--theme-accent-text,#0a84ff)}
+#duo .duo-app-instance[data-app="mails"] .mail-delete-context{display:flex;align-items:center;gap:.85vh;margin:.35vh 0;padding:.8vh;border-radius:1vh;background:var(--theme-grouped-secondary,#2c2c2e)}
+#duo .duo-app-instance[data-app="mails"] .mail-delete-context .mail-avatar{flex:none;width:4.5vh;height:4.5vh}
+#duo .duo-app-instance[data-app="mails"] .mail-delete-copy{min-width:0}
+#duo .duo-app-instance[data-app="mails"] .mail-delete-copy strong,#duo .duo-app-instance[data-app="mails"] .mail-delete-copy small{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#duo .duo-app-instance[data-app="mails"] .mail-delete-copy strong{color:var(--sheet-fg);font-size:clamp(12px,1.25vh,15px)}
+#duo .duo-app-instance[data-app="mails"] .mail-delete-copy small{margin-top:.2vh;color:var(--sheet-muted);font-size:clamp(10px,1.05vh,13px)}
+#duo .duo-app-instance[data-app="mails"] .mail-confirm-editor .mail-sheet-danger{color:#ff453a}
+
+/* Calculator history reads like a private ledger with explicit restore and clear actions. */
+#duo .gx-calc-history-sheet{gap:.55vh}
+#duo .gx-calc-history-sheet .cf-context-row{display:flex;align-items:center;gap:.75vh;margin:.25vh 0 .5vh;padding:.75vh .85vh;border-radius:1vh;background:var(--sheet-field)}
+#duo .gx-calc-history-sheet .cf-confirm-mark{display:grid;place-items:center;flex:none;width:3.5vh;height:3.5vh;border-radius:50%;background:#ff9f0a20;color:#ff9f0a;font-size:clamp(14px,1.55vh,19px);font-weight:700}
+#duo .gx-calc-history-sheet .cf-confirm-copy{color:var(--sheet-muted);font-size:clamp(10px,1.08vh,13px)}
+#duo .gx-calc-history-list{display:flex;flex-direction:column;gap:.55vh;overflow:auto}
+#duo .gx-calc-history-sheet .gx-calculation{display:grid;grid-template-columns:1fr auto;gap:.25vh .5vh;align-items:center;padding:.7vh .8vh;border:1px solid var(--sheet-line);border-radius:1vh;background:var(--sheet-field);color:var(--sheet-fg)}
+#duo .gx-calc-history-sheet .gx-calculation>p{grid-column:1/-1;margin:0;color:var(--sheet-muted);font-size:clamp(9px,.95vh,12px);letter-spacing:.06em;text-transform:uppercase}
+#duo .gx-calc-history-expression{min-width:0;overflow-wrap:anywhere;color:var(--sheet-fg);font-size:clamp(12px,1.24vh,15px)}
+#duo .gx-calc-history-sheet .gx-calculation>strong{color:var(--theme-accent-text,#ff9f0a);font-size:clamp(13px,1.38vh,17px);white-space:nowrap}
+#duo .gx-calc-history-actions{grid-column:1/-1;display:flex;gap:.5vh;padding-top:.2vh}
+#duo .gx-calc-history-actions .gx-list-button{flex:1;min-height:3.4vh;border:1px solid var(--sheet-line);border-radius:.75vh;background:transparent;color:var(--theme-accent-text,#ff9f0a);font-size:clamp(10px,1.04vh,13px)}
+#duo .gx-calc-history-confirm .cf-confirm-mark{background:#ff453a20;color:#ff453a}
+/* A recording deletion names the recording rather than repeating an app badge. */
+#duo .u27-memos .u27-memo-delete-recording{display:flex;flex-direction:column;gap:6px;padding:18px 0;border-bottom:1px solid var(--theme-separator);min-width:0}
+#duo .u27-memos .u27-memo-delete-recording strong{font-size:22px;line-height:1.2;letter-spacing:-.4px;overflow-wrap:anywhere;color:var(--theme-label)}
+#duo .u27-memos .u27-memo-delete-recording small{font-size:13px;color:var(--theme-secondary)}

@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="utf-8">
+ <style id="duo-nui-critical">
+  html,body{background:transparent!important;background-image:none!important;color-scheme:normal!important;margin:0;overflow:hidden}
+  [hidden]{display:none!important}
+  *,*::before,*::after{}
+ </style>
+ <script src="duo/sanitize.js"></script>
+ <script src="duo/voice-notes.js"></script>
+ <meta name="viewport" content="width=device-width,initial-scale=1">
+ <title>Peak Duo · peak-phone</title>
+ <link rel="preload" href="./build/duo-legacy.js" as="script">
+ <link rel="stylesheet" href="./build/smui.css">
+ <link rel="stylesheet" href="./global.css">
+ <link rel="stylesheet" href="./build/bundle.css">
+ <link rel="stylesheet" href="./duo/legacy-icons.css?rev=phone-performance-20261011b">
+ <link rel="stylesheet" href="./duo/apps.css">
+ <link rel="stylesheet" href="./duo/duo.css?rev=ios-contained-feedback-20261011b">
+ <link rel="stylesheet" href="./duo/ios.css?rev=ios-contained-feedback-20261011a">
+ <link rel="stylesheet" href="./duo/music.css">
+<link rel="stylesheet" href="./duo/jobs.css?rev=jobs-editor-20261008d">
+ <link rel="stylesheet" href="./duo/continuous.css?rev=ios-fold-motion-quality-20261011b">
+ <link rel="stylesheet" href="./duo/recording.css">
+ <link rel="stylesheet" href="./duo/upgrade.css?rev=ios-switcher-quality-20261010">
+<link rel="stylesheet" href="./duo/social-refresh.css?rev=phone-f05-calculator-safe-area-20261016b">
+<link rel="stylesheet" href="./duo/utilities.css">
+<link rel="stylesheet" href="./duo/kilogram.css">
+<link rel="stylesheet" href="./duo/native-refresh.css?rev=phone-f35-compact-20261015d">
+<link rel="stylesheet" href="./duo/weather.css?rev=ios-weather-native-20261011e">
+<link rel="stylesheet" href="./duo/video.css?rev=ios-communication-quality-20261010">
+<link rel="stylesheet" href="./duo/call.css?rev=ios-contained-feedback-20261011a">
+<link rel="stylesheet" href="./duo/music-glass.css">
+<link rel="stylesheet" href="./duo/control-center.css?rev=ios-control-center-quality-20261010">
+<link rel="stylesheet" href="./duo/settings-dock.css?rev=settings-dock-20261001">
+<link rel="stylesheet" href="./duo/fullscreen-apps.css?rev=fullscreen-20261001">
+<link rel="stylesheet" href="./duo/glass-bars.css?rev=glass-bars-opaque-20261001">
+<link rel="stylesheet" href="./duo/lock-screen.css">
+<link rel="stylesheet" href="./duo/sharedrop.css">
+<link rel="stylesheet" href="./duo/camera-refresh.css?rev=camera-frame-20261006">
+<link rel="stylesheet" href="./duo/appearance.css?rev=ios-contained-feedback-20261011a">
+<link rel="stylesheet" href="./duo/maps-editors.css?rev=maps-editors-20261008">
+<link rel="stylesheet" href="./duo/photos.css?rev=photos-theme-20261015">
+<link id="peak-duo-mail-styles" rel="stylesheet" href="./duo/mail.css">
+ <link rel="stylesheet" href="./duo/messages-app.css?rev=ios-communication-quality-20261010">
+ <link rel="stylesheet" href="./duo/sheet-system.css">
+ <link rel="stylesheet" href="./duo/app-editor-families.css?rev=app-editor-families-theme-20261015">
+ <link rel="stylesheet" href="./duo/a-native-editors.css?rev=a-native-editors-20261008m">
+ <link rel="stylesheet" href="./duo/legacy-app-sheets.css?rev=legacy-app-sheets-20261008f">
+<link rel="stylesheet" href="./duo/foldable-orientation.css?rev=ios-quarter-turn-20261011a">
+<link rel="stylesheet" href="./duo/notifications.css?rev=closed-peek-privacy-20261008">
+<link rel="stylesheet" href="./duo/hardware-controls.css?rev=ios-quarter-turn-20261011a">
+<link rel="stylesheet" href="./duo/notes.css?rev=ios-notes-scalable-read-20261011a">
+<link rel="stylesheet" href="./duo/restored-apps.css?rev=ios-restored-quality-20261010c">
+<link rel="stylesheet" href="./duo/nui-safe.css">
+ <script type="module">
+   import('./duo/shell.mjs?rev=calculator-owner-config-20261016a').catch(error=>{
+     console.error('[Peak Duo] Startup failed:',error);
+     if(typeof GetParentResourceName==='function')fetch(`https://${GetParentResourceName()}/ClosePhone`,{method:'POST',headers:{'Content-Type':'application/json'},body:'{}'}).catch(()=>{});
+     const box=document.createElement('div');box.style.cssText='position:fixed;bottom:3vh;right:3vw;max-width:360px;background:#20232e;color:white;border:1px solid #fff3;border-radius:14px;padding:20px;font:14px system-ui;z-index:99999';
+     box.textContent='Peak Duo could not start. Restore the previous resource or check F8 / NUI developer tools. '+error.message;document.body.append(box);
+   });
+ </script>
+</head>
+<body><script type="module" src="./duo/broken-phone.mjs?rev=phone-performance-20261011a"></script></body>
+</html>

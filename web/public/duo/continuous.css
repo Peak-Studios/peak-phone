@@ -1,0 +1,234 @@
+/* Continuous display v1. Original Peak UI inspired by the Duo's wide cover, side dock
+   and seamless inner display. No downloaded Apple art/fonts; no backdrop filters. */
+:root{--duo-width:min(40vh,44vw);--duo-height:56vh;--duo-gap:0vh;--duo-radius:2.7vh;--duo-split:50%;--duo-rail:4.6vh}
+#duo .duo-stage{width:calc(var(--duo-width) + 1.2vh);perspective:170vh}
+#duo[data-expanded=true] .duo-stage{width:calc(var(--duo-width)*2 + 1.2vh)}
+#duo .duo-chassis{height:calc(var(--duo-height) + 1.2vh);padding:.6vh;border-radius:calc(var(--duo-radius) + .55vh);background:linear-gradient(125deg,#131a24,#949da7 1%,#dce1e4 2%,#52606a 3%,#121720 7%,#242c34 47%,#8d97a0 78%,#353e47 97%,#dce5e8);box-shadow:0 2vh 5vh #0007,0 .5vh 1.5vh #0005,inset 0 0 0 .12vh #dde5ee,inset 0 0 0 .25vh #182129}
+#duo .duo-chassis:before{inset:.3vh;border:.18vh solid #0a0e13;border-radius:calc(var(--duo-radius) + .2vh)}
+#duo .duo-chassis:after{top:14vh;height:4.5vh;background:linear-gradient(90deg,#7c8998,#d4dce1,#4c5964);box-shadow:0 -6vh 0 -.05vh #8794a0}
+#duo .duo-hinge,#duo .duo-hardware{display:none!important}
+#duo .duo-spine{inset:.59vh;border-radius:var(--duo-radius);box-shadow:inset 0 0 0 .08vh #ffffff30}
+#duo .duo-screenbank{background:#090d13;perspective:none;border-radius:var(--duo-radius)}
+#duo .duo-pane{left:0;top:0;height:100%;width:100%;border-radius:0!important;transition:none;transform:none!important;opacity:1;visibility:visible;transform-style:flat}
+#duo .duo-pane[data-home=true]{overflow:clip}
+#duo .duo-pane[data-visible=false]{opacity:0;visibility:hidden;pointer-events:none}
+#duo[data-expanded=true][data-layout=split] .duo-pane[data-side=left]{width:var(--duo-split);left:0}
+#duo[data-expanded=true][data-layout=split] .duo-pane[data-side=right]{left:var(--duo-split);width:calc(100% - var(--duo-split))}
+#duo[data-expanded=false] .duo-pane[data-active=true],#duo[data-layout=full] .duo-pane[data-active=true]{left:0;width:100%;opacity:1;visibility:visible}
+#duo[data-expanded=false] .duo-pane[data-active=false],#duo[data-layout=full] .duo-pane[data-active=false]{left:0;width:100%;opacity:0;visibility:hidden;pointer-events:none}
+#duo .duo-pane[data-home=false]{background:#0e1119}
+#duo .duo-pane[data-home=false]>.duo-wallpaper{display:none}
+/* The right-side system rail leaves the actual content area unobstructed. */
+#duo .duo-status{height:3.7vh;padding:0 1.8vh;align-items:center;font-size:1.1vh;font-weight:700}
+#duo .duo-clock{font-variant-numeric:tabular-nums}
+#duo .duo-island{left:auto;right:1.25vh;top:3.4vh;width:.8vh;height:3.4vh;transform:none;border-radius:2vh;background:#090b0f;box-shadow:inset 0 0 0 .08vh #39475970}
+#duo .duo-island:after{top:.42vh;right:.18vh;width:.44vh;height:.44vh;background:radial-gradient(circle at 35% 25%,#357b99,#0e1924 70%);box-shadow:0 0 0 .07vh #6c93a52e}
+#duo[data-expanded=true] .duo-island{height:2.1vh;top:3.8vh;background:#121a25}
+#duo .duo-status-controls{height:2.6vh;padding:0;gap:.22vh}
+#duo .duo-status-controls svg{width:1.18vh;height:1.18vh}
+#duo .duo-app-rail{position:absolute;right:.65vh;top:8.2vh;bottom:3.2vh;width:3.2vh;display:flex;flex-direction:column;align-items:center;z-index:35;gap:.7vh}
+#duo .duo-app-rail button{color:#dee8f7;background:#ffffff0b;border:.1vh solid #ffffff14;border-radius:2vh;min-width:3.2vh;min-height:3.2vh;padding:.7vh;display:flex;align-items:center;justify-content:center}
+#duo .duo-app-rail button svg{width:1.6vh;height:1.6vh}
+#duo .duo-layout-handle:hover{background:#ffffff25}
+#duo .duo-resume{writing-mode:vertical-rl;max-width:none;max-height:26vh;margin-top:1vh;gap:.8vh;min-height:4vh;font-size:.88vh}
+#duo .duo-pane-title{max-height:20vh;overflow:hidden;text-overflow:ellipsis}
+#duo .duo-close-app{margin-top:auto}
+#duo .duo-pane[data-home=true] .duo-close-app{visibility:hidden}
+#duo .duo-pane[data-home=true] .duo-resume:disabled{display:none}
+#duo .duo-pane-navigation{height:2vh;bottom:0;padding:0!important;border:0!important;background:transparent!important;justify-content:center;pointer-events:none}
+#duo .duo-pane-navigation .duo-home-gesture{height:2vh;width:13vh;max-width:50%;padding:0;border:0;background:transparent!important;pointer-events:auto;touch-action:none}
+#duo .duo-home-gesture span{display:block;height:.4vh;width:10.5vh;border-radius:2vh;background:#f5f6fa;box-shadow:0 .1vh .4vh #0004;opacity:.9;transition:transform .18s,opacity .18s}
+#duo .duo-home-gesture:hover span{transform:translateY(-.25vh);opacity:1}
+#duo .duo-app-mount{inset:0 var(--duo-rail) 2vh 0;border-radius:0;background:var(--ios-bg)}
+/* Home: wider cover layout, dock moved to the trailing edge, original layered wallpaper. */
+#duo .duo-launcher{inset:4.5vh 5.4vh 3vh 1.9vh;gap:1.45vh;overflow:visible}
+#duo .duo-home-heading{min-height:4.9vh;align-items:center;margin:0}
+#duo .duo-home-heading h1{font-size:2.9vh;line-height:1.06;font-weight:660;letter-spacing:-.065em}
+#duo .duo-eyebrow{font-size:.72vh;letter-spacing:.17em;color:#dcecff}
+#duo .duo-profile{width:3.5vh;height:3.5vh;font-size:1.1vh;flex-shrink:0}
+#duo .duo-widgets{height:10.2vh;gap:1vh}
+#duo .duo-weather-widget,#duo .duo-workspace-widget{height:10.2vh;padding:1.3vh;border-radius:1.9vh!important;overflow:hidden}
+#duo .duo-weather-widget{background:linear-gradient(145deg,#deeaff5e,#86b3e338 65%,#d5edff25)!important;border:1px solid #ecf5ff55!important}
+#duo .duo-weather-label{font-size:2.2vh;white-space:nowrap;letter-spacing:-.045em}
+#duo .duo-workspace-widget strong{font-size:1.8vh}
+#duo .duo-widget-top{font-size:.83vh}
+#duo .duo-weather-caption{font-size:.79vh;max-width:90%}
+#duo .duo-weather-art{opacity:.65;right:-1.2vh;bottom:-1vh}
+#duo .duo-search{height:3.25vh;min-height:3.25vh;flex-shrink:0;padding:0 1.15vh;background:#162e5c42}
+#duo .duo-app-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:6.7vh;gap:.9vh .5vh;padding:.4vh .05vh 1vh;overflow-y:auto;overflow-x:hidden;min-height:0;scrollbar-gutter:auto;align-content:start;overscroll-behavior:contain}
+#duo .duo-app-button{gap:.6vh;min-height:6.5vh;padding:.15vh;justify-content:flex-start}
+#duo .duo-icon-tile{width:4.95vh;height:4.95vh;border-radius:1.25vh;box-shadow:0 .38vh .65vh #0a214540}
+#duo .duo-app-name{font-size:.92vh;line-height:1.2;font-weight:500;text-shadow:0 .1vh .35vh #08162e}
+#duo .duo-dock{position:absolute;right:-4.8vh;top:10.5vh;bottom:auto;width:4.3vh;height:auto;min-height:21.4vh;display:flex;flex-direction:column;justify-content:space-evenly;gap:.9vh;padding:1vh .4vh;border-radius:2.5vh;background:linear-gradient(150deg,#d4e7ff5e,#afc8ef28)!important;border:1px solid #ffffff50}
+#duo .duo-dock .duo-app-button{min-height:3.4vh;gap:0;padding:0}
+#duo .duo-dock .duo-icon-tile{width:3.4vh;height:3.4vh;border-radius:.9vh}
+#duo .duo-pane[data-home=true] .duo-app-rail{top:7.8vh;bottom:3vh}
+#duo .duo-pane[data-home=true] .duo-resume{margin-top:auto;max-height:7vh;max-width:2.6vh;font-size:.7vh}
+#duo .duo-pane[data-home=true] .duo-resume .duo-pane-title{max-height:6vh}
+#duo .duo-wallpaper:not(.duo-custom-wallpaper){background:radial-gradient(ellipse at 84% 3%,#d6e9fa 0,transparent 37%),radial-gradient(ellipse at 8% 64%,#6ba2de 0,transparent 58%),linear-gradient(145deg,#acc7df 2%,#5584af 45%,#1b3863 78%,#101f3f)}
+#duo .duo-wallpaper:not(.duo-custom-wallpaper):after{left:-28%;top:-40%;width:108%;height:152%;border-radius:45%;border:2.9vh solid #c6dff956;box-shadow:inset .12vh 0 0 #eff8ffb0,0 .12vh 0 #dcf1ff80,inset -3vh 2vh 4vh #799abe2e;transform:rotate(-38deg)}
+#duo .duo-wallpaper:not(.duo-custom-wallpaper):before{content:'';position:absolute;right:-54%;top:-36%;width:108%;height:152%;border-radius:45%;border:3.2vh solid #527fb250;box-shadow:inset -.12vh 0 0 #b8d9ffc0,0 .12vh 0 #d2ecff50;transform:rotate(-38deg)}
+#duo[data-accent=tide] .duo-wallpaper:not(.duo-custom-wallpaper){background:radial-gradient(ellipse at 75% 0%,#d9efe6,transparent 40%),linear-gradient(130deg,#90b9b6,#487f8b 48%,#0c343f)}
+#duo[data-accent=ember] .duo-wallpaper:not(.duo-custom-wallpaper){background:radial-gradient(ellipse at 75% 0%,#fce3d1,transparent 40%),linear-gradient(130deg,#c3918d,#966980 48%,#3d234e)}
+/* Full-width home adapts composition rather than doubling the old narrow UI. */
+#duo[data-expanded=true][data-layout=full] .duo-launcher{inset:5.2vh 6.5vh 3.6vh 3vh;display:grid;grid-template-columns:23vh minmax(0,1fr);grid-template-rows:6vh 3.5vh minmax(0,1fr);gap:1.6vh 3vh}
+#duo[data-expanded=true][data-layout=full] .duo-home-heading{grid-column:1/-1;padding-right:1vh}
+#duo[data-expanded=true][data-layout=full] .duo-home-heading h1{font-size:3.8vh}
+#duo[data-expanded=true][data-layout=full] .duo-search{grid-column:2;grid-row:2}
+#duo[data-expanded=true][data-layout=full] .duo-widgets{grid-column:1;grid-row:2/4;display:flex;flex-direction:column;gap:1.8vh;height:auto}
+#duo[data-expanded=true][data-layout=full] .duo-weather-widget,#duo[data-expanded=true][data-layout=full] .duo-workspace-widget{height:15.5vh;padding:1.8vh;flex-shrink:0}
+#duo[data-expanded=true][data-layout=full] .duo-weather-label{font-size:3.1vh}
+#duo[data-expanded=true][data-layout=full] .duo-workspace-widget strong{font-size:2.7vh}
+#duo[data-expanded=true][data-layout=full] .duo-widget-top{font-size:1.1vh}
+#duo[data-expanded=true][data-layout=full] .duo-weather-caption{font-size:1.05vh}
+#duo[data-expanded=true][data-layout=full] .duo-workspace-widget>span{font-size:.95vh}
+#duo[data-expanded=true][data-layout=full] .duo-app-grid{grid-column:2;grid-row:3;grid-template-columns:repeat(5,minmax(0,1fr));grid-auto-rows:7.2vh;gap:1vh .7vh}
+#duo[data-expanded=true][data-layout=full] .duo-dock{top:15vh;right:-5.8vh}
+#duo .duo-toolbar{height:4vh;padding-top:.8vh}
+#duo .duo-device-actions{gap:.6vh}
+#duo .duo-device-actions .duo-button{min-height:2.6vh;font-size:.9vh;padding:.55vh .8vh}
+#duo .duo-wordmark{font-size:.76vh;letter-spacing:.19em}
+#duo .duo-wordmark b{letter-spacing:.12em}
+/* Split divider is a UI control, not a permanent black hinge. */
+#duo .duo-split-divider{position:absolute;z-index:50;top:0;bottom:0;left:var(--duo-split);width:1.15vh;transform:translateX(-50%);cursor:col-resize;touch-action:none;display:grid;place-items:center;outline-offset:-.2vh}
+#duo .duo-split-divider:before{content:'';position:absolute;inset:0 auto;width:.16vh;background:#c4d4ed30}
+#duo .duo-split-divider span{width:.45vh;height:4.5vh;border-radius:2vh;background:#d7e4f6c9;border:.09vh solid #fff6;box-shadow:0 0 .8vh #0008}
+#duo .duo-split-divider:hover span,#duo.duo-resizing .duo-split-divider span{background:#8ec9ff;width:.6vh}
+#duo .duo-pane.duo-drop-target:after{content:'Open on this side';position:absolute;inset:1.2vh;z-index:70;display:grid;place-items:center;background:#1c75c975;border:.25vh solid #b2dcff;border-radius:2vh;color:#fff;font-size:1.8vh;font-weight:600;pointer-events:none}
+/* Multitasking sheet: keyboard-trapped, declarative controls, no destructive remounts. */
+#duo .duo-layout-sheet{position:absolute;right:1.1vh;top:4vh;bottom:2.3vh;width:min(38vh,calc(100% - 2.2vh));padding:2vh;border-radius:2.4vh;background:linear-gradient(145deg,#26354bfa,#151e2dff);border:1px solid #bcd2f53f;box-shadow:0 1vh 4vh #0008;overflow:auto;display:flex;flex-direction:column;gap:1.3vh;color:#fff}
+#duo .duo-layout-heading{display:flex;align-items:center;justify-content:space-between;gap:1vh;font-size:2.5vh;font-weight:650;letter-spacing:-.055em}
+#duo .duo-layout-description{font-size:1.05vh;color:#bbcbdf;margin:0}
+#duo .duo-layout-modes{display:grid;grid-template-columns:1fr 1fr;gap:1vh}
+#duo .duo-layout-option{padding:1.4vh 1vh;display:flex;align-items:center;flex-direction:column;gap:.7vh;background:#ffffff09;border:1px solid #ffffff24;color:#fff;border-radius:1.5vh}
+#duo .duo-layout-option[aria-pressed=true]{background:#438ad52e;border-color:#83bcfd;box-shadow:inset 0 0 0 .07vh #83bcfd}
+#duo .duo-layout-option strong{font-size:1.2vh;font-weight:600}
+#duo .duo-layout-option small{font-size:.86vh;color:#b3c4da}
+#duo .duo-layout-symbol{display:flex;width:5.7vh;height:3.7vh;border:1px solid #b5d7ff;border-radius:.65vh;gap:.25vh;padding:.3vh}
+#duo .duo-layout-symbol i{height:100%;background:linear-gradient(130deg,#92c5f895,#5f8dce50);border-radius:.25vh;flex:1}
+#duo .duo-symbol-full i+i{display:none}
+#duo .duo-layout-workspaces{display:flex;gap:1vh}
+#duo .duo-workspace-card{display:flex;flex:1;gap:.65vh;align-items:center;min-width:0;padding:.8vh;background:#ffffff07;border:1px solid #ffffff10;border-radius:1vh;color:#c4d1e3;font-size:.95vh;text-align:left}
+#duo .duo-workspace-card>svg{width:2.6vh;height:2.6vh;flex-shrink:0}
+#duo .duo-workspace-card[aria-pressed=true]{color:white;border-color:#a8c8ec70}
+#duo .duo-layout-sheet h3{font-size:1.2vh;font-weight:600;margin:.3vh 0 0}
+#duo .duo-layout-picker{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1vh;overflow:auto;min-height:6vh;flex:1;padding:.2vh}
+#duo .duo-layout-pick{display:flex;align-items:center;flex-direction:column;gap:.5vh;background:none;border:0;color:#e9f0fa;padding:.4vh;font-size:.83vh;min-width:0}
+#duo .duo-layout-pick svg{width:3.7vh;height:3.7vh}
+#duo .duo-layout-pick span{width:100%;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;text-align:center}
+#duo .duo-layout-hint{font-size:.82vh;color:#a6b9d1;line-height:1.5;margin:0}
+#duo[data-expanded=true][data-layout=full] .duo-input-host{left:0;width:100%}
+#duo[data-expanded=true][data-layout=split] .duo-input-host{left:0;width:var(--duo-split)}
+#duo[data-expanded=true][data-layout=split][data-active=right] .duo-input-host{left:var(--duo-split);width:calc(100% - var(--duo-split))}
+#duo .duo-control-center{max-width:calc(100% - 2vh);max-height:calc(100% - 6vh);overflow:auto}
+/* True perspective book leaves. Only the temporary presentation scene is 3D. */
+#duo .duo-fold-measure{position:fixed!important;top:0!important;right:auto!important;bottom:auto!important;left:-100000px!important;z-index:-1!important;transform:none!important;opacity:0!important;visibility:hidden!important;pointer-events:none!important}
+#duo .duo-fold-measure,#duo .duo-fold-measure *{transition:none!important;animation:none!important}
+#duo.duo-folding .duo-stage,#duo.duo-folding .duo-chassis,#duo.duo-folding .duo-screenbank{transition:none!important}
+#duo.duo-folding .duo-chassis{background:transparent;box-shadow:none}
+#duo.duo-folding .duo-chassis:before,#duo.duo-folding .duo-chassis:after,#duo.duo-folding .duo-spine{visibility:hidden}
+#duo.duo-folding .duo-screenbank:not(.duo-fold-copy){pointer-events:none}
+#duo .duo-fold-scene-clip{position:absolute;inset:0;overflow:hidden;border-radius:inherit;pointer-events:none;z-index:65;background:transparent}
+#duo .duo-fold-scene{position:absolute;right:.6vh;bottom:.6vh;overflow:visible;perspective:1200vh;perspective-origin:50% 50%;transform-style:preserve-3d;pointer-events:none}
+#duo .duo-fold-leaf{position:absolute;top:0;height:100%;transform-style:preserve-3d}
+#duo .duo-fold-left{transform-origin:right center;z-index:3}
+#duo .duo-fold-right{transform-origin:left center}
+#duo .duo-fold-top{transform-origin:center bottom;z-index:3}
+#duo .duo-fold-bottom{transform-origin:center top}
+#duo .duo-fold-front,#duo .duo-fold-back{position:absolute;inset:0;backface-visibility:hidden;border:.28vh solid #7e8d9c;box-shadow:0 1vh 3vh #0004;background:#162339;border-radius:2.7vh;overflow:hidden}
+#duo .duo-fold-left .duo-fold-front{border-radius:2.7vh 0 0 2.7vh;border-right:0}
+#duo .duo-fold-right .duo-fold-front{border-radius:0 2.7vh 2.7vh 0;border-left:0}
+/* The full-size snapshot is clipped by each leaf. Match its radius to that
+   leaf's outside corners or the copy paints square content over the front. */
+#duo .duo-fold-left .duo-fold-front>.duo-fold-copy{border-radius:2.7vh 0 0 2.7vh!important}
+#duo .duo-fold-right .duo-fold-front>.duo-fold-copy{border-radius:0 2.7vh 2.7vh 0!important}
+#duo .duo-fold-back{transform:rotateY(180deg) translateZ(.28vh);background:linear-gradient(135deg,#4e6175,#273445 50%,#182333);display:grid;place-items:center;box-shadow:inset 0 0 0 .1vh #c2d1df70,0 1vh 3vh #0005}
+#duo .duo-fold-back:before{content:'';position:absolute;top:2.8vh;left:2.8vh;width:9vh;height:4.6vh;border-radius:3vh;border:.12vh solid #5c718c;background:radial-gradient(circle at 27% 50%,#121c2a 0 1.3vh,#748ba5 1.35vh 1.5vh,transparent 1.55vh),radial-gradient(circle at 73% 50%,#121c2a 0 1.3vh,#748ba5 1.35vh 1.5vh,transparent 1.55vh),#1b2c42}
+#duo .duo-fold-back span{color:#9fb0c270;letter-spacing:.25em;font-size:1.4vh;font-weight:650}
+#duo .duo-fold-edge{position:absolute;right:0;top:0;width:.6vh;height:100%;background:linear-gradient(90deg,#172435,#bdcddf,#42546b);transform:rotateY(90deg);transform-origin:right;backface-visibility:visible}
+#duo .duo-fold-light{position:absolute;inset:0;background:linear-gradient(95deg,transparent 25%,#d4e9ff40 65%,#080c1990);pointer-events:none;transform:translateZ(.1vh);backface-visibility:hidden}
+#duo .duo-fold-shade{position:absolute;inset:0;z-index:10;pointer-events:none;transform:translateZ(.12vh);background:linear-gradient(270deg,#02050bc2 0,transparent 58%);backface-visibility:hidden}
+#duo .duo-fold-right .duo-fold-shade{background:linear-gradient(90deg,#02050bc2 0,transparent 58%)}
+#duo .duo-fold-top .duo-fold-shade{background:linear-gradient(0deg,#02050bc2 0,transparent 58%)}
+#duo .duo-fold-bottom .duo-fold-shade{background:linear-gradient(180deg,#02050bc2 0,transparent 58%)}
+#duo.duo-folding .duo-chassis>.duo-side-button{visibility:hidden!important;pointer-events:none!important}
+#duo .duo-fold-cover-panel{position:absolute;right:.6vh;bottom:.6vh;z-index:75;display:block;overflow:visible;pointer-events:none}
+#duo .duo-fold-cover-viewport{position:absolute;inset:0;overflow:hidden;border-radius:var(--duo-radius)}
+#duo .duo-fold-cover-copy{border-radius:var(--duo-radius)!important;overflow:hidden!important}
+#duo .duo-fold-hardware-layer{position:absolute;inset:0;z-index:16;overflow:visible;pointer-events:none;transform-style:preserve-3d;backface-visibility:hidden}
+  #duo .duo-fold-hardware-overlay{position:absolute;inset:auto .6vh .6vh auto;z-index:76;transform-origin:right bottom;overflow:visible;pointer-events:none;transform-style:preserve-3d}
+#duo .duo-fold-hardware-control{position:absolute;display:block;z-index:1;pointer-events:none}
+#duo .duo-fold-hardware-control:before{content:'';position:absolute;top:.35vh;right:.1vh;bottom:.35vh;width:.26vh;border-radius:.13vh;background:linear-gradient(90deg,#3c4145,#90999f 50%,#40494e);box-shadow:0 0 0 .05vh #1d252a}
+#duo .duo-fold-hardware-control[data-axis=horizontal]:before{top:auto;right:.35vh;bottom:.1vh;left:.35vh;width:auto;height:.26vh;background:linear-gradient(180deg,#3c4145,#90999f 50%,#40494e)}
+#duo .duo-fold-copy:not(.duo-fold-cover-copy){position:absolute;top:0;border-radius:0;overflow:hidden;transform:none!important;isolation:auto}
+#duo .duo-fold-copy>.duo-pane{width:100%!important;left:0!important;visibility:hidden!important;opacity:0!important}
+#duo .duo-fold-copy[data-snapshot-layout=full]>.duo-pane[data-active=true]{width:100%!important;visibility:visible!important;opacity:1!important}
+#duo .duo-fold-copy[data-snapshot-layout=split]>.duo-pane{visibility:visible!important;opacity:1!important}
+#duo .duo-fold-copy[data-snapshot-layout=split]>.duo-pane[data-side=left]{width:var(--duo-split)!important;left:0!important}
+#duo .duo-fold-copy[data-snapshot-layout=split]>.duo-pane[data-side=right]{width:calc(100% - var(--duo-split))!important;left:var(--duo-split)!important}
+#duo .duo-fold-copy>.duo-overlays,#duo .duo-fold-copy>.duo-split-divider{display:none!important}
+/* Shared app polish scales with the workspace; feature-specific logic stays in the retained apps. */
+#duo .duo-app-instance :is(button,input,textarea,select){max-width:100%}
+#duo .duo-app-instance :is(.glass-row,.mail-item,.phone-container-paper){transition:background-color 140ms ease,box-shadow 140ms ease!important}
+#duo .duo-app-instance :is(.glass-row,.my-card-glass,.fields-group,.settings-section){border-radius:1.8vh!important}
+#duo .duo-app-instance :is(.glass-header,.app-header,.gallery-header){letter-spacing:-.025em}
+#duo .duo-app-instance :is(.gh-title,.gallery-title,.sh-title,.garage-title){font-weight:700!important}
+#duo .duo-app-instance .glass-row{background:linear-gradient(140deg,#20232d,#191d27)!important;border-color:#ffffff08!important}
+#duo .duo-app-instance :is(.glass-search,.search-bar,.search-container,.garage-search){background:#202530!important;border-radius:1.3vh!important}
+#duo .duo-app-instance :is(.glass-tabs,.services-tabs,.garage-tabs,.nav-tabs,.gh-tabs){background:linear-gradient(145deg,#252d3b,#1c2330)!important;box-shadow:inset 0 .08vh 0 #fff1!important}
+#duo[data-expanded=true][data-layout=full] .duo-app-instance .glass-content{padding-left:2vh!important;padding-right:2vh!important}
+#duo[data-expanded=true][data-layout=full] .duo-app-instance :is(.gallery-grid,.garage-grid){grid-template-columns:repeat(auto-fill,minmax(13vh,1fr))!important}
+#duo .duo-app-instance[data-app=calculator] .calculator{max-width:44vh;margin-inline:auto;width:100%}
+/* Native iOS surfaces for the five core utility apps. */
+#duo .duo-app-instance:is([data-app=contacts],[data-app=details],[data-app=wenmo],[data-app=yellowpages]){--core-surface:#f2f2f7;--core-card:#fff;--core-line:#3c3c4324;--core-label:#8e8e93;--core-blue:#007aff;color:#111;background:var(--core-surface)!important}
+#duo .duo-app-instance:is([data-app=contacts],[data-app=details],[data-app=wenmo],[data-app=yellowpages]) :is(.glass-container,.glass-bg,.app-container,.wenmo-app,.yp-container){background:var(--core-surface)!important;color:#111!important}
+#duo .duo-app-instance:is([data-app=contacts],[data-app=details],[data-app=wenmo],[data-app=yellowpages]) :is(.glass-header,.wenmo-header,.yp-header){background:#f2f2f7f5!important;border-bottom:1px solid var(--core-line)!important;box-shadow:none!important}
+#duo .duo-app-instance:is([data-app=contacts],[data-app=details],[data-app=wenmo],[data-app=yellowpages]) :is(.gh-title,.brand,.yp-title){color:#111!important;font-weight:760!important;letter-spacing:-.045em!important}
+#duo .duo-app-instance:is([data-app=contacts],[data-app=details],[data-app=wenmo],[data-app=yellowpages]) :is(.glass-search,.search-container,.yp-search-wrapper){background:#e3e3e8!important;border:0!important;box-shadow:none!important;color:#3c3c43!important}
+#duo .duo-app-instance[data-app=contacts] :is(.my-card-glass,.glass-row,.info-glass-box){background:#fff!important;border:0!important;box-shadow:inset 0 -.08vh 0 var(--core-line)!important;color:#111!important}
+#duo .duo-app-instance[data-app=contacts] :is(.gr-name,.mcg-name,.pc-name,.igb-value){color:#111!important}
+#duo .duo-app-instance[data-app=contacts] :is(.sub-label,.gl-marker,.mcg-sub,.pc-phone,.igb-label){color:var(--core-label)!important}
+#duo .duo-app-instance[data-app=contacts] :is(.gh-add,.go-back,.go-edit,.glass-btn){color:var(--core-blue)!important}
+#duo .duo-app-instance[data-app=details] .profile-header{background:linear-gradient(155deg,#fff,#eef5ff)!important;border:0!important;box-shadow:0 .8vh 2.4vh #1c35551a!important}
+#duo .duo-app-instance[data-app=details] :is(.stat-card,.section-container,.license-item){background:#fff!important;border:0!important;color:#111!important;box-shadow:0 .35vh 1.2vh #1c355512!important}
+#duo .duo-app-instance[data-app=details] :is(.player-name,.stat-value,.license-name){color:#111!important}
+#duo .duo-app-instance[data-app=details] :is(.stat-label,.wallet-label,.license-status-text){color:var(--core-label)!important}
+#duo .duo-app-instance[data-app=details] .wallet-card{border-radius:1.8vh!important;box-shadow:0 .5vh 1.5vh #0002!important}
+#duo .duo-app-instance[data-app=wenmo] :is(.balance-container,.transaction-item,.send-container){background:#fff!important;border:0!important;color:#111!important;box-shadow:0 .45vh 1.5vh #203b5a12!important}
+#duo .duo-app-instance[data-app=wenmo] :is(.balance-amount,.name,.d-name){color:#111!important}
+#duo .duo-app-instance[data-app=wenmo] :is(.balance-label,.time,.comment,.d-phone){color:var(--core-label)!important}
+#duo .duo-app-instance[data-app=wenmo] :is(.icon-btn,.pay-btn){background:var(--core-blue)!important;color:#fff!important;border:0!important;box-shadow:none!important}
+#duo .duo-app-instance[data-app=yellowpages] .yp-card{background:#fff!important;border:0!important;border-radius:1.8vh!important;color:#111!important;box-shadow:0 .45vh 1.5vh #5a461512!important}
+#duo .duo-app-instance[data-app=yellowpages] :is(.yp-sender,.yp-message,.yp-number){color:#111!important}
+#duo .duo-app-instance[data-app=yellowpages] .yp-content{background:var(--core-surface)!important;color:#111!important}
+#duo .duo-app-instance[data-app=yellowpages] .yp-header .yp-search-wrapper{background:#e3e3e8!important;border:0!important;box-shadow:none!important}
+#duo .duo-app-instance[data-app=yellowpages] .yp-header .yp-search-wrapper input{background:transparent!important}
+#duo .duo-app-instance[data-app=yellowpages] .yp-search-wrapper :is(input,i){color:#3c3c43!important}
+#duo .duo-app-instance[data-app=yellowpages] .yp-search-wrapper input::placeholder{color:#8e8e93!important}
+#duo .duo-app-instance[data-app=yellowpages] .yp-empty{color:#8e8e93!important}
+#duo .duo-app-instance[data-app=yellowpages] .yp-fab{background:#ffcc00!important;color:#17130a!important;box-shadow:0 .6vh 1.6vh #7d620038!important}
+#duo .duo-app-instance[data-app=calculator]{background:#000!important}
+#duo .duo-app-instance[data-app=calculator] .calculator{justify-content:flex-end;height:calc(100% - 2vh);padding:1vh 2.2vh 2.4vh!important;gap:1.4vh!important}
+#duo .duo-app-instance[data-app=calculator] .calculator-display{background:transparent!important;border:0!important;box-shadow:none!important;min-height:9vh!important;padding:1vh .6vh!important}
+#duo .duo-app-instance[data-app=calculator] .display-result{font-weight:300!important;color:#fff!important;letter-spacing:-.055em}
+#duo .duo-app-instance[data-app=calculator] .calculator-keypad{gap:1vh!important}
+#duo .duo-app-instance[data-app=calculator] .calc-btn{aspect-ratio:1;border:0!important;border-radius:50%!important;box-shadow:none!important;font-weight:500!important;transition:filter .12s,transform .12s!important}
+#duo .duo-app-instance[data-app=calculator] .calc-btn:active{filter:brightness(1.35);transform:scale(.94)}
+#duo .duo-app-instance[data-app=calculator] .btn-number{background:#333!important;color:#fff!important}
+#duo .duo-app-instance[data-app=calculator] .btn-function{background:#a5a5a5!important;color:#000!important}
+#duo .duo-app-instance[data-app=calculator] :is(.btn-operator,.btn-equals){background:#ff9f0a!important;color:#fff!important}
+#duo .duo-app-instance[data-app=calculator] .btn-zero{aspect-ratio:auto;border-radius:4vh!important;text-align:left!important;padding-left:2.2vh!important}
+#duo[data-expanded=true][data-layout=full] .duo-dock{left:5.2vh;right:auto;top:27vh;bottom:auto}
+@media(max-aspect-ratio: 7/5){#duo[data-expanded=true][data-layout=full] .duo-launcher{grid-template-columns:19vh minmax(0,1fr);gap:1.3vh 2vh}#duo[data-expanded=true][data-layout=full] .duo-app-grid{grid-template-columns:repeat(4,minmax(0,1fr))}.duo-preview-notice{display:none}}
+@media(max-aspect-ratio: 1/1){:root{--duo-width:44vw;--duo-rail:3.7vh}#duo .duo-launcher{inset:4.5vh 4.2vh 3vh 1vh}#duo .duo-app-grid{grid-template-columns:repeat(3,minmax(0,1fr))}#duo .duo-widgets{height:10.2vh;display:block}#duo .duo-workspace-widget{display:none}#duo[data-expanded=true][data-layout=full] .duo-launcher{display:flex}#duo[data-expanded=true][data-layout=full] .duo-widgets{height:10.2vh;display:flex;flex-direction:row}#duo[data-expanded=true][data-layout=full] .duo-weather-widget{height:10.2vh;width:100%}#duo[data-expanded=true][data-layout=full] .duo-app-grid{grid-template-columns:repeat(5,minmax(0,1fr))}#duo .duo-app-name{font-size:.8vh}}
+@media(prefers-reduced-motion:reduce){#duo .duo-home-gesture span{transition:none}#duo .duo-stage,#duo .duo-chassis,#duo .duo-screenbank,#duo .duo-pane{transition:none!important}}
+
+#duo .duo-app-grid{mask-image:linear-gradient(to bottom,#000 0%,#000 calc(100% - 1.5vh),transparent 100%)}
+
+
+/* Full-width home adapts composition rather than doubling the old narrow UI. */
+#duo .duo-fold-copy[data-snapshot-layout=full] .duo-launcher{inset:5.2vh 6.5vh 3.6vh 3vh;display:grid;grid-template-columns:23vh minmax(0,1fr);grid-template-rows:6vh 3.5vh minmax(0,1fr);gap:1.6vh 3vh}/* Empty rail space must never intercept the dock underneath it. */
+#duo .duo-app-rail{pointer-events:none}
+#duo .duo-app-rail button{pointer-events:auto}
+#duo .duo-pane[data-home=true] .duo-close-app{display:none}
+#duo .duo-pane[data-home=true] .duo-app-rail .duo-resume{position:absolute;bottom:0;max-height:7vh;margin:0}

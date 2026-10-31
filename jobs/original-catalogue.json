@@ -1,0 +1,826 @@
+{
+  "impound": {
+    "VPNRequired": false,
+    "OfferQueue": false,
+    "Props": [
+      {
+        "Prop": "prop_notepad_01",
+        "Placement": [
+          0.1,
+          0.02,
+          0.05,
+          10.0,
+          0.0,
+          0.0
+        ],
+        "Bone": 18905
+      },
+      {
+        "Prop": "prop_pencil_01",
+        "Placement": [
+          0.11,
+          -0.02,
+          0.001,
+          -120.0,
+          0.0,
+          0.0
+        ],
+        "Bone": 58866
+      }
+    ],
+    "JobId": "impound",
+    "Icon": "fas fa-truck",
+    "Coords": {
+      "x": 1000.2,
+      "y": -2310.57,
+      "z": 29.57
+    },
+    "PedModel": "mp_m_waremech_01",
+    "JobName": "Impound Worker",
+    "Anim": {
+      "Dict": "missheistdockssetup1clipboard@base",
+      "Name": "base"
+    },
+    "BasePayment": 100,
+    "BaseIncreasement": [
+      1.0
+    ],
+    "GroupSize": 1,
+    "Heading": 270.09
+  },
+  "newspaper": {
+    "VPNRequired": false,
+    "OfferQueue": false,
+    "Props": [
+      {
+        "Prop": "prop_notepad_01",
+        "Placement": [
+          0.1,
+          0.02,
+          0.05,
+          10.0,
+          0.0,
+          0.0
+        ],
+        "Bone": 18905
+      },
+      {
+        "Prop": "prop_pencil_01",
+        "Placement": [
+          0.11,
+          -0.02,
+          0.001,
+          -120.0,
+          0.0,
+          0.0
+        ],
+        "Bone": 58866
+      }
+    ],
+    "JobId": "newspaper",
+    "Icon": "fas fa-newspaper",
+    "Coords": {
+      "x": 374.6473,
+      "y": -368.6436,
+      "z": 45.783
+    },
+    "PedModel": "csb_customer",
+    "JobName": "Newspaper Delivery",
+    "Anim": {
+      "Dict": "missheistdockssetup1clipboard@base",
+      "Name": "base"
+    },
+    "BasePayment": 75,
+    "BaseIncreasement": [
+      1.0
+    ],
+    "GroupSize": 1,
+    "Heading": 155.9597
+  },
+  "fishing": {
+    "VPNRequired": false,
+    "OfferQueue": false,
+    "Props": [
+      {
+        "Prop": "prop_notepad_01",
+        "Placement": [
+          0.1,
+          0.02,
+          0.05,
+          10.0,
+          0.0,
+          0.0
+        ],
+        "Bone": 18905
+      },
+      {
+        "Prop": "prop_pencil_01",
+        "Placement": [
+          0.11,
+          -0.02,
+          0.001,
+          -120.0,
+          0.0,
+          0.0
+        ],
+        "Bone": 58866
+      }
+    ],
+    "JobId": "fishing",
+    "Icon": "fas fa-fish",
+    "Coords": {
+      "x": -1710.39,
+      "y": -1110.89,
+      "z": 12.15
+    },
+    "PedModel": "cs_old_man1a",
+    "JobName": "Fishing",
+    "Anim": {
+      "Dict": "missheistdockssetup1clipboard@base",
+      "Name": "base"
+    },
+    "BasePayment": 90,
+    "BaseIncreasement": [
+      1.0,
+      0.9,
+      0.8,
+      0.7
+    ],
+    "GroupSize": 4,
+    "Heading": 92.17
+  },
+  "busdriver": {
+    "VPNRequired": false,
+    "OfferQueue": false,
+    "Props": [
+      {
+        "Prop": "prop_notepad_01",
+        "Placement": [
+          0.1,
+          0.02,
+          0.05,
+          10.0,
+          0.0,
+          0.0
+        ],
+        "Bone": 18905
+      },
+      {
+        "Prop": "prop_pencil_01",
+        "Placement": [
+          0.11,
+          -0.02,
+          0.001,
+          -120.0,
+          0.0,
+          0.0
+        ],
+        "Bone": 58866
+      }
+    ],
+    "JobId": "busdriver",
+    "Icon": "fas fa-bus",
+    "Coords": {
+      "x": 454.73,
+      "y": -608.3,
+      "z": 28.53
+    },
+    "PedModel": "s_m_m_gentransport",
+    "JobName": "Bus Driver",
+    "Anim": {
+      "Dict": "missheistdockssetup1clipboard@base",
+      "Name": "base"
+    },
+    "BasePayment": 0,
+    "BaseIncreasement": [
+      1.0
+    ],
+    "GroupSize": 1,
+    "Heading": 270.0
+  },
+  "pressurewash": {
+    "VPNRequired": false,
+    "OfferQueue": false,
+    "Props": [
+      {
+        "Prop": "prop_notepad_01",
+        "Placement": [
+          0.1,
+          0.02,
+          0.05,
+          10.0,
+          0.0,
+          0.0
+        ],
+        "Bone": 18905
+      },
+      {
+        "Prop": "prop_pencil_01",
+        "Placement": [
+          0.11,
+          -0.02,
+          0.001,
+          -120.0,
+          0.0,
+          0.0
+        ],
+        "Bone": 58866
+      }
+    ],
+    "JobId": "pressurewash",
+    "Hidden": true,
+    "Icon": "fas fa-spray-can-sparkles",
+    "Coords": {
+      "x": 526.74,
+      "y": -1604.81,
+      "z": 28.29
+    },
+    "PedModel": "s_m_m_gardener_01",
+    "JobName": "Pressure Washing",
+    "Anim": {
+      "Dict": "missheistdockssetup1clipboard@base",
+      "Name": "base"
+    },
+    "BasePayment": 0,
+    "BaseIncreasement": [
+      1.0
+    ],
+    "GroupSize": 4,
+    "Heading": 50.746181
+  },
+  "oxy": {
+    "VPNRequired": true,
+    "OfferQueue": true,
+    "JobId": "oxy",
+    "Icon": "fas fa-newspaper",
+    "Coords": {
+      "x": -458.27,
+      "y": -2266.15,
+      "z": 7.52
+    },
+    "PedModel": "a_m_m_og_boss_01",
+    "JobName": "\"Newspaper\" Seller",
+    "BasePayment": 0,
+    "GroupSize": 2,
+    "Heading": 274.08
+  },
+  "postop": {
+    "VPNRequired": false,
+    "OfferQueue": false,
+    "JobId": "postop",
+    "Icon": "fas fa-store-alt",
+    "Coords": {
+      "x": 929.99,
+      "y": -1249.48,
+      "z": 24.5
+    },
+    "PedModel": "s_m_m_gentransport",
+    "JobName": "24/7 Logistics",
+    "BasePayment": 90,
+    "BaseIncreasement": [
+      1.0,
+      0.89
+    ],
+    "GroupSize": 2,
+    "Heading": 32.94
+  },
+  "lumberjack": {
+    "VPNRequired": false,
+    "OfferQueue": false,
+    "Props": [
+      {
+        "Prop": "prop_notepad_01",
+        "Placement": [
+          0.1,
+          0.02,
+          0.05,
+          10.0,
+          0.0,
+          0.0
+        ],
+        "Bone": 18905
+      },
+      {
+        "Prop": "prop_pencil_01",
+        "Placement": [
+          0.11,
+          -0.02,
+          0.001,
+          -120.0,
+          0.0,
+          0.0
+        ],
+        "Bone": 58866
+      }
+    ],
+    "JobId": "lumberjack",
+    "Icon": "fas fa-tree",
+    "Coords": {
+      "x": -567.28,
+      "y": 5253.17,
+      "z": 69.46
+    },
+    "PedModel": "s_m_y_construct_01",
+    "JobName": "Lumberjack",
+    "Anim": {
+      "Dict": "missheistdockssetup1clipboard@base",
+      "Name": "base"
+    },
+    "BasePayment": 0,
+    "BaseIncreasement": [
+      1.0
+    ],
+    "GroupSize": 1,
+    "Heading": 74.0
+  },
+  "houses": {
+    "VPNRequired": true,
+    "OfferQueue": true,
+    "JobId": "houses",
+    "Icon": "fas fa-house",
+    "Coords": {
+      "x": -488.91,
+      "y": 299.03,
+      "z": 82.79
+    },
+    "PedModel": "a_m_m_og_boss_01",
+    "JobName": "Cleaning Company",
+    "BasePayment": 0,
+    "GroupSize": 4,
+    "Heading": 357.75
+  },
+  "gridfix": {
+    "VPNRequired": false,
+    "OfferQueue": false,
+    "Props": [
+      {
+        "Prop": "prop_notepad_01",
+        "Placement": [
+          0.1,
+          0.02,
+          0.05,
+          10.0,
+          0.0,
+          0.0
+        ],
+        "Bone": 18905
+      },
+      {
+        "Prop": "prop_pencil_01",
+        "Placement": [
+          0.11,
+          -0.02,
+          0.001,
+          -120.0,
+          0.0,
+          0.0
+        ],
+        "Bone": 58866
+      }
+    ],
+    "JobId": "gridfix",
+    "Icon": "fas fa-bolt",
+    "Coords": {
+      "x": 736.12,
+      "y": 132.78,
+      "z": 79.72
+    },
+    "PedModel": "s_m_y_construct_01",
+    "JobName": "Electric Utility Technician",
+    "Anim": {
+      "Dict": "missheistdockssetup1clipboard@base",
+      "Name": "base"
+    },
+    "BasePayment": 0,
+    "BaseIncreasement": [
+      1.0
+    ],
+    "GroupSize": 1,
+    "Heading": 340.0
+  },
+  "animalrescue": {
+    "VPNRequired": false,
+    "OfferQueue": false,
+    "Props": [
+      {
+        "Prop": "prop_notepad_01",
+        "Placement": [
+          0.1,
+          0.02,
+          0.05,
+          10.0,
+          0.0,
+          0.0
+        ],
+        "Bone": 18905
+      },
+      {
+        "Prop": "prop_pencil_01",
+        "Placement": [
+          0.11,
+          -0.02,
+          0.001,
+          -120.0,
+          0.0,
+          0.0
+        ],
+        "Bone": 58866
+      }
+    ],
+    "JobId": "animalrescue",
+    "Icon": "fas fa-paw",
+    "Coords": {
+      "x": -895.51,
+      "y": -778.84,
+      "z": 15.01
+    },
+    "PedModel": "s_m_y_ranger_01",
+    "JobName": "Animal Rescue",
+    "Anim": {
+      "Dict": "missheistdockssetup1clipboard@base",
+      "Name": "base"
+    },
+    "BasePayment": 80,
+    "BaseIncreasement": [
+      1.0
+    ],
+    "GroupSize": 1,
+    "Heading": 125.0
+  },
+  "detectorist": {
+    "VPNRequired": false,
+    "OfferQueue": false,
+    "Props": [
+      {
+        "Prop": "prop_notepad_01",
+        "Placement": [
+          0.1,
+          0.02,
+          0.05,
+          10.0,
+          0.0,
+          0.0
+        ],
+        "Bone": 18905
+      },
+      {
+        "Prop": "prop_pencil_01",
+        "Placement": [
+          0.11,
+          -0.02,
+          0.001,
+          -120.0,
+          0.0,
+          0.0
+        ],
+        "Bone": 58866
+      }
+    ],
+    "JobId": "detectorist",
+    "Hidden": true,
+    "Icon": "fas fa-search-location",
+    "Coords": {
+      "x": -1336.55,
+      "y": -407.06,
+      "z": 36.5
+    },
+    "PedModel": "s_m_y_dockwork_01",
+    "JobName": "Metal Detectorist",
+    "Anim": {
+      "Dict": "missheistdockssetup1clipboard@base",
+      "Name": "base"
+    },
+    "BasePayment": 0,
+    "BaseIncreasement": [
+      1.0
+    ],
+    "GroupSize": 1,
+    "Heading": 31.0
+  },
+  "lamar_mission_2": {
+    "VPNRequired": true,
+    "OfferQueue": false,
+    "JobId": "lamar_mission_2",
+    "Icon": "fas fa-car",
+    "Coords": {
+      "x": -205.68,
+      "y": -1310.68,
+      "z": -50.0
+    },
+    "PedModel": "g_m_y_famdnf_01",
+    "JobName": "Lamar Mission",
+    "PreventCancel": false,
+    "Hidden": true,
+    "BasePayment": 0,
+    "GroupSize": 4,
+    "Heading": 0.0
+  },
+  "peak_warehouse_robbery": {
+    "VPNRequired": true,
+    "OfferQueue": false,
+    "JobId": "peak_warehouse_robbery",
+    "Icon": "fas fa-warehouse",
+    "Coords": {
+      "x": 671.91,
+      "y": -2667.49,
+      "z": 6.08
+    },
+    "PedModel": "g_m_m_armboss_01",
+    "JobName": "Warehouse Robbery",
+    "Hidden": true,
+    "IgnoreQueue": true,
+    "BasePayment": 0,
+    "GroupSize": 5,
+    "Heading": 266.0
+  },
+  "chopshop": {
+    "VPNRequired": true,
+    "OfferQueue": true,
+    "Props": {},
+    "JobId": "chopshop",
+    "Icon": "fas fa-car-crash",
+    "Coords": {
+      "x": -274.82,
+      "y": 167.96,
+      "z": 77.93
+    },
+    "PedModel": "s_m_m_lathandy_01",
+    "JobName": "Chop Shop",
+    "Anim": {},
+    "BasePayment": 0,
+    "GroupSize": 4,
+    "Heading": 88.95
+  },
+  "gruppe6": {
+    "VPNRequired": false,
+    "OfferQueue": false,
+    "Props": [
+      {
+        "Prop": "prop_notepad_01",
+        "Placement": [
+          0.1,
+          0.02,
+          0.05,
+          10.0,
+          0.0,
+          0.0
+        ],
+        "Bone": 18905
+      },
+      {
+        "Prop": "prop_pencil_01",
+        "Placement": [
+          0.11,
+          -0.02,
+          0.001,
+          -120.0,
+          0.0,
+          0.0
+        ],
+        "Bone": 58866
+      }
+    ],
+    "JobId": "gruppe6",
+    "Hidden": true,
+    "Icon": "fas fa-shield-alt",
+    "Coords": {
+      "x": -27.31,
+      "y": -664.14,
+      "z": 33.4
+    },
+    "PedModel": "s_m_m_armoured_02",
+    "JobName": "Gruppe 6 Security",
+    "Anim": {
+      "Dict": "missheistdockssetup1clipboard@base",
+      "Name": "base"
+    },
+    "BasePayment": 110,
+    "BaseIncreasement": [
+      1.0,
+      0.9
+    ],
+    "GroupSize": 2,
+    "Heading": 270.0
+  },
+  "fooddelivery": {
+    "VPNRequired": false,
+    "OfferQueue": false,
+    "Props": [
+      {
+        "Prop": "prop_notepad_01",
+        "Placement": [
+          0.1,
+          0.02,
+          0.05,
+          10.0,
+          0.0,
+          0.0
+        ],
+        "Bone": 18905
+      },
+      {
+        "Prop": "prop_pencil_01",
+        "Placement": [
+          0.11,
+          -0.02,
+          0.001,
+          -120.0,
+          0.0,
+          0.0
+        ],
+        "Bone": 58866
+      }
+    ],
+    "JobId": "fooddelivery",
+    "Icon": "fas fa-utensils",
+    "Coords": {
+      "x": -232.43,
+      "y": -915.5,
+      "z": 31.31
+    },
+    "PedModel": "s_m_m_linecook",
+    "JobName": "Food Delivery Worker",
+    "Anim": {
+      "Dict": "missheistdockssetup1clipboard@base",
+      "Name": "base"
+    },
+    "BasePayment": 75,
+    "BaseIncreasement": [
+      1.0
+    ],
+    "GroupSize": 1,
+    "Heading": 342.21
+  },
+  "construction": {
+    "VPNRequired": false,
+    "OfferQueue": false,
+    "JobId": "construction",
+    "Icon": "fas fa-user-hard-hat",
+    "Coords": {
+      "x": 1122.69,
+      "y": -1304.65,
+      "z": 33.72
+    },
+    "PedModel": "s_m_y_construct_02",
+    "JobName": "Construction Worker",
+    "BasePayment": 95,
+    "BaseIncreasement": [
+      1.0,
+      0.93
+    ],
+    "GroupSize": 2,
+    "Heading": 356.11
+  },
+  "peak_ocean_smuggling": {
+    "VPNRequired": true,
+    "OfferQueue": false,
+    "JobId": "peak_ocean_smuggling",
+    "Icon": "fas fa-server",
+    "Coords": {
+      "x": -1799.42,
+      "y": -1224.35,
+      "z": 0.69
+    },
+    "PedModel": "s_m_y_dockwork_01",
+    "JobName": "Ocean Uplink",
+    "Hidden": true,
+    "IgnoreQueue": true,
+    "BasePayment": 0,
+    "GroupSize": 5,
+    "Heading": 319.0
+  },
+  "weedrun": {
+    "VPNRequired": true,
+    "OfferQueue": true,
+    "JobId": "weedrun",
+    "Icon": "fas fa-user-hard-hat",
+    "Coords": {
+      "x": 1233.21,
+      "y": 2737.31,
+      "z": 37.01
+    },
+    "PedModel": "a_m_y_eastsa_01",
+    "JobName": "Roadman Delivery",
+    "Hidden": true,
+    "BasePayment": 0,
+    "GroupSize": 1,
+    "Heading": 273.26
+  },
+  "peak_diving": {
+    "VPNRequired": true,
+    "Props": [
+      {
+        "Prop": "prop_notepad_01",
+        "Placement": [
+          0.1,
+          0.02,
+          0.05,
+          10.0,
+          0.0,
+          0.0
+        ],
+        "Bone": 18905
+      },
+      {
+        "Prop": "prop_pencil_01",
+        "Placement": [
+          0.11,
+          -0.02,
+          0.001,
+          -120.0,
+          0.0,
+          0.0
+        ],
+        "Bone": 58866
+      }
+    ],
+    "JobId": "peak_diving",
+    "Icon": "fas fa-water",
+    "Coords": {
+      "x": -1517.93,
+      "y": 1502.83,
+      "z": 110.62
+    },
+    "PedModel": "s_m_y_dockwork_01",
+    "JobName": "Sea Hunt",
+    "Anim": {
+      "Dict": "missheistdockssetup1clipboard@base",
+      "Name": "base"
+    },
+    "Hidden": true,
+    "BasePayment": 0,
+    "GroupSize": 5,
+    "Heading": 71.12
+  },
+  "sanitation": {
+    "VPNRequired": false,
+    "OfferQueue": false,
+    "Props": [
+      {
+        "Prop": "prop_notepad_01",
+        "Placement": [
+          0.1,
+          0.02,
+          0.05,
+          10.0,
+          0.0,
+          0.0
+        ],
+        "Bone": 18905
+      },
+      {
+        "Prop": "prop_pencil_01",
+        "Placement": [
+          0.11,
+          -0.02,
+          0.001,
+          -120.0,
+          0.0,
+          0.0
+        ],
+        "Bone": 58866
+      }
+    ],
+    "JobId": "sanitation",
+    "Icon": "fas fa-trash-alt",
+    "Coords": {
+      "x": -353.1,
+      "y": -1546.22,
+      "z": 26.8
+    },
+    "PedModel": "s_m_y_construct_01",
+    "JobName": "Sanitation Worker",
+    "Anim": {
+      "Dict": "missheistdockssetup1clipboard@base",
+      "Name": "base"
+    },
+    "BasePayment": 95,
+    "BaseIncreasement": [
+      1.0,
+      0.8,
+      0.6,
+      0.5
+    ],
+    "GroupSize": 4,
+    "Heading": 269.21
+  },
+  "boosting": {
+    "VPNRequired": true,
+    "OfferQueue": false,
+    "JobId": "boosting",
+    "PreventCancel": true,
+    "Icon": "",
+    "Coords": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": -100.0
+    },
+    "PedModel": "s_m_m_postal_02",
+    "JobName": "Boosting",
+    "Hidden": true,
+    "IgnoreQueue": true,
+    "BasePayment": 0,
+    "GroupSize": 2,
+    "Heading": 0.0
+  }
+}

@@ -1,0 +1,21 @@
+#duo .duo-search{position:relative;isolation:isolate;overflow:hidden;background:linear-gradient(145deg,#dbe8f040,#a2b9d124)!important}
+#duo .duo-search>.duo-dock-blur{z-index:-1}
+#duo :is(.nx-y-bottom,[data-app=documents] .notes-filters){isolation:isolate;position:relative;background:linear-gradient(145deg,#dbe7f04d,#a3b4ca2e)!important;border:1px solid #e8f2ff40!important;box-shadow:inset 0 1px #fff4,0 .35vh 1.2vh #0002!important}
+/* The opaque base replaces the sharp original beneath the blurred replica. */
+#duo .duo-surface-blur{position:absolute;inset:0;border-radius:inherit;overflow:hidden;pointer-events:none;z-index:-1;background:var(--nx-bg,#0b0c10)}
+#duo [data-app=documents] .duo-surface-blur{background:var(--ios-bg,#0b0c10)}
+#duo .duo-surface-blur::after{content:'';position:absolute;inset:0;pointer-events:none;background:linear-gradient(145deg,#dbe7f04d,#a3b4ca2e)}
+#duo .duo-surface-replica{filter:blur(1.35vh) saturate(1.2);user-select:none;pointer-events:none!important}
+#duo .duo-surface-replica *{pointer-events:none!important}
+#duo .duo-surface-replica::-webkit-scrollbar,#duo .duo-surface-replica *::-webkit-scrollbar{display:none}
+#duo .nx-y-body{padding-bottom:10vh!important}
+#duo .nx-y-bottom{position:absolute!important;left:1.1vh;right:1.1vh;bottom:2.8vh;height:6.2vh!important;width:auto!important;max-width:48vh;min-width:0;margin:0 auto!important;padding:.4vh .35vh!important;display:grid!important;grid-template-columns:repeat(5,minmax(0,1fr));gap:.1vh;overflow:hidden}
+#duo .nx-y-bottom>.nx-button{min-width:0;width:100%;height:5.2vh!important;min-height:0;justify-content:center;flex:none;padding:.35vh .1vh!important;gap:.3vh!important}
+#duo .nx-y-bottom>.nx-button>span{font-size:clamp(6px,.75vh,9px);line-height:1.15;max-width:100%;white-space:normal;overflow-wrap:anywhere}
+#duo .nx-y-bottom>.nx-button>svg{width:2vh;height:2vh;flex:none}
+#duo .nx-y-compose{bottom:9.7vh!important;right:1.6vh!important}
+#duo [data-app=documents] .glass-scroll{height:auto!important;min-height:0;min-width:0;overflow:auto;padding:0 1.2vh 1.2vh!important;scroll-padding-top:6vh}
+#duo [data-app=documents] .notes-filters{position:sticky!important;top:.35vh;z-index:5;display:flex;flex-wrap:wrap;gap:.35vh!important;margin:.6vh 0 1vh!important;padding:.55vh!important;border-radius:1.6vh!important;overflow:visible!important;max-width:100%;box-sizing:border-box}
+#duo [data-app=documents] .notes-filter-chip{min-width:0;white-space:normal!important;overflow-wrap:anywhere;line-height:1.25;padding:.65vh .8vh!important;flex:1 1 auto;text-align:center}
+#duo[data-transparency=reduced] :is(.duo-search,.nx-y-bottom,[data-app=documents] .notes-filters){background:#253346!important}
+#duo[data-transparency=reduced] :is(.duo-search>.duo-dock-blur,.duo-surface-blur){display:none}

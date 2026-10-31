@@ -1,0 +1,15 @@
+/* Every app paints the entire pane. Safe areas belong inside the app surface. */
+#duo .duo-app-mount{inset:0!important;background:transparent!important}
+#duo .duo-screenbank .duo-pane .duo-app-mount>.duo-app-instance.ios-app{inset:0!important;width:100%;height:100%;border-radius:0!important}
+#duo .duo-app-instance>:is(.nx-app,.pm-app,.ios-store,.peak-jobs,.phone-app-wrapper){height:100%!important;min-height:0;box-sizing:border-box!important;padding-top:3.7vh!important;padding-bottom:2.4vh!important}
+#duo .duo-app-instance.duo-media-gallery{padding-top:3.7vh!important;padding-bottom:2.4vh!important;box-sizing:border-box!important}
+#duo .duo-app-instance:is(.duo-app-unavailable,.duo-app-failure){padding-block:5vh 3.5vh;box-sizing:border-box}
+#duo .duo-pane[data-home=false]>.duo-status,#duo .duo-pane[data-home=false]>.duo-pane-navigation{background:transparent!important;border:0!important}
+#duo .duo-pane[data-home=false][data-app-ink=dark]>.duo-status,#duo .duo-pane[data-home=false][data-app-ink=dark] .duo-status-controls,#duo .duo-pane[data-home=false][data-app-ink=dark] .duo-multitask-control button{color:#172438!important}
+#duo .duo-pane[data-home=false][data-app-ink=dark] .duo-home-gesture span{background:#172438!important}
+#duo .duo-pane[data-home=false][data-app-ink=light]>.duo-status,#duo .duo-pane[data-home=false][data-app-ink=light] .duo-status-controls,#duo .duo-pane[data-home=false][data-app-ink=light] .duo-multitask-control button{color:#f4f7fc!important}
+#duo .duo-pane[data-home=false][data-app-ink=light] .duo-home-gesture span{background:#f4f7fc!important}
+
+#duo .duo-app-instance>:is(.pm-app,.ios-store){inset:0!important}
+#duo .duo-media-gallery .duo-media-tabs{top:3.7vh!important}
+#duo .duo-media-gallery :is(.duo-server-photos,.duo-local-videos){top:7.8vh!important;bottom:2.4vh!important}

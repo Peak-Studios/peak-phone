@@ -1,0 +1,106 @@
+/* Portrait is a book turned in its own screen plane: each inner display becomes
+   a wide pane and the hinge runs horizontally through the stacked workspaces. */
+#duo[data-orientation=landscape]{--duo-width:min(40.8vh,45vw);--duo-height:min(56vh,61.7vw)}
+#duo[data-orientation=landscape] .duo-screenbank{height:var(--duo-height)}
+#duo[data-expanded=true][data-orientation=portrait]{
+  --duo-width:min(54vh,76vw);
+  --duo-height:min(39.4vh,55.5vw);
+  --duo-gap:0px;
+}
+#duo[data-expanded=true][data-orientation=portrait] .duo-stage{width:calc(var(--duo-width) + 1.2vh)}
+#duo .duo-chassis{transform-origin:center center;transition:height 620ms cubic-bezier(.2,.72,.18,1)}
+#duo[data-expanded=true] .duo-screenbank{transition:height 620ms cubic-bezier(.2,.72,.18,1)}
+#duo[data-expanded=true][data-orientation=portrait] .duo-chassis{
+  height:calc(var(--duo-height)*2 + var(--duo-gap) + 1.2vh);
+}
+#duo[data-expanded=true][data-orientation=portrait] .duo-screenbank{
+  width:100%;height:calc(var(--duo-height)*2);
+  display:block;transition:width 620ms cubic-bezier(.2,.72,.18,1),height 620ms cubic-bezier(.2,.72,.18,1);
+}
+#duo.duo-orientation-turning .duo-chassis{will-change:transform,filter}
+#duo.duo-orientation-turning :is(.duo-stage,.duo-chassis,.duo-screenbank,.duo-pane){transition:none!important}
+#duo.duo-reduced-motion :is(.duo-stage,.duo-chassis,.duo-screenbank,.duo-pane){transition:none!important}
+#duo.duo-orientation-turning .duo-chassis>.duo-screenbank{pointer-events:none}
+#duo .duo-orientation-copy{position:absolute;left:50%;top:50%;z-index:70;pointer-events:none;overflow:hidden;border-radius:var(--duo-radius)}
+#duo.duo-folding .duo-orientation-button{pointer-events:none}
+#duo[data-expanded=true][data-orientation=portrait] .duo-pane{
+  width:100%;height:var(--duo-height);left:0;top:0;
+  transition:left 620ms cubic-bezier(.2,.72,.18,1),top 620ms cubic-bezier(.2,.72,.18,1),width 620ms cubic-bezier(.2,.72,.18,1),height 620ms cubic-bezier(.2,.72,.18,1);
+}
+#duo[data-expanded=true][data-orientation=portrait][data-layout=split] .duo-pane[data-side=left]{
+  width:100%;height:var(--duo-split);left:0;top:0;
+}
+#duo[data-expanded=true][data-orientation=portrait][data-layout=split] .duo-pane[data-side=right]{
+  width:100%;height:calc(100% - var(--duo-split));left:0;top:var(--duo-split);
+}
+#duo[data-expanded=true][data-orientation=portrait][data-layout=full] .duo-pane[data-active=true]{
+  width:100%;height:100%;left:0;top:0;
+}
+#duo[data-expanded=true][data-orientation=portrait] .duo-island,
+#duo[data-expanded=false] .duo-island{display:none!important}
+#duo .duo-status-controls{margin-right:2.4vh}
+#duo[data-expanded=true][data-orientation=portrait] .duo-hinge{display:none!important}
+#duo[data-expanded=true][data-orientation=portrait] .duo-split-divider{
+  top:var(--duo-split);right:0;bottom:auto;left:0;width:100%;height:1.2vh;
+  transform:translateY(-50%);cursor:row-resize;
+}
+#duo[data-expanded=true][data-orientation=portrait] .duo-split-divider:before{
+  inset:auto 0 0;width:auto;height:.16vh;
+}
+#duo[data-expanded=true][data-orientation=portrait] .duo-split-divider span{
+  width:4.5vh;height:.45vh;
+}
+#duo[data-expanded=true][data-orientation=portrait] .duo-split-divider:hover span,
+#duo[data-expanded=true][data-orientation=portrait].duo-resizing .duo-split-divider span{
+  width:4.5vh;height:.6vh;
+}
+#duo[data-expanded=true][data-orientation=portrait] .duo-input-host{left:0;width:100%}
+#duo[data-expanded=true][data-orientation=portrait][data-layout=split] .duo-input-host{
+  top:0;height:var(--duo-split);width:100%;
+}
+#duo[data-expanded=true][data-orientation=portrait][data-layout=split][data-active=right] .duo-input-host{
+  top:var(--duo-split);height:calc(100% - var(--duo-split));
+}
+#duo .duo-toolbar{position:relative}
+#duo .duo-orientation-button{margin-inline:auto;min-height:2.6vh;font-size:.9vh;padding:.55vh .9vh}
+#duo .duo-orientation-button[aria-pressed=true]{color:#fff;border-color:#a8d8ff66;background:linear-gradient(145deg,#6fbaff45,#33608738)}
+#duo .duo-orientation-button svg{width:1.15vh;height:1.15vh}
+#duo .duo-orientation-button .duo-orientation-label{white-space:nowrap}
+
+/* The outside display and its live front use the same exterior clip in every
+   orientation. The camera cutout stays at the top-right in mirrored snapshots. */
+#duo[data-expanded=false] .duo-screenbank{
+  border-radius:var(--duo-radius);
+}
+#duo[data-expanded=false] .duo-chassis{border-radius:1.7vh calc(var(--duo-radius) + .55vh) calc(var(--duo-radius) + .55vh) 1.7vh}
+#duo[data-expanded=false] .duo-chassis:before{border-radius:1.4vh var(--duo-radius) var(--duo-radius) 1.4vh}
+#duo[data-expanded=false] .duo-screenbank:after,
+#duo .duo-fold-copy:after{
+  content:"";position:absolute;z-index:900;top:1.35vh;right:1.45vh;bottom:auto;left:auto;
+  width:1.05vh;height:1.05vh;border:.08vh solid #242a31;border-radius:50%;
+  background:radial-gradient(circle at 36% 28%,#11161d 0 9%,#05070a 42%,#010203 82%);
+  box-shadow:inset 0 0 .1vh #d9ebff12;pointer-events:none;
+}
+#duo .duo-fold-cover{border-radius:1.1vh var(--duo-radius) var(--duo-radius) 1.1vh}
+#duo .duo-fold-left .duo-fold-cover,
+#duo .duo-fold-right .duo-fold-cover{border-radius:var(--duo-radius) 1.1vh 1.1vh var(--duo-radius)}
+#duo .duo-fold-top .duo-fold-front{border-radius:2.7vh 2.7vh 0 0;border-right:.28vh solid #7e8d9c;border-bottom:0}
+#duo .duo-fold-bottom .duo-fold-front{border-radius:0 0 2.7vh 2.7vh;border-top:0}
+#duo .duo-fold-top .duo-fold-front>.duo-fold-copy{border-radius:2.7vh 2.7vh 0 0!important}
+#duo .duo-fold-bottom .duo-fold-front>.duo-fold-copy{border-radius:0 0 2.7vh 2.7vh!important}
+/* Back faces turn over around the hinge, so their corner radii map to the
+   opposite outside edge. Keep the open front-face radii above unchanged. */
+#duo .duo-fold-top .duo-fold-cover{transform:rotateX(180deg) translateZ(.28vh);border-radius:0 0 2.7vh 2.7vh}
+#duo .duo-fold-bottom .duo-fold-cover{transform:rotateX(180deg) translateZ(.28vh);border-radius:2.7vh 2.7vh 0 0}
+#duo .duo-fold-top .duo-fold-edge{right:auto;top:auto;bottom:0;left:0;width:100%;height:.6vh;background:linear-gradient(180deg,#172435,#bdcddf,#42546b);transform:rotateX(90deg);transform-origin:bottom}
+#duo .duo-fold-top .duo-fold-light{background:linear-gradient(0deg,transparent 25%,#d4e9ff40 65%,#080c1990)}
+#duo .duo-fold-bottom .duo-fold-light{background:linear-gradient(180deg,transparent 25%,#d4e9ff40 65%,#080c1990)}
+#duo[data-expanded=true] .duo-island:after{display:none}
+
+@media(max-width:900px){
+  #duo[data-expanded=true][data-orientation=portrait]{--duo-width:min(54vh,76vw);--duo-height:min(39.4vh,55.5vw)}
+  #duo .duo-orientation-button{font-size:max(10px,.9vh);padding:.45vh .7vh}
+}
+@media(prefers-reduced-motion:reduce){
+  #duo .duo-screenbank,#duo .duo-pane{transition-duration:1ms}
+}

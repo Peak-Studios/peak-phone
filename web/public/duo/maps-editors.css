@@ -1,0 +1,22 @@
+/* Maps-only editors: location selection, recipient consent and coordinate search. */
+#duo .u27-maps .map-editor{padding:14px 18px 22px;gap:12px;min-width:0}
+#duo .u27-maps .map-editor-nav{display:flex;align-items:center;justify-content:space-between;gap:14px;flex:none;min-height:38px}
+#duo .u27-maps .map-editor-nav h2{font-size:22px;line-height:1.2;letter-spacing:-.5px;margin:0;overflow-wrap:anywhere}
+#duo .u27-maps .map-editor-done{border:0!important;background:transparent!important;box-shadow:none!important;color:var(--theme-accent-text,#007aff)!important;padding:6px 0;min-width:38px}
+#duo .u27-maps .map-contact-picker .u27-contact-picker-row{border:0!important;border-radius:0!important;border-bottom:1px solid var(--theme-separator)!important;background:transparent!important;min-height:46px;justify-content:flex-start;padding:12px 0;text-align:left}
+#duo .u27-maps .map-location-review .u27-recipient-confirm{display:flex;gap:12px;padding:14px;border:0!important;background:var(--theme-grouped-secondary)!important;border-radius:16px}
+#duo .u27-maps .map-location-review .u27-duration-options{display:flex;gap:5px;background:var(--theme-control);border-radius:14px;padding:4px}
+#duo .u27-maps .map-location-review .u27-duration-options button{flex:1;min-width:0;border:0!important;background:transparent!important;box-shadow:none!important;padding:10px 5px;font-size:12px}
+#duo .u27-maps .map-location-review .u27-duration-options button[aria-pressed=true]{background:var(--theme-grouped)!important;border-radius:10px;color:var(--theme-label)!important}
+#duo .u27-maps .map-coordinate-grid{height:100px;position:relative;border-radius:16px;background-color:var(--theme-grouped-secondary);background-image:linear-gradient(var(--theme-separator) 1px,transparent 1px),linear-gradient(90deg,var(--theme-separator) 1px,transparent 1px);background-size:24px 24px;overflow:hidden}
+#duo .u27-maps .map-coordinate-cross{position:absolute;inset:0;display:grid;place-items:center;font:300 52px/1 -apple-system,BlinkMacSystemFont,sans-serif;color:var(--theme-accent-text)}
+#duo .u27-maps .map-coordinate-caption{font-size:13px;color:var(--theme-secondary);text-align:center;margin:0}
+#duo .u27-maps .map-coordinate-entry{display:flex;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid var(--theme-separator)}
+#duo .u27-maps .map-coordinate-label{font-size:13px;color:var(--theme-secondary);flex:none}
+#duo[data-theme] .duo-app-instance[data-app=maps] .map-coordinate-entry input{flex:1;min-width:0;border:0!important;border-radius:0!important;box-shadow:none!important;background:transparent!important;font-size:22px;padding:6px 0;color:var(--theme-label)!important}
+#duo .u27-maps .map-place-detail .u27-coordinate-label{font-size:14px;color:var(--theme-secondary);margin:0}
+#duo .u27-maps .map-place-detail .u27-place-detail-area{margin:0;font-size:14px;color:var(--theme-secondary)}
+#duo .u27-maps .map-place-detail .u27-place-actions{display:flex;gap:7px}
+#duo .u27-maps .map-place-detail .u27-place-actions button{flex:1;border:0!important;border-radius:16px!important;background:var(--theme-grouped-secondary)!important;box-shadow:none!important}
+#duo .u27-maps .map-location-stop .u27-people-danger{background:var(--theme-grouped-secondary)!important;border:0!important;border-radius:18px!important;color:var(--theme-destructive)!important}
+@container utility (max-width:340px){#duo .u27-maps .map-editor{padding:10px 14px 18px}#duo .u27-maps .map-editor-nav h2{font-size:20px}#duo .u27-maps .map-coordinate-grid{height:76px}#duo .u27-maps .map-location-review .u27-duration-options button{font-size:11px}}

@@ -1,0 +1,100 @@
+#duo .duo-chassis:after{display:none}
+#duo .duo-chassis{--duo-volume-top:9vh;--duo-volume-hud-top:11vh;--duo-power-top:10.1vh}
+#duo[data-expanded=true][data-orientation=portrait] .duo-chassis{
+  --duo-volume-top:12vh;
+  --duo-volume-hud-top:15vh;
+  --duo-power-top:12.8vh;
+}
+
+
+
+
+
+
+
+
+
+#duo .duo-multitask-control{display:none}
+#duo .duo-app-remove{display:none;position:absolute;left:-.5vh;top:-.5vh;z-index:5;width:1.7vh;height:1.7vh;border-radius:50%;background:#e4e4e7;color:#222;font:600 1.5vh/1.7vh system-ui;text-align:center;box-shadow:0 .1vh .3vh #0004;cursor:pointer}
+#duo.duo-home-editing .duo-app-remove{display:block}
+#duo.duo-home-editing .duo-app-button{animation:duo-home-wiggle .26s ease-in-out infinite alternate;touch-action:none}
+#duo.duo-home-editing .duo-app-button:nth-child(even){animation-delay:-.14s}
+#duo .duo-app-button{touch-action:pan-y;user-select:none}
+#duo .duo-app-button svg,#duo .duo-app-button img{pointer-events:none}
+#duo .duo-home-drag{opacity:.8;pointer-events:none;z-index:20}
+#duo .duo-home-done{position:absolute;right:0;top:0;z-index:10;border:0;border-radius:2vh;padding:.5vh 1vh;background:#eeeeef;color:#222;font:600 1.2vh system-ui;cursor:pointer}
+#duo .duo-home-done[hidden]{display:none}
+@keyframes duo-home-wiggle{from{transform:rotate(-1.5deg)}to{transform:rotate(1.5deg)}}
+#duo.duo-reduced-motion.duo-home-editing .duo-app-button{animation:none}
+@media(prefers-reduced-motion:reduce){#duo.duo-home-editing .duo-app-button{animation:none}}
+#duo .duo-volume-hud{
+  position:absolute;left:50%;right:auto;top:var(--duo-volume-hud-top);z-index:90;
+  transform:translateX(-50%);display:flex;align-items:center;gap:.8vh;
+  padding:.8vh 1.1vh;border-radius:2vh;background:#252b34ec;
+  border:.1vh solid #ffffff25;color:#f6f8fb;font:600 1.2vh system-ui;
+  pointer-events:none;box-shadow:0 .3vh 1vh #0004;
+}
+#duo .duo-volume-hud[hidden]{display:none}
+#duo .duo-volume-hud svg{width:1.6vh;height:1.6vh}
+#duo .duo-volume-hud progress{width:6vh;height:.45vh;accent-color:#e4f1fa}
+#duo .duo-powered-off{position:absolute;inset:0;z-index:1000;background:#010203;border-radius:inherit;display:flex;align-items:center;justify-content:center;pointer-events:auto}
+#duo .duo-powered-off[hidden]{display:none}
+#duo .duo-powered-off svg{width:3vh;height:3vh;color:#343b43}
+#duo[data-powered="false"] .duo-screenbank{background:#010203}
+#duo[data-powered="false"] .duo-pane,#duo[data-powered="false"] .duo-screenbank>.duo-lock-screen{visibility:hidden}
+#duo[data-powered="false"] .duo-pane-navigation{pointer-events:none}
+
+@media(prefers-reduced-motion:reduce){
+  
+}
+
+/* Compact pages: size rows to their content rather than stretching to screen height. */
+#duo[data-expanded][data-layout] .duo-pane .duo-launcher{inset:5.5vh 8.3vh 3.4vh 2.4vh;display:flex;flex-direction:column;gap:1.2vh;overflow:visible}
+#duo .duo-home-heading,#duo .duo-widgets,#duo .duo-search{display:none!important}
+#duo[data-expanded][data-layout] .duo-pane .duo-app-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-template-rows:repeat(4,7.8vh);grid-auto-rows:7.8vh;gap:1.2vh .8vh;flex:1;padding:.6vh 0;overflow:visible;mask-image:none;align-content:start}
+#duo[data-expanded][data-layout] .duo-pane .duo-app-grid .duo-icon-tile{width:5.3vh;height:5.3vh;min-width:5.3vh;min-height:5.3vh;max-width:5.3vh;max-height:5.3vh;border-radius:1.3vh}
+#duo .duo-app-grid .duo-app-button{align-self:start;min-width:0}
+#duo[data-expanded=true][data-orientation=portrait][data-layout=full] .duo-pane .duo-app-grid{grid-template-rows:repeat(4,8.4vh);gap:1.4vh 1.1vh}
+#duo[data-expanded=true][data-orientation=portrait][data-layout=full] .duo-pane .duo-app-grid .duo-icon-tile{width:5.8vh;height:5.8vh;min-width:5.8vh;min-height:5.8vh;max-width:5.8vh;max-height:5.8vh}
+#duo[data-expanded][data-layout] .duo-pane .duo-dock{position:absolute;left:auto;right:-6.6vh;top:50%;bottom:auto;transform:translateY(-50%);width:6.1vh;height:auto;min-height:0;max-width:none;align-self:auto;z-index:5;padding:1.15vh .8vh;display:flex;flex-direction:column;align-items:center;gap:1.2vh;border-radius:2.6vh;justify-content:center;overflow:visible}
+#duo[data-expanded][data-layout] .duo-pane .duo-dock .duo-app-button{width:4.3vh;height:4.3vh;min-width:0;min-height:4.3vh;max-width:4.3vh;max-height:4.3vh;flex:0 0 4.3vh;padding:0;margin:0;display:grid;place-items:center;animation:none;transform:none}
+#duo[data-expanded][data-layout] .duo-pane .duo-dock .duo-icon-tile{width:4.3vh;height:4.3vh;min-width:4.3vh;min-height:4.3vh;max-width:4.3vh;max-height:4.3vh;border-radius:1.1vh;margin:0}
+#duo .duo-page-dots{display:flex;align-items:center;justify-content:center;gap:.7vh;min-height:2vh}
+#duo .duo-page-dot{width:.65vh;height:.65vh;padding:0;border:0;border-radius:50%;background:#ffffff65;cursor:pointer;box-shadow:0 0 .2vh #0006}
+#duo .duo-page-dot[aria-current=true]{background:#fff}
+#duo .duo-page-dot:focus-visible{outline:2px solid white;outline-offset:4px}
+#duo .duo-home-done{top:-1vh;right:0}
+/* A larger transparent hit area surrounds a thin cap entirely outside the display. */
+#duo .duo-chassis>.duo-side-button{position:absolute;z-index:80;width:1.4vh;height:3.2vh;padding:0;border:0!important;background:transparent!important;box-shadow:none!important;border-radius:0;cursor:pointer;touch-action:none;min-width:0;min-height:0;overflow:visible}
+#duo .duo-chassis>.duo-side-button:before{content:'';position:absolute;top:.35vh;bottom:.35vh;left:auto;right:.1vh;width:.26vh;border-radius:.13vh;background:linear-gradient(90deg,#3c4145,#90999f 50%,#40494e);box-shadow:0 0 0 .05vh #1d252a;transition:transform .1s}
+#duo .duo-chassis>.duo-side-button:after{display:none}
+#duo .duo-chassis>.duo-side-button svg{display:none}
+#duo .duo-chassis>.duo-side-button:focus-visible{outline:1px solid #8ecfff;outline-offset:0}
+#duo .duo-chassis>.duo-volume-up{left:-1.2vh;right:auto;top:10vh}
+#duo .duo-chassis>.duo-volume-down{left:-1.2vh;right:auto;top:13.7vh}
+#duo .duo-chassis>.duo-side-power{left:auto;right:-1.2vh;top:11vh;height:4.5vh}
+#duo .duo-chassis>.duo-side-power:before{left:.1vh;right:auto}
+#duo .duo-chassis>.duo-side-power:active:before{transform:translateX(-.08vh)}
+#duo .duo-chassis>.duo-volume-up:active:before,#duo .duo-chassis>.duo-volume-down:active:before{transform:translateX(.08vh)}
+#duo[data-expanded=true][data-orientation=portrait] .duo-chassis>.duo-volume-up{top:15%}
+#duo[data-expanded=true][data-orientation=portrait] .duo-chassis>.duo-volume-down{top:20%}
+#duo[data-expanded=true][data-orientation=portrait] .duo-chassis>.duo-side-power{top:16%}
+#duo[data-expanded=true][data-orientation=landscape] .duo-chassis>.duo-volume-up{left:auto;right:15%;top:-1.2vh;width:3.2vh;height:1.4vh}
+#duo[data-expanded=true][data-orientation=landscape] .duo-chassis>.duo-volume-down{left:auto;right:20%;top:-1.2vh;width:3.2vh;height:1.4vh}
+#duo[data-expanded=true][data-orientation=landscape] .duo-chassis>.duo-side-power{right:16%;top:auto;bottom:-1.2vh;width:4.5vh;height:1.4vh}
+#duo[data-expanded=true][data-orientation=landscape] .duo-chassis>.duo-side-button:before{inset:auto .35vh .1vh;height:.26vh;width:auto}
+#duo[data-expanded=true][data-orientation=landscape] .duo-chassis>.duo-side-power:before{top:.1vh;bottom:auto}
+#duo[data-expanded=true][data-orientation=landscape] .duo-chassis>.duo-side-button:active:before{transform:translateY(.08vh)}
+
+/* Each page scrolls vertically inside the clipped, horizontally moving strip. */
+#duo .duo-home-viewport{flex:1 1 auto;min-width:0;min-height:0;position:relative;overflow:hidden;touch-action:pan-y}
+#duo .duo-home-track{position:absolute;inset:0 auto 0 0;display:flex;min-width:0;overflow:visible;touch-action:pan-y;will-change:transform}
+#duo .duo-home-track>.duo-app-grid{flex:none;height:100%;min-width:0;box-sizing:border-box;overflow-x:hidden;overflow-y:auto;grid-template-rows:none;grid-auto-rows:7.2vh;gap:.55vh .75vh;padding:.25vh .1vh .55vh;overscroll-behavior:contain;touch-action:pan-y;scrollbar-width:none}
+#duo[data-expanded][data-layout] .duo-pane .duo-home-viewport>.duo-home-track>.duo-app-grid{flex:none;overflow-x:hidden!important;overflow-y:auto!important;grid-template-rows:none;grid-auto-rows:7.2vh;gap:.55vh .75vh;padding:.25vh .1vh .55vh;overscroll-behavior:contain;touch-action:pan-y}
+#duo[data-expanded=true][data-layout=full] .duo-home-viewport{grid-column:2;grid-row:3}
+#duo[data-expanded=true][data-orientation=portrait] .duo-home-track>.duo-app-grid,#duo[data-expanded=true][data-orientation=portrait] .duo-pane .duo-home-viewport>.duo-home-track>.duo-app-grid{grid-template-rows:none;grid-auto-rows:7.7vh;gap:.7vh 1.1vh;padding:.35vh .15vh .7vh}
+#duo .duo-home-track[data-swiping=true]{transition:none!important}
+#duo .duo-home-track>.duo-app-grid[aria-hidden=true]{pointer-events:none}
+#duo .duo-home-track>.duo-app-grid::-webkit-scrollbar{display:none}
+.duo-home-drag-ghost{position:fixed;z-index:999999;pointer-events:none;opacity:.9;animation:none!important;transform:scale(1.04);filter:drop-shadow(0 .7vh 1.2vh #0006)}
+.duo-home-drag-ghost .duo-app-remove{display:none!important}

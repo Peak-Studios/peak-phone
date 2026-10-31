@@ -1,0 +1,140 @@
+#duo .duo-app-instance[data-app="mails"]{container:mail / inline-size;}
+#duo .duo-app-instance[data-app="mails"] .mail-app{
+  --mail-bg:var(--theme-canvas,#f2f2f7);
+  --mail-surface:var(--theme-grouped,#fff);
+  --mail-raised:var(--theme-grouped-secondary,#f2f2f7);
+  --mail-text:var(--theme-label,#1c1c1e);
+  --mail-secondary:var(--theme-secondary,#66666c);
+  --mail-tertiary:var(--theme-tertiary,#85858b);
+  --mail-line:var(--theme-separator,rgba(60,60,67,.18));
+  --mail-accent:var(--theme-accent,#0068d9);
+  --mail-danger:var(--theme-destructive,#d70015);
+  position:absolute;inset:0;display:flex;flex-direction:column;min-width:0;min-height:0;overflow:hidden;
+  background:var(--mail-bg);color:var(--mail-text);font:400 clamp(13px,1.26vh,16px)/1.38 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  -webkit-font-smoothing:antialiased;isolation:isolate;
+}
+#duo .duo-app-instance[data-app="mails"] .mail-app *,#duo .duo-app-instance[data-app="mails"] .mail-app *::before,#duo .duo-app-instance[data-app="mails"] .mail-app *::after{box-sizing:border-box;min-width:0}
+#duo .duo-app-instance[data-app="mails"] .mail-app :is(button,input,textarea){font:inherit;color:inherit}
+#duo .duo-app-instance[data-app="mails"] .mail-app button{appearance:none;-webkit-appearance:none;cursor:pointer}
+#duo .duo-app-instance[data-app="mails"] .mail-app button:focus-visible,#duo .duo-app-instance[data-app="mails"] .mail-app :is(input,textarea):focus-visible{outline:2px solid var(--mail-accent);outline-offset:2px}
+#duo .duo-app-instance[data-app="mails"] .mail-header{display:flex;align-items:flex-end;justify-content:space-between;gap:10px;padding:clamp(14px,2.1vh,24px) clamp(15px,2.1vh,24px) 8px;flex:0 0 auto}
+#duo .duo-app-instance[data-app="mails"] .mail-heading{min-width:0}
+#duo .duo-app-instance[data-app="mails"] .mail-heading h1{margin:0;color:var(--mail-text);font-size:clamp(30px,4.3vh,44px);font-weight:760;letter-spacing:-.065em;line-height:1.03}
+#duo .duo-app-instance[data-app="mails"] .mail-account-line{margin:5px 0 0;color:var(--mail-secondary);font-size:clamp(11px,1.04vh,13px);font-weight:520;letter-spacing:.005em}
+#duo .duo-app-instance[data-app="mails"] .mail-icon-button{width:42px;height:42px;flex:0 0 42px;display:grid;place-items:center;padding:0;border:0;border-radius:50%;background:var(--mail-raised);color:var(--mail-accent);transition:background-color 120ms ease,transform 120ms ease}
+#duo .duo-app-instance[data-app="mails"] .mail-icon-button svg{width:19px;height:19px}
+#duo .duo-app-instance[data-app="mails"] .mail-icon-button:active{transform:scale(.94)}
+#duo .duo-app-instance[data-app="mails"] .mail-refresh.is-loading svg{animation:mail-spin .8s linear infinite}
+@keyframes mail-spin{to{transform:rotate(360deg)}}
+#duo .duo-app-instance[data-app="mails"] .mail-filters{display:flex;gap:7px;align-items:center;flex:0 0 auto;padding:2px clamp(15px,2.1vh,24px) 11px;border-bottom:1px solid var(--mail-line)}
+#duo .duo-app-instance[data-app="mails"] .mail-filter{min-height:31px;padding:5px 12px;border:0;border-radius:18px;background:transparent;color:var(--mail-secondary);font-size:clamp(11px,1.04vh,13px);font-weight:620;white-space:nowrap}
+#duo .duo-app-instance[data-app="mails"] .mail-filter[aria-pressed="true"]{background:color-mix(in srgb,var(--mail-accent) 12%,var(--mail-surface));color:var(--mail-accent)}
+#duo .duo-app-instance[data-app="mails"] .mail-list{flex:1 1 auto;min-height:0;overflow:auto;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:var(--mail-line) transparent;padding:4px clamp(14px,2vh,22px) 16px}
+#duo .duo-app-instance[data-app="mails"] .mail-group-label{margin:12px 0 2px;padding:0 2px;color:var(--mail-secondary);font-size:clamp(10px,.92vh,12px);font-weight:740;letter-spacing:.1em;text-transform:uppercase}
+#duo .duo-app-instance[data-app="mails"] .mail-group-rows{border-radius:0;background:transparent}
+#duo .duo-app-instance[data-app="mails"] .mail-row{position:relative;display:grid;grid-template-columns:7px 38px minmax(0,1fr) auto;align-items:center;gap:10px;width:100%;min-height:82px;padding:10px 1px;border:0;border-bottom:1px solid var(--mail-line);border-radius:0;background:transparent;color:var(--mail-text);text-align:left}
+#duo .duo-app-instance[data-app="mails"] .mail-row:last-child{border-bottom-color:transparent}
+#duo .duo-app-instance[data-app="mails"] .mail-row:active{background:var(--theme-selection,rgba(0,104,217,.1))}
+#duo .duo-app-instance[data-app="mails"] .mail-unread-dot{width:7px;height:7px;border-radius:50%;background:transparent}
+#duo .duo-app-instance[data-app="mails"] .mail-row[data-unread="true"] .mail-unread-dot{background:var(--mail-accent)}
+#duo .duo-app-instance[data-app="mails"] .mail-avatar{width:38px;height:38px;flex:0 0 38px;border:0;border-radius:50%;background:color-mix(in srgb,var(--mail-accent) 14%,var(--mail-raised));color:var(--mail-accent);font-size:13px;font-weight:700}
+#duo .duo-app-instance[data-app="mails"] .mail-row-copy{display:flex;flex-direction:column;align-self:center;gap:2px;overflow:hidden}
+#duo .duo-app-instance[data-app="mails"] .mail-sender{overflow:hidden;color:var(--mail-text);font-size:clamp(12px,1.16vh,15px);font-weight:var(--mail-sender-weight,650);letter-spacing:-.02em;text-overflow:ellipsis;white-space:nowrap}
+#duo .duo-app-instance[data-app="mails"] .mail-row[data-unread="true"] .mail-sender,#duo .duo-app-instance[data-app="mails"] .mail-row[data-unread="true"] .mail-subject{font-weight:760}
+#duo .duo-app-instance[data-app="mails"] .mail-subject{overflow:hidden;color:var(--mail-text);font-size:clamp(11px,1.06vh,14px);font-weight:550;line-height:1.25;text-overflow:ellipsis;white-space:nowrap}
+#duo .duo-app-instance[data-app="mails"] .mail-preview{display:-webkit-box;overflow:hidden;color:var(--mail-secondary);font-size:clamp(11px,1.01vh,13px);line-height:1.3;-webkit-box-orient:vertical;-webkit-line-clamp:2}
+#duo .duo-app-instance[data-app="mails"] .mail-time{align-self:start;padding-top:2px;color:var(--mail-secondary);font-size:clamp(10px,.92vh,12px);font-variant-numeric:tabular-nums;white-space:nowrap}
+#duo .duo-app-instance[data-app="mails"] .mail-dock{display:flex;align-items:center;gap:10px;flex:0 0 auto;min-height:66px;padding:8px max(13px,env(safe-area-inset-right)) max(9px,env(safe-area-inset-bottom)) max(13px,env(safe-area-inset-left));border-top:1px solid var(--mail-line);background:color-mix(in srgb,var(--mail-bg) 92%,transparent)}
+#duo .duo-app-instance[data-app="mails"] .mail-dock-action{display:grid;place-items:center;width:42px;height:42px;flex:0 0 42px;padding:0;border:0;border-radius:50%;background:transparent;color:var(--mail-accent)}
+#duo .duo-app-instance[data-app="mails"] .mail-dock-action svg{width:20px;height:20px}
+#duo .duo-app-instance[data-app="mails"] .mail-search{display:flex;align-items:center;gap:8px;flex:1;min-width:0;height:40px;padding:0 12px;border:1px solid var(--mail-line);border-radius:20px;background:var(--mail-raised);color:var(--mail-secondary)}
+#duo .duo-app-instance[data-app="mails"] .mail-search svg{width:16px;height:16px;flex:none}
+#duo .duo-app-instance[data-app="mails"] .mail-search input{width:100%;height:100%;padding:0;border:0;outline:0;background:transparent;color:var(--mail-text);font-size:13px}
+#duo .duo-app-instance[data-app="mails"] .mail-search input::placeholder{color:var(--mail-tertiary);opacity:1}
+#duo .duo-app-instance[data-app="mails"] :is(.mail-state,.mail-inline-error){color:var(--mail-secondary)}
+#duo .duo-app-instance[data-app="mails"] .mail-state{display:flex;flex:1;flex-direction:column;align-items:center;justify-content:center;min-height:180px;padding:25px 20px;text-align:center}
+#duo .duo-app-instance[data-app="mails"] .mail-state-icon{display:grid;place-items:center;width:52px;height:52px;margin-bottom:12px;border-radius:16px;background:var(--mail-raised);color:var(--mail-accent)}
+#duo .duo-app-instance[data-app="mails"] .mail-state-icon svg{width:25px;height:25px}
+#duo .duo-app-instance[data-app="mails"] .mail-state h2{margin:0;color:var(--mail-text);font-size:19px;font-weight:700;letter-spacing:-.03em}
+#duo .duo-app-instance[data-app="mails"] .mail-state p{max-width:32em;margin:6px 0 0;font-size:13px}
+#duo .duo-app-instance[data-app="mails"] .mail-state-action{min-height:38px;margin-top:13px;padding:0 14px;border:0;border-radius:19px;background:color-mix(in srgb,var(--mail-accent) 12%,var(--mail-surface));color:var(--mail-accent);font-size:13px;font-weight:650}
+#duo .duo-app-instance[data-app="mails"] .mail-inline-error{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:6px 0;padding:9px 11px;border:1px solid color-mix(in srgb,var(--mail-danger) 25%,transparent);border-radius:12px;background:color-mix(in srgb,var(--mail-danger) 8%,var(--mail-surface));color:var(--mail-danger);font-size:12px}
+#duo .duo-app-instance[data-app="mails"] .mail-inline-retry{flex:0 0 auto;border:0;background:transparent;color:var(--mail-accent);font-weight:700}
+#duo .duo-app-instance[data-app="mails"] .mail-detail-header{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:8px;min-height:52px;padding:5px 12px;border-bottom:1px solid var(--mail-line)}
+#duo .duo-app-instance[data-app="mails"] .mail-back-button{display:flex;align-items:center;gap:4px;justify-self:start;min-height:40px;padding:0 5px;border:0;background:transparent;color:var(--mail-accent);font-size:13px;font-weight:600}
+#duo .duo-app-instance[data-app="mails"] .mail-back-button svg{width:18px;height:18px}
+#duo .duo-app-instance[data-app="mails"] .mail-detail-label{color:var(--mail-text);font-size:14px;font-weight:700}
+#duo .duo-app-instance[data-app="mails"] .mail-detail-header-actions{display:flex;justify-content:flex-end;gap:4px}
+#duo .duo-app-instance[data-app="mails"] .mail-detail-header-actions .mail-icon-button{width:38px;height:38px;flex-basis:38px;background:transparent}
+#duo .duo-app-instance[data-app="mails"] .mail-delete-button{color:var(--mail-danger)}
+#duo .duo-app-instance[data-app="mails"] .mail-detail-content{flex:1;min-height:0;overflow:auto;overscroll-behavior:contain;padding:20px clamp(16px,2.3vh,26px) 24px}
+#duo .duo-app-instance[data-app="mails"] .mail-detail-subject{margin:0 0 19px;color:var(--mail-text);font-size:clamp(22px,3vh,31px);font-weight:750;letter-spacing:-.05em;line-height:1.12;overflow-wrap:anywhere}
+#duo .duo-app-instance[data-app="mails"] .mail-detail-sender{display:flex;align-items:center;gap:10px;padding:0 0 17px;border-bottom:1px solid var(--mail-line)}
+#duo .duo-app-instance[data-app="mails"] .mail-avatar-large{width:42px;height:42px;flex-basis:42px;font-size:15px}
+#duo .duo-app-instance[data-app="mails"] .mail-detail-sender-copy{display:flex;flex:1;flex-direction:column;gap:1px;min-width:0}
+#duo .duo-app-instance[data-app="mails"] .mail-detail-sender-copy strong{overflow:hidden;color:var(--mail-text);font-size:14px;font-weight:700;text-overflow:ellipsis;white-space:nowrap}
+#duo .duo-app-instance[data-app="mails"] .mail-detail-address,#duo .duo-app-instance[data-app="mails"] .mail-detail-time{color:var(--mail-secondary);font-size:12px}
+#duo .duo-app-instance[data-app="mails"] .mail-detail-time{margin-top:2px}
+#duo .duo-app-instance[data-app="mails"] .mail-body{padding:17px 0 6px;color:var(--mail-text);font-size:clamp(14px,1.26vh,16px);line-height:1.62;overflow-wrap:anywhere}
+#duo .duo-app-instance[data-app="mails"] .mail-body :is(p,ul,ol,blockquote,table,h1,h2,h3){margin:0 0 1em}
+#duo .duo-app-instance[data-app="mails"] .mail-body :is(h1,h2,h3){font-weight:720;line-height:1.2}
+#duo .duo-app-instance[data-app="mails"] .mail-body blockquote{margin-left:0;padding-left:12px;border-left:3px solid var(--mail-line);color:var(--mail-secondary)}
+#duo .duo-app-instance[data-app="mails"] .mail-body a{color:var(--mail-accent);text-decoration:underline;text-underline-offset:2px}
+#duo .duo-app-instance[data-app="mails"] .mail-body img{display:block;max-width:100%;height:auto;margin:10px 0;border-radius:10px}
+#duo .duo-app-instance[data-app="mails"] .mail-body table{display:block;max-width:100%;overflow:auto;border-collapse:collapse}
+#duo .duo-app-instance[data-app="mails"] .mail-body :is(td,th){padding:5px 7px;border:1px solid var(--mail-line);text-align:left}
+#duo .duo-app-instance[data-app="mails"] .mail-message-action{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;min-height:46px;margin:12px 0;padding:8px 14px;border:1px solid color-mix(in srgb,var(--mail-accent) 23%,transparent);border-radius:14px;background:color-mix(in srgb,var(--mail-accent) 9%,var(--mail-surface));color:var(--mail-accent);font-weight:650}
+#duo .duo-app-instance[data-app="mails"] .mail-message-action svg{width:18px;height:18px}
+#duo .duo-app-instance[data-app="mails"] .mail-detail-footer{display:flex;gap:9px;flex:0 0 auto;padding:8px 14px max(9px,env(safe-area-inset-bottom));border-top:1px solid var(--mail-line);background:var(--mail-bg)}
+#duo .duo-app-instance[data-app="mails"] .mail-footer-action{display:flex;align-items:center;justify-content:center;gap:7px;min-width:0;min-height:42px;padding:0 14px;border:1px solid var(--mail-line);border-radius:21px;background:var(--mail-surface);color:var(--mail-accent);font-size:13px;font-weight:650}
+#duo .duo-app-instance[data-app="mails"] .mail-footer-action svg{width:17px;height:17px}
+#duo .duo-app-instance[data-app="mails"] .mail-delete-action{color:var(--mail-danger)}
+#duo .duo-app-instance[data-app="mails"] .mail-compose-header{display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:54px;padding:7px 14px;border-bottom:1px solid var(--mail-line)}
+#duo .duo-app-instance[data-app="mails"] .mail-compose-header h1{margin:0;color:var(--mail-text);font-size:17px;font-weight:720;letter-spacing:-.025em}
+#duo .duo-app-instance[data-app="mails"] .mail-compose-cancel{min-height:40px;padding:0 4px;border:0;background:transparent;color:var(--mail-secondary);font-size:13px;font-weight:600}
+#duo .duo-app-instance[data-app="mails"] .mail-compose-form{display:flex;flex:1;flex-direction:column;min-height:0;padding:0 15px}
+#duo .duo-app-instance[data-app="mails"] .mail-compose-field{display:flex;align-items:center;gap:12px;min-height:50px;border-bottom:1px solid var(--mail-line);color:var(--mail-secondary);font-size:13px}
+#duo .duo-app-instance[data-app="mails"] .mail-compose-field>span{width:44px;flex:0 0 44px}
+#duo .duo-app-instance[data-app="mails"] .mail-compose-field input{width:100%;min-height:42px;padding:0;border:0;outline:0;background:transparent;color:var(--mail-text);font-size:14px}
+#duo .duo-app-instance[data-app="mails"] .mail-compose-field input::placeholder,#duo .duo-app-instance[data-app="mails"] .mail-compose-message textarea::placeholder{color:var(--mail-tertiary);opacity:1}
+#duo .duo-app-instance[data-app="mails"] .mail-compose-field input[aria-invalid="true"],#duo .duo-app-instance[data-app="mails"] .mail-compose-message textarea[aria-invalid="true"]{text-decoration:underline wavy var(--mail-danger);text-underline-offset:3px}
+#duo .duo-app-instance[data-app="mails"] .mail-compose-message{display:flex;flex:1;min-height:100px;padding:14px 0 7px}
+#duo .duo-app-instance[data-app="mails"] .mail-compose-message textarea{width:100%;height:100%;min-height:100px;resize:none;padding:0;border:0;outline:0;background:transparent;color:var(--mail-text);font-size:15px;line-height:1.55}
+#duo .duo-app-instance[data-app="mails"] .mail-compose-status{flex:0 0 auto;min-height:0;padding:3px 0;color:var(--mail-danger);font-size:12px}
+#duo .duo-app-instance[data-app="mails"] .mail-compose-status[data-state="guidance"],#duo .duo-app-instance[data-app="mails"] .mail-compose-status[data-state="ready"],#duo .duo-app-instance[data-app="mails"] .mail-compose-status[data-state="sending"]{color:var(--mail-secondary)}
+#duo .duo-app-instance[data-app="mails"] .mail-compose-footer{display:flex;align-items:center;justify-content:space-between;gap:8px;flex:0 0 auto;padding:9px 0 max(10px,env(safe-area-inset-bottom));border-top:1px solid var(--mail-line)}
+#duo .duo-app-instance[data-app="mails"] .mail-compose-hint{overflow:hidden;color:var(--mail-secondary);font-size:11px;text-overflow:ellipsis;white-space:nowrap}
+#duo .duo-app-instance[data-app="mails"] .mail-send-button{display:flex;align-items:center;justify-content:center;gap:7px;min-height:42px;padding:0 16px;border:0;border-radius:22px;background:var(--mail-accent);color:#fff!important;font-size:13px;font-weight:700}
+#duo .duo-app-instance[data-app="mails"] .mail-compose-header .mail-send-button svg{width:20px;height:20px;padding:0;border:0;border-radius:0;color:#fff!important}
+#duo .duo-app-instance[data-app="mails"] .mail-send-button[disabled]{background:var(--theme-control,var(--mail-raised));color:var(--mail-tertiary)!important;opacity:1!important;cursor:not-allowed}
+#duo .duo-app-instance[data-app="mails"] .mail-compose-header .mail-send-button[disabled] svg{color:var(--mail-tertiary)!important}
+#duo .duo-app-instance[data-app="mails"] .mail-app .nx-modal{position:absolute;inset:0;z-index:10;display:grid;place-items:center;padding:18px;background:var(--theme-scrim,rgba(0,0,0,.48))}
+#duo .duo-app-instance[data-app="mails"] .mail-app .nx-sheet{width:min(100%,390px);max-height:calc(100% - 18px);overflow:auto;padding:14px;border:1px solid var(--mail-line);border-radius:18px;background:var(--mail-surface);color:var(--mail-text);box-shadow:0 18px 55px rgba(0,0,0,.2)}
+#duo .duo-app-instance[data-app="mails"] .mail-sheet-description{margin:12px 2px;color:var(--mail-secondary);font-size:14px;line-height:1.45}
+#duo .duo-app-instance[data-app="mails"] .mail-sheet-row{display:flex;align-items:center;gap:11px;width:100%;min-height:46px;padding:0 8px;border:0;border-top:1px solid var(--mail-line);background:transparent;color:var(--mail-accent);text-align:left;font-size:14px;font-weight:620}
+#duo .duo-app-instance[data-app="mails"] .mail-sheet-row svg{width:18px;height:18px}
+#duo .duo-app-instance[data-app="mails"] .mail-sheet-danger{color:var(--mail-danger)}
+@container mail (max-width:390px){
+  #duo .duo-app-instance[data-app="mails"] .mail-header{padding-inline:13px}
+  #duo .duo-app-instance[data-app="mails"] .mail-list{padding-inline:11px}
+  #duo .duo-app-instance[data-app="mails"] .mail-row{grid-template-columns:6px 34px minmax(0,1fr) auto;gap:7px;min-height:76px}
+  #duo .duo-app-instance[data-app="mails"] .mail-avatar{width:34px;height:34px;flex-basis:34px}
+  #duo .duo-app-instance[data-app="mails"] .mail-search{padding-inline:9px}
+  #duo .duo-app-instance[data-app="mails"] .mail-detail-header{grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);padding-inline:8px}
+  #duo .duo-app-instance[data-app="mails"] .mail-back-button{font-size:12px}
+  #duo .duo-app-instance[data-app="mails"] .mail-compose-form{padding-inline:11px}
+  #duo .duo-app-instance[data-app="mails"] .mail-compose-hint{max-width:44%}
+}
+@media(prefers-reduced-motion:reduce){#duo .duo-app-instance[data-app="mails"] .mail-refresh.is-loading svg{animation:none}#duo .duo-app-instance[data-app="mails"] .mail-icon-button{transition:none}}
+
+/* Mail keeps its own clean composer surfaces instead of shared app-wide field fills. */
+#duo .duo-app-instance[data-app="mails"] .mail-search input{background:transparent!important;background-image:none!important;border:0!important;border-color:transparent!important;box-shadow:none!important}
+#duo .duo-app-instance[data-app="mails"] .mail-compose-form{background:transparent!important;background-image:none!important}
+#duo .duo-app-instance[data-app="mails"] .mail-compose-field input,#duo .duo-app-instance[data-app="mails"] .mail-compose-message textarea{background:transparent!important;background-image:none!important;border:0!important;border-color:transparent!important;box-shadow:none!important;color:var(--mail-text)!important;color-scheme:var(--theme-scheme)!important}
+#duo .duo-app-instance[data-app="mails"] .mail-compose-header{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;justify-content:initial}
+#duo .duo-app-instance[data-app="mails"] .mail-compose-header h1{justify-self:center;white-space:nowrap}
+#duo .duo-app-instance[data-app="mails"] .mail-compose-cancel{display:flex;align-items:center;justify-self:start;gap:5px;min-width:72px;padding:0 4px;white-space:nowrap}
+#duo .duo-app-instance[data-app="mails"] .mail-compose-cancel svg{width:15px;height:15px}
+#duo .duo-app-instance[data-app="mails"] .mail-compose-header .mail-send-button{justify-self:end;width:42px;height:42px;min-width:42px;min-height:42px;padding:0;border-radius:50%}
+#duo .duo-app-instance[data-app="mails"] .mail-compose-footer{justify-content:flex-start}
+#duo .duo-app-instance[data-app="mails"] .mail-body,#duo .duo-app-instance[data-app="mails"] .mail-compose-message{background:transparent!important;background-image:none!important;box-shadow:none!important}

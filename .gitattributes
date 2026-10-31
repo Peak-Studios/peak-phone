@@ -1,0 +1,21 @@
+* text=auto eol=lf
+*.png binary
+*.jpg binary
+*.webp binary
+*.ogg binary
+*.mp3 binary
+*.wav binary
+*.blend binary
+*.glb binary
+*.dds binary
+*.ydr binary
+*.ytd binary
+*.ycd binary
+*.ytyp binary
+*.yft binary
+*.ttf binary
+*.woff binary
+*.woff2 binary
+
+# Byte-exact legacy source: patches.json pins its SHA-256 and byte offsets.
+web/legacy/bundle.original.js -text

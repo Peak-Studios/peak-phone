@@ -1,0 +1,48 @@
+/* Frosted dock uses a clipped, aligned copy of the live wallpaper. */
+#duo .duo-dock{isolation:isolate;overflow:hidden;background:linear-gradient(145deg,#dde7f04d,#becada2d)!important;box-shadow:inset 0 1px 0 #ffffff66,0 .5vh 1.5vh #0c234426}
+#duo .duo-dock-blur{position:absolute;inset:0;border-radius:inherit;overflow:hidden;z-index:-1;pointer-events:none}
+#duo .duo-dock-wallpaper{position:absolute;filter:blur(1.35vh) saturate(1.2);pointer-events:none}
+#duo[data-transparency=reduced] .duo-dock-blur{display:none}
+#duo[data-transparency=reduced] .duo-dock{background:#4c7098!important}
+/* Settings owns one scroll region; each pane independently adapts to available width. */
+#duo .ps-settings{--ios-primary:#172438;--ios-secondary:#738095;--nx-text:#172438;--nx-muted:#738095;--app-accent:#277af0;display:flex;flex-direction:column;height:100%;min-height:0;min-width:0;overflow:hidden;background:#f3f5f9!important;color:#172438;container:settings / inline-size;color-scheme:light}
+#duo .ps-settings>.nx-header{flex:none;min-height:5.7vh;padding:1.25vh 1.65vh .9vh;background:#f3f5f9!important;gap:.8vh;align-items:center;border:0}
+#duo .ps-settings>.nx-header h1{font-size:2.4vh;line-height:1.12;font-weight:740;letter-spacing:-.045em;color:#172438}
+#duo .ps-settings>.nx-header p{font-size:1.02vh;color:#738095;margin:.45vh 0 0}
+#duo .ps-settings .ps-back{min-width:0;padding:.5vh 0;background:transparent;color:#277af0;font-size:.98vh;gap:.3vh;flex:none}
+#duo .ps-settings .ps-back>svg{width:1.6vh;height:1.6vh}
+#duo .ps-settings>.gx-body{flex:1;min-width:0;min-height:0;overflow-y:auto;overflow-x:hidden;padding:.3vh 1.5vh 2vh;scroll-padding-block:1vh;overscroll-behavior:contain}
+#duo .ps-settings .ps-identity{display:flex;align-items:center;gap:1vh;flex-wrap:wrap;padding:1.3vh;background:white;border-radius:1.6vh;margin:.5vh 0 1.3vh;font-size:1.4vh;font-weight:650}
+#duo .ps-settings .ps-device-icon{display:grid;place-items:center;width:4vh;height:4vh;border-radius:1.2vh;background:linear-gradient(140deg,#539cff,#3054b8);color:white;font-size:2vh}
+#duo .ps-settings .ps-identity small{margin-left:auto;color:#738095;font-size:.9vh;font-weight:500}
+#duo .ps-settings .nx-search{width:100%;min-width:0;background:#e5eaf1;border:0;border-radius:1.1vh;margin:0 0 1.2vh;min-height:3.7vh}
+#duo .ps-settings .nx-search input{min-width:0;width:100%;font-size:1.08vh;color:#172438;background:transparent}
+#duo .ps-category-list{display:grid;grid-template-columns:minmax(0,1fr);gap:.65vh}
+#duo .ps-settings .ps-category{width:100%;min-width:0;display:flex;align-items:center;justify-content:flex-start;gap:1vh;text-align:left;padding:1.15vh 1.1vh;border-radius:1.4vh;background:#fff;color:#172438;min-height:5.9vh;border:1px solid #e7edf4}
+#duo .ps-settings .ps-category>svg{width:2.7vh;height:2.7vh;flex:none;padding:.5vh;background:#eaf2ff;color:#277af0;border-radius:.8vh}
+#duo .ps-settings .ps-category-copy{display:flex;flex-direction:column;gap:.35vh;min-width:0;flex:1}
+#duo .ps-settings .ps-category strong{font-size:1.14vh;font-weight:650;line-height:1.2}
+#duo .ps-settings .ps-category small{font-size:.9vh;color:#738095;line-height:1.4;font-weight:400}
+#duo .ps-settings .ps-chevron{color:#9ba7b7;font-size:1.7vh}
+#duo .ps-settings .gx-section{padding:1.3vh;background:#fff;border:1px solid #e7edf4;border-radius:1.4vh;margin:0 0 1vh;min-width:0}
+#duo .ps-settings .gx-title{font-size:1.4vh;font-weight:650;color:#172438;margin:0 0 .8vh;line-height:1.3}
+#duo .ps-settings .gx-copy{font-size:1.02vh;color:#738095;line-height:1.5;overflow-wrap:anywhere}
+#duo .ps-settings .nx-field{display:flex;flex-direction:column;min-width:0;gap:.6vh;margin:.75vh 0}
+#duo .ps-settings .nx-field>span{font-size:.97vh;color:#738095}
+#duo .ps-settings .nx-field :is(input,select,textarea){width:100%;min-width:0;max-width:100%;box-sizing:border-box;font-size:1.12vh;padding:.9vh;border:1px solid #e2e8f1;border-radius:.9vh;background:#f7f9fc;color:#172438;min-height:3.6vh}
+#duo .ps-settings .nx-field input[type=range]{padding:0;accent-color:#277af0;cursor:ew-resize}
+#duo .ps-settings .nx-button{white-space:normal;max-width:100%;font-size:1.02vh}
+#duo .ps-settings .nx-primary{background:#277af0;color:white;padding:1vh 1.2vh;border-radius:1vh}
+#duo .ps-settings .ps-link{background:#edf4ff;color:#277af0;padding:.9vh 1.1vh;border-radius:.9vh;margin:.5vh .5vh .3vh 0}
+#duo .ps-settings .gx-row{min-width:0;gap:.7vh}
+#duo .ps-settings .gx-row :is(strong,span){color:#172438;overflow-wrap:anywhere;white-space:normal}
+#duo .ps-settings .gx-chip{background:#edf2f8;color:#617188}
+#duo .ps-settings .gx-device-details{margin-bottom:1vh;border-radius:1.4vh;background:white;border:1px solid #e7edf4}
+#duo .ps-settings .gx-device-details summary{padding:1.2vh;cursor:pointer;font-size:1.2vh;font-weight:600}
+#duo .ps-settings .gx-danger{color:#d54148;background:#fff0f0;border-radius:1vh;padding:1vh}
+#duo .ps-settings .ps-range-value{font-size:1vh;color:#277af0}
+#duo .ps-settings .nx-sheet{max-height:calc(100% - 2vh);width:calc(100% - 2vh);min-width:0;overflow:auto;background:#f3f5f9;color:#172438}
+#duo .ps-settings .nx-button:focus-visible,#duo .ps-settings :is(input,select):focus-visible{outline:2px solid #78afff;outline-offset:2px}
+@container settings (min-width:450px){#duo .ps-category-list{grid-template-columns:repeat(2,minmax(0,1fr))}#duo .ps-settings>.gx-body{padding-inline:2vh}#duo .ps-settings .gx-section{padding:1.6vh}}
+
+#duo .ps-settings .ps-identity>div{min-width:0;flex:1;overflow-wrap:anywhere}

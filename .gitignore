@@ -1,0 +1,6 @@
+node_modules/
+web/node_modules/
+__pycache__/
+*.pyc
+preview-output/
+artifacts/

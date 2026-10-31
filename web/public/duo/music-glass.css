@@ -1,0 +1,72 @@
+/* Bounded game-view surfaces give these controls real scene color without a
+   backdrop-filter on FiveM's transparent full-screen NUI canvas. */
+.duo-music-overlay{position:fixed;z-index:45;width:clamp(236px,25.5vh,306px);color:#fff;pointer-events:auto;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;user-select:none;animation:duo-music-enter .24s ease-out}
+@keyframes duo-music-enter{from{opacity:0;transform:translateY(10px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}
+.duo-music-overlay[hidden]{display:none!important}
+.duo-music-backdrop,.duo-center-glass,.duo-network-glass{position:absolute;inset:0;overflow:hidden;border-radius:inherit;pointer-events:none;background:radial-gradient(ellipse at 8% 0%,#c7d6ec55,transparent 55%),linear-gradient(145deg,#49505fa8,#171b23ea)}
+.duo-music-gameview,.duo-glass-gameview{position:absolute;inset:-18px;width:calc(100% + 36px);height:calc(100% + 36px);object-fit:cover;opacity:.28;filter:blur(14px) saturate(.75);pointer-events:none}
+.duo-music-overlay{border-radius:32px;overflow:hidden;border:1px solid #ffffff75;box-shadow:inset 0 1px 0 #fff8,inset 0 -1px 0 #ffffff18,0 16px 48px #0008}
+.duo-music-surface{position:relative;z-index:1;padding:15px 17px 14px;background:linear-gradient(150deg,#ffffff32,#ffffff09 45%,#12182172);text-shadow:0 1px 3px #0008}
+.duo-music-drag{height:10px;margin:-10px 48px 5px;cursor:default}
+.duo-music-overlay[data-editing=true]{outline:2px solid #a7d6ff;outline-offset:3px}
+.duo-music-overlay[data-editing=true] .duo-music-drag{height:20px;margin:-8px 18px 4px;cursor:grab;touch-action:none}
+.duo-music-overlay[data-editing=true] .duo-music-drag:active{cursor:grabbing}
+.duo-music-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+.duo-music-cover.pm-art{width:72px;height:72px;border-radius:17px;border:1px solid #ffffff58;box-shadow:0 5px 18px #0005;flex:none}
+.duo-music-cover.pm-art>svg{width:47%;height:47%}
+.duo-music-control{width:39px;height:39px;border:0;background:none;color:#fff;display:grid;place-items:center;border-radius:50%;padding:9px;text-shadow:none}
+.duo-music-control svg{width:100%;height:100%;stroke-width:2.5}
+.duo-music-control:hover,.duo-music-control:focus-visible{background:#fff3}
+.duo-music-output{width:47px;height:47px;background:#ffffff22;border:1px solid #ffffff35;box-shadow:inset 0 1px #fff4}
+.duo-music-copy{display:flex;flex-direction:column;gap:2px;margin:13px 0 8px;min-width:0}
+.duo-music-copy strong{font-size:20px;font-weight:690;letter-spacing:-.045em;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.duo-music-copy span{font-size:14px;color:#e8ecf7;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.duo-music-actions{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.duo-music-actions .duo-music-control{width:47px;height:47px}
+.duo-music-actions .duo-music-primary{width:53px;height:53px}
+.duo-music-status{font-size:11px;color:#dceafd;line-height:1.35;margin:4px 0 0;text-align:center}
+.duo-music-status:empty{display:none}
+.duo-music-overlay button:disabled{opacity:.42}
+
+#duo .duo-control-center{top:3.8vh;right:.9vh;width:min(34vh,calc(100% - 1.8vh));padding:0!important;border:1px solid #dce9ff82!important;border-radius:2.8vh!important;overflow:hidden;background:linear-gradient(155deg,#586579cc,#202735e8)!important;box-shadow:inset 0 .1vh #fff8,0 1vh 3vh #0008!important}
+#duo .duo-center-glass{border-radius:2.8vh}
+#duo .duo-center-content{position:relative;z-index:1;padding:1.6vh 1.55vh 1.35vh;background:linear-gradient(155deg,#ffffff24,#2027366b 65%,#121923c9)}
+#duo .duo-center-heading{margin:0 0 1.45vh;align-items:flex-start}
+#duo .duo-center-title>span{display:block;font-size:.71vh;letter-spacing:.18em;color:#cfdef0;font-weight:750;margin-bottom:.22vh}
+#duo .duo-center-heading h2{font-size:1.86vh;font-weight:730;letter-spacing:-.055em;color:#fff}
+#duo .duo-center-heading>.duo-button{border-radius:50%;background:#ffffff2c;border:1px solid #ffffff40;width:2.5vh;height:2.5vh;padding:.6vh;color:#fff}
+#duo .duo-center-grid{gap:.7vh}
+#duo .duo-control-tile{height:7.6vh;min-width:0;padding:1vh!important;display:flex;flex-direction:row;align-items:flex-start;justify-content:flex-start;gap:.75vh!important;text-align:left;border-radius:1.9vh!important;border:1px solid #e8f2ff5e!important;background:linear-gradient(145deg,#e8f2ff3d,#a7b8d02e 48%,#2833446b)!important;box-shadow:inset 0 .1vh #fff6,0 .2vh .6vh #0002!important;color:#fff}
+#duo .duo-control-tile:hover{background:linear-gradient(145deg,#f4f9ff5c,#9fb5d050)!important}
+#duo .duo-control-tile svg{flex:none;width:1.8vh;height:1.8vh;color:#f2f7ff}
+#duo .duo-control-copy{min-width:0;display:flex;flex-direction:column;gap:.4vh;align-self:center}
+#duo .duo-control-copy strong{font-size:1.1vh;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#duo .duo-control-copy small{font-size:.79vh;color:#e0e8f3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#duo .duo-control-wide{height:6.5vh;background:linear-gradient(135deg,#d2e4ff53,#6f99cc4a 55%,#263f658c)!important}
+#duo .duo-control-wide:nth-child(2){background:linear-gradient(140deg,#f7d6e061,#b8789b54 54%,#57364d99)!important}
+#duo .duo-center-note{font-size:.76vh;margin:1.2vh .15vh 0;color:#e0e9f5;line-height:1.45}
+
+#duo .duo-network-sheet{position:absolute;inset:0;z-index:95;display:flex;align-items:flex-end;justify-content:center;overflow:hidden;background:#0b11198a;border-radius:var(--duo-radius);pointer-events:auto}
+#duo .duo-network-sheet[hidden]{display:none!important}
+#duo .duo-network-glass{border-radius:var(--duo-radius)}
+#duo .duo-network-panel{position:relative;z-index:1;display:flex;flex-direction:column;gap:1vh;width:100%;max-height:89%;padding:1vh 1.55vh 1.7vh;margin:0;border:1px solid #eff6ff82;border-bottom:0;border-radius:2.7vh 2.7vh 0 0;background:linear-gradient(150deg,#d4e5f346,#576c82b8 22%,#1d2a3be8 75%,#172332f7);box-shadow:inset 0 .1vh #fff9,0 -1vh 4vh #0008;color:#fff;animation:pm-sheet-in 230ms ease-out}
+#duo .duo-network-handle{align-self:center;width:3.4vh;height:.36vh;border-radius:1vh;background:#dce9f8a8;margin:0 0 .4vh}
+#duo .duo-network-eyebrow{font-size:.72vh;letter-spacing:.18em;font-weight:760;color:#cbdff8}
+#duo .duo-network-heading{display:flex;align-items:center;justify-content:space-between}
+#duo .duo-network-heading h2{font-size:2.1vh;letter-spacing:-.055em;margin:0;font-weight:730}
+#duo .duo-network-heading button{width:2.5vh;height:2.5vh;padding:.6vh;border-radius:50%;border:1px solid #ffffff47;background:#ffffff29;color:#fff}
+#duo .duo-network-intro{font-size:.95vh;color:#dbe5f1;line-height:1.5;margin:0 0 .6vh}
+#duo .duo-network-field{display:flex;flex-direction:column;gap:.58vh;padding:1.1vh 1.1vh 1.2vh;border-radius:1.6vh;border:1px solid #e4efff6b;background:linear-gradient(150deg,#eef6ff2d,#8eaac82b 54%,#53698044);box-shadow:inset 0 .1vh #fff4}
+#duo .duo-network-field>span{font-size:.9vh;font-weight:680;color:#edf5ff}
+#duo .duo-network-select,#duo .duo-network-password{width:100%;min-height:3.5vh;padding:.7vh .95vh;border-radius:1.1vh;border:1px solid #ffffff50;background:#182538b8;color:#fff;font-size:1.05vh;outline:none}
+#duo .duo-network-select option{color:#fff;background:#243249}
+#duo .duo-network-select:focus-visible,#duo .duo-network-password:focus-visible{border-color:#d7edff;box-shadow:0 0 0 .2vh #8ac6f855}
+#duo .duo-network-password::placeholder{color:#c2d0df}
+#duo .duo-network-status{font-size:.85vh;color:#fbd5df;min-height:1.1vh;margin:0}
+#duo .duo-network-actions{display:flex;gap:.75vh;margin-top:.2vh}
+#duo .duo-network-actions button{flex:1;min-height:3.8vh;border-radius:2vh;font-size:1.02vh;font-weight:700;border:1px solid #ffffff5a}
+#duo .duo-network-cancel{background:#ffffff29;color:#fff}
+#duo .duo-network-submit{background:linear-gradient(145deg,#e4f4ff,#b5d9f9);color:#15253b!important}
+#duo .duo-network-submit:disabled{opacity:.5}
+#duo[data-transparency=reduced] :is(.duo-control-center,.duo-network-panel){background:#263346!important}
+@media(prefers-reduced-motion:reduce){.duo-music-overlay,.duo-network-panel{animation:none!important}}

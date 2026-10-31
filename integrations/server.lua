@@ -1,0 +1,5 @@
+-- Reserved in-resource fallback. Prefer registering providers from your own resource.
+-- Register supported vehicle/news provider functions from an external server resource with
+-- exports['peak-phone']:RegisterPhoneAdapter({...}). See docs/integrations.md.
+-- Use RegisterPhoneCallback/SetPhoneCapability for additional routes only after implementing
+-- every read/write path and its server-side ownership, job, and range checks.

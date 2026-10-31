@@ -1,0 +1,159 @@
+#duo-notifications.duo-notification-host {
+  position: absolute;
+  z-index: 160;
+  top: 2.4vh;
+  left: 1vh;
+  right: 1vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .55vh;
+  max-height: calc(100% - 6vh);
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 0 .15vh .5vh;
+  pointer-events: none;
+  scrollbar-width: none;
+  overscroll-behavior: contain;
+}
+#duo-notifications.duo-notification-host::-webkit-scrollbar { display: none; }
+.ios-notification {
+  position: relative;
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  width: min(36vh, 100%);
+  max-width: 100%;
+  overflow: hidden;
+  border: 1px solid rgba(25, 35, 50, .12);
+  border-radius: 1.65vh;
+  background: rgba(249, 251, 255, .985);
+  color: #17202d;
+  box-shadow: 0 .65vh 2vh rgba(12, 22, 38, .24), 0 .12vh .3vh rgba(12, 22, 38, .12);
+  pointer-events: auto;
+  touch-action: none;
+  animation: ios-notification-in .24s cubic-bezier(.2, .82, .25, 1) both;
+}
+#duo[data-theme="dark"] .ios-notification,
+.duo-global-overlays[data-theme="dark"] .ios-notification {
+  border-color: rgba(255, 255, 255, .09);
+  background: rgba(27, 31, 40, .985);
+  color: #f4f6fa;
+  box-shadow: 0 .8vh 2.3vh rgba(0, 0, 0, .48), 0 .12vh .3vh rgba(0, 0, 0, .32);
+}
+.ios-notification-content {
+  display: grid;
+  grid-template-columns: 3.45vh minmax(0, 1fr) auto;
+  align-items: center;
+  gap: .85vh;
+  min-width: 0;
+  width: 100%;
+  padding: 1.05vh 1.2vh .95vh;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  font: inherit;
+  cursor: default;
+}
+.ios-notification-content:is(button):hover { background: rgba(105, 129, 164, .08); }
+.ios-notification-content:is(button):focus-visible,
+.ios-notification-action:focus-visible { outline: 2px solid #548fe3; outline-offset: -2px; }
+.ios-notification-icon {
+  display: grid;
+  place-items: center;
+  width: 3.45vh;
+  height: 3.45vh;
+  overflow: hidden;
+  border-radius: .9vh;
+  background: var(--notification-accent, #5b85bd);
+}
+.ios-notification-icon > svg { display: block; width: 100%; height: 100%; }
+.ios-notification-copy { display: grid; min-width: 0; gap: .2vh; }
+.ios-notification-heading { display: flex; align-items: baseline; min-width: 0; gap: .65vh; }
+.ios-notification-title {
+  overflow: hidden;
+  color: inherit;
+  font-size: clamp(14px, 1.48vh, 17px);
+  font-weight: 680;
+  line-height: 1.2;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.ios-notification-app {
+  overflow: hidden;
+  color: #5f6a79;
+  font-size: clamp(10px, 1.04vh, 12px);
+  font-weight: 650;
+  letter-spacing: .045em;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+#duo[data-theme="dark"] .ios-notification-app { color: #a4afc0; }
+.ios-notification-message {
+  display: -webkit-box;
+  overflow: hidden;
+  color: #3f4a59;
+  font-size: clamp(13px, 1.36vh, 16px);
+  font-weight: 430;
+  line-height: 1.34;
+  overflow-wrap: anywhere;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+#duo[data-theme="dark"] .ios-notification-message { color: #d0d6e0; }
+.ios-notification-meta { align-self: start; padding-top: .1vh; color: #66717f; font-size: clamp(10px, 1.02vh, 12px); font-weight: 550; white-space: nowrap; }
+#duo[data-theme="dark"] .ios-notification-meta { color: #a2adbc; }
+.ios-notification-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: .55vh; padding: 0 1.1vh .9vh; }
+.ios-notification-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .35vh;
+  min-width: 6.2vh;
+  min-height: 2.8vh;
+  padding: .38vh .8vh;
+  border: 1px solid rgba(92, 111, 139, .2);
+  border-radius: 1vh;
+  background: rgba(109, 130, 162, .1);
+  color: #283344;
+  font: inherit;
+  font-size: clamp(11px, 1.1vh, 13px);
+  font-weight: 650;
+  cursor: pointer;
+}
+#duo[data-theme="dark"] .ios-notification-action { border-color: rgba(225, 232, 244, .13); background: rgba(221, 230, 244, .09); color: #e6ebf4; }
+.ios-notification-action > svg { width: 1.35vh; height: 1.35vh; flex: 0 0 auto; }
+.ios-notification-accept { border-color: rgba(48, 150, 91, .25); background: rgba(52, 172, 101, .13); color: #17683a; }
+.ios-notification-reject { border-color: rgba(187, 70, 79, .2); background: rgba(216, 75, 84, .1); color: #9c3039; }
+#duo[data-theme="dark"] .ios-notification-accept { color: #9de1b5; }
+#duo[data-theme="dark"] .ios-notification-reject { color: #ffc0c5; }
+.ios-notification-action:disabled { opacity: .48; cursor: wait; }
+.ios-notification-progress { position: absolute; right: 0; bottom: 0; left: 0; height: .16vh; background: rgba(80, 115, 164, .15); transform-origin: left; }
+.ios-notification-progress::after { display: block; width: 100%; height: 100%; background: var(--notification-accent, #5b85bd); content: ''; }
+.ios-notification[data-locked="true"] .ios-notification-content { cursor: default; }
+@keyframes ios-notification-in { from { opacity: 0; transform: translateY(-.9vh) scale(.985); } to { opacity: 1; transform: translateY(0) scale(1); } }
+#duo.duo-reduced-motion .ios-notification { animation-duration: 1ms; }
+@media (max-height: 720px) {
+  #duo-notifications.duo-notification-host { top: 2vh; }
+  .ios-notification { width: min(34vh, 100%); }
+  .ios-notification-content { grid-template-columns: 3.2vh minmax(0, 1fr) auto; padding-top: .85vh; padding-bottom: .8vh; }
+  .ios-notification-icon { width: 3.2vh; height: 3.2vh; }
+}
+
+/* The closed-phone peek reveals only the display edge and existing banners. */
+#duo[data-peek="true"] .duo-stage {
+  transform: translateY(calc(100% - 18vh));
+  opacity: 1;
+  pointer-events: none !important;
+}
+#duo[data-peek="true"] .ios-notification:not([data-peek-current="true"]) { display: none !important; }
+#duo[data-peek="true"] .duo-chassis,
+#duo[data-peek="true"] .duo-screenbank { pointer-events: none !important; }
+#duo[data-peek="true"] .duo-toolbar,
+#duo[data-peek="true"] .duo-device-actions,
+#duo[data-peek="true"] .duo-multitask-control,
+#duo[data-peek="true"] .duo-pane-navigation { display: none !important; }
+#duo[data-peek="true"] .duo-pane,
+#duo[data-peek="true"] .duo-split-divider { display: none !important; }

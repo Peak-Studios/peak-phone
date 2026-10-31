@@ -1,0 +1,51 @@
+name: Bug report
+description: Something in Peak Duo doesn't work as expected
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting! Please search existing issues first. **Security issues must be reported privately** (see SECURITY.md).
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: What did you expect, and what happened instead?
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Open the phone
+        2. Open Messages
+        3. ...
+    validations:
+      required: true
+  - type: dropdown
+    id: framework
+    attributes:
+      label: Framework
+      options: [QBCore, Qbox, ESX Legacy, Other]
+    validations:
+      required: true
+  - type: input
+    id: versions
+    attributes:
+      label: Versions
+      description: Peak Duo version, framework version, inventory, peak-bridge version, FiveM server artifact
+    validations:
+      required: true
+  - type: textarea
+    id: doctor
+    attributes:
+      label: phone_doctor output
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Server console / F8 errors
+      render: text

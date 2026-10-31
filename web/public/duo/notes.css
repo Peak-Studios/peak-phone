@@ -1,0 +1,589 @@
+#duo .duo-app-instance.nx-native-host[data-app="documents"]{background:#f2f2f7;color:#1c1c1e;color-scheme:light;overflow:hidden}
+#duo .nx-notes{--notes-bg:#f2f2f7;--notes-paper:#fff;--notes-ink:#1c1c1e;--notes-muted:#8e8e93;--notes-line:#e5e5ea;--notes-yellow:#e5ad13;--notes-blue:#3478f6;position:relative;display:flex;flex-direction:column;width:100%;height:100%;min-width:0;min-height:0;overflow:hidden;background:var(--notes-bg);color:var(--notes-ink);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",sans-serif;font-size:14px;line-height:1.35;container:notes-app / inline-size}
+#duo .nx-notes *{box-sizing:border-box}
+#duo .nx-notes button,#duo .nx-notes input{font:inherit;color:inherit}
+#duo .nx-notes button{touch-action:manipulation}
+#duo .nx-notes :focus-visible{outline:3px solid color-mix(in srgb,var(--notes-blue) 72%,transparent);outline-offset:2px}
+#duo .nx-notes .notes-header{position:relative;z-index:1;display:flex;flex-direction:column;gap:5px;flex:0 0 auto;padding:clamp(19px,3.1vh,34px) clamp(18px,5vw,34px) 12px;background:var(--notes-bg)}
+#duo .nx-notes .notes-header-line{display:flex;align-items:center;gap:8px;min-height:36px}
+#duo .nx-notes .notes-toolbar-spacer{flex:1}
+#duo .nx-notes .notes-overline{margin-right:auto;color:var(--notes-muted);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+#duo .nx-notes .notes-large-title{margin:0;color:var(--notes-ink);font-size:clamp(31px,5.2vh,43px);font-weight:760;letter-spacing:-.055em;line-height:1.05}
+#duo .nx-notes .notes-icon-action,#duo .nx-notes .notes-back-button{display:inline-flex;align-items:center;justify-content:center;flex:0 0 36px;width:36px;height:36px;padding:8px;border:0;border-radius:50%;background:transparent;color:var(--notes-blue);cursor:pointer}
+#duo .nx-notes .notes-icon-action:hover,#duo .nx-notes .notes-back-button:hover{background:#3478f610}
+#duo .nx-notes .notes-icon-action svg,#duo .nx-notes .notes-back-button svg{width:21px;height:21px}
+#duo .nx-notes .notes-back-button{justify-content:flex-start;width:auto;flex-basis:auto;padding:5px 6px 5px 0;gap:2px;font-size:14px;font-weight:550;white-space:nowrap}
+#duo .nx-notes .notes-back-button svg{width:20px;height:20px}
+#duo .nx-notes .notes-scroll{flex:1 1 auto;min-height:0;overflow:auto;overscroll-behavior:contain;padding:0 clamp(14px,4vw,28px) calc(88px + env(safe-area-inset-bottom,0px));scrollbar-width:thin;scrollbar-color:#a4a4aa55 transparent}
+#duo .nx-notes .notes-folder-section{margin:13px 0 22px}
+#duo .nx-notes .notes-section-title{margin:0 4px 8px;color:var(--notes-muted);font-size:13px;font-weight:600;letter-spacing:.005em}
+#duo .nx-notes .notes-folder-group{overflow:hidden;border-radius:13px;background:var(--notes-paper);box-shadow:0 1px 2px #00000008}
+#duo .nx-notes .notes-folder-row{display:flex;align-items:center;gap:12px;width:100%;min-height:62px;padding:8px 13px 8px 12px;border:0;border-bottom:1px solid var(--notes-line);background:var(--notes-paper);text-align:left;cursor:pointer}
+#duo .nx-notes .notes-folder-row:last-child{border-bottom:0}
+#duo .nx-notes .notes-folder-row:hover{background:color-mix(in srgb,var(--notes-paper),var(--notes-bg) 36%)}
+#duo .nx-notes .notes-folder-glyph{display:grid;place-items:center;flex:0 0 38px;width:38px;height:32px;color:var(--notes-yellow)}
+#duo .nx-notes .notes-folder-glyph svg{width:35px;height:30px}
+#duo .nx-notes .notes-folder-copy{display:flex;flex:1;flex-direction:column;min-width:0;gap:1px}
+#duo .nx-notes .notes-folder-copy strong{overflow:hidden;font-size:15px;font-weight:560;text-overflow:ellipsis;white-space:nowrap}
+#duo .nx-notes .notes-folder-copy small{color:var(--notes-muted);font-size:12px}
+#duo .nx-notes .notes-folder-chevron{padding-left:5px;color:#b8b8bd;font-size:27px;font-weight:300;line-height:1}
+#duo .nx-notes .notes-local-folder-item{display:flex;align-items:stretch}
+#duo .nx-notes .notes-local-folder-item>.notes-folder-row{flex:1;min-width:0}
+#duo .nx-notes .notes-folder-manage{display:grid;place-items:center;flex:0 0 44px;border:0;border-bottom:1px solid var(--notes-line);background:var(--notes-paper);color:var(--notes-muted);cursor:pointer}
+#duo .nx-notes .notes-folder-manage svg{width:20px;height:20px}
+#duo .nx-notes .notes-local-folder-item:last-child .notes-folder-manage{border-bottom:0}
+#duo .nx-notes .notes-dock{position:absolute;z-index:3;right:0;bottom:0;left:0;display:flex;align-items:center;gap:12px;padding:12px clamp(16px,4vw,26px) calc(12px + env(safe-area-inset-bottom,0px));background:linear-gradient(0deg,var(--notes-bg) 74%,color-mix(in srgb,var(--notes-bg),transparent 8%));}
+#duo .nx-notes .notes-search{display:flex;align-items:center;gap:8px;flex:1;min-width:0;height:40px;padding:0 12px;border:1px solid #00000008;border-radius:12px;background:color-mix(in srgb,var(--notes-paper),var(--notes-bg) 18%);color:var(--notes-muted)}
+#duo .nx-notes .notes-search svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round}
+#duo .nx-notes .notes-search input{width:100%;min-width:0;border:0;outline:0;background:transparent;color:var(--notes-ink);font-size:14px}
+#duo .nx-notes .notes-search input::placeholder{color:var(--notes-muted)}
+#duo .nx-notes .notes-compose{display:inline-flex;align-items:center;justify-content:center;flex:0 0 42px;width:42px;height:42px;padding:9px;border:0;border-radius:50%;background:var(--notes-blue);color:#fff;box-shadow:0 3px 9px #3478f634;cursor:pointer}
+#duo .nx-notes .notes-compose svg{width:23px;height:23px}
+#duo .nx-notes .notes-compose span:not(svg){display:none}
+  #duo .nx-notes .notes-list-results{padding-bottom:14px}
+  #duo .nx-notes .notes-results-count{margin:9px 5px 4px;color:var(--notes-muted);font-size:12px;font-weight:500}
+  #duo .nx-notes .notes-load-more{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;min-height:42px;margin:4px 0 18px;border:1px solid var(--notes-line);border-radius:12px;background:var(--notes-paper);color:var(--notes-ink);font-size:14px;font-weight:600;cursor:pointer}
+  #duo .nx-notes .notes-load-more svg{width:16px;height:16px}
+  #duo .nx-notes .notes-list-section{margin:13px 0 20px}
+#duo .nx-notes .notes-list-group{overflow:hidden;border-radius:13px;background:var(--notes-paper);box-shadow:0 1px 2px #00000008}
+#duo .nx-notes .notes-note-row{display:flex;align-items:center;width:100%;min-height:65px;padding:11px 13px 11px 15px;border:0;border-bottom:1px solid var(--notes-line);background:var(--notes-paper);text-align:left;cursor:pointer}
+#duo .nx-notes .notes-note-row:last-child{border-bottom:0}
+#duo .nx-notes .notes-note-row:hover{background:color-mix(in srgb,var(--notes-paper),var(--notes-bg) 32%)}
+#duo .nx-notes .notes-note-copy{display:flex;flex:1;min-width:0;flex-direction:column;gap:4px}
+#duo .nx-notes .notes-note-top{display:flex;align-items:baseline;justify-content:space-between;gap:12px;min-width:0}
+#duo .nx-notes .notes-note-top strong{overflow:hidden;font-size:15px;font-weight:620;text-overflow:ellipsis;white-space:nowrap}
+#duo .nx-notes .notes-note-top time{flex:0 0 auto;color:var(--notes-muted);font-size:11px}
+#duo .nx-notes .notes-note-excerpt{display:-webkit-box;overflow:hidden;color:var(--notes-muted);font-size:13px;line-height:1.35;-webkit-box-orient:vertical;-webkit-line-clamp:2}
+#duo .nx-notes .notes-note-bottom{display:flex;gap:6px;margin-top:2px}
+#duo .nx-notes .notes-note-badge{padding:2px 7px;border-radius:20px;background:#eaf1ff;color:#3b69b7;font-size:10px;font-weight:600}
+#duo .nx-notes .notes-note-chevron{margin-left:10px;color:#c1c1c6;font-size:24px;font-weight:300}
+#duo .nx-notes .notes-scroll.is-gallery .notes-list-group{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;overflow:visible;background:transparent;box-shadow:none}
+#duo .nx-notes .notes-scroll.is-gallery .notes-note-row{align-items:flex-start;min-height:116px;padding:13px;border:1px solid #00000008;border-radius:12px;box-shadow:0 1px 3px #0000000c}
+#duo .nx-notes .notes-scroll.is-gallery .notes-note-chevron{display:none}
+#duo .nx-notes .notes-scroll.is-gallery .notes-note-excerpt{-webkit-line-clamp:4}
+#duo .nx-notes .notes-state{display:flex;min-height:38vh;align-items:center;justify-content:center;flex-direction:column;padding:22px;color:var(--notes-muted);text-align:center}
+#duo .nx-notes .notes-state-glyph{display:grid;place-items:center;width:58px;height:58px;margin-bottom:13px;border-radius:50%;background:#e7e7ec;color:#9b9ba2}
+#duo .nx-notes .notes-state-glyph svg{width:27px;height:27px}
+#duo .nx-notes .notes-state h2{margin:0;color:var(--notes-ink);font-size:18px}
+#duo .nx-notes .notes-state p{max-width:275px;margin:7px 0 0;font-size:13px}
+#duo .nx-notes .notes-retry,.nx-notes .notes-text-action{border:0;background:none;color:var(--notes-blue);cursor:pointer}
+#duo .nx-notes .notes-retry{min-width:46px;min-height:46px;margin-top:12px;padding:8px 14px;font-weight:600}
+#duo .nx-notes .notes-draft-recovery{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:8px 2px 14px;padding:12px;border:1px solid #e7d6a8;border-radius:12px;background:#fff8e5}
+#duo .nx-notes .notes-draft-recovery>span{display:flex;min-width:0;flex-direction:column}
+#duo .nx-notes .notes-draft-recovery small{overflow:hidden;color:#7e7157;text-overflow:ellipsis;white-space:nowrap}
+#duo .nx-notes .notes-recovery-action{flex:0 0 auto;border:0;background:transparent;color:#886400;font-weight:600;cursor:pointer}
+#duo .nx-notes .notes-editor-header{padding:12px clamp(14px,4vw,28px) 8px}
+#duo .nx-notes .notes-editor-header .notes-header-line{gap:4px}
+#duo .nx-notes .notes-editor-header .notes-large-title{display:none}
+#duo .nx-notes .notes-editor-header .notes-overline{display:none}
+#duo .nx-notes .notes-editor-header .notes-back-button{margin-right:auto}
+#duo .nx-notes .notes-save-top,#duo .nx-notes .notes-edit-top{padding:7px 12px;border:0;border-radius:20px;background:#3478f61a;color:var(--notes-blue);font-weight:650;cursor:pointer}
+#duo .nx-notes .notes-editor-header .notes-icon-action{background:#e9e9ee}
+#duo .nx-notes .notes-paper{display:flex;flex:1;min-height:0;flex-direction:column;overflow:auto;padding:7px clamp(20px,6vw,42px) 24px;background:var(--notes-paper)}
+#duo .nx-notes .notes-editor-meta{display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:27px;color:var(--notes-muted);font-size:11px}
+#duo .nx-notes .notes-finalized-mark{padding:3px 7px;border-radius:20px;background:#e7e7ec;color:#77777d;font-size:9px;font-weight:700;letter-spacing:.07em}
+#duo .nx-notes .notes-title-input{flex:0 0 auto;width:100%;padding:9px 0 5px;border:0;outline:none;background:transparent;color:var(--notes-ink);font-size:27px;font-weight:720;letter-spacing:-.04em}
+#duo .nx-notes .notes-title-input::placeholder{color:#b3b3b8}
+#duo .nx-notes .notes-rich-editor{flex:1;min-height:140px;padding:8px 0 30px;outline:none;overflow-wrap:anywhere;color:var(--notes-ink);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",sans-serif;font-size:17px;line-height:1.45;caret-color:var(--notes-yellow)}
+#duo .nx-notes .notes-rich-editor:empty::before{content:attr(data-placeholder);color:#b7b7bc;pointer-events:none}
+#duo .nx-notes .notes-rich-editor p{margin:0 0 .8em}
+#duo .nx-notes .notes-rich-editor h1,#duo .nx-notes .notes-rich-editor h2,#duo .nx-notes .notes-rich-editor h3{margin:.75em 0 .4em;font-family:inherit;line-height:1.2}
+#duo .nx-notes .notes-rich-editor blockquote{margin:.8em 0;padding-left:14px;border-left:3px solid var(--notes-yellow);color:#77777c}
+#duo .nx-notes .notes-rich-editor ul,#duo .nx-notes .notes-rich-editor ol{padding-left:25px}
+#duo .nx-notes .notes-rich-editor li{padding:2px 0}
+#duo .nx-notes .notes-rich-editor table{width:100%;border-collapse:collapse;table-layout:fixed}
+#duo .nx-notes .notes-rich-editor td,#duo .nx-notes .notes-rich-editor th{min-width:45px;padding:7px;border:1px solid var(--notes-line)}
+#duo .nx-notes .notes-editor-dock{flex:0 0 auto;display:flex;align-items:center;justify-content:space-between;gap:9px;min-height:58px;padding:6px 13px calc(8px + env(safe-area-inset-bottom,0px));border-top:1px solid var(--notes-line);background:var(--notes-paper)}
+#duo .nx-notes .notes-format-tools{display:flex;align-items:center;gap:1px;min-width:0;overflow-x:auto;scrollbar-width:none}
+#duo .nx-notes .notes-format-tools::-webkit-scrollbar{display:none}
+#duo .nx-notes .notes-format-button{display:grid;place-items:center;flex:0 0 36px;width:36px;height:36px;border:0;border-radius:9px;background:transparent;color:#57575d;cursor:pointer}
+#duo .nx-notes .notes-format-button:hover{background:#f0f0f4}
+#duo .nx-notes .notes-format-button svg{width:19px;height:19px}
+#duo .nx-notes .notes-format-button span:not(svg){position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+#duo .nx-notes .notes-readonly-hint{overflow:hidden;color:var(--notes-muted);font-size:12px;text-overflow:ellipsis;white-space:nowrap}
+#duo .nx-notes .notes-signatures-header .notes-large-title{font-size:32px}
+#duo .nx-notes .notes-signature-group{overflow:hidden;border-radius:12px;background:var(--notes-paper)}
+#duo .nx-notes .notes-signature-row{display:flex;align-items:center;gap:12px;min-height:64px;padding:10px 14px;border-bottom:1px solid var(--notes-line)}
+#duo .nx-notes .notes-signature-icon{display:grid;place-items:center;width:36px;height:36px;border-radius:50%;background:#f2edda;color:#a17c06}
+#duo .nx-notes .notes-signature-icon svg{width:20px;height:20px}
+#duo .nx-notes .notes-signature-copy{display:flex;flex:1;flex-direction:column;gap:2px}
+#duo .nx-notes .notes-signature-copy small{color:var(--notes-muted);font-size:12px}
+#duo .nx-notes .notes-signature-state{color:var(--notes-blue);font-size:20px}
+#duo .nx-notes .notes-primary-action,#duo .nx-notes .notes-secondary-action,#duo .nx-notes .notes-text-action{cursor:pointer}
+#duo .nx-notes .notes-modal,.nx-notes .nx-modal{z-index:100}
+#duo .nx-notes .nx-sheet{--u27-ink:#1c1c1e;--u27-muted:#8e8e93;max-height:78%;padding:10px 16px 20px;border:1px solid #ffffff;background:#f7f7fa;color:#1c1c1e;color-scheme:light}
+#duo .nx-notes .nx-sheet-heading{background:#f7f7faf2}
+#duo .nx-notes .notes-action-row{display:flex;align-items:center;gap:12px;width:100%;min-height:48px;padding:8px 10px;border:0;border-bottom:1px solid #e4e4e9;background:transparent;color:#1c1c1e;text-align:left;cursor:pointer}
+#duo .nx-notes .notes-action-row svg{width:20px;height:20px;color:#77777e}
+#duo .nx-notes .notes-action-danger{color:#dc3446}
+#duo .nx-notes .notes-action-danger svg{color:#dc3446}
+#duo .nx-notes .notes-sheet-help{margin:10px 3px;color:#77777e;font-size:12px;line-height:1.45}
+#duo .nx-notes .notes-field{display:flex;flex-direction:column;gap:6px;margin:12px 0;color:#77777e;font-size:12px}
+#duo .nx-notes .notes-field input{height:42px;padding:0 11px;border:1px solid #d5d5dc;border-radius:9px;background:white;color:#1c1c1e;font-size:15px}
+#duo .nx-notes .notes-primary-action,#duo .nx-notes .notes-confirm-primary,#duo .nx-notes .notes-confirm-secondary,#duo .nx-notes .notes-secondary-action{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;min-height:44px;margin-top:9px;padding:10px 14px;border:0;border-radius:11px;background:var(--notes-blue);color:#fff;font-weight:650}
+#duo .nx-notes .notes-danger-action{background:#d93649}
+#duo .nx-notes .notes-confirm-copy{display:flex;align-items:center;flex-direction:column;padding:12px 8px 18px;text-align:center}
+#duo .nx-notes .notes-confirm-symbol{display:grid;place-items:center;width:48px;height:48px;border-radius:14px;background:#f7e8b7;color:#aa8311}
+#duo .nx-notes .notes-confirm-symbol svg{width:28px;height:28px}
+#duo .nx-notes .notes-confirm-copy h3{margin:11px 0 3px;font-size:18px}
+#duo .nx-notes .notes-confirm-copy p{max-width:280px;margin:2px 0;color:#77777e;font-size:13px}
+#duo .nx-notes .notes-confirm-nav{display:flex;align-items:center;justify-content:space-between;min-height:34px}
+#duo .nx-notes .notes-confirm-nav h2{margin:0;font-size:16px}
+#duo .nx-notes .notes-text-action{border:0;background:transparent;color:var(--notes-blue)}
+@container notes-app (min-width:700px){#duo .nx-notes .notes-scroll{max-width:780px;width:100%;align-self:center}#duo .nx-notes .notes-header{width:100%;max-width:780px;align-self:center}#duo .nx-notes .notes-scroll.is-gallery .notes-list-group{grid-template-columns:repeat(3,minmax(0,1fr))}#duo .nx-notes .notes-paper{padding-right:max(28px,calc((100cqw - 620px)/2));padding-left:max(28px,calc((100cqw - 620px)/2))}}
+@media(max-height:470px) and (orientation:landscape){#duo .nx-notes .notes-header{padding-top:8px;padding-bottom:5px}#duo .nx-notes .notes-large-title{font-size:28px}#duo .nx-notes .notes-folder-row{min-height:48px}#duo .nx-notes .notes-scroll{padding-bottom:70px}#duo .nx-notes .notes-dock{padding-top:5px;padding-bottom:6px}#duo .nx-notes .notes-state{min-height:20vh}#duo .nx-notes .notes-editor-dock{min-height:46px;padding-top:3px;padding-bottom:4px}#duo .nx-notes .notes-format-button{height:32px}}
+@media(prefers-reduced-motion:reduce){#duo .nx-notes *,#duo .nx-notes *::before,#duo .nx-notes *::after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}}
+@media(prefers-color-scheme:dark){#duo:not([data-theme="light"]) .duo-app-instance.nx-native-host[data-app="documents"]{background:#1c1c1e;color:#f5f5f7;color-scheme:dark}#duo:not([data-theme="light"]) .nx-notes{--notes-bg:#1c1c1e;--notes-paper:#2b2b2e;--notes-ink:#f5f5f7;--notes-muted:#a1a1a6;--notes-line:#404045;--notes-yellow:#f1bd34;--notes-blue:#73a7ff}#duo:not([data-theme="light"]) .nx-notes .notes-folder-group,#duo:not([data-theme="light"]) .nx-notes .notes-list-group,#duo:not([data-theme="light"]) .nx-notes .notes-signature-group{box-shadow:0 1px 2px #0004}#duo:not([data-theme="light"]) .nx-notes .notes-folder-manage{border-color:var(--notes-line)}#duo:not([data-theme="light"]) .nx-notes .notes-note-badge{background:#283a57;color:#a9cbff}#duo:not([data-theme="light"]) .nx-notes .notes-draft-recovery{border-color:#62542f;background:#383322}#duo:not([data-theme="light"]) .nx-notes .notes-draft-recovery small{color:#c6b686}#duo:not([data-theme="light"]) .nx-notes .nx-sheet{--u27-ink:#f5f5f7;--u27-muted:#a1a1a6;background:#29292d;color:#f5f5f7;color-scheme:dark;border-color:#45454a}#duo:not([data-theme="light"]) .nx-notes .nx-sheet-heading{background:#29292df2}#duo:not([data-theme="light"]) .nx-notes .notes-action-row{border-color:#434348;color:#f5f5f7}#duo:not([data-theme="light"]) .nx-notes .notes-sheet-help,#duo:not([data-theme="light"]) .nx-notes .notes-field{color:#aaaab0}#duo:not([data-theme="light"]) .nx-notes .notes-field input{border-color:#515158;background:#1d1d20;color:#f5f5f7}#duo:not([data-theme="light"]) .nx-notes .notes-format-button{color:#d1d1d6}}
+
+/* Keep Notes' native neutral controls above the phone-wide appearance overrides. */
+#duo[data-theme] .duo-app-instance[data-app="documents"] .nx-notes{--notes-blue:#8c6700;--notes-yellow:#e5ad13;color:var(--notes-ink)!important;background:var(--notes-bg)!important}
+#duo[data-theme] .duo-app-instance[data-app="documents"] .nx-notes .notes-folder-section{margin:15px 0 23px}
+#duo[data-theme] .duo-app-instance[data-app="documents"] .nx-notes .notes-section-title{margin:0 4px 9px;color:var(--notes-ink)!important;font-size:16px;font-weight:650;letter-spacing:-.015em}
+#duo[data-theme] .duo-app-instance[data-app="documents"] .nx-notes .notes-folder-group{overflow:hidden;border:0!important;border-radius:13px!important;background:var(--notes-paper)!important;box-shadow:0 1px 2px #00000008!important}
+#duo[data-theme] .duo-app-instance[data-app="documents"] .nx-notes .notes-folder-row{position:relative;border:0!important;border-radius:0!important;box-shadow:none!important;background:var(--notes-paper)!important}
+#duo[data-theme] .duo-app-instance[data-app="documents"] .nx-notes .notes-folder-row:hover{background:color-mix(in srgb,var(--notes-paper),var(--notes-bg) 36%)!important}
+#duo[data-theme] .duo-app-instance[data-app="documents"] .nx-notes .notes-folder-row::after{position:absolute;right:0;bottom:0;left:58px;height:1px;background:var(--notes-line);content:"";pointer-events:none}
+#duo[data-theme] .duo-app-instance[data-app="documents"] .nx-notes .notes-folder-group>.notes-folder-row:last-child::after,#duo[data-theme] .duo-app-instance[data-app="documents"] .nx-notes .notes-local-folder-item:last-child>.notes-folder-row::after{display:none}
+#duo[data-theme] .duo-app-instance[data-app="documents"] .nx-notes .notes-folder-chevron{color:var(--notes-muted)!important}
+#duo[data-theme] .duo-app-instance[data-app="documents"] .nx-notes .notes-folder-count{flex:0 0 28px;color:#6d6d72!important;font-size:14px;text-align:right}
+#duo[data-theme] .duo-app-instance[data-app="documents"] .nx-notes .notes-local-note{margin:10px 4px;color:var(--notes-muted)!important;font-size:11px}
+#duo[data-theme] .duo-app-instance[data-app="documents"] .nx-notes .notes-folder-glyph{color:#b88300!important}
+#duo[data-theme] .duo-app-instance[data-app="documents"] .nx-notes .notes-folder-glyph svg{color:inherit!important;stroke:currentColor!important}
+#duo[data-theme] .duo-app-instance[data-app="documents"] .nx-notes .notes-editor-meta{color:#6d6d72!important}
+#duo[data-theme] .duo-app-instance[data-app="documents"] .nx-notes .notes-search{height:42px!important;padding:0 15px!important;border:1px solid #dedee4!important;border-radius:999px!important;background:#fff!important;box-shadow:0 1px 3px #00000010!important;color:#8e8e93!important}
+#duo[data-theme] .duo-app-instance[data-app="documents"] .nx-notes .notes-search input{background:transparent!important;color:#1c1c1e!important}
+#duo[data-theme] .duo-app-instance[data-app="documents"] .nx-notes .notes-title-input{background:transparent!important;color:var(--notes-ink)!important}
+#duo[data-theme] .duo-app-instance[data-app="documents"] .nx-notes .notes-save-top{background:#f4d36e!important;color:#4a3909!important;box-shadow:none!important}
+#duo[data-theme] .duo-app-instance[data-app="documents"] .nx-notes .notes-format-more{flex:0 0 44px;width:44px;padding:0;border:1px solid var(--notes-line);border-radius:18px;background:var(--notes-bg);color:var(--notes-ink);font-size:15px;font-weight:700;letter-spacing:-.06em}
+#duo[data-theme] .duo-app-instance[data-app="documents"] .nx-notes .nx-sheet{max-height:calc(78% - 20px)!important;margin-bottom:20px!important}
+#duo[data-theme] .duo-app-instance[data-app="documents"] .nx-notes button.notes-compose{flex:0 0 43px!important;width:43px!important;height:43px!important;border:1px solid #dfdfe4!important;border-radius:50%!important;background:#fff!important;color:#222228!important;box-shadow:0 2px 5px #00000014!important}
+#duo[data-theme] .duo-app-instance[data-app="documents"] .nx-notes button.notes-compose svg{width:23px!important;height:23px!important;fill:none!important;stroke:#25252a!important;stroke-width:1.8!important}
+#duo[data-theme] .duo-app-instance[data-app="documents"] .nx-notes .notes-icon-action{color:#8c6700!important}
+#duo[data-theme] .duo-app-instance[data-app="documents"] .nx-notes .notes-new-folder{flex-basis:36px!important;width:36px!important;height:36px!important;border:1px solid #e2e2e7!important;border-radius:50%!important;background:#fff!important;box-shadow:0 1px 3px #00000010!important}
+#duo[data-theme] .duo-app-instance[data-app="documents"] .nx-notes .notes-new-folder svg{stroke:#1c1c1e!important}
+#duo[data-theme="dark"] .duo-app-instance[data-app="documents"] .nx-notes{--notes-bg:#1c1c1e;--notes-paper:#2b2b2e;--notes-ink:#f5f5f7;--notes-muted:#a1a1a6;--notes-line:#404045;--notes-yellow:#f1bd34;--notes-blue:#f1bd34;color-scheme:dark}
+#duo[data-theme="dark"] .duo-app-instance[data-app="documents"] .nx-notes .notes-search{border-color:#45454a!important;background:#303034!important;color:#aaaab0!important}
+#duo[data-theme="dark"] .duo-app-instance[data-app="documents"] .nx-notes .notes-search input{color:#f5f5f7!important}
+#duo[data-theme="dark"] .duo-app-instance[data-app="documents"] .nx-notes button.notes-compose{border-color:#4b4b50!important;background:#303034!important;color:#f5f5f7!important}
+#duo[data-theme="dark"] .duo-app-instance[data-app="documents"] .nx-notes button.notes-compose svg{stroke:#f5f5f7!important}
+#duo[data-theme="dark"] .duo-app-instance[data-app="documents"] .nx-notes .notes-save-top{background:#62521f!important;color:#fff2bc!important}
+#duo[data-theme="dark"] .duo-app-instance[data-app="documents"] .nx-notes .notes-folder-count{color:#aaaab0!important}
+#duo[data-theme="dark"] .duo-app-instance[data-app="documents"] .nx-notes .notes-folder-glyph{color:#f1bd34!important}
+#duo[data-theme="dark"] .duo-app-instance[data-app="documents"] .nx-notes .notes-editor-meta{color:#aaaab0!important}
+#duo[data-theme="dark"] .duo-app-instance[data-app="documents"] .nx-notes .notes-icon-action{color:#f1bd34!important}
+#duo[data-theme="dark"] .duo-app-instance[data-app="documents"] .nx-notes .notes-new-folder{border-color:#4b4b50!important;background:#303034!important}
+#duo[data-theme="dark"] .duo-app-instance[data-app="documents"] .nx-notes .notes-new-folder svg{stroke:#f5f5f7!important}
+#duo[data-theme="dark"] .duo-app-instance[data-app="documents"] .nx-notes .notes-folder-row::after{background:#404045}
+#duo[data-theme="light"] .duo-app-instance[data-app="documents"] .nx-notes{--notes-bg:#f2f2f7;--notes-paper:#fff;--notes-ink:#1c1c1e;--notes-muted:#8e8e93;--notes-line:#e5e5ea;--notes-yellow:#e5ad13;--notes-blue:#8c6700;color-scheme:light}
+@media(max-height:390px){#duo .duo-app-instance[data-app="documents"] .nx-notes .notes-header{gap:2px;padding-top:7px;padding-bottom:5px}#duo .duo-app-instance[data-app="documents"] .nx-notes .notes-header-line{min-height:28px}#duo .duo-app-instance[data-app="documents"] .nx-notes .notes-large-title{font-size:29px}#duo .duo-app-instance[data-app="documents"] .nx-notes .notes-folder-section{margin:5px 0 10px}#duo .duo-app-instance[data-app="documents"] .nx-notes .notes-section-title{margin-bottom:5px}#duo .duo-app-instance[data-app="documents"] .nx-notes .notes-folder-row{min-height:43px;padding-top:5px;padding-bottom:5px}#duo .duo-app-instance[data-app="documents"] .nx-notes .notes-folder-glyph{flex-basis:34px;width:34px;height:27px}#duo .duo-app-instance[data-app="documents"] .nx-notes .notes-folder-glyph svg{width:31px;height:26px}#duo .duo-app-instance[data-app="documents"] .nx-notes .notes-scroll{padding-bottom:62px}#duo .duo-app-instance[data-app="documents"] .nx-notes .notes-dock{gap:9px;padding:6px 12px calc(7px + env(safe-area-inset-bottom,0px))}#duo .duo-app-instance[data-app="documents"] .nx-notes .notes-search{height:36px!important}#duo .duo-app-instance[data-app="documents"] .nx-notes button.notes-compose{flex-basis:37px!important;width:37px!important;height:37px!important}}
+#duo[data-layout="split"][data-orientation="portrait"] .duo-app-instance[data-app="documents"] .nx-notes .notes-header{gap:1px;padding:5px 13px 4px}
+#duo[data-layout="split"][data-orientation="portrait"] .duo-app-instance[data-app="documents"] .nx-notes .notes-header-line{min-height:24px}
+#duo[data-layout="split"][data-orientation="portrait"] .duo-app-instance[data-app="documents"] .nx-notes .notes-header-line .notes-icon-action{flex-basis:26px;width:26px;height:26px;padding:5px}
+#duo[data-layout="split"][data-orientation="portrait"] .duo-app-instance[data-app="documents"] .nx-notes .notes-header-line .notes-new-folder{flex-basis:26px!important;width:26px!important;height:26px!important}
+#duo[data-layout="split"][data-orientation="portrait"] .duo-app-instance[data-app="documents"] .nx-notes .notes-header-line .notes-icon-action svg{width:16px;height:16px}
+#duo[data-layout="split"][data-orientation="portrait"] .duo-app-instance[data-app="documents"] .nx-notes .notes-large-title{font-size:26px;line-height:1}
+#duo[data-layout="split"][data-orientation="portrait"] .duo-app-instance[data-app="documents"] .nx-notes .notes-folder-section{margin:3px 0 8px}
+#duo[data-layout="split"][data-orientation="portrait"] .duo-app-instance[data-app="documents"] .nx-notes .notes-section-title{margin-bottom:4px;font-size:11px}
+#duo[data-layout="split"][data-orientation="portrait"] .duo-app-instance[data-app="documents"] .nx-notes .notes-section-title{display:none}
+#duo[data-layout="split"][data-orientation="portrait"] .duo-app-instance[data-app="documents"] .nx-notes .notes-folder-row{min-height:39px;padding:4px 8px;gap:7px}
+#duo[data-layout="split"][data-orientation="portrait"] .duo-app-instance[data-app="documents"] .nx-notes .notes-folder-glyph{flex-basis:29px;width:29px;height:25px}
+#duo[data-layout="split"][data-orientation="portrait"] .duo-app-instance[data-app="documents"] .nx-notes .notes-folder-glyph svg{width:27px;height:23px}
+#duo[data-layout="split"][data-orientation="portrait"] .duo-app-instance[data-app="documents"] .nx-notes .notes-folder-copy strong{font-size:13px}
+#duo[data-layout="split"][data-orientation="portrait"] .duo-app-instance[data-app="documents"] .nx-notes .notes-folder-count{font-size:12px}
+#duo[data-layout="split"][data-orientation="portrait"] .duo-app-instance[data-app="documents"] .nx-notes .notes-scroll{padding:0 9px 52px}
+#duo[data-layout="split"][data-orientation="portrait"] .duo-app-instance[data-app="documents"] .nx-notes .notes-dock{gap:7px;padding:4px 10px 5px}
+#duo[data-layout="split"][data-orientation="portrait"] .duo-app-instance[data-app="documents"] .nx-notes .notes-search{height:33px!important}
+#duo[data-layout="split"][data-orientation="portrait"] .duo-app-instance[data-app="documents"] .nx-notes button.notes-compose{flex-basis:34px!important;width:34px!important;height:34px!important}
+
+/* The editor is a writing surface with its own compact floating controls. */
+#duo .nx-notes[data-notes-view="editor"]{--notes-bg:#fff;--notes-paper:#fff;background:#fff!important}
+#duo .nx-notes[data-notes-view="editor"] .notes-editor-header{z-index:2;padding:9px 18px 5px;background:transparent}
+#duo .nx-notes[data-notes-view="editor"] .notes-editor-header .notes-header-line{gap:8px;min-height:38px}
+#duo .nx-notes[data-notes-view="editor"] .notes-editor-header .notes-back-button{display:grid;place-items:center;flex:0 0 36px;width:36px;height:36px;margin-right:auto;padding:8px;border:1px solid #e4e4e9;border-radius:50%;background:#f5f5f8;color:#34343a}
+#duo .nx-notes[data-notes-view="editor"] .notes-editor-header .notes-back-button svg{width:18px;height:18px}
+#duo .nx-notes[data-notes-view="editor"] .notes-editor-header .notes-save-top,#duo .nx-notes[data-notes-view="editor"] .notes-editor-header .notes-edit-top{min-height:32px;padding:6px 12px;border:1px solid #e5e5ea;border-radius:999px;background:#f5f5f8;color:#303037;font-size:13px;font-weight:600}
+#duo .nx-notes[data-notes-view="editor"] .notes-editor-actions-capsule{display:inline-flex;align-items:center;gap:2px;padding:3px;border:1px solid #e5e5e9;border-radius:999px;background:#f5f5f8;box-shadow:0 1px 3px #0000000b}
+#duo .nx-notes[data-notes-view="editor"] .notes-editor-actions-capsule .notes-icon-action{flex:0 0 32px;width:32px;height:32px;padding:7px;border:0;border-radius:50%;background:transparent;color:#4a4a50}
+#duo .nx-notes[data-notes-view="editor"] .notes-editor-actions-capsule .notes-icon-action:hover{background:#e8e8ee}
+#duo .nx-notes[data-notes-view="editor"] .notes-editor-actions-capsule .notes-icon-action svg{width:18px;height:18px}
+#duo .nx-notes[data-notes-view="editor"] .notes-paper{padding:1px clamp(22px,6vw,42px) calc(96px + env(safe-area-inset-bottom,0px));background:#fff}
+#duo .nx-notes[data-notes-view="editor"] .notes-editor-meta{min-height:24px;color:#717178;font-size:11px}
+#duo .nx-notes[data-notes-view="editor"] .notes-finalized-mark{background:#f0f0f3;color:#64646b}
+#duo .nx-notes[data-notes-view="editor"] .notes-title-input{padding:7px 0 5px;font-size:30px;font-weight:720;line-height:1.12;letter-spacing:-.045em}
+#duo .nx-notes[data-notes-view="editor"] .notes-title-input::placeholder{color:#a5a5ac}
+#duo .nx-notes[data-notes-view="editor"] .notes-rich-editor{min-height:150px;padding:9px 0 28px;font-size:17px;line-height:1.5;caret-color:#987000}
+#duo .nx-notes[data-notes-view="editor"] .notes-rich-editor:empty::before{color:#a2a2a9}
+#duo .nx-notes[data-notes-view="editor"] .notes-rich-editor blockquote{color:#595960}
+#duo .nx-notes[data-notes-view="editor"] .notes-rich-editor [data-notes-checklist-marker]{position:relative;display:inline-flex;align-items:center;justify-content:center;box-sizing:border-box;width:19px;height:19px;margin:0 7px 0 1px;border:1.7px solid #77777f;border-radius:50%;color:transparent;font-size:0;line-height:1;vertical-align:middle;cursor:pointer;user-select:none}
+#duo .nx-notes[data-notes-view="editor"] .notes-rich-editor [data-notes-checklist-checked="true"]{border-color:#ad8500;background:#fff7d7}
+#duo .nx-notes[data-notes-view="editor"] .notes-rich-editor [data-notes-checklist-checked="true"]::after{width:5px;height:9px;border:solid #826100;border-width:0 2px 2px 0;content:"";transform:translateY(-1px) rotate(45deg)}
+#duo .nx-notes[data-notes-view="editor"] .notes-rich-editor [data-notes-checklist-marker]:focus-visible{outline:2px solid #8c6700;outline-offset:2px}
+#duo .nx-notes[data-notes-view="editor"] .notes-rich-editor li[data-notes-checklist-item="true"]{list-style-type:none}
+#duo .nx-notes[data-notes-view="editor"] .notes-editor-dock{position:absolute;z-index:3;right:0;bottom:0;left:0;display:flex;align-items:center;justify-content:center;gap:8px;min-height:0;padding:8px 60px calc(11px + env(safe-area-inset-bottom,0px)) 12px;border:0;background:linear-gradient(0deg,#fff 64%,#ffffffed 80%,#ffffff00);pointer-events:none}
+#duo[data-theme="dark"] .nx-notes[data-notes-view="editor"] .notes-editor-dock{background:linear-gradient(0deg,#222225 64%,#222225ed 80%,#22222500)!important}
+#duo .nx-notes[data-notes-view="editor"] .notes-format-tools{flex:0 1 auto;gap:0;max-width:100%;padding:4px;border:1px solid #e4e4e9;border-radius:999px;background:#f7f7f9;box-shadow:0 3px 12px #00000012;pointer-events:auto}
+#duo .nx-notes[data-notes-view="editor"] .notes-format-button{flex:0 0 37px;width:37px;height:37px;border-radius:50%;background:transparent;color:#43434a}
+#duo .nx-notes[data-notes-view="editor"] .notes-format-button:hover{background:#e9e9ee}
+#duo .nx-notes[data-notes-view="editor"] .notes-format-button svg{width:18px;height:18px}
+#duo .nx-notes[data-notes-view="editor"] .notes-format-more{flex:0 0 37px;width:37px;height:37px;padding:0;border:0;border-radius:50%;background:transparent;color:#3f3f46;font-size:15px;font-weight:700;letter-spacing:-.06em}
+#duo .nx-notes[data-notes-view="editor"] .notes-compose{position:absolute;right:clamp(12px,4vw,26px);bottom:calc(10px + env(safe-area-inset-bottom,0px));flex:0 0 43px;width:43px;height:43px;border:1px solid #dedee4;background:#fff;color:#24242a;box-shadow:0 3px 9px #00000018;pointer-events:auto}
+#duo .nx-notes[data-notes-view="editor"] .notes-compose svg{stroke:#24242a;stroke-width:1.8}
+#duo .nx-notes[data-notes-view="editor"] .notes-readonly-hint{max-width:calc(100% - 54px);color:#6d6d72}
+@container notes-app (max-width:360px){#duo .nx-notes[data-notes-view="editor"] .notes-editor-header{padding-right:11px;padding-left:11px}#duo .nx-notes[data-notes-view="editor"] .notes-paper{padding-right:18px;padding-left:18px}#duo .nx-notes[data-notes-view="editor"] .notes-format-button,#duo .nx-notes[data-notes-view="editor"] .notes-format-more{flex-basis:32px;width:32px;height:34px}#duo .nx-notes[data-notes-view="editor"] .notes-format-tools{padding:3px}#duo .nx-notes[data-notes-view="editor"] .notes-compose{right:10px;width:39px;height:39px;flex-basis:39px}}
+@container notes-app (max-width:270px){#duo .nx-notes[data-notes-view="editor"] .notes-editor-header{padding-right:8px;padding-left:8px}#duo .nx-notes[data-notes-view="editor"] .notes-editor-actions-capsule{gap:0;padding:2px}#duo .nx-notes[data-notes-view="editor"] .notes-editor-actions-capsule .notes-icon-action{flex-basis:27px;width:27px;height:27px;padding:5px}#duo .nx-notes[data-notes-view="editor"] .notes-back-button{flex-basis:31px!important;width:31px!important;height:31px!important}#duo .nx-notes[data-notes-view="editor"] .notes-format-button,#duo .nx-notes[data-notes-view="editor"] .notes-format-more{flex-basis:28px;width:28px;height:32px}#duo .nx-notes[data-notes-view="editor"] .notes-format-button svg{width:16px;height:16px}#duo .nx-notes[data-notes-view="editor"] .notes-compose{right:7px;width:35px;height:35px;flex-basis:35px}}
+#duo[data-theme="dark"] .duo-app-instance[data-app="documents"] .nx-notes[data-notes-view="editor"]{--notes-bg:#222225;--notes-paper:#222225;background:#222225!important}
+#duo[data-theme="dark"] .duo-app-instance[data-app="documents"] .nx-notes[data-notes-view="editor"] .notes-editor-header,#duo[data-theme="dark"] .duo-app-instance[data-app="documents"] .nx-notes[data-notes-view="editor"] .notes-paper{background:#222225}
+#duo[data-theme="dark"] .duo-app-instance[data-app="documents"] .nx-notes[data-notes-view="editor"] .notes-editor-header .notes-back-button,#duo[data-theme="dark"] .duo-app-instance[data-app="documents"] .nx-notes[data-notes-view="editor"] .notes-editor-header .notes-save-top,#duo[data-theme="dark"] .duo-app-instance[data-app="documents"] .nx-notes[data-notes-view="editor"] .notes-editor-header .notes-edit-top{border-color:#48484f;background:#303034;color:#f5f5f7}
+#duo[data-theme="dark"] .duo-app-instance[data-app="documents"] .nx-notes[data-notes-view="editor"] .notes-editor-actions-capsule,#duo[data-theme="dark"] .duo-app-instance[data-app="documents"] .nx-notes[data-notes-view="editor"] .notes-format-tools{border-color:#48484f;background:#303034;box-shadow:0 3px 12px #0005}
+#duo[data-theme="dark"] .duo-app-instance[data-app="documents"] .nx-notes[data-notes-view="editor"] .notes-editor-actions-capsule .notes-icon-action,#duo[data-theme="dark"] .duo-app-instance[data-app="documents"] .nx-notes[data-notes-view="editor"] .notes-format-button,#duo[data-theme="dark"] .duo-app-instance[data-app="documents"] .nx-notes[data-notes-view="editor"] .notes-format-more{color:#f1f1f4}
+#duo[data-theme="dark"] .duo-app-instance[data-app="documents"] .nx-notes[data-notes-view="editor"] .notes-editor-actions-capsule .notes-icon-action:hover,#duo[data-theme="dark"] .duo-app-instance[data-app="documents"] .nx-notes[data-notes-view="editor"] .notes-format-button:hover{background:#414148}
+#duo[data-theme="dark"] .duo-app-instance[data-app="documents"] .nx-notes[data-notes-view="editor"] .notes-compose{border-color:#55555c;background:#303034;color:#f5f5f7}
+#duo[data-theme="dark"] .duo-app-instance[data-app="documents"] .nx-notes[data-notes-view="editor"] .notes-compose svg{stroke:#f5f5f7}
+#duo[data-theme="dark"] .duo-app-instance[data-app="documents"] .nx-notes[data-notes-view="editor"] .notes-rich-editor [data-notes-checklist-marker]{border-color:#a7a7af}
+#duo[data-theme="dark"] .duo-app-instance[data-app="documents"] .nx-notes[data-notes-view="editor"] .notes-rich-editor [data-notes-checklist-checked="true"]{border-color:#f1bd34;background:#493c17}
+#duo[data-theme="dark"] .duo-app-instance[data-app="documents"] .nx-notes[data-notes-view="editor"] .notes-rich-editor [data-notes-checklist-checked="true"]::after{border-color:#ffdb6e}
+#duo[data-theme] .duo-app-instance[data-app="documents"] .nx-notes[data-notes-view="editor"] .notes-editor-header .notes-save-top,#duo[data-theme] .duo-app-instance[data-app="documents"] .nx-notes[data-notes-view="editor"] .notes-editor-header .notes-edit-top{border:1px solid #e5e5ea!important;background:#f5f5f8!important;color:#303037!important;box-shadow:none!important}
+#duo[data-theme] .duo-app-instance[data-app="documents"] .nx-notes[data-notes-view="editor"] .notes-editor-actions-capsule .notes-icon-action{background:transparent!important;color:#4a4a50!important}
+#duo[data-theme] .duo-app-instance[data-app="documents"] .nx-notes[data-notes-view="editor"] .notes-format-more{flex:0 0 37px!important;width:37px!important;height:37px!important;padding:0!important;border:0!important;border-radius:50%!important;background:transparent!important;color:#3f3f46!important;font-size:15px!important}
+#duo[data-theme] .duo-app-instance[data-app="documents"] .nx-notes[data-notes-view="editor"] button.notes-compose{position:absolute!important;right:clamp(12px,4vw,26px)!important;bottom:calc(10px + env(safe-area-inset-bottom,0px))!important;flex:0 0 43px!important;width:43px!important;height:43px!important;padding:9px!important;border:1px solid #dedee4!important;border-radius:50%!important;background:#fff!important;color:#24242a!important;box-shadow:0 3px 9px #00000018!important}
+#duo[data-theme] .duo-app-instance[data-app="documents"] .nx-notes[data-notes-view="editor"] button.notes-compose svg{stroke:#24242a!important;stroke-width:1.8!important}
+#duo[data-theme="dark"] .duo-app-instance[data-app="documents"] .nx-notes[data-notes-view="editor"] .notes-editor-header .notes-save-top,#duo[data-theme="dark"] .duo-app-instance[data-app="documents"] .nx-notes[data-notes-view="editor"] .notes-editor-header .notes-edit-top{border-color:#48484f!important;background:#303034!important;color:#f5f5f7!important}
+#duo[data-theme="dark"] .duo-app-instance[data-app="documents"] .nx-notes[data-notes-view="editor"] .notes-editor-actions-capsule .notes-icon-action{color:#f1f1f4!important}
+#duo[data-theme="dark"] .duo-app-instance[data-app="documents"] .nx-notes[data-notes-view="editor"] .notes-format-more{color:#f1f1f4!important}
+#duo[data-theme="dark"] .duo-app-instance[data-app="documents"] .nx-notes[data-notes-view="editor"] button.notes-compose{border-color:#55555c!important;background:#303034!important;color:#f5f5f7!important}
+#duo[data-theme="dark"] .duo-app-instance[data-app="documents"] .nx-notes[data-notes-view="editor"] button.notes-compose svg{stroke:#f5f5f7!important}
+@media(max-height:470px) and (orientation:landscape){#duo .nx-notes[data-notes-view="editor"] .notes-editor-header{padding-top:4px;padding-bottom:2px}#duo .nx-notes[data-notes-view="editor"] .notes-editor-header .notes-header-line{min-height:34px}#duo .nx-notes[data-notes-view="editor"] .notes-paper{padding-bottom:calc(80px + env(safe-area-inset-bottom,0px))}#duo .nx-notes[data-notes-view="editor"] .notes-editor-dock{padding-top:4px;padding-bottom:calc(5px + env(safe-area-inset-bottom,0px))}#duo .nx-notes[data-notes-view="editor"] .notes-format-button,#duo .nx-notes[data-notes-view="editor"] .notes-format-more{height:32px}}
+#duo .nx-notes .notes-stale-banner{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 4px 14px;padding:12px 14px;border:1px solid var(--notes-line);border-radius:14px;background:color-mix(in srgb,var(--notes-yellow),var(--notes-paper) 94%)}
+#duo .nx-notes .notes-stale-copy{display:flex;min-width:0;flex-direction:column;gap:4px}
+#duo .nx-notes .notes-stale-copy strong{color:var(--notes-ink);font-size:13px;font-weight:650}
+#duo .nx-notes .notes-stale-copy span{color:var(--notes-muted);font-size:12px;line-height:1.35}
+#duo .nx-notes .notes-stale-banner .notes-stale-retry{flex:0 0 auto;margin:0;padding:8px 10px;border-radius:10px;background:var(--notes-paper);font-size:13px}
+#duo[data-theme="dark"] .duo-app-instance[data-app="documents"] .nx-notes .notes-stale-banner{border-color:#55492a;background:#302b1d}
+#duo[data-theme="light"] .duo-app-instance[data-app="documents"] .nx-notes .notes-stale-banner{border-color:#ead9a3;background:#fff9e8}
+#duo .duo-app-instance[data-app="documents"] .nx-notes .notes-state-identity .notes-state-glyph{background:#fff1bf;color:#6a5000!important}
+#duo[data-theme="dark"] .duo-app-instance[data-app="documents"] .nx-notes .notes-state-identity .notes-state-glyph{background:#44391d;color:#ffde76!important}
+@media(max-width:360px){#duo .nx-notes .notes-stale-banner{align-items:flex-start;gap:8px;padding:10px}#duo .nx-notes .notes-stale-banner .notes-stale-retry{padding:7px 8px}}
+
+/* The phone host can give Notes a short pane inside a tall browser window. */
+@supports (container-type: size) {
+  #duo .duo-app-instance[data-app="documents"]{container:notes-pane / size}
+}
+
+@container notes-pane (max-height:420px) {
+  /* fullscreen-apps.css uses viewport-height padding. Scale its safe space to the pane. */
+  #duo .duo-app-instance[data-app="documents"] .nx-notes{
+    padding-top:max(24px,6cqh)!important;
+    padding-bottom:max(8px,4cqh)!important;
+  }
+
+  #duo[data-theme] .duo-app-instance[data-app="documents"] .nx-notes .notes-header{
+    gap:2px;
+    padding:7px 10px 6px!important;
+  }
+  #duo[data-theme] .duo-app-instance[data-app="documents"] .nx-notes .notes-header-line{
+    min-height:44px;
+  }
+  #duo[data-theme] .duo-app-instance[data-app="documents"] .nx-notes .notes-new-folder{
+    flex:0 0 44px!important;
+    width:44px!important;
+    height:44px!important;
+  }
+  #duo[data-theme] .duo-app-instance[data-app="documents"] .nx-notes .notes-large-title{
+    font-size:25px;
+    line-height:1.05;
+  }
+  #duo[data-theme] .duo-app-instance[data-app="documents"] .nx-notes .notes-scroll{
+    flex:1 1 0%;
+    min-height:0;
+    padding:0 10px 12px!important;
+    overflow:auto;
+    overscroll-behavior:contain;
+  }
+  #duo[data-theme] .duo-app-instance[data-app="documents"] .nx-notes .notes-folder-section{
+    margin:8px 0 14px!important;
+  }
+  #duo[data-theme] .duo-app-instance[data-app="documents"] .nx-notes .notes-section-title{
+    margin-bottom:8px;
+  }
+  #duo[data-theme] .duo-app-instance[data-app="documents"] .nx-notes .notes-folder-row{
+    min-height:62px!important;
+  }
+  #duo[data-theme] .duo-app-instance[data-app="documents"] .nx-notes .notes-dock{
+    position:relative!important;
+    inset:auto!important;
+    z-index:1;
+    flex:0 0 auto;
+    gap:6px;
+    padding:8px 10px calc(8px + env(safe-area-inset-bottom,0px))!important;
+    background:var(--notes-bg);
+  }
+  #duo[data-theme] .duo-app-instance[data-app="documents"] .nx-notes .notes-search{
+    height:44px!important;
+  }
+  #duo[data-theme] .duo-app-instance[data-app="documents"] .nx-notes button.notes-compose{
+    flex:0 0 44px!important;
+    width:44px!important;
+    height:44px!important;
+  }
+  #duo[data-theme] .duo-app-instance[data-app="documents"] .nx-notes .notes-state{
+    min-height:0;
+    padding:12px;
+  }
+
+  /* Keep the editor controls in flow so the writing surface can scroll above them. */
+  #duo[data-theme] .duo-app-instance[data-app="documents"] .nx-notes[data-notes-view="editor"] .notes-editor-header{
+    padding:4px 8px!important;
+  }
+  #duo[data-theme] .duo-app-instance[data-app="documents"] .nx-notes[data-notes-view="editor"] .notes-editor-header .notes-header-line{
+    min-height:44px;
+    flex-wrap:wrap;
+    gap:4px;
+  }
+  #duo[data-theme] .duo-app-instance[data-app="documents"] .nx-notes[data-notes-view="editor"] .notes-editor-header .notes-back-button{
+    flex:0 0 44px!important;
+    width:44px!important;
+    height:44px!important;
+    min-width:44px;
+    min-height:44px;
+  }
+  #duo[data-theme] .duo-app-instance[data-app="documents"] .nx-notes[data-notes-view="editor"] .notes-editor-actions-capsule .notes-icon-action{
+    flex:0 0 44px!important;
+    width:44px!important;
+    height:44px!important;
+    min-width:44px;
+    min-height:44px;
+  }
+  #duo[data-theme] .duo-app-instance[data-app="documents"] .nx-notes[data-notes-view="editor"] .notes-save-top,
+  #duo[data-theme] .duo-app-instance[data-app="documents"] .nx-notes[data-notes-view="editor"] .notes-edit-top{
+    min-height:44px;
+  }
+  #duo[data-theme] .duo-app-instance[data-app="documents"] .nx-notes[data-notes-view="editor"] .notes-paper{
+    flex:1 1 0%;
+    min-height:0;
+    padding:4px 12px 12px!important;
+    overflow:auto;
+    overscroll-behavior:contain;
+  }
+  #duo[data-theme] .duo-app-instance[data-app="documents"] .nx-notes[data-notes-view="editor"] .notes-title-input{
+    min-height:44px;
+    padding:4px 0;
+    font-size:25px;
+    line-height:1.15;
+  }
+  /* Keep save status available to assistive tech without taking the short
+     writing viewport away from the note itself. */
+  #duo[data-theme] .duo-app-instance[data-app="documents"] .nx-notes[data-notes-view="editor"] .notes-editor-meta{
+    position:absolute;
+    width:1px;
+    height:1px;
+    padding:0;
+    margin:-1px;
+    overflow:hidden;
+    clip:rect(0,0,0,0);
+    white-space:nowrap;
+    border:0;
+  }
+  #duo[data-theme] .duo-app-instance[data-app="documents"] .nx-notes[data-notes-view="editor"] .notes-rich-editor{
+    min-height:80px;
+    font-size:17px;
+    line-height:1.45;
+  }
+  #duo[data-theme] .duo-app-instance[data-app="documents"] .nx-notes[data-notes-view="editor"] .notes-editor-dock{
+    position:relative!important;
+    inset:auto!important;
+    flex:0 0 auto;
+    min-height:60px;
+    gap:6px;
+    padding:6px 8px calc(8px + env(safe-area-inset-bottom,0px))!important;
+    overflow:visible;
+    pointer-events:auto;
+  }
+  #duo[data-theme] .duo-app-instance[data-app="documents"] .nx-notes[data-notes-view="editor"] .notes-format-tools{
+    flex:1 1 auto;
+    min-width:0;
+    max-width:100%;
+    overflow-x:auto;
+    overflow-y:hidden;
+    scrollbar-width:thin;
+  }
+  #duo[data-theme] .duo-app-instance[data-app="documents"] .nx-notes[data-notes-view="editor"] .notes-format-button,
+  #duo[data-theme] .duo-app-instance[data-app="documents"] .nx-notes[data-notes-view="editor"] .notes-format-more{
+    flex:0 0 44px!important;
+    width:44px!important;
+    height:44px!important;
+    min-width:44px;
+    min-height:44px;
+  }
+  #duo[data-theme] .duo-app-instance[data-app="documents"] .nx-notes[data-notes-view="editor"] button.notes-compose{
+    position:static!important;
+    inset:auto!important;
+    flex:0 0 44px!important;
+    width:44px!important;
+    height:44px!important;
+    min-width:44px;
+    min-height:44px;
+    pointer-events:auto;
+  }
+
+  /* Short sheets remain internally scrollable inside the same pane boundary. */
+  #duo[data-theme] .duo-app-instance[data-app="documents"] .nx-notes .nx-sheet{
+    max-height:calc(100cqh - 24px)!important;
+    margin-bottom:8px!important;
+    overflow:auto;
+    overscroll-behavior:contain;
+  }
+  #duo[data-theme] .duo-app-instance[data-app="documents"] .nx-notes .nx-sheet-dismiss{
+    min-width:44px;
+    min-height:44px;
+  }
+  #duo[data-theme] .duo-app-instance[data-app="documents"] .nx-notes .notes-field input{
+    min-height:44px;
+  }
+}
+
+@container notes-pane (max-width:320px) and (max-height:420px) {
+  /* The toolbar already names this view. Reclaim the duplicate title and second
+     excerpt line so the last note can scroll fully above the dock. */
+  #duo[data-theme] .duo-app-instance[data-app="documents"] .nx-notes[data-notes-view="list"] .notes-large-title{
+    display:none;
+  }
+  #duo[data-theme] .duo-app-instance[data-app="documents"] .nx-notes[data-notes-view="list"] .notes-note-excerpt{
+    -webkit-line-clamp:1;
+  }
+  #duo[data-theme] .duo-app-instance[data-app="documents"] .nx-notes[data-notes-view="list"] .notes-scroll{
+    padding-bottom:2px!important;
+  }
+  #duo[data-theme] .duo-app-instance[data-app="documents"] .nx-notes[data-notes-view="list"] .notes-list-results{
+    padding-bottom:2px!important;
+  }
+  #duo[data-theme] .duo-app-instance[data-app="documents"] .nx-notes[data-notes-view="list"] .notes-list-section{
+    margin-bottom:4px!important;
+  }
+
+  /* Keep every format action on one 44px horizontal rail and preserve the writing space. */
+  #duo[data-theme] .duo-app-instance[data-app="documents"] .nx-notes[data-notes-view="editor"] .notes-editor-dock{
+    display:flex;
+    align-items:center;
+    justify-content:flex-start;
+    min-height:60px;
+    gap:6px;
+    padding:6px 8px calc(8px + env(safe-area-inset-bottom,0px))!important;
+  }
+  #duo[data-theme] .duo-app-instance[data-app="documents"] .nx-notes[data-notes-view="editor"] .notes-format-tools{
+    display:flex;
+    flex:1 1 auto;
+    align-items:center;
+    gap:1px;
+    width:auto;
+    min-width:0;
+    max-width:100%;
+    padding:2px 3px 6px;
+    overflow-x:auto;
+    overflow-y:hidden;
+    overscroll-behavior-x:contain;
+    scrollbar-width:thin;
+    scrollbar-color:#8e8e93 #e5e5ea;
+  }
+  #duo[data-theme] .duo-app-instance[data-app="documents"] .nx-notes[data-notes-view="editor"] .notes-format-tools::-webkit-scrollbar{
+    display:block;
+    height:5px;
+  }
+  #duo[data-theme] .duo-app-instance[data-app="documents"] .nx-notes[data-notes-view="editor"] .notes-format-tools::-webkit-scrollbar-thumb{
+    border-radius:999px;
+    background:#8e8e93;
+  }
+  #duo[data-theme] .duo-app-instance[data-app="documents"] .nx-notes[data-notes-view="editor"] .notes-format-tools .notes-format-button,
+  #duo[data-theme] .duo-app-instance[data-app="documents"] .nx-notes[data-notes-view="editor"] .notes-format-tools .notes-format-more{
+    flex:none!important;
+    width:44px!important;
+    height:44px!important;
+  }
+  #duo[data-theme] .duo-app-instance[data-app="documents"] .nx-notes[data-notes-view="editor"] button.notes-compose{
+    position:static!important;
+    inset:auto!important;
+    flex:0 0 44px!important;
+    width:44px!important;
+    height:44px!important;
+    min-width:44px;
+    min-height:44px;
+    flex:none!important;
+  }
+  #duo[data-theme] .duo-app-instance[data-app="documents"] .nx-notes .notes-stale-banner{
+    box-sizing:border-box;
+    width:calc(100% - 8px);
+    flex-direction:column;
+    align-items:stretch;
+    gap:8px;
+    margin:0 4px 10px;
+    padding:10px;
+  }
+  #duo[data-theme] .duo-app-instance[data-app="documents"] .nx-notes .notes-stale-copy{
+    width:100%;
+  }
+  #duo[data-theme] .duo-app-instance[data-app="documents"] .nx-notes .notes-stale-banner .notes-stale-retry{
+    align-self:flex-end;
+  }
+
+  /* Keep all editor actions in one row; the save/edit label stays available to assistive tech. */
+  #duo[data-theme] .duo-app-instance[data-app="documents"] .nx-notes[data-notes-view="editor"] .notes-editor-header{
+    padding:0!important;
+  }
+  #duo[data-theme] .duo-app-instance[data-app="documents"] .nx-notes[data-notes-view="editor"] .notes-editor-header .notes-header-line{
+    flex-wrap:nowrap;
+    gap:0;
+    min-height:44px;
+    overflow-x:auto;
+    overflow-y:hidden;
+    overscroll-behavior-x:contain;
+    scrollbar-width:none;
+  }
+  #duo[data-theme] .duo-app-instance[data-app="documents"] .nx-notes[data-notes-view="editor"] .notes-editor-header .notes-header-line::after{
+    content:"";
+    flex:0 0 2px;
+    height:1px;
+    pointer-events:none;
+  }
+  #duo[data-theme] .duo-app-instance[data-app="documents"] .nx-notes[data-notes-view="editor"] .notes-editor-header .notes-header-line::-webkit-scrollbar{
+    display:none;
+  }
+  #duo[data-theme] .duo-app-instance[data-app="documents"] .nx-notes[data-notes-view="editor"] .notes-back-button{
+    margin-right:0!important;
+  }
+  #duo[data-theme] .duo-app-instance[data-app="documents"] .nx-notes[data-notes-view="editor"] .notes-save-top,
+  #duo[data-theme] .duo-app-instance[data-app="documents"] .nx-notes[data-notes-view="editor"] .notes-edit-top{
+    flex:0 0 44px!important;
+    width:44px!important;
+    height:44px!important;
+    min-width:44px;
+    padding:0!important;
+    justify-content:center;
+    gap:0;
+  }
+  #duo[data-theme] .duo-app-instance[data-app="documents"] .nx-notes[data-notes-view="editor"] .notes-save-top span,
+  #duo[data-theme] .duo-app-instance[data-app="documents"] .nx-notes[data-notes-view="editor"] .notes-edit-top span{
+    position:absolute;
+    width:1px;
+    height:1px;
+    padding:0;
+    margin:-1px;
+    overflow:hidden;
+    clip:rect(0,0,0,0);
+    white-space:nowrap;
+    border:0;
+  }
+  #duo[data-theme] .duo-app-instance[data-app="documents"] .nx-notes[data-notes-view="editor"] .notes-editor-actions-capsule{
+    flex:0 0 88px!important;
+    gap:0;
+    padding:0!important;
+    border:0;
+    box-shadow:none;
+  }
+  #duo[data-theme] .duo-app-instance[data-app="documents"] .nx-notes[data-notes-view="editor"] .notes-editor-dock{
+    min-height:0;
+    gap:4px;
+    padding:2px 4px calc(3px + env(safe-area-inset-bottom,0px))!important;
+  }
+  #duo[data-theme] .duo-app-instance[data-app="documents"] .nx-notes[data-notes-view="editor"] .notes-format-tools{
+    padding:0 3px 2px;
+  }
+}

@@ -1,0 +1,1513 @@
+{
+  "registered_nui_callbacks": {
+    "BankBusters/GetBusters": [
+      "client/cl_busters.lua"
+    ],
+    "BankBusters/ClaimHeist": [
+      "client/cl_busters.lua"
+    ],
+    "Employment/GetBusinesses": [
+      "client/cl_employment.lua"
+    ],
+    "Employment/HireEmployee": [
+      "client/cl_employment.lua"
+    ],
+    "Employment/RemoveEmployee": [
+      "client/cl_employment.lua"
+    ],
+    "Employment/GetFinancialAccess": [
+      "client/cl_employment.lua"
+    ],
+    "Employment/SetFinancialAccess": [
+      "client/cl_employment.lua"
+    ],
+    "Employment/ChangeRole": [
+      "client/cl_employment.lua"
+    ],
+    "Employment/CreateRole": [
+      "client/cl_employment.lua"
+    ],
+    "Employment/EditRole": [
+      "client/cl_employment.lua"
+    ],
+    "Employment/DeleteRole": [
+      "client/cl_employment.lua"
+    ],
+    "Employment/PayExternal": [
+      "client/cl_employment.lua"
+    ],
+    "Employment/ChargeCustomer": [
+      "client/cl_employment.lua"
+    ],
+    "Employment/GivePilotLicense": [
+      "client/cl_employment.lua"
+    ],
+    "Vehicles/GetVehicles": [
+      "client/cl_vehicles.lua"
+    ],
+    "Vehicles/TrackVehicle": [
+      "client/cl_vehicles.lua"
+    ],
+    "Vehicles/SpawnVehicle": [
+      "client/cl_vehicles.lua"
+    ],
+    "Vehicles/SellVehicle": [
+      "client/cl_vehicles.lua"
+    ],
+    "Housing/CanRealtor": [
+      "client/cl_housing.lua"
+    ],
+    "Housing/CreateHouse": [
+      "client/cl_housing.lua"
+    ],
+    "Housing/EditHouse": [
+      "client/cl_housing.lua"
+    ],
+    "Housing/GetCurrentHouse": [
+      "client/cl_housing.lua"
+    ],
+    "Housing/GetHouses": [
+      "client/cl_housing.lua"
+    ],
+    "Housing/IsNearHouse": [
+      "client/cl_housing.lua"
+    ],
+    "Housing/IsNearAnyHouse": [
+      "client/cl_housing.lua"
+    ],
+    "Housing/SetInteractLocation": [
+      "client/cl_housing.lua"
+    ],
+    "Housing/SetGPS": [
+      "client/cl_housing.lua"
+    ],
+    "Housing/ToggleLock": [
+      "client/cl_housing.lua"
+    ],
+    "Housing/SellHouse": [
+      "client/cl_housing.lua"
+    ],
+    "Housing/PurchaseHouse": [
+      "client/cl_housing.lua"
+    ],
+    "Housing/GetKeys": [
+      "client/cl_housing.lua"
+    ],
+    "Housing/AddKeys": [
+      "client/cl_housing.lua"
+    ],
+    "Housing/RemoveKeys": [
+      "client/cl_housing.lua"
+    ],
+    "Housing/DeleteHouse": [
+      "client/cl_housing.lua"
+    ],
+    "Housing/SellLocation": [
+      "client/cl_housing.lua"
+    ],
+    "Peakify/GetState": [
+      "client/cl_peakify.lua"
+    ],
+    "Peakify/GetSessions": [
+      "client/cl_peakify.lua"
+    ],
+    "Peakify/GetDeviceState": [
+      "client/cl_peakify.lua"
+    ],
+    "Peakify/SaveTrack": [
+      "client/cl_peakify.lua"
+    ],
+    "Peakify/DeleteTrack": [
+      "client/cl_peakify.lua"
+    ],
+    "Peakify/CreatePlaylist": [
+      "client/cl_peakify.lua"
+    ],
+    "Peakify/DeletePlaylist": [
+      "client/cl_peakify.lua"
+    ],
+    "Peakify/AddTrackToPlaylist": [
+      "client/cl_peakify.lua"
+    ],
+    "Peakify/RemoveTrackFromPlaylist": [
+      "client/cl_peakify.lua"
+    ],
+    "Peakify/AddCollaborator": [
+      "client/cl_peakify.lua"
+    ],
+    "Peakify/RemoveCollaborator": [
+      "client/cl_peakify.lua"
+    ],
+    "Peakify/Play": [
+      "client/cl_peakify.lua"
+    ],
+    "Peakify/Pause": [
+      "client/cl_peakify.lua"
+    ],
+    "Peakify/Stop": [
+      "client/cl_peakify.lua"
+    ],
+    "Peakify/StopCarry": [
+      "client/cl_peakify.lua"
+    ],
+    "Wenmo/GetBankData": [
+      "client/cl_wenmo.lua"
+    ],
+    "Wenmo/SendMoney": [
+      "client/cl_wenmo.lua"
+    ],
+    "peak-guber:server:getAvailableCourses": [
+      "client/cl_guber.lua"
+    ],
+    "peak-guber:server:changeDuty": [
+      "client/cl_guber.lua"
+    ],
+    "peak-guber:server:takecourse": [
+      "client/cl_guber.lua"
+    ],
+    "peak-guber:server:clientRated": [
+      "client/cl_guber.lua"
+    ],
+    "peak-guber:client:requestRide": [
+      "client/cl_guber.lua"
+    ],
+    "peak-guber:client:cancelRide": [
+      "client/cl_guber.lua"
+    ],
+    "peak-guber:client:getWaypoint": [
+      "client/cl_guber.lua"
+    ],
+    "peak-guber:client:getDutyStatus": [
+      "client/cl_guber.lua"
+    ],
+    "peak-guber:client:cancelCourse": [
+      "client/cl_guber.lua"
+    ],
+    "Debt/GetDebt": [
+      "client/cl_debt.lua"
+    ],
+    "Debt/PayDebt": [
+      "client/cl_debt.lua"
+    ],
+    "Y/GetPosts": [
+      "client/cl_y.lua"
+    ],
+    "Y/CreatePost": [
+      "client/cl_y.lua"
+    ],
+    "Y/ReportPost": [
+      "client/cl_y.lua"
+    ],
+    "Y/OpenMessages": [
+      "client/cl_y.lua"
+    ],
+    "Y/GetProfile": [
+      "client/cl_y.lua"
+    ],
+    "Y/UpdateProfile": [
+      "client/cl_y.lua"
+    ],
+    "Y/GetPremiumStatus": [
+      "client/cl_y.lua"
+    ],
+    "Y/TogglePremium": [
+      "client/cl_y.lua"
+    ],
+    "Y/ToggleLike": [
+      "client/cl_y.lua"
+    ],
+    "Y/ToggleFollow": [
+      "client/cl_y.lua"
+    ],
+    "Messages/GetChats": [
+      "client/cl_messages.lua"
+    ],
+    "Messages/SetChatRead": [
+      "client/cl_messages.lua"
+    ],
+    "Messages/MarkAllAsRead": [
+      "client/cl_messages.lua"
+    ],
+    "Messages/SendMessage": [
+      "client/cl_messages.lua"
+    ],
+    "Services/GetEmergencyWorkers": [
+      "client/cl_services.lua"
+    ],
+    "Services/GetTowWorkers": [
+      "client/cl_services.lua"
+    ],
+    "Armazoon/ClaimDelivery": [
+      "client/cl_armazoon.lua"
+    ],
+    "Facetime/GetContacts": [
+      "client/cl_facetime.lua"
+    ],
+    "Facetime/StartCall": [
+      "client/cl_facetime.lua"
+    ],
+    "Facetime/AnswerCall": [
+      "client/cl_facetime.lua"
+    ],
+    "Facetime/DeclineCall": [
+      "client/cl_facetime.lua"
+    ],
+    "Facetime/EndCall": [
+      "client/cl_facetime.lua"
+    ],
+    "Facetime/SetPeerId": [
+      "client/cl_facetime.lua"
+    ],
+    "Facetime/ToggleVideo": [
+      "client/cl_facetime.lua"
+    ],
+    "Facetime/ToggleAudio": [
+      "client/cl_facetime.lua"
+    ],
+    "Facetime/FlipCamera": [
+      "client/cl_facetime.lua"
+    ],
+    "Facetime/GetCallState": [
+      "client/cl_facetime.lua"
+    ],
+    "Facetime/CameraReady": [
+      "client/cl_facetime.lua"
+    ],
+    "SetCurrentApp": [
+      "client/_cl_main.lua"
+    ],
+    "Phone/DuoTyping": [
+      "client/_cl_main.lua"
+    ],
+    "Phone/DuoReady": [
+      "client/_cl_main.lua"
+    ],
+    "ClosePhone": [
+      "client/_cl_main.lua"
+    ],
+    "Notifications/Click": [
+      "client/_cl_main.lua"
+    ],
+    "Network/GetNetworks": [
+      "client/_cl_main.lua"
+    ],
+    "Network/Connect": [
+      "client/_cl_main.lua"
+    ],
+    "Phone/ToggleSounds": [
+      "client/_cl_main.lua"
+    ],
+    "Phone/GetPreferences": [
+      "client/_cl_main.lua"
+    ],
+    "Phone/SetPreference": [
+      "client/_cl_main.lua"
+    ],
+    "GetProfilePicture": [
+      "client/_cl_main.lua"
+    ],
+    "Phone/Selfie": [
+      "client/_cl_main.lua"
+    ],
+    "Phone/FlipCamera": [
+      "client/_cl_main.lua"
+    ],
+    "Phone/ExitCamera": [
+      "client/_cl_main.lua"
+    ],
+    "Phone/CapturePhoto": [
+      "client/_cl_main.lua"
+    ],
+    "Utils/SetWaypoint": [
+      "client/_cl_main.lua"
+    ],
+    "GetInstalledApps": [
+      "client/_cl_main.lua"
+    ],
+    "InstallApp": [
+      "client/_cl_main.lua"
+    ],
+    "UninstallApp": [
+      "client/_cl_main.lua"
+    ],
+    "DOJ/GetUsers": [
+      "client/cl_doj.lua"
+    ],
+    "DOJ/SetStatus": [
+      "client/cl_doj.lua"
+    ],
+    "Documents/GetDocuments": [
+      "client/cl_documents.lua"
+    ],
+    "Documents/SaveDocument": [
+      "client/cl_documents.lua"
+    ],
+    "Documents/Finalize": [
+      "client/cl_documents.lua"
+    ],
+    "Documents/GetDocumentSignatures": [
+      "client/cl_documents.lua"
+    ],
+    "Documents/RequestSignature": [
+      "client/cl_documents.lua"
+    ],
+    "Documents/SignDocument": [
+      "client/cl_documents.lua"
+    ],
+    "Documents/ShareLocal": [
+      "client/cl_documents.lua"
+    ],
+    "Documents/AddSharee": [
+      "client/cl_documents.lua"
+    ],
+    "Documents/DeleteDocument": [
+      "client/cl_documents.lua"
+    ],
+    "Documents/DropQRCode": [
+      "client/cl_documents.lua"
+    ],
+    "Pinger/SendPing": [
+      "client/cl_pinger.lua"
+    ],
+    "Messages/SendLocation": [
+      "client/cl_pinger.lua"
+    ],
+    "Crypto/GetCrypto": [
+      "client/cl_crypto.lua"
+    ],
+    "Crypto/BuyCrypto": [
+      "client/cl_crypto.lua"
+    ],
+    "Crypto/SellCrypto": [
+      "client/cl_crypto.lua"
+    ],
+    "Crypto/TransferCrypto": [
+      "client/cl_crypto.lua"
+    ],
+    "Calls/GetCalls": [
+      "client/cl_calls.lua"
+    ],
+    "YellowPages/GetPosts": [
+      "client/cl_yellowpages.lua"
+    ],
+    "YellowPages/PostAd": [
+      "client/cl_yellowpages.lua"
+    ],
+    "YellowPages/RemoveAd": [
+      "client/cl_yellowpages.lua"
+    ],
+    "Mails/GetMails": [
+      "client/cl_mails.lua"
+    ],
+    "Mails/DeleteMail": [
+      "client/cl_mails.lua"
+    ],
+    "Mails/MarkAsRead": [
+      "client/cl_mails.lua"
+    ],
+    "Mails/SendMail": [
+      "client/cl_mails.lua"
+    ],
+    "Mails/ImportOldMails": [
+      "client/cl_mails.lua"
+    ],
+    "Mails/SetGPS": [
+      "client/cl_mails.lua"
+    ],
+    "Racing/GetTracks": [
+      "client/cl_racing.lua"
+    ],
+    "Racing/GetRaces": [
+      "client/cl_racing.lua"
+    ],
+    "Racing/GetRaceById": [
+      "client/cl_racing.lua"
+    ],
+    "Racing/GetLeaderboard": [
+      "client/cl_racing.lua"
+    ],
+    "Racing/SetGPS": [
+      "client/cl_racing.lua"
+    ],
+    "Racing/Preview": [
+      "client/cl_racing.lua"
+    ],
+    "Racing/CreateRace": [
+      "client/cl_racing.lua"
+    ],
+    "Racing/StartRace": [
+      "client/cl_racing.lua"
+    ],
+    "Racing/EndRace": [
+      "client/cl_racing.lua"
+    ],
+    "Racing/LeaveRace": [
+      "client/cl_racing.lua"
+    ],
+    "Racing/JoinRace": [
+      "client/cl_racing.lua"
+    ],
+    "Racing/GetTexts": [
+      "client/cl_racing.lua"
+    ],
+    "Racing/SendMessage": [
+      "client/cl_racing.lua"
+    ],
+    "Racing/CanCreateTracks": [
+      "client/cl_racing.lua"
+    ],
+    "Racing/IsCreatingTrack": [
+      "client/cl_racing.lua"
+    ],
+    "Racing/CreateRaceTrack": [
+      "client/cl_racing.lua"
+    ],
+    "Racing/CancelCreation": [
+      "client/cl_racing.lua"
+    ],
+    "Racing/SaveRaceTrack": [
+      "client/cl_racing.lua"
+    ],
+    "Contacts/GetContacts": [
+      "client/cl_contacts.lua"
+    ],
+    "Contacts/GetSuggestions": [
+      "client/cl_contacts.lua"
+    ],
+    "Contacts/CreateContact": [
+      "client/cl_contacts.lua"
+    ],
+    "Contacts/DeleteContact": [
+      "client/cl_contacts.lua"
+    ],
+    "Contacts/EditContact": [
+      "client/cl_contacts.lua"
+    ],
+    "Contacts/DeleteSuggested": [
+      "client/cl_contacts.lua"
+    ],
+    "Contacts/Call": [
+      "client/cl_contacts.lua"
+    ],
+    "Contacts/ToggleSpeaker": [
+      "client/cl_contacts.lua"
+    ],
+    "Contacts/GetProfile": [
+      "client/cl_contacts.lua"
+    ],
+    "Contacts/UpdateProfile": [
+      "client/cl_contacts.lua"
+    ],
+    "Contacts/GetNearbyPlayers": [
+      "client/cl_contacts.lua"
+    ],
+    "Contacts/RequestAirShare": [
+      "client/cl_contacts.lua"
+    ],
+    "Contacts/CheckMission3Invite": [
+      "client/cl_contacts.lua"
+    ],
+    "Contacts/InviteToMission3": [
+      "client/cl_contacts.lua"
+    ],
+    "Contacts/KickFromMission3": [
+      "client/cl_contacts.lua"
+    ],
+    "TierUp/GetGroup": [
+      "client/cl_tierup.lua"
+    ],
+    "TierUp/CreateGroup": [
+      "client/cl_tierup.lua"
+    ],
+    "TierUp/LeaveGroup": [
+      "client/cl_tierup.lua"
+    ],
+    "TierUp/InviteParticipate": [
+      "client/cl_tierup.lua"
+    ],
+    "TierUp/KickMember": [
+      "client/cl_tierup.lua"
+    ],
+    "TierUp/TransferOwnership": [
+      "client/cl_tierup.lua"
+    ],
+    "TierUp/DeleteGroup": [
+      "client/cl_tierup.lua"
+    ],
+    "Groups/GetGroups": [
+      "client/cl_groups.lua"
+    ],
+    "Groups/CreateGroup": [
+      "client/cl_groups.lua"
+    ],
+    "Groups/GetMessages": [
+      "client/cl_groups.lua"
+    ],
+    "Groups/SendMessage": [
+      "client/cl_groups.lua"
+    ],
+    "Groups/GetInfo": [
+      "client/cl_groups.lua"
+    ],
+    "Groups/AddMember": [
+      "client/cl_groups.lua"
+    ],
+    "Groups/RemoveMember": [
+      "client/cl_groups.lua"
+    ],
+    "Groups/ToggleAdmin": [
+      "client/cl_groups.lua"
+    ],
+    "Groups/LeaveGroup": [
+      "client/cl_groups.lua"
+    ],
+    "Groups/SetRead": [
+      "client/cl_groups.lua"
+    ],
+    "BusDriver/GetData": [
+      "client/cl_busdriver.lua"
+    ],
+    "Lumberjack/GetData": [
+      "client/cl_lumberjack.lua"
+    ],
+    "Gallery/GetPhotos": [
+      "client/cl_gallery.lua"
+    ],
+    "Gallery/DeletePhoto": [
+      "client/cl_gallery.lua"
+    ],
+    "Gallery/GetNearbyPlayers": [
+      "client/cl_gallery.lua"
+    ],
+    "Gallery/SharePhoto": [
+      "client/cl_gallery.lua"
+    ],
+    "Gallery/PostToTwatter": [
+      "client/cl_gallery.lua"
+    ],
+    "Gallery/ShareToSpecificPlayer": [
+      "client/cl_gallery.lua"
+    ],
+    "Gallery/ShareToAllNearby": [
+      "client/cl_gallery.lua"
+    ],
+    "Gallery/SendInMessage": [
+      "client/cl_gallery.lua"
+    ],
+    "Gallery/ImportPhoto": [
+      "client/cl_gallery.lua"
+    ],
+    "UpdateProfilePicture": [
+      "client/cl_gallery.lua"
+    ],
+    "Gallery/SendToLamar": [
+      "client/cl_gallery.lua"
+    ],
+    "Cars/GetShopData": [
+      "client/cl_cars.lua"
+    ],
+    "Cars/GetVehicles": [
+      "client/cl_cars.lua"
+    ],
+    "Cars/SetDisplay": [
+      "client/cl_cars.lua"
+    ],
+    "Cars/GetTestDriving": [
+      "client/cl_cars.lua"
+    ],
+    "Cars/TestDrive": [
+      "client/cl_cars.lua"
+    ],
+    "Cars/ReturnCar": [
+      "client/cl_cars.lua"
+    ],
+    "Cars/SavePreset": [
+      "client/cl_cars.lua"
+    ],
+    "Cars/Sell": [
+      "client/cl_cars.lua"
+    ],
+    "News/IsJournalist": [
+      "client/cl_news.lua"
+    ],
+    "News/GetArticles": [
+      "client/cl_news.lua"
+    ],
+    "News/SaveArticle": [
+      "client/cl_news.lua"
+    ],
+    "News/DeleteArticle": [
+      "client/cl_news.lua"
+    ],
+    "JobCenter/GetJobs": [
+      "client/cl_jobcenter.lua"
+    ],
+    "JobCenter/GetJobGroups": [
+      "client/cl_jobcenter.lua"
+    ],
+    "JobCenter/LocateJob": [
+      "client/cl_jobcenter.lua"
+    ],
+    "JobCenter/CheckOut": [
+      "client/cl_jobcenter.lua"
+    ],
+    "JobCenter/CreateGroup": [
+      "client/cl_jobcenter.lua"
+    ],
+    "JobCenter/RequestToJoin": [
+      "client/cl_jobcenter.lua"
+    ],
+    "JobCenter/DisbandGroup": [
+      "client/cl_jobcenter.lua"
+    ],
+    "JobCenter/LeaveGroup": [
+      "client/cl_jobcenter.lua"
+    ],
+    "JobCenter/RemoveFromGroup": [
+      "client/cl_jobcenter.lua"
+    ],
+    "JobCenter/PromoteToLeader": [
+      "client/cl_jobcenter.lua"
+    ],
+    "JobCenter/Ready": [
+      "client/cl_jobcenter.lua"
+    ],
+    "JobCenter/AbandonJob": [
+      "client/cl_jobcenter.lua"
+    ],
+    "JobCenter/GetTaskActivity": [
+      "client/cl_jobcenter.lua"
+    ],
+    "JobCenter/InviteToGroup": [
+      "client/cl_jobcenter.lua"
+    ],
+    "Details/GetLicenses": [
+      "client/cl_details.lua"
+    ]
+  },
+  "literal_frontend_request_references": {
+    "Phone/FlipCamera": [
+      "web/src/App.svelte"
+    ],
+    "Phone/CapturePhoto": [
+      "web/src/App.svelte"
+    ],
+    "Phone/ExitCamera": [
+      "web/src/App.svelte"
+    ],
+    "ClosePhone": [
+      "web/src/providers/AppProvider.svelte",
+      "web/src/apps/Phone/App.svelte"
+    ],
+    "Contacts/GetContacts": [
+      "web/src/utils/Utils.js",
+      "web/src/apps/Phone/Apps/Contacts.svelte"
+    ],
+    "SetCurrentApp": [
+      "web/src/apps/Phone/App.svelte",
+      "web/src/apps/Phone/App.svelte",
+      "web/src/apps/Phone/App.svelte"
+    ],
+    "Phone/ToggleSounds": [
+      "web/src/apps/Phone/App.svelte",
+      "web/src/apps/Phone/Apps/Settings.svelte"
+    ],
+    "Network/GetNetworks": [
+      "web/src/apps/Phone/App.svelte"
+    ],
+    "Network/Connect": [
+      "web/src/apps/Phone/App.svelte"
+    ],
+    "Phone/Selfie": [
+      "web/src/apps/Phone/App.svelte"
+    ],
+    "GetProfilePicture": [
+      "web/src/apps/Phone/App.svelte"
+    ],
+    "GetInstalledApps": [
+      "web/src/apps/Phone/App.svelte"
+    ],
+    "Notifications/Click": [
+      "web/src/apps/Phone/components/NotificationsCard.svelte",
+      "web/src/apps/Phone/components/NotificationsCard.svelte"
+    ],
+    "Contacts/ToggleSpeaker": [
+      "web/src/apps/Phone/components/NotificationsCard.svelte"
+    ],
+    "Gallery/GetPhotos": [
+      "web/src/apps/Phone/Modals/Input.svelte",
+      "web/src/apps/Phone/Apps/Gallery.svelte"
+    ],
+    "JobCenter/LocateJob": [
+      "web/src/apps/Phone/Apps/_jobcenter.js"
+    ],
+    "JobCenter/CreateGroup": [
+      "web/src/apps/Phone/Apps/_jobcenter.js"
+    ],
+    "JobCenter/CheckOut": [
+      "web/src/apps/Phone/Apps/_jobcenter.js"
+    ],
+    "JobCenter/RequestToJoin": [
+      "web/src/apps/Phone/Apps/_jobcenter.js"
+    ],
+    "JobCenter/Ready": [
+      "web/src/apps/Phone/Apps/_jobcenter.js"
+    ],
+    "JobCenter/DisbandGroup": [
+      "web/src/apps/Phone/Apps/_jobcenter.js"
+    ],
+    "JobCenter/LeaveGroup": [
+      "web/src/apps/Phone/Apps/_jobcenter.js"
+    ],
+    "JobCenter/RemoveFromGroup": [
+      "web/src/apps/Phone/Apps/_jobcenter.js"
+    ],
+    "JobCenter/PromoteToLeader": [
+      "web/src/apps/Phone/Apps/_jobcenter.js"
+    ],
+    "JobCenter/AbandonJob": [
+      "web/src/apps/Phone/Apps/_jobcenter.js"
+    ],
+    "JobCenter/InviteToGroup": [
+      "web/src/apps/Phone/Apps/_jobcenter.js"
+    ],
+    "Phone/SetPreference": [
+      "web/src/apps/Phone/Apps/Settings.svelte",
+      "web/src/apps/Phone/Apps/Settings.svelte",
+      "web/src/apps/Phone/Apps/Settings.svelte",
+      "web/src/apps/Phone/Apps/Settings.svelte",
+      "web/src/apps/Phone/Apps/Settings.svelte",
+      "web/src/apps/Phone/Apps/Settings.svelte",
+      "web/src/apps/Phone/Apps/Gallery.svelte"
+    ],
+    "Contacts/UpdateProfile": [
+      "web/src/apps/Phone/Apps/Settings.svelte",
+      "web/src/apps/Phone/Apps/Contacts.svelte"
+    ],
+    "Phone/GetPreferences": [
+      "web/src/apps/Phone/Apps/Settings.svelte"
+    ],
+    "Groups/CreateGroup": [
+      "web/src/apps/Phone/Apps/_groups.js"
+    ],
+    "Groups/AddMember": [
+      "web/src/apps/Phone/Apps/_groups.js"
+    ],
+    "Groups/SendMessage": [
+      "web/src/apps/Phone/Apps/_groups.js"
+    ],
+    "Groups/LeaveGroup": [
+      "web/src/apps/Phone/Apps/_groups.js"
+    ],
+    "Groups/RemoveMember": [
+      "web/src/apps/Phone/Apps/_groups.js"
+    ],
+    "Groups/ToggleAdmin": [
+      "web/src/apps/Phone/Apps/_groups.js"
+    ],
+    "Housing/ToggleLock": [
+      "web/src/apps/Phone/Apps/Housing.svelte"
+    ],
+    "Housing/GetKeys": [
+      "web/src/apps/Phone/Apps/Housing.svelte"
+    ],
+    "Utils/SetWaypoint": [
+      "web/src/apps/Phone/Apps/Housing.svelte"
+    ],
+    "Housing/CanRealtor": [
+      "web/src/apps/Phone/Apps/Housing.svelte"
+    ],
+    "Housing/GetHouses": [
+      "web/src/apps/Phone/Apps/Housing.svelte"
+    ],
+    "Messages/SendMessage": [
+      "web/src/apps/Phone/Apps/_messages.js",
+      "web/src/apps/Phone/Apps/_messages.js",
+      "web/src/apps/Phone/Apps/Contacts.svelte",
+      "web/src/apps/Phone/Apps/Calls.svelte"
+    ],
+    "Contacts/Call": [
+      "web/src/apps/Phone/Apps/_messages.js",
+      "web/src/apps/Phone/Apps/Contacts.svelte",
+      "web/src/apps/Phone/Apps/DOJ.svelte",
+      "web/src/apps/Phone/Apps/YellowPages.svelte",
+      "web/src/apps/Phone/Apps/Services.svelte",
+      "web/src/apps/Phone/Apps/Calls.svelte",
+      "web/src/apps/Phone/Apps/Calls.svelte"
+    ],
+    "Messages/SendLocation": [
+      "web/src/apps/Phone/Apps/_messages.js"
+    ],
+    "Contacts/CheckMission3Invite": [
+      "web/src/apps/Phone/Apps/Contacts.svelte"
+    ],
+    "Contacts/InviteToMission3": [
+      "web/src/apps/Phone/Apps/Contacts.svelte"
+    ],
+    "Contacts/KickFromMission3": [
+      "web/src/apps/Phone/Apps/Contacts.svelte"
+    ],
+    "Contacts/CreateContact": [
+      "web/src/apps/Phone/Apps/Contacts.svelte",
+      "web/src/apps/Phone/Apps/Contacts.svelte",
+      "web/src/apps/Phone/Apps/Calls.svelte"
+    ],
+    "Contacts/EditContact": [
+      "web/src/apps/Phone/Apps/Contacts.svelte"
+    ],
+    "Contacts/DeleteContact": [
+      "web/src/apps/Phone/Apps/Contacts.svelte"
+    ],
+    "Contacts/GetNearbyPlayers": [
+      "web/src/apps/Phone/Apps/Contacts.svelte"
+    ],
+    "Contacts/RequestAirShare": [
+      "web/src/apps/Phone/Apps/Contacts.svelte"
+    ],
+    "Contacts/GetSuggestions": [
+      "web/src/apps/Phone/Apps/Contacts.svelte"
+    ],
+    "Contacts/GetProfile": [
+      "web/src/apps/Phone/Apps/Contacts.svelte"
+    ],
+    "peak-guber:server:getAvailableCourses": [
+      "web/src/apps/Phone/Apps/Guber.svelte"
+    ],
+    "peak-guber:client:getDutyStatus": [
+      "web/src/apps/Phone/Apps/Guber.svelte"
+    ],
+    "peak-guber:client:getWaypoint": [
+      "web/src/apps/Phone/Apps/Guber.svelte"
+    ],
+    "peak-guber:server:changeDuty": [
+      "web/src/apps/Phone/Apps/Guber.svelte"
+    ],
+    "peak-guber:server:takecourse": [
+      "web/src/apps/Phone/Apps/Guber.svelte"
+    ],
+    "peak-guber:client:cancelCourse": [
+      "web/src/apps/Phone/Apps/Guber.svelte"
+    ],
+    "peak-guber:client:requestRide": [
+      "web/src/apps/Phone/Apps/Guber.svelte"
+    ],
+    "peak-guber:client:cancelRide": [
+      "web/src/apps/Phone/Apps/Guber.svelte"
+    ],
+    "peak-guber:server:clientRated": [
+      "web/src/apps/Phone/Apps/Guber.svelte"
+    ],
+    "News/DeleteArticle": [
+      "web/src/apps/Phone/Apps/News.svelte"
+    ],
+    "News/GetArticles": [
+      "web/src/apps/Phone/Apps/News.svelte",
+      "web/src/apps/Phone/Apps/News.svelte"
+    ],
+    "News/SaveArticle": [
+      "web/src/apps/Phone/Apps/News.svelte"
+    ],
+    "News/IsJournalist": [
+      "web/src/apps/Phone/Apps/News.svelte"
+    ],
+    "Cars/TestDrive": [
+      "web/src/apps/Phone/Apps/Cars.svelte"
+    ],
+    "Cars/SetDisplay": [
+      "web/src/apps/Phone/Apps/Cars.svelte"
+    ],
+    "Cars/ReturnCar": [
+      "web/src/apps/Phone/Apps/Cars.svelte"
+    ],
+    "Cars/SavePreset": [
+      "web/src/apps/Phone/Apps/Cars.svelte"
+    ],
+    "Cars/Sell": [
+      "web/src/apps/Phone/Apps/Cars.svelte"
+    ],
+    "Cars/GetShopData": [
+      "web/src/apps/Phone/Apps/Cars.svelte"
+    ],
+    "Cars/GetTestDriving": [
+      "web/src/apps/Phone/Apps/Cars.svelte"
+    ],
+    "Cars/GetVehicles": [
+      "web/src/apps/Phone/Apps/Cars.svelte"
+    ],
+    "Messages/GetChats": [
+      "web/src/apps/Phone/Apps/Messages.svelte"
+    ],
+    "Groups/GetGroups": [
+      "web/src/apps/Phone/Apps/Messages.svelte"
+    ],
+    "Groups/GetMessages": [
+      "web/src/apps/Phone/Apps/Messages.svelte"
+    ],
+    "Groups/SetRead": [
+      "web/src/apps/Phone/Apps/Messages.svelte"
+    ],
+    "Messages/MarkAllAsRead": [
+      "web/src/apps/Phone/Apps/Messages.svelte"
+    ],
+    "Messages/SetChatRead": [
+      "web/src/apps/Phone/Apps/Messages.svelte"
+    ],
+    "Lumberjack/GetData": [
+      "web/src/apps/Phone/Apps/Lumberjack.svelte"
+    ],
+    "JobCenter/GetJobs": [
+      "web/src/apps/Phone/Apps/JobCenter.svelte"
+    ],
+    "JobCenter/GetJobGroups": [
+      "web/src/apps/Phone/Apps/JobCenter.svelte"
+    ],
+    "JobCenter/GetTaskActivity": [
+      "web/src/apps/Phone/Apps/JobCenter.svelte"
+    ],
+    "Housing/IsNearHouse": [
+      "web/src/apps/Phone/Apps/_housing.js"
+    ],
+    "Housing/IsNearAnyHouse": [
+      "web/src/apps/Phone/Apps/_housing.js"
+    ],
+    "Housing/PurchaseHouse": [
+      "web/src/apps/Phone/Apps/_housing.js"
+    ],
+    "Housing/GetCurrentHouse": [
+      "web/src/apps/Phone/Apps/_housing.js",
+      "web/src/apps/Phone/Apps/_housing.js"
+    ],
+    "Housing/SetGPS": [
+      "web/src/apps/Phone/Apps/_housing.js"
+    ],
+    "Housing/SetInteractLocation": [
+      "web/src/apps/Phone/Apps/_housing.js",
+      "web/src/apps/Phone/Apps/_housing.js",
+      "web/src/apps/Phone/Apps/_housing.js",
+      "web/src/apps/Phone/Apps/_housing.js",
+      "web/src/apps/Phone/Apps/_housing.js"
+    ],
+    "Housing/AddKeys": [
+      "web/src/apps/Phone/Apps/_housing.js"
+    ],
+    "Housing/RemoveKeys": [
+      "web/src/apps/Phone/Apps/_housing.js"
+    ],
+    "Housing/SellLocation": [
+      "web/src/apps/Phone/Apps/_housing.js"
+    ],
+    "Housing/CreateHouse": [
+      "web/src/apps/Phone/Apps/_housing.js"
+    ],
+    "Housing/EditHouse": [
+      "web/src/apps/Phone/Apps/_housing.js"
+    ],
+    "Housing/DeleteHouse": [
+      "web/src/apps/Phone/Apps/_housing.js"
+    ],
+    "BusDriver/GetData": [
+      "web/src/apps/Phone/Apps/BusDriver.svelte"
+    ],
+    "Details/GetLicenses": [
+      "web/src/apps/Phone/Apps/Details.svelte"
+    ],
+    "Y/CreatePost": [
+      "web/src/apps/Phone/Apps/Y.svelte",
+      "web/src/apps/Phone/Apps/Y.svelte",
+      "web/src/apps/Phone/Apps/Y.svelte"
+    ],
+    "Y/ReportPost": [
+      "web/src/apps/Phone/Apps/Y.svelte"
+    ],
+    "Y/ToggleLike": [
+      "web/src/apps/Phone/Apps/Y.svelte"
+    ],
+    "Y/TogglePremium": [
+      "web/src/apps/Phone/Apps/Y.svelte"
+    ],
+    "Y/GetProfile": [
+      "web/src/apps/Phone/Apps/Y.svelte",
+      "web/src/apps/Phone/Apps/Y.svelte"
+    ],
+    "Y/ToggleFollow": [
+      "web/src/apps/Phone/Apps/Y.svelte"
+    ],
+    "Y/UpdateProfile": [
+      "web/src/apps/Phone/Apps/Y.svelte"
+    ],
+    "Y/GetPosts": [
+      "web/src/apps/Phone/Apps/Y.svelte"
+    ],
+    "Y/GetPremiumStatus": [
+      "web/src/apps/Phone/Apps/Y.svelte"
+    ],
+    "Y/OpenMessages": [
+      "web/src/apps/Phone/Apps/Y.svelte"
+    ],
+    "Facetime/GetContacts": [
+      "web/src/apps/Phone/Apps/Facetime.svelte"
+    ],
+    "Facetime/StartCall": [
+      "web/src/apps/Phone/Apps/Facetime.svelte"
+    ],
+    "Facetime/EndCall": [
+      "web/src/apps/Phone/Apps/Facetime.svelte"
+    ],
+    "Facetime/ToggleVideo": [
+      "web/src/apps/Phone/Apps/Facetime.svelte"
+    ],
+    "Facetime/ToggleAudio": [
+      "web/src/apps/Phone/Apps/Facetime.svelte"
+    ],
+    "Facetime/FlipCamera": [
+      "web/src/apps/Phone/Apps/Facetime.svelte"
+    ],
+    "Facetime/SetPeerId": [
+      "web/src/apps/Phone/Apps/Facetime.svelte"
+    ],
+    "Facetime/GetCallState": [
+      "web/src/apps/Phone/Apps/Facetime.svelte"
+    ],
+    "Gallery/SendToLamar": [
+      "web/src/apps/Phone/Apps/Gallery.svelte"
+    ],
+    "Gallery/DeletePhoto": [
+      "web/src/apps/Phone/Apps/Gallery.svelte"
+    ],
+    "Gallery/PostToTwatter": [
+      "web/src/apps/Phone/Apps/Gallery.svelte",
+      "web/src/apps/Phone/Apps/Gallery.svelte"
+    ],
+    "Gallery/ShareToSpecificPlayer": [
+      "web/src/apps/Phone/Apps/Gallery.svelte"
+    ],
+    "Gallery/GetNearbyPlayers": [
+      "web/src/apps/Phone/Apps/Gallery.svelte"
+    ],
+    "Gallery/ShareToAllNearby": [
+      "web/src/apps/Phone/Apps/Gallery.svelte"
+    ],
+    "Gallery/SendInMessage": [
+      "web/src/apps/Phone/Apps/Gallery.svelte"
+    ],
+    "UpdateProfilePicture": [
+      "web/src/apps/Phone/Apps/Gallery.svelte"
+    ],
+    "Gallery/ImportPhoto": [
+      "web/src/apps/Phone/Apps/Gallery.svelte"
+    ],
+    "Gallery/SharePhoto": [
+      "web/src/apps/Phone/Apps/Gallery.svelte"
+    ],
+    "DOJ/GetUsers": [
+      "web/src/apps/Phone/Apps/DOJ.svelte",
+      "web/src/apps/Phone/Apps/DOJ.svelte"
+    ],
+    "DOJ/SetStatus": [
+      "web/src/apps/Phone/Apps/DOJ.svelte"
+    ],
+    "YellowPages/PostAd": [
+      "web/src/apps/Phone/Apps/YellowPages.svelte"
+    ],
+    "YellowPages/RemoveAd": [
+      "web/src/apps/Phone/Apps/YellowPages.svelte"
+    ],
+    "YellowPages/GetPosts": [
+      "web/src/apps/Phone/Apps/YellowPages.svelte"
+    ],
+    "Employment/GetBusinesses": [
+      "web/src/apps/Phone/Apps/_employment.js"
+    ],
+    "Employment/HireEmployee": [
+      "web/src/apps/Phone/Apps/_employment.js"
+    ],
+    "Employment/RemoveEmployee": [
+      "web/src/apps/Phone/Apps/_employment.js"
+    ],
+    "Employment/ChangeRole": [
+      "web/src/apps/Phone/Apps/_employment.js"
+    ],
+    "Employment/CreateRole": [
+      "web/src/apps/Phone/Apps/_employment.js"
+    ],
+    "Employment/EditRole": [
+      "web/src/apps/Phone/Apps/_employment.js"
+    ],
+    "Employment/DeleteRole": [
+      "web/src/apps/Phone/Apps/_employment.js"
+    ],
+    "Employment/PayExternal": [
+      "web/src/apps/Phone/Apps/_employment.js"
+    ],
+    "Employment/ChargeCustomer": [
+      "web/src/apps/Phone/Apps/_employment.js"
+    ],
+    "Employment/GetFinancialAccess": [
+      "web/src/apps/Phone/Apps/_employment.js"
+    ],
+    "Employment/SetFinancialAccess": [
+      "web/src/apps/Phone/Apps/_employment.js"
+    ],
+    "Employment/GivePilotLicense": [
+      "web/src/apps/Phone/Apps/_employment.js",
+      "web/src/apps/Phone/Apps/_employment.js"
+    ],
+    "Racing/GetLeaderboard": [
+      "web/src/apps/Phone/Apps/Racing.svelte"
+    ],
+    "Racing/GetTexts": [
+      "web/src/apps/Phone/Apps/Racing.svelte"
+    ],
+    "Racing/SendMessage": [
+      "web/src/apps/Phone/Apps/Racing.svelte"
+    ],
+    "Vehicles/SpawnVehicle": [
+      "web/src/apps/Phone/Apps/Vehicles.svelte"
+    ],
+    "Vehicles/TrackVehicle": [
+      "web/src/apps/Phone/Apps/Vehicles.svelte"
+    ],
+    "Vehicles/SellVehicle": [
+      "web/src/apps/Phone/Apps/Vehicles.svelte"
+    ],
+    "Vehicles/GetVehicles": [
+      "web/src/apps/Phone/Apps/Vehicles.svelte"
+    ],
+    "Documents/DropQRCode": [
+      "web/src/apps/Phone/Apps/_documents.js"
+    ],
+    "Documents/ShareLocal": [
+      "web/src/apps/Phone/Apps/_documents.js"
+    ],
+    "Documents/AddSharee": [
+      "web/src/apps/Phone/Apps/_documents.js",
+      "web/src/apps/Phone/Apps/Documents.svelte"
+    ],
+    "Documents/Finalize": [
+      "web/src/apps/Phone/Apps/_documents.js"
+    ],
+    "Documents/DeleteDocument": [
+      "web/src/apps/Phone/Apps/_documents.js",
+      "web/src/apps/Phone/Apps/Documents.svelte"
+    ],
+    "Documents/SignDocument": [
+      "web/src/apps/Phone/Apps/_documents.js"
+    ],
+    "Documents/RequestSignature": [
+      "web/src/apps/Phone/Apps/_documents.js",
+      "web/src/apps/Phone/Apps/Documents.svelte"
+    ],
+    "Pinger/SendPing": [
+      "web/src/apps/Phone/Apps/Pinger.svelte"
+    ],
+    "BankBusters/GetBusters": [
+      "web/src/apps/Phone/Apps/BankBusters.svelte"
+    ],
+    "BankBusters/ClaimHeist": [
+      "web/src/apps/Phone/Apps/BankBusters.svelte"
+    ],
+    "TierUp/GetGroup": [
+      "web/src/apps/Phone/Apps/TierUp.svelte"
+    ],
+    "TierUp/CreateGroup": [
+      "web/src/apps/Phone/Apps/TierUp.svelte"
+    ],
+    "TierUp/InviteParticipate": [
+      "web/src/apps/Phone/Apps/TierUp.svelte"
+    ],
+    "TierUp/LeaveGroup": [
+      "web/src/apps/Phone/Apps/TierUp.svelte"
+    ],
+    "TierUp/DeleteGroup": [
+      "web/src/apps/Phone/Apps/TierUp.svelte"
+    ],
+    "TierUp/KickMember": [
+      "web/src/apps/Phone/Apps/TierUp.svelte"
+    ],
+    "TierUp/TransferOwnership": [
+      "web/src/apps/Phone/Apps/TierUp.svelte"
+    ],
+    "Wenmo/GetBankData": [
+      "web/src/apps/Phone/Apps/Wenmo.svelte"
+    ],
+    "Wenmo/SendMoney": [
+      "web/src/apps/Phone/Apps/Wenmo.svelte"
+    ],
+    "Debt/PayDebt": [
+      "web/src/apps/Phone/Apps/Debt.svelte"
+    ],
+    "Debt/GetDebt": [
+      "web/src/apps/Phone/Apps/Debt.svelte"
+    ],
+    "Services/GetEmergencyWorkers": [
+      "web/src/apps/Phone/Apps/Services.svelte"
+    ],
+    "Services/GetTowWorkers": [
+      "web/src/apps/Phone/Apps/Services.svelte"
+    ],
+    "Mails/GetMails": [
+      "web/src/apps/Phone/Apps/Mails.svelte"
+    ],
+    "Mails/MarkAsRead": [
+      "web/src/apps/Phone/Apps/Mails.svelte"
+    ],
+    "Mails/DeleteMail": [
+      "web/src/apps/Phone/Apps/Mails.svelte"
+    ],
+    "Mails/SendMail": [
+      "web/src/apps/Phone/Apps/Mails.svelte"
+    ],
+    "Documents/GetDocuments": [
+      "web/src/apps/Phone/Apps/Documents.svelte"
+    ],
+    "Documents/SaveDocument": [
+      "web/src/apps/Phone/Apps/Documents.svelte"
+    ],
+    "Calls/GetCalls": [
+      "web/src/apps/Phone/Apps/Calls.svelte"
+    ],
+    "Crypto/GetCrypto": [
+      "web/src/apps/Phone/Apps/Crypto.svelte"
+    ],
+    "Crypto/BuyCrypto": [
+      "web/src/apps/Phone/Apps/Crypto.svelte"
+    ],
+    "Crypto/SellCrypto": [
+      "web/src/apps/Phone/Apps/Crypto.svelte"
+    ],
+    "Crypto/TransferCrypto": [
+      "web/src/apps/Phone/Apps/Crypto.svelte"
+    ],
+    "Racing/GetRaceById": [
+      "web/src/apps/Phone/Apps/_racing.js"
+    ],
+    "Racing/CanCreateTracks": [
+      "web/src/apps/Phone/Apps/_racing.js"
+    ],
+    "Racing/IsCreatingTrack": [
+      "web/src/apps/Phone/Apps/_racing.js"
+    ],
+    "Racing/GetTracks": [
+      "web/src/apps/Phone/Apps/_racing.js"
+    ],
+    "Racing/CreateRace": [
+      "web/src/apps/Phone/Apps/_racing.js"
+    ],
+    "Racing/GetRaces": [
+      "web/src/apps/Phone/Apps/_racing.js"
+    ],
+    "Racing/SetGPS": [
+      "web/src/apps/Phone/Apps/_racing.js"
+    ],
+    "Racing/Preview": [
+      "web/src/apps/Phone/Apps/_racing.js"
+    ],
+    "Racing/StartRace": [
+      "web/src/apps/Phone/Apps/_racing.js"
+    ],
+    "Racing/EndRace": [
+      "web/src/apps/Phone/Apps/_racing.js"
+    ],
+    "Racing/LeaveRace": [
+      "web/src/apps/Phone/Apps/_racing.js"
+    ],
+    "Racing/JoinRace": [
+      "web/src/apps/Phone/Apps/_racing.js",
+      "web/src/apps/Phone/Apps/_racing.js"
+    ],
+    "Racing/CreateRaceTrack": [
+      "web/src/apps/Phone/Apps/_racing.js"
+    ],
+    "Racing/SaveRaceTrack": [
+      "web/src/apps/Phone/Apps/_racing.js"
+    ],
+    "Racing/CancelCreation": [
+      "web/src/apps/Phone/Apps/_racing.js"
+    ],
+    "InstallApp": [
+      "web/src/apps/Phone/Apps/AppStore.svelte"
+    ],
+    "UninstallApp": [
+      "web/src/apps/Phone/Apps/AppStore.svelte"
+    ],
+    "Peakify/GetState": [
+      "web/src/apps/Phone/Apps/Peakify.svelte"
+    ],
+    "Peakify/GetDeviceState": [
+      "web/src/apps/Phone/Apps/Peakify.svelte"
+    ],
+    "Peakify/SaveTrack": [
+      "web/src/apps/Phone/Apps/Peakify.svelte"
+    ],
+    "Peakify/DeleteTrack": [
+      "web/src/apps/Phone/Apps/Peakify.svelte"
+    ],
+    "Peakify/CreatePlaylist": [
+      "web/src/apps/Phone/Apps/Peakify.svelte"
+    ],
+    "Peakify/DeletePlaylist": [
+      "web/src/apps/Phone/Apps/Peakify.svelte"
+    ],
+    "Peakify/AddTrackToPlaylist": [
+      "web/src/apps/Phone/Apps/Peakify.svelte"
+    ],
+    "Peakify/RemoveTrackFromPlaylist": [
+      "web/src/apps/Phone/Apps/Peakify.svelte"
+    ],
+    "Peakify/AddCollaborator": [
+      "web/src/apps/Phone/Apps/Peakify.svelte"
+    ],
+    "Peakify/RemoveCollaborator": [
+      "web/src/apps/Phone/Apps/Peakify.svelte"
+    ],
+    "Peakify/Play": [
+      "web/src/apps/Phone/Apps/Peakify.svelte"
+    ],
+    "Peakify/Pause": [
+      "web/src/apps/Phone/Apps/Peakify.svelte"
+    ],
+    "Peakify/Stop": [
+      "web/src/apps/Phone/Apps/Peakify.svelte"
+    ],
+    "Peakify/StopCarry": [
+      "web/src/apps/Phone/Apps/Peakify.svelte"
+    ],
+    "Groups/GetInfo": [
+      "web/src/apps/Phone/Apps/components/GroupInfo.svelte"
+    ]
+  },
+  "missing_literal_callbacks": [],
+  "duplicate_callback_registrations": {},
+  "resource_export_dependencies": {
+    "peak-assets": [
+      "client/cl_anim.lua",
+      "client/cl_contacts.lua"
+    ],
+    "peak-businesses": [
+      "client/cl_news.lua",
+      "server/sv_vehicles.lua",
+      "server/sv_wenmo.lua",
+      "server/sv_wenmo_notifications.lua",
+      "server/sv_y.lua"
+    ],
+    "peak-cityhall": [
+      "client/cl_cars.lua"
+    ],
+    "peak-core": [
+      "client/_cl_main.lua",
+      "client/cl_busdriver.lua",
+      "client/cl_camera.lua",
+      "client/cl_facetime.lua",
+      "client/cl_gallery.lua",
+      "client/cl_guber.lua",
+      "client/cl_peakify.lua",
+      "client/cl_services.lua",
+      "client/cl_simcard.lua",
+      "server/_sv_main.lua",
+      "server/sv_calls.lua",
+      "server/sv_peakify.lua",
+      "server/sv_simcard.lua"
+    ],
+    "peak-financials": [
+      "client/_cl_main.lua",
+      "server/sv_crypto.lua",
+      "server/sv_vehicles.lua",
+      "server/sv_wenmo.lua",
+      "server/sv_wenmo_notifications.lua",
+      "server/sv_y.lua"
+    ],
+    "peak-guber": [
+      "client/cl_guber.lua"
+    ],
+    "peak-heists": [
+      "server/sv_tierup.lua"
+    ],
+    "peak-hud": [
+      "client/_cl_main.lua",
+      "client/cl_contacts.lua",
+      "client/cl_groups.lua",
+      "client/cl_mails.lua",
+      "client/cl_messages.lua",
+      "client/cl_y.lua"
+    ],
+    "peak-inventory": [
+      "client/_cl_main.lua",
+      "server/sv_simcard.lua"
+    ],
+    "peak-jobmanager": [
+      "client/cl_jobcenter.lua",
+      "server/sv_jobcenter.lua",
+      "server/sv_services.lua"
+    ],
+    "peak-misc": [
+      "server/sv_contacts.lua"
+    ],
+    "peak-phone": [
+      "server/sv_contacts.lua",
+      "server/sv_crypto.lua",
+      "server/sv_facetime.lua",
+      "server/sv_gallery.lua",
+      "server/sv_groups.lua",
+      "server/sv_mails.lua",
+      "server/sv_messages.lua",
+      "server/sv_pinger.lua",
+      "server/sv_services.lua",
+      "server/sv_wenmo.lua",
+      "server/sv_y.lua",
+      "server/sv_yellowpages.lua"
+    ],
+    "peak-sync": [
+      "client/_cl_main.lua"
+    ],
+    "peak-ui": [
+      "client/cl_documents.lua",
+      "client/cl_peakify.lua"
+    ],
+    "peak-vehicles": [
+      "client/cl_cars.lua",
+      "client/cl_vehicles.lua",
+      "server/sv_vehicles.lua"
+    ],
+    "peak-voice": [
+      "client/cl_contacts.lua"
+    ],
+    "ghmattimysql": [
+      "server/_sv_main.lua",
+      "server/sv_calls.lua",
+      "server/sv_cars.lua",
+      "server/sv_contacts.lua",
+      "server/sv_document.lua",
+      "server/sv_facetime.lua",
+      "server/sv_gallery.lua",
+      "server/sv_groups.lua",
+      "server/sv_messages.lua",
+      "server/sv_news.lua",
+      "server/sv_peakify.lua",
+      "server/sv_pinger.lua",
+      "server/sv_services.lua",
+      "server/sv_simcard.lua",
+      "server/sv_tierup.lua",
+      "server/sv_vehicles.lua",
+      "server/sv_wenmo.lua",
+      "server/sv_y.lua"
+    ],
+    "peak-housing": [
+      "client/cl_housing.lua",
+      "server/sv_housing.lua"
+    ],
+    "peak-lamarmissions": [
+      "client/cl_gallery.lua"
+    ],
+    "peak-lumberjack": [
+      "server/sv_lumberjack.lua"
+    ],
+    "peak-racing": [
+      "client/_cl_main.lua",
+      "client/cl_racing.lua"
+    ],
+    "screenshot-basic": [
+      "server/sv_gallery.lua"
+    ]
+  },
+  "scope": "Static literal-name inventory; does not prove backend availability or payload semantics."
+}

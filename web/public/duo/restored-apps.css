@@ -1,0 +1,82 @@
+/* Native restoration wave: semantic surfaces, quiet dividers and compact phone-safe layouts. */
+#duo .duo-app-instance[data-app="services"] .nx-services,
+#duo .duo-app-instance[data-app="crypto"] .nx-crypto{
+ --restore-ink:var(--theme-label);--restore-muted:var(--theme-secondary);--restore-line:var(--theme-separator);
+ --restore-group:var(--theme-grouped);--restore-raised:var(--theme-elevated);--restore-accent:var(--theme-accent);
+ display:flex;flex-direction:column;width:100%;height:100%;min-width:0;min-height:0;overflow:hidden;
+ background:var(--theme-canvas);color:var(--restore-ink);color-scheme:var(--theme-scheme)
+}
+#duo .duo-app-instance[data-app="services"] .nx-header,
+#duo .duo-app-instance[data-app="crypto"] .nx-header{flex:none;min-height:6.4vh;padding:1.25vh 1.55vh .9vh;background:transparent;border:0;box-shadow:none;gap:.8vh}
+#duo .duo-app-instance[data-app="services"] .nx-header h1,
+#duo .duo-app-instance[data-app="crypto"] .nx-header h1{margin:0;font-size:clamp(21px,3vh,36px);font-weight:730;line-height:1.08;letter-spacing:-.055em;color:var(--restore-ink)}
+#duo .duo-app-instance[data-app="services"] .nx-header p,
+#duo .duo-app-instance[data-app="crypto"] .nx-header p{margin:.35vh 0 0;color:var(--restore-muted);font-size:clamp(10px,1.02vh,14px);line-height:1.35}
+#duo .duo-app-instance[data-app="services"] .nx-header>.nx-button,
+#duo .duo-app-instance[data-app="crypto"] .nx-header>.nx-button{width:3.7vh;height:3.7vh;min-width:3.7vh;min-height:3.7vh;padding:.9vh;border:1px solid var(--restore-line);border-radius:50%;background:var(--restore-raised);color:var(--restore-accent)}
+#duo .duo-app-instance .nx-restored-body{flex:1;min-height:0;min-width:0;overflow:auto;overscroll-behavior:contain;scroll-padding:1.2vh;padding:0 1.55vh 1.8vh}
+#duo .duo-app-instance .nx-restored-section-heading{display:flex;justify-content:space-between;align-items:center;gap:.8vh;padding:1.25vh .15vh .55vh;color:var(--restore-muted);font-size:clamp(10px,.98vh,13px);font-weight:650;letter-spacing:.07em;text-transform:uppercase}
+#duo .duo-app-instance .nx-section-count{font-variant-numeric:tabular-nums;letter-spacing:0}
+#duo .duo-app-instance .nx-restored-state{margin:.2vh 0;padding:1.05vh .1vh;color:var(--restore-muted);font-size:clamp(11px,1.08vh,15px);line-height:1.45}
+#duo .duo-app-instance .nx-restored-error{display:flex;align-items:center;justify-content:space-between;gap:1vh;padding:.65vh 0;color:var(--restore-ink);font-size:clamp(10px,1vh,14px)}
+#duo .duo-app-instance .nx-restored-error p{margin:0;min-width:0;overflow-wrap:anywhere}
+#duo .duo-app-instance .nx-inline-action{min-height:3.1vh;padding:.55vh .9vh;border:1px solid var(--restore-line);border-radius:5vh;background:var(--restore-raised);color:var(--restore-accent);font-size:clamp(10px,.95vh,13px);font-weight:620;white-space:nowrap}
+#duo .duo-app-instance .nx-restored-footnote{margin:.8vh 0 0;color:var(--restore-muted);font-size:clamp(9px,.86vh,12px);line-height:1.5}
+#duo .duo-app-instance .nx-preview-note{margin:.45vh 0;padding:.55vh .75vh;border-left:2px solid var(--restore-accent);color:var(--restore-muted);font-size:clamp(9px,.84vh,12px);font-weight:650;letter-spacing:.035em;line-height:1.4}
+
+#duo .duo-app-instance[data-app="services"] .nx-services-section+.nx-services-section{margin-top:1.15vh;border-top:1px solid var(--restore-line)}
+#duo .duo-app-instance .nx-restored-section-title{color:var(--restore-ink);font-size:clamp(16px,1.8vh,23px);font-weight:700;letter-spacing:-.035em;text-transform:none}
+#duo .duo-app-instance .nx-services-list{display:flex;flex-direction:column;min-width:0}
+#duo .duo-app-instance .nx-services-row{display:grid;grid-template-columns:3.9vh minmax(0,1fr) auto;align-items:center;gap:.85vh;min-height:5.45vh;padding:.72vh .15vh;border-bottom:1px solid var(--restore-line)}
+#duo .duo-app-instance .nx-services-row>.nx-avatar{width:3.45vh;height:3.45vh;min-width:3.45vh;border-radius:50%;background:var(--theme-grouped-secondary);color:var(--restore-accent);font-size:1.08vh;font-weight:650}
+#duo .duo-app-instance .nx-services-row>.nx-avatar img{width:100%;height:100%;border-radius:inherit;object-fit:cover}
+#duo .duo-app-instance .nx-services-copy{display:flex;flex-direction:column;min-width:0;gap:.12vh}
+#duo .duo-app-instance .nx-services-copy strong{overflow:hidden;color:var(--restore-ink);font-size:clamp(12px,1.22vh,16px);font-weight:650;text-overflow:ellipsis;white-space:nowrap}
+#duo .duo-app-instance .nx-services-copy span{color:var(--restore-muted);font-size:clamp(10px,.96vh,13px)}
+#duo .duo-app-instance .nx-call-worker{display:inline-flex;align-items:center;justify-content:center;gap:.35vh;min-width:6.4vh;min-height:3.3vh;padding:.55vh .85vh;border:1px solid color-mix(in srgb,var(--restore-accent) 22%,var(--restore-line));border-radius:5vh;background:color-mix(in srgb,var(--restore-accent) 10%,var(--restore-group));color:var(--restore-accent);font-size:clamp(10px,.95vh,13px);font-weight:650}
+#duo .duo-app-instance .nx-call-worker>svg{width:1.25vh;height:1.25vh;min-width:1.25vh}
+#duo .duo-app-instance .nx-call-worker:disabled{opacity:.58}
+#duo .duo-app-instance .nx-restored-live{padding:.7vh .85vh;border-radius:1vh;background:var(--theme-selection);color:var(--restore-ink);font-size:clamp(10px,.98vh,14px)}
+
+#duo .duo-app-instance .nx-crypto-disclaimer{margin:.45vh 0 .7vh;color:var(--restore-muted);font-size:clamp(9px,.86vh,12px);font-weight:620;letter-spacing:.04em;line-height:1.45}
+#duo .duo-app-instance .nx-crypto-wallet-heading{padding-top:.45vh;border-bottom:1px solid var(--restore-line)}
+#duo .duo-app-instance .nx-coin-row{display:grid;grid-template-columns:3.7vh minmax(0,1fr) auto;align-items:center;gap:.75vh;padding:.9vh .1vh;border-bottom:1px solid var(--restore-line)}
+#duo .duo-app-instance .nx-coin-mark{display:grid;place-items:center;width:3.25vh;height:3.25vh;border:1px solid color-mix(in srgb,var(--restore-accent) 24%,var(--restore-line));border-radius:50%;background:color-mix(in srgb,var(--restore-accent) 10%,var(--restore-group));color:var(--restore-accent);font-size:.9vh;font-weight:720;letter-spacing:-.03em}
+#duo .duo-app-instance .nx-coin-detail{display:flex;flex-direction:column;min-width:0;gap:.08vh}
+#duo .duo-app-instance .nx-coin-detail strong{overflow:hidden;font-size:clamp(12px,1.2vh,16px);font-weight:680;text-overflow:ellipsis;white-space:nowrap}
+#duo .duo-app-instance .nx-coin-detail span{color:var(--restore-muted);font-size:clamp(9px,.84vh,12px);line-height:1.35}
+#duo .duo-app-instance .nx-coin-detail span:nth-child(2){font-size:.78em;letter-spacing:.045em}
+#duo .duo-app-instance .nx-coin-balance{display:flex;flex-direction:column;align-items:flex-end;gap:.08vh;font-variant-numeric:tabular-nums}
+#duo .duo-app-instance .nx-coin-balance strong{font-size:clamp(13px,1.32vh,17px);font-weight:680}
+#duo .duo-app-instance .nx-coin-balance span{color:var(--restore-muted);font-size:clamp(8px,.72vh,10px);white-space:nowrap}
+#duo .duo-app-instance .nx-coin-actions{grid-column:2/-1;display:flex;justify-content:flex-end;gap:.45vh;padding-top:.25vh}
+#duo .duo-app-instance .nx-coin-action{min-width:5.4vh;min-height:2.9vh;padding:.45vh .75vh;border:1px solid var(--restore-line);border-radius:5vh;background:var(--restore-group);color:var(--restore-accent);font-size:clamp(9px,.88vh,12px);font-weight:620}
+#duo .duo-app-instance .nx-coin-action:disabled{color:var(--restore-muted);opacity:.55}
+#duo .duo-app-instance .nx-wallet-operation{display:flex;flex-direction:column;gap:.42vh;margin:.65vh 0 .9vh;padding:.85vh 1vh;border:1px solid color-mix(in srgb,var(--theme-destructive) 32%,var(--restore-line));border-radius:1.25vh;background:color-mix(in srgb,var(--theme-destructive) 7%,var(--restore-group))}
+#duo .duo-app-instance .nx-wallet-operation h2{margin:0;font-size:clamp(13px,1.28vh,17px);font-weight:700}
+#duo .duo-app-instance .nx-wallet-operation p{margin:0;color:var(--restore-muted);font-size:clamp(10px,.92vh,13px);line-height:1.4;overflow-wrap:anywhere}
+#duo .duo-app-instance .nx-wallet-operation .nx-eyebrow{color:var(--theme-destructive);font-size:clamp(8px,.75vh,10px);font-weight:720;letter-spacing:.1em}
+#duo .duo-app-instance .nx-operation-reference{color:var(--restore-muted);font:500 clamp(9px,.78vh,11px)/1.4 ui-monospace,Consolas,monospace;overflow-wrap:anywhere}
+#duo .duo-app-instance .nx-operation-status{color:var(--restore-muted);font-size:clamp(9px,.78vh,11px)}
+#duo .duo-app-instance[data-app="crypto"] .nx-wallet-outcome{display:flex;flex-direction:column;align-items:stretch;justify-content:flex-start;gap:.28vh;min-width:0;margin:.6vh 0;padding:.65vh .2vh .75vh;border-bottom:1px solid var(--restore-line);font-size:clamp(10px,.92vh,13px)}
+#duo .duo-app-instance[data-app="crypto"] .nx-wallet-outcome>strong{display:block;max-width:100%;font-weight:650;line-height:1.35;overflow-wrap:anywhere}
+#duo .duo-app-instance[data-app="crypto"] .nx-wallet-outcome>.nx-operation-reference{display:block;min-width:0;max-width:100%;color:var(--restore-muted);font-size:clamp(9px,.82vh,11px);line-height:1.35;text-align:left;overflow-wrap:anywhere}
+#duo .duo-app-instance[data-app="crypto"] .nx-wallet-outcome .nx-wallet-outcome-reason{width:100%;max-width:100%;margin:.12vh 0 0;color:var(--restore-ink);font-size:clamp(11px,1vh,14px);font-weight:520;line-height:1.42;overflow-wrap:anywhere;word-break:normal}
+#duo .duo-app-instance[data-app="crypto"] .nx-wallet-outcome>small{display:block;max-width:100%;margin:.12vh 0 0;color:var(--restore-muted);font-size:clamp(8px,.72vh,10px);font-weight:550;line-height:1.3;letter-spacing:normal;overflow-wrap:anywhere}
+
+#duo .duo-app-instance .nx-crypto-entry-sheet,
+#duo .duo-app-instance .nx-crypto-review-sheet{display:flex;flex-direction:column;gap:1vh}
+#duo .duo-app-instance .nx-crypto-field{display:flex;flex-direction:column;gap:.45vh;color:var(--restore-muted);font-size:clamp(10px,.9vh,13px);font-weight:600}
+#duo .duo-app-instance .nx-crypto-field input{width:100%;min-height:4.2vh;padding:.8vh 1vh;border:1px solid var(--restore-line);border-radius:1.2vh;background:var(--theme-grouped-secondary);color:var(--restore-ink);font-size:clamp(14px,1.3vh,18px);font-variant-numeric:tabular-nums}
+#duo .duo-app-instance .nx-crypto-price-preview,#duo .duo-app-instance .nx-crypto-review-row{margin:0;color:var(--restore-muted);font-size:clamp(11px,1vh,14px);line-height:1.45;overflow-wrap:anywhere}
+#duo .duo-app-instance .nx-crypto-review-total{margin:.35vh 0;padding:.9vh 0;border-top:1px solid var(--restore-line);border-bottom:1px solid var(--restore-line);font-size:clamp(14px,1.35vh,18px);font-weight:700;line-height:1.4}
+#duo .duo-app-instance .nx-crypto-confirm{justify-content:center;min-height:4.2vh;padding:.75vh 1vh;border-radius:5vh;background:var(--theme-accent);color:var(--theme-on-accent);font-size:clamp(12px,1.08vh,15px);font-weight:680}
+
+@media(max-width:420px){
+ #duo .duo-app-instance .nx-services-row{grid-template-columns:3.55vh minmax(0,1fr) auto;gap:.6vh}
+ #duo .duo-app-instance .nx-coin-row{grid-template-columns:3.3vh minmax(0,1fr) auto;gap:.5vh}
+ #duo .duo-app-instance .nx-coin-actions{gap:.25vh}
+ #duo .duo-app-instance .nx-coin-action{min-width:4.8vh;padding:.45vh .55vh}
+ #duo .duo-app-instance[data-app="crypto"] .nx-wallet-outcome{gap:.34vh;padding:.7vh .2vh .8vh}
+ #duo .duo-app-instance[data-app="crypto"] .nx-wallet-outcome .nx-wallet-outcome-reason{font-size:clamp(11px,.98vh,13px);line-height:1.45}
+}

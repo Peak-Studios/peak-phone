@@ -1,0 +1,168 @@
+/* Purpose-built editors for Contacts, Phone, Calendar, Clock and Wenmo. */
+#duo .nx-native-sheet:is(.gx-contact-editor,.gx-profile-photo-editor,.gx-listing-editor,.gx-wenmo-transfer-editor,.gx-wenmo-review-sheet,.gx-wenmo-transaction-sheet,.nx-phone-contact-editor,.nx-phone-message-editor,.u27-calendar-event-editor,.u27-clock-timer-editor,.u27-clock-city-editor){display:flex;flex-direction:column;gap:.72vh;color:var(--sheet-fg)}
+#duo[data-theme] .duo-app-instance .nx-native-sheet:is(.gx-contact-editor,.gx-profile-photo-editor,.gx-listing-editor,.gx-wenmo-transfer-editor,.gx-wenmo-review-sheet,.gx-wenmo-transaction-sheet,.nx-phone-contact-editor,.nx-phone-message-editor,.u27-calendar-event-editor,.u27-clock-timer-editor,.u27-clock-city-editor) :is(.gx-editor-submit,.nx-editor-submit,.u27-editor-submit){position:sticky;bottom:-2.4vh;z-index:3;display:flex;flex:none;align-items:center;justify-content:center;min-height:4.6vh;margin:auto -1.5vh -2.4vh;padding:.8vh 1.5vh max(2.4vh,env(safe-area-inset-bottom));border:0;border-top:1px solid var(--sheet-line);border-radius:0;background:#0066cc!important;color:#fff!important;box-shadow:0 -.6vh 1.4vh color-mix(in srgb,var(--sheet-bg) 84%,transparent);font-size:clamp(13px,1.2vh,16px);font-weight:650}
+#duo[data-theme] .duo-app-instance[data-app="yellowpages"] .nx-sheet.gx-listing-editor .nx-button.gx-editor-submit.nx-primary > span{color:#fff!important}
+#duo[data-theme] .duo-app-instance .nx-native-sheet:is(.gx-contact-editor,.gx-profile-photo-editor,.gx-listing-editor,.gx-wenmo-transfer-editor,.gx-wenmo-review-sheet,.gx-wenmo-transaction-sheet,.nx-phone-contact-editor,.nx-phone-message-editor) :is(.gx-editor-submit,.nx-editor-submit){bottom:0;width:100%;margin:auto 0 0;padding:.65vh 1.5vh;min-height:4.4vh;border-radius:1vh}
+#duo .nx-native-sheet:is(.gx-contact-editor,.gx-profile-photo-editor,.gx-listing-editor,.gx-wenmo-transfer-editor,.gx-wenmo-review-sheet,.nx-phone-contact-editor,.nx-phone-message-editor,.u27-calendar-event-editor,.u27-clock-timer-editor,.u27-clock-city-editor) :is(.gx-editor-footnote,.nx-phone-editor-note,.u27-storage-note){flex:none;margin:.1vh .25vh .35vh;color:var(--sheet-muted);font-size:clamp(10px,.95vh,13px);line-height:1.4}
+#duo .nx-native-sheet:is(.gx-contact-editor,.gx-profile-photo-editor,.gx-listing-editor,.gx-wenmo-transfer-editor,.u27-calendar-event-editor,.u27-clock-timer-editor,.u27-clock-city-editor) .gx-editor-field,
+#duo .nx-native-sheet:is(.nx-phone-contact-editor,.nx-phone-message-editor) .nx-phone-editor-field{display:flex;box-sizing:border-box;min-width:0;min-height:4.7vh;flex-direction:row;align-items:center;justify-content:space-between;gap:.8vh;margin:0;padding:.55vh .9vh;border:0;border-bottom:1px solid var(--sheet-line);border-radius:0;background:transparent;color:var(--sheet-fg)}
+#duo .nx-native-sheet:is(.gx-contact-editor,.gx-profile-photo-editor,.gx-listing-editor,.gx-wenmo-transfer-editor,.nx-phone-contact-editor,.nx-phone-message-editor,.u27-calendar-event-editor,.u27-clock-timer-editor,.u27-clock-city-editor) .gx-editor-field>span,
+#duo .nx-native-sheet:is(.nx-phone-contact-editor,.nx-phone-message-editor) .nx-phone-editor-field>span{flex:0 0 auto;max-width:34%;color:var(--sheet-fg);font-size:clamp(11px,1.05vh,14px);font-weight:520}
+#duo .nx-native-sheet:is(.gx-contact-editor,.gx-profile-photo-editor,.gx-listing-editor,.gx-wenmo-transfer-editor,.nx-phone-contact-editor,.nx-phone-message-editor,.u27-calendar-event-editor,.u27-clock-timer-editor,.u27-clock-city-editor) .gx-editor-field :is(input,textarea,select),
+#duo .nx-native-sheet:is(.nx-phone-contact-editor,.nx-phone-message-editor) .nx-phone-editor-field :is(input,textarea,select){box-sizing:border-box;min-width:0;min-height:3.5vh;flex:1;padding:.35vh .2vh;border:0;border-radius:0;outline:0;background:transparent!important;color:var(--sheet-fg)!important;text-align:right;box-shadow:none}
+#duo .nx-native-sheet:is(.gx-contact-editor,.gx-profile-photo-editor,.gx-listing-editor,.gx-wenmo-transfer-editor,.nx-phone-contact-editor,.nx-phone-message-editor,.u27-calendar-event-editor,.u27-clock-timer-editor,.u27-clock-city-editor) .gx-editor-field :is(input,textarea,select):focus-visible,
+#duo .nx-native-sheet:is(.nx-phone-contact-editor,.nx-phone-message-editor) .nx-phone-editor-field :is(input,textarea,select):focus-visible{border-bottom:2px solid #0a84ff;color:var(--sheet-fg)!important}
+#duo .nx-native-sheet:is(.gx-contact-editor,.gx-profile-photo-editor,.gx-listing-editor,.gx-wenmo-transfer-editor,.nx-phone-contact-editor,.nx-phone-message-editor) :is(.gx-editor-field,.nx-phone-editor-field) :is(input,textarea,select):focus-visible{outline:none!important;outline-offset:0!important}
+#duo .nx-native-sheet:is(.gx-contact-editor,.gx-profile-photo-editor,.gx-listing-editor,.gx-wenmo-transfer-editor,.nx-phone-contact-editor,.nx-phone-message-editor,.u27-calendar-event-editor,.u27-clock-timer-editor,.u27-clock-city-editor) .gx-editor-field :is(input,textarea)::placeholder,
+#duo .nx-native-sheet:is(.nx-phone-contact-editor,.nx-phone-message-editor) .nx-phone-editor-field :is(input,textarea)::placeholder{color:var(--sheet-muted);opacity:1}
+
+/* Contacts and My Card */
+#duo .nx-native-sheet.gx-contact-editor .gx-contact-editor-hero,
+#duo .nx-native-sheet.gx-profile-photo-editor .gx-profile-photo-preview,
+#duo .nx-phone-contact-editor .nx-phone-contact-hero{display:grid;justify-items:center;gap:.28vh;padding:.5vh 0 .7vh;text-align:center}
+#duo .nx-native-sheet:is(.gx-contact-editor,.gx-profile-photo-editor) :is(.gx-contact-editor-hero,.gx-profile-photo-preview) .nx-avatar,
+#duo .nx-phone-contact-editor .nx-phone-contact-hero .nx-avatar{width:8.6vh;height:8.6vh;min-width:8.6vh;min-height:8.6vh;margin:0;font-size:clamp(24px,3.2vh,38px)}
+#duo .nx-native-sheet:is(.gx-contact-editor,.gx-profile-photo-editor) :is(.gx-contact-editor-copy,.gx-profile-photo-copy),
+#duo .nx-phone-contact-editor .nx-phone-contact-hero>strong{color:var(--sheet-fg);font-size:clamp(15px,1.55vh,20px);font-weight:650;line-height:1.2}
+#duo .nx-native-sheet:is(.gx-contact-editor,.gx-profile-photo-editor) :is(.gx-contact-editor-hero,.gx-profile-photo-preview)>small,
+#duo .nx-phone-contact-editor .nx-phone-contact-hero>small{color:var(--sheet-muted);font-size:clamp(9px,.82vh,11px);letter-spacing:.12em}
+#duo .nx-native-sheet.gx-contact-editor .gx-contact-name,
+#duo .nx-native-sheet.gx-contact-editor .gx-contact-phone,
+#duo .nx-phone-contact-editor .nx-phone-editor-field{border-bottom:1px solid var(--sheet-line)}
+#duo .nx-native-sheet.gx-profile-photo-editor .gx-profile-photo-url{margin-top:.5vh}
+#duo .nx-native-sheet:is(.gx-profile-photo-editor,.gx-listing-editor) .gx-editor-secondary{display:flex;align-items:center;justify-content:flex-start;gap:.6vh;width:100%;min-height:4vh;margin:.2vh 0;padding:.65vh .85vh;border:1px solid var(--sheet-line);border-radius:1vh;background:var(--sheet-field);color:var(--theme-accent-text);font-size:clamp(11px,1.17vh,15px);font-weight:550;text-align:left}
+
+/* Shared compose and nearby-phone sheets inherit the calling app's identity. */
+#duo .nx-native-sheet.gx-message-compose-sheet[data-app-surface="contacts"],
+#duo .nx-native-sheet.gx-message-compose-sheet[data-app-surface="yellowpages"],
+#duo .nx-native-sheet.gx-nearby-share-sheet[data-app-surface="contacts"],
+#duo .nx-native-sheet.gx-nearby-share-sheet[data-app-surface="card"]{display:flex;flex-direction:column;gap:.85vh}
+#duo .nx-native-sheet.gx-message-compose-sheet[data-app-surface="contacts"] .gx-message-recipient,
+#duo .nx-native-sheet.gx-message-compose-sheet[data-app-surface="yellowpages"] .gx-message-recipient,
+#duo .nx-native-sheet.gx-nearby-share-sheet:is([data-app-surface="contacts"],[data-app-surface="card"]) .cf-context-row{display:flex;align-items:center;gap:1vh;padding:.8vh .2vh;border-bottom:1px solid var(--sheet-line)}
+#duo .nx-native-sheet.gx-message-compose-sheet:is([data-app-surface="contacts"],[data-app-surface="yellowpages"]) .gx-message-editor{box-sizing:border-box;min-height:15vh;flex:1;padding:1vh .2vh;border:0;border-bottom:1px solid var(--sheet-line);border-radius:0;outline:0;background:transparent;color:var(--sheet-fg);font:inherit;resize:vertical}
+#duo .nx-native-sheet.gx-message-compose-sheet:is([data-app-surface="contacts"],[data-app-surface="yellowpages"]) .gx-message-toolbar{position:sticky;bottom:0;display:flex;align-items:center;justify-content:space-between;gap:1vh;margin-top:auto;padding:.6vh 0;border-top:1px solid var(--sheet-line);background:var(--sheet-bg)}
+#duo .nx-native-sheet.gx-message-compose-sheet:is([data-app-surface="contacts"],[data-app-surface="yellowpages"]) .gx-message-attach{min-height:3.8vh;border:0;border-radius:1.8vh;background:var(--sheet-field);color:var(--sheet-fg)}
+#duo .nx-native-sheet.gx-message-compose-sheet:is([data-app-surface="contacts"],[data-app-surface="yellowpages"]) .gx-message-private{color:var(--sheet-muted);font-size:clamp(10px,.9vh,12px)}
+#duo .nx-native-sheet.gx-message-compose-sheet:is([data-app-surface="contacts"],[data-app-surface="yellowpages"]) .gx-message-photo-preview .gx-image{max-height:16vh;overflow:hidden;border-radius:1.4vh}
+#duo .nx-native-sheet.gx-nearby-share-sheet:is([data-app-surface="contacts"],[data-app-surface="card"]) .gx-nearby-recipient-list{display:flex;flex-direction:column;max-height:32vh;overflow:auto;border-top:1px solid var(--sheet-line)}
+#duo .nx-native-sheet.gx-nearby-share-sheet:is([data-app-surface="contacts"],[data-app-surface="card"]) .gx-nearby-recipient{display:flex;min-height:4.8vh;flex-direction:column;align-items:flex-start;gap:.18vh;padding:.65vh .2vh;border:0;border-bottom:1px solid var(--sheet-line);border-radius:0;background:transparent;color:var(--theme-accent-text);text-align:left}
+#duo .nx-native-sheet.gx-nearby-share-sheet:is([data-app-surface="contacts"],[data-app-surface="card"]) .gx-nearby-recipient small{color:var(--sheet-muted);font-size:clamp(9px,.82vh,11px)}
+
+/* Yellow Pages */
+#duo .nx-native-sheet.gx-listing-editor .gx-listing-editor-intro{display:flex;flex-direction:column;gap:.25vh;margin:.2vh 0 .5vh}
+#duo .nx-native-sheet:is(.gx-listing-editor,.gx-wenmo-transfer-editor,.gx-wenmo-review-sheet,.gx-wenmo-transaction-sheet) .nx-sheet-grip{width:calc(100% + 3vh);height:1.65vh;margin:0 -1.5vh -.3vh;border-radius:0;background:var(--sheet-bg)}
+#duo .nx-native-sheet:is(.gx-listing-editor,.gx-wenmo-transfer-editor,.gx-wenmo-review-sheet,.gx-wenmo-transaction-sheet) .nx-sheet-grip::after{content:"";position:absolute;top:.9vh;left:50%;width:3.7vh;height:.45vh;transform:translateX(-50%);border-radius:2vh;background:var(--sheet-grip)}
+#duo .nx-native-sheet.gx-wenmo-transfer-editor .nx-sheet-heading{z-index:3}
+#duo .nx-native-sheet.gx-wenmo-transfer-editor .nx-sheet-heading::before{content:"";position:absolute;left:-1.5vh;right:-1.5vh;bottom:100%;height:3.3vh;background:var(--sheet-bg);pointer-events:none}
+#duo .nx-native-sheet.gx-wenmo-transfer-editor .nx-sheet-grip{z-index:4}
+#duo .nx-native-sheet.gx-listing-editor .gx-listing-editor-intro .gx-eyebrow{color:#58a9ff;font-size:clamp(9px,.8vh,11px);letter-spacing:.12em}
+#duo .nx-native-sheet.gx-listing-editor .gx-listing-editor-intro strong{font-size:clamp(15px,1.5vh,20px);font-weight:650}
+#duo .nx-native-sheet.gx-listing-editor .gx-editor-field{border-radius:1vh;background:var(--sheet-field)}
+#duo .nx-native-sheet.gx-listing-editor .gx-listing-description{min-height:14vh;align-items:stretch;flex-direction:column}
+#duo .nx-native-sheet.gx-listing-editor .gx-listing-description>span{max-width:none}
+#duo .nx-native-sheet.gx-listing-editor .gx-listing-description textarea{text-align:left}
+#duo .nx-native-sheet.gx-listing-editor .gx-listing-photo-url{min-height:4vh}
+#duo .nx-native-sheet.gx-listing-editor .gx-editor-secondary{justify-content:flex-start;min-height:4vh;border:1px solid var(--sheet-line);border-radius:1vh;background:var(--sheet-field);color:var(--theme-accent-text);text-align:left}
+#duo .nx-native-sheet.gx-listing-editor .gx-listing-photo-preview:empty{display:none}
+#duo .nx-native-sheet.gx-listing-editor .gx-listing-photo-preview .gx-image{max-height:15vh;overflow:hidden;border-radius:1.1vh}
+
+/* Wenmo's amount-first transfer editor */
+#duo .nx-native-sheet.gx-wenmo-transfer-editor{gap:.5vh}
+#duo .nx-native-sheet.gx-wenmo-transfer-editor .gx-wenmo-editor-hero{display:grid;grid-template-columns:auto 1fr;align-items:center;column-gap:.8vh;row-gap:.1vh;padding:.3vh .1vh .65vh;border-bottom:1px solid var(--sheet-line)}
+#duo .nx-native-sheet.gx-wenmo-transfer-editor .gx-wenmo-editor-hero .nx-avatar{grid-row:span 2;width:5.5vh;height:5.5vh;min-width:5.5vh;min-height:5.5vh;font-size:clamp(16px,1.9vh,24px)}
+#duo .nx-native-sheet.gx-wenmo-transfer-editor .gx-wenmo-editor-copy{font-size:clamp(13px,1.3vh,17px);font-weight:650}
+#duo .nx-native-sheet.gx-wenmo-transfer-editor .gx-wenmo-editor-hero small{color:var(--sheet-muted);font-size:clamp(9px,.82vh,11px);letter-spacing:.07em}
+#duo .nx-native-sheet.gx-wenmo-transfer-editor .gx-wenmo-amount-zone{display:flex;flex-direction:column;align-items:center;gap:.35vh;padding:.2vh 0 .35vh}
+#duo .nx-native-sheet.gx-wenmo-transfer-editor .gx-wenmo-amount-label{color:var(--sheet-muted);font-size:clamp(11px,1vh,13px);letter-spacing:.04em}
+#duo .nx-native-sheet.gx-wenmo-transfer-editor .gx-wenmo-amount-large{display:block;max-width:100%;min-width:0;color:var(--sheet-fg);font-size:clamp(48px,7vh,78px);font-weight:630;line-height:1;letter-spacing:-.055em;font-variant-numeric:tabular-nums;text-align:center}
+#duo .nx-native-sheet.gx-wenmo-transfer-editor .gx-wenmo-amount-large[data-amount-length="6"],#duo .nx-native-sheet.gx-wenmo-transfer-editor .gx-wenmo-amount-large[data-amount-length="7"],#duo .nx-native-sheet.gx-wenmo-transfer-editor .gx-wenmo-amount-large[data-amount-length="8"]{font-size:clamp(34px,5vh,56px)}
+#duo .nx-native-sheet.gx-wenmo-transfer-editor .gx-wenmo-keypad{display:grid;width:min(100%,32vh);grid-template-columns:repeat(3,minmax(0,1fr));justify-items:center;gap:.45vh .75vh}
+#duo .nx-native-sheet.gx-wenmo-transfer-editor .gx-wenmo-digit{display:grid;width:min(6.2vh,16vw);height:min(6.2vh,16vw);min-width:36px;min-height:36px;max-width:54px;max-height:54px;place-items:center;padding:0;border:1px solid var(--sheet-line);border-radius:50%;background:var(--sheet-field);color:var(--sheet-fg);font-size:clamp(16px,1.85vh,23px);font-weight:530;font-variant-numeric:tabular-nums}
+#duo .nx-native-sheet.gx-wenmo-transfer-editor .gx-wenmo-key-spacer{width:min(6.2vh,16vw);height:min(6.2vh,16vw);min-width:36px;min-height:36px}
+#duo .nx-native-sheet.gx-wenmo-transfer-editor .gx-wenmo-digit[data-digit="delete"]{color:#0a84ff;font-size:clamp(18px,2.1vh,26px)}
+#duo .nx-native-sheet.gx-wenmo-transfer-editor .gx-wenmo-contact-button{display:flex;min-height:4.2vh;align-items:center;justify-content:flex-start;gap:.6vh;padding:.6vh .8vh;border:1px solid var(--sheet-line);border-radius:1vh;background:var(--sheet-field);color:var(--theme-accent-text);text-align:left}
+#duo .nx-native-sheet.gx-wenmo-transfer-editor .gx-wenmo-contact-picker{display:flex;flex:none;min-height:12vh;max-height:20vh;flex-direction:column;overflow:auto;border-radius:1vh;background:var(--sheet-field)}
+#duo .nx-native-sheet.gx-wenmo-transfer-editor .gx-wenmo-contact-picker[hidden]{display:none}
+#duo .nx-native-sheet.gx-wenmo-transfer-editor .gx-wenmo-contact-row{display:grid;flex:none;min-height:5vh;grid-template-columns:auto minmax(0,1fr);align-items:center;gap:.6vh;padding:.55vh .75vh;border:0;border-bottom:1px solid var(--sheet-line);border-radius:0;background:transparent;color:var(--sheet-fg);text-align:left}
+#duo .nx-native-sheet.gx-wenmo-transfer-editor .gx-wenmo-contact-row .nx-avatar{grid-column:1;width:3.4vh;height:3.4vh;min-width:3.4vh;min-height:3.4vh}
+#duo .nx-native-sheet.gx-wenmo-transfer-editor .gx-wenmo-recipient-field{background:transparent}
+#duo .nx-native-sheet.gx-wenmo-transfer-editor .gx-wenmo-note-field{min-height:4.4vh;align-items:stretch;flex-direction:column;padding:.55vh .85vh;border-radius:1vh;background:var(--sheet-field)}
+#duo .nx-native-sheet.gx-wenmo-transfer-editor .gx-wenmo-note-field>span{max-width:none}
+#duo .nx-native-sheet.gx-wenmo-transfer-editor .gx-wenmo-note-field textarea{text-align:left}
+#duo .nx-native-sheet.gx-wenmo-review-sheet{align-items:center;text-align:center}
+#duo .nx-native-sheet.gx-wenmo-review-sheet .nx-sheet-heading{align-self:stretch;width:100%}
+#duo .nx-native-sheet.gx-wenmo-review-sheet .gx-wenmo-review-hero{display:grid;justify-items:center;gap:.25vh;padding:.5vh 0}
+#duo .nx-native-sheet.gx-wenmo-review-sheet .gx-wenmo-review-hero .nx-avatar{width:7vh;height:7vh;min-width:7vh;min-height:7vh;font-size:clamp(19px,2.6vh,32px)}
+#duo .nx-native-sheet.gx-wenmo-review-sheet .gx-wenmo-review-hero .gx-eyebrow{margin-top:.2vh;color:var(--sheet-muted);font-size:clamp(9px,.82vh,11px);letter-spacing:.12em}
+#duo .nx-native-sheet.gx-wenmo-review-sheet .gx-wenmo-review-hero h2{margin:0;font-size:clamp(16px,1.7vh,22px);font-weight:650}
+#duo .nx-native-sheet.gx-wenmo-review-sheet .gx-wenmo-review-amount{margin:.5vh 0;color:var(--sheet-fg);font-size:clamp(50px,7.5vh,84px);font-weight:640;line-height:1;letter-spacing:-.06em;font-variant-numeric:tabular-nums}
+#duo .nx-native-sheet.gx-wenmo-review-sheet .gx-wenmo-review-recipient{color:var(--sheet-fg);font-size:clamp(13px,1.3vh,17px);font-weight:620}
+#duo .nx-native-sheet.gx-wenmo-review-sheet .gx-wenmo-review-note{color:var(--sheet-muted);font-size:clamp(12px,1.08vh,15px)}
+#duo .nx-native-sheet.gx-wenmo-review-sheet .gx-wenmo-review-warning{margin:.25vh 0;padding:.8vh 1vh;border-radius:1vh;background:var(--sheet-field);color:var(--sheet-muted);font-size:clamp(11px,.96vh,13px);line-height:1.4}
+#duo .nx-native-sheet.gx-wenmo-review-sheet .gx-wenmo-confirm{position:sticky;bottom:0;z-index:3;display:flex;flex:none;align-self:stretch;align-items:center;justify-content:center;width:100%;min-height:4.6vh;margin:auto 0 0;padding:.8vh 1vh;border:0;border-radius:1.2vh;background:#007aff!important;color:#fff!important;font-size:clamp(13px,1.28vh,16px);font-weight:650}
+#duo .nx-native-sheet.gx-wenmo-transaction-sheet .gx-hero-amount{margin:.8vh 0;font-size:clamp(38px,5.2vh,60px)}
+#duo .gx-wenmo-pending{display:flex;flex-direction:column;gap:.5vh;padding:1.2vh;border:1px solid #e7a84966;border-radius:1.3vh;background:linear-gradient(145deg,#fff4db,#fffaf0);color:#49381c}
+#duo .gx-wenmo-pending p{margin:0;line-height:1.4}
+#duo[data-theme="dark"] .gx-wenmo-pending{border-color:#e7a84955;background:linear-gradient(145deg,#342b1d,#242019);color:#f1dfbd}
+
+/* Calendar event composer */
+#duo .nx-native-sheet.u27-calendar-event-editor{gap:.65vh}
+#duo .nx-native-sheet.u27-calendar-event-editor .u27-event-editor-intro{display:flex;flex-direction:column;gap:.18vh;margin:.15vh 0 .3vh}
+#duo .nx-native-sheet.u27-calendar-event-editor .u27-event-editor-intro .u27-kicker{color:#ff8084;font-size:clamp(9px,.8vh,11px);letter-spacing:.12em}
+#duo .nx-native-sheet.u27-calendar-event-editor .u27-event-editor-intro strong{font-size:clamp(15px,1.5vh,20px);font-weight:650}
+#duo .nx-native-sheet.u27-calendar-event-editor .u27-event-title-field{min-height:5.8vh;border-radius:1.1vh;background:var(--sheet-field)}
+#duo .nx-native-sheet.u27-calendar-event-editor .u27-event-title-field :is(input,textarea){font-size:clamp(18px,1.9vh,25px);font-weight:620;letter-spacing:-.025em;text-align:left}
+#duo .nx-native-sheet.u27-calendar-event-editor .u27-event-start-row{display:grid;grid-template-columns:1.2fr .8fr;gap:.5vh}
+#duo .nx-native-sheet.u27-calendar-event-editor .u27-event-start-row .u27-event-field{min-width:0;min-height:5.1vh;padding:.5vh .7vh;border-radius:1vh;background:var(--sheet-field)}
+#duo .nx-native-sheet.u27-calendar-event-editor .u27-event-start-row .u27-event-field>span{max-width:none;font-size:clamp(10px,.9vh,12px)}
+#duo .nx-native-sheet.u27-calendar-event-editor .u27-event-start-row input{text-align:right;font-size:clamp(11px,1vh,13px)}
+#duo .nx-native-sheet.u27-calendar-event-editor .u27-event-all-day{display:flex;align-items:center;gap:1vh}
+#duo .nx-native-sheet.u27-calendar-event-editor .u27-event-location-field{min-height:5vh;border-radius:1vh;background:var(--sheet-field)}
+#duo .nx-native-sheet.u27-calendar-event-editor .u27-event-notes-field{min-height:8vh;align-items:stretch;flex-direction:column;border-radius:1vh;background:var(--sheet-field)}
+#duo .nx-native-sheet.u27-calendar-event-editor .u27-event-notes-field>span{max-width:none}
+#duo .nx-native-sheet.u27-calendar-event-editor .u27-event-notes-field textarea{text-align:left}
+#duo .nx-native-sheet.u27-calendar-event-editor .u27-calendar-event-actions{position:sticky;bottom:-2.4vh;z-index:3;display:flex;flex-direction:column;gap:.5vh;margin:auto -1.5vh -2.4vh;padding:.8vh 1.5vh max(2.4vh,env(safe-area-inset-bottom));border-top:1px solid var(--sheet-line);background:var(--sheet-bg)}
+#duo .nx-native-sheet.u27-calendar-event-editor .u27-calendar-event-actions .nx-button{min-height:4.5vh}
+
+/* Clock timer and city pickers */
+#duo .nx-native-sheet.u27-clock-timer-editor .u27-timer-editor-intro,
+#duo .nx-native-sheet.u27-clock-city-editor .u27-city-editor-intro{display:flex;flex-direction:column;gap:.2vh;padding:.2vh 0 .5vh}
+#duo .nx-native-sheet.u27-clock-timer-editor .u27-timer-editor-intro .u27-kicker,
+#duo .nx-native-sheet.u27-clock-city-editor .u27-city-editor-intro .u27-kicker{color:#ffbd70;font-size:clamp(9px,.8vh,11px);letter-spacing:.12em}
+#duo .nx-native-sheet.u27-clock-timer-editor .u27-timer-editor-intro strong,
+#duo .nx-native-sheet.u27-clock-city-editor .u27-city-editor-intro strong{font-size:clamp(15px,1.5vh,20px);font-weight:650}
+#duo .nx-native-sheet.u27-clock-timer-editor .u27-duration-fields{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.65vh;margin:.4vh 0}
+#duo .nx-native-sheet.u27-clock-timer-editor .u27-duration-unit{display:flex;min-width:0;flex-direction:column;align-items:center;gap:.35vh;padding:.65vh .4vh;border:1px solid var(--sheet-line);border-radius:1.15vh;background:var(--sheet-field)}
+#duo .nx-native-sheet.u27-clock-timer-editor .u27-duration-unit>span{max-width:none;color:var(--sheet-muted);font-size:clamp(10px,.9vh,12px);letter-spacing:.07em;text-transform:uppercase}
+#duo .nx-native-sheet.u27-clock-timer-editor .u27-duration-unit input{width:100%;min-height:5.2vh;padding:0;border:0;background:transparent!important;color:var(--sheet-fg)!important;font-size:clamp(26px,3.6vh,44px);font-variant-numeric:tabular-nums;text-align:center}
+#duo .nx-native-sheet.u27-clock-timer-editor .u27-clock-editor-label{border-radius:1vh;background:var(--sheet-field)}
+#duo .nx-native-sheet.u27-clock-city-editor .u27-city-picker{min-height:5vh;border-radius:1vh;background:var(--sheet-field)}
+#duo .nx-native-sheet.u27-clock-city-editor .u27-city-time-preview{display:grid;grid-template-columns:1fr auto;align-items:center;gap:.2vh .8vh;padding:1vh;border:1px solid var(--sheet-line);border-radius:1.2vh;background:var(--sheet-field)}
+#duo .nx-native-sheet.u27-clock-city-editor .u27-city-time-preview>strong{font-size:clamp(14px,1.45vh,18px);font-weight:650}
+#duo .nx-native-sheet.u27-clock-city-editor .u27-city-time-preview .u27-world-time{grid-column:2;grid-row:1/3;font-size:clamp(24px,3.4vh,42px);font-variant-numeric:tabular-nums}
+#duo .nx-native-sheet.u27-clock-city-editor .u27-city-time-preview>small{color:var(--sheet-muted);font-size:clamp(10px,.95vh,13px)}
+
+/* Phone's local contact and message editors */
+#duo .nx-native-sheet.nx-phone-contact-editor .nx-phone-contact-hero .nx-avatar{width:7.5vh;height:7.5vh;min-width:7.5vh;min-height:7.5vh;font-size:clamp(20px,2.7vh,32px)}
+#duo .nx-native-sheet.nx-phone-contact-editor .nx-phone-editor-field{min-height:5vh}
+#duo .nx-native-sheet.nx-phone-message-editor .nx-phone-message-recipient{display:grid;grid-template-columns:auto 1fr;align-items:center;gap:.8vh;padding:.6vh 0 .9vh;border-bottom:1px solid var(--sheet-line)}
+#duo .nx-native-sheet.nx-phone-message-editor .nx-phone-message-recipient .nx-avatar{grid-row:span 2;width:4.6vh;height:4.6vh;min-width:4.6vh;min-height:4.6vh}
+#duo .nx-native-sheet.nx-phone-message-editor .nx-phone-message-recipient-copy{display:flex;flex-direction:column;gap:.12vh}
+#duo .nx-native-sheet.nx-phone-message-editor .nx-phone-message-recipient-copy strong{font-size:clamp(13px,1.32vh,17px);font-weight:650}
+#duo .nx-native-sheet.nx-phone-message-editor .nx-phone-message-recipient-copy small{color:var(--sheet-muted);font-size:clamp(10px,.9vh,12px)}
+#duo .nx-native-sheet.nx-phone-message-editor .nx-phone-message-field{min-height:18vh;align-items:stretch;flex-direction:column;padding:.8vh .2vh;border-radius:0;background:transparent}
+#duo .nx-native-sheet.nx-phone-message-editor .nx-phone-message-field>span{max-width:none}
+#duo .nx-native-sheet.nx-phone-message-editor .nx-phone-message-field textarea{min-height:14vh;resize:vertical;text-align:left}
+
+#duo[data-orientation="portrait"] .nx-native-sheet.gx-wenmo-transfer-editor .gx-wenmo-keypad,
+#duo[data-expanded="false"] .nx-native-sheet.gx-wenmo-transfer-editor .gx-wenmo-keypad{width:min(100%,34vh)}
+#duo[data-orientation="portrait"] .nx-native-sheet.gx-wenmo-transfer-editor .gx-wenmo-digit,#duo[data-orientation="portrait"] .nx-native-sheet.gx-wenmo-transfer-editor .gx-wenmo-key-spacer,
+#duo[data-expanded="false"] .nx-native-sheet.gx-wenmo-transfer-editor .gx-wenmo-digit,#duo[data-expanded="false"] .nx-native-sheet.gx-wenmo-transfer-editor .gx-wenmo-key-spacer{width:min(6vh,15vw);height:min(6vh,15vw);min-width:34px;min-height:34px}
+#duo[data-expanded="false"] .nx-native-sheet.gx-wenmo-transfer-editor .gx-wenmo-keypad{gap:.25vh .65vh}
+#duo[data-expanded="false"] .nx-native-sheet.gx-wenmo-transfer-editor .gx-wenmo-digit,#duo[data-expanded="false"] .nx-native-sheet.gx-wenmo-transfer-editor .gx-wenmo-key-spacer{width:min(5.4vh,13vw);height:min(5.4vh,13vw);min-width:32px;min-height:32px;max-width:48px;max-height:48px}
+#duo[data-orientation="landscape"][data-expanded="true"] .nx-native-sheet.gx-wenmo-transfer-editor .gx-wenmo-amount-zone{display:grid;width:100%;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);grid-template-rows:auto minmax(0,1fr);align-items:center;column-gap:1vh}
+#duo[data-orientation="landscape"][data-expanded="true"] .nx-native-sheet.gx-wenmo-transfer-editor .gx-wenmo-amount-label{grid-column:1;grid-row:1;align-self:end;text-align:center}
+#duo[data-orientation="landscape"][data-expanded="true"] .nx-native-sheet.gx-wenmo-transfer-editor .gx-wenmo-amount-large{grid-column:1;grid-row:2;align-self:start;font-size:clamp(48px,7vh,78px)}
+#duo[data-orientation="landscape"][data-expanded="true"] .nx-native-sheet.gx-wenmo-transfer-editor .gx-wenmo-keypad{grid-column:2;grid-row:1/3;width:min(100%,31vh);gap:.28vh .55vh}
+#duo[data-orientation="landscape"][data-expanded="true"] .nx-native-sheet.gx-wenmo-transfer-editor .gx-wenmo-digit,#duo[data-orientation="landscape"][data-expanded="true"] .nx-native-sheet.gx-wenmo-transfer-editor .gx-wenmo-key-spacer{width:min(5.8vh,10vw);height:min(5.8vh,10vw);min-width:30px;min-height:30px}

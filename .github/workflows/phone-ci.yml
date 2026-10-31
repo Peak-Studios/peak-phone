@@ -1,0 +1,125 @@
+name: Phone CI
+on:
+  pull_request:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  contracts:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Native test runtime
+        run: sudo apt-get update -qq && sudo apt-get install -y liblua5.4-0
+      - name: Executed Lua contracts and registration inventory
+        run: npm run test:lua
+      - name: Repository contracts
+        run: npm test
+      - name: Native hardware contracts
+        run: npm run test:hardware
+      - name: Catalog contracts when present
+        run: npm run test:music --if-present
+      - name: SQL schema contracts
+        run: python -X utf8 tests/portable/sql_contracts.py
+      - name: Legacy bundle builds reproducibly
+        run: npm run build
+      - name: Runtime integrity
+        run: npm run verify
+      - name: Whitespace validation
+        run: git diff --check
+  appearance:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Install browser test runtime
+        run: |
+          python -m pip install playwright
+          python -m playwright install --with-deps chromium
+      - name: Appearance browser workflows
+        run: |
+          node tools/serve-preview.cjs > /tmp/peak-phone-preview.log 2>&1 &
+          preview_pid=$!
+          trap 'kill "$preview_pid"' EXIT
+          curl --fail --retry 10 --retry-connrefused --retry-delay 1 http://127.0.0.1:8791/ > /dev/null
+          export PREVIEW_URL=http://127.0.0.1:8791
+          export APPEARANCE_OUT=artifacts/ios-theme-redesign
+          npm run test:browser:appearance
+          export MAIL_OUT=artifacts/ios-theme-redesign/mail
+          npm run test:browser:mail
+          export MESSAGES_EVIDENCE_DIR=artifacts/ios-theme-redesign/messages
+          npm run test:browser:messages
+          python tests/appearance/states.py
+          python tests/appearance/mirror.py
+          python tests/appearance/wallpapers.py
+          python tests/appearance/check-contrast.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        # Evidence uploads are optional; account quota must not hide test failures.
+        continue-on-error: true
+        with:
+          name: phone-appearance-browser-evidence
+          path: artifacts/ios-theme-redesign/
+  feature-browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Install browser test runtime
+        run: |
+          python -m pip install playwright pillow
+          python -m playwright install --with-deps chromium
+      - name: Combined phone feature workflows
+        run: |
+          node tools/serve-preview.cjs > /tmp/peak-phone-feature-preview.log 2>&1 &
+          preview_pid=$!
+          trap 'kill "$preview_pid"' EXIT
+          curl --fail --retry 10 --retry-connrefused --retry-delay 1 http://127.0.0.1:8791/ > /dev/null
+          export PREVIEW_URL=http://127.0.0.1:8791
+          export CHROMIUM_PATH=$(python -c "from playwright.sync_api import sync_playwright; p=sync_playwright().start(); print(p.chromium.executable_path); p.stop()")
+          python -X utf8 tests/browser_workflows.py --calculator-only
+          python tests/home-pages/browser.py
+          python tests/camera/browser_recovery.py
+          python tests/control-center/browser.py
+          python tests/sharedrop-browser.py
+          npm run test:browser:physical-screen
+          npm run test:browser:find-my
+          npm run test:browser:notifications
+          npm run test:browser:clock
+          npm run test:browser:restored-apps
+          export NOTES_READ_FAILURE_OUT=artifacts/notes
+          npm run test:browser:notes
+      - name: Weather current-state browser workflow
+        run: python -X utf8 tests/weather/browser.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        # Evidence uploads are optional; account quota must not hide test failures.
+        continue-on-error: true
+        with:
+          name: phone-feature-browser-evidence
+          path: |
+            artifacts/home-pages/
+            artifacts/camera-layout-recovery/
+            artifacts/control-center-polish/
+            artifacts/sharedrop/*.png
+            artifacts/sharedrop/browser-results.json
+            artifacts/portable/find-my-*
+            artifacts/notifications/
+            artifacts/notes/

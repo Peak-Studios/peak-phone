@@ -1,0 +1,530 @@
+[
+  {
+    "schema": 1,
+    "id": "fooddelivery",
+    "name": "Food Delivery Worker",
+    "description": "Collect orders, deliver to three addresses and return. Phone-owned route contract; no external restaurant inventory is required.",
+    "hub": {
+      "x": -232.43,
+      "y": -915.5,
+      "z": 31.31,
+      "w": 342.21
+    },
+    "ped": "s_m_m_linecook",
+    "enabled": true,
+    "reward": 225,
+    "account": "bank",
+    "minMembers": 1,
+    "maxMembers": 1,
+    "timeoutMinutes": 50,
+    "requiredJob": "",
+    "requirements": [],
+    "steps": [
+      {
+        "label": "Collect the delivery order",
+        "coords": {
+          "x": -232.43,
+          "y": -915.5,
+          "z": 31.31,
+          "w": 0
+        },
+        "type": "collect",
+        "duration": 8,
+        "scenario": "clipboard",
+        "radius": 3
+      },
+      {
+        "label": "Deliver the order",
+        "coords": {
+          "x": 311.23,
+          "y": -203.47,
+          "z": 54.22,
+          "w": 69.17
+        },
+        "type": "deliver",
+        "duration": 7,
+        "scenario": "clipboard",
+        "radius": 3
+      },
+      {
+        "label": "Deliver the order",
+        "coords": {
+          "x": 329.38,
+          "y": -225.17,
+          "z": 58.02,
+          "w": 160.83
+        },
+        "type": "deliver",
+        "duration": 7,
+        "scenario": "clipboard",
+        "radius": 3
+      },
+      {
+        "label": "Deliver the order",
+        "coords": {
+          "x": 331.57,
+          "y": 465.2,
+          "z": 151.26,
+          "w": 200.52
+        },
+        "type": "deliver",
+        "duration": 7,
+        "scenario": "clipboard",
+        "radius": 3
+      },
+      {
+        "label": "Return to the meeting point",
+        "coords": {
+          "x": -232.43,
+          "y": -915.5,
+          "z": 31.31,
+          "w": 342.21
+        },
+        "type": "visit",
+        "duration": 3,
+        "scenario": "clipboard",
+        "radius": 8
+      }
+    ]
+  },
+  {
+    "schema": 1,
+    "id": "sanitation",
+    "name": "Sanitation Worker",
+    "description": "A cooperative cleanup route with shared progress and a fixed reward per participating member.",
+    "hub": {
+      "x": -353.1,
+      "y": -1546.22,
+      "z": 26.8,
+      "w": 269.21
+    },
+    "ped": "s_m_y_construct_01",
+    "enabled": true,
+    "reward": 285,
+    "account": "bank",
+    "minMembers": 1,
+    "maxMembers": 4,
+    "timeoutMinutes": 50,
+    "requiredJob": "",
+    "requirements": [],
+    "steps": [
+      {
+        "label": "Collect refuse at stop 1",
+        "coords": {
+          "x": -168.07,
+          "y": -1662.8,
+          "z": 33.31,
+          "w": 0
+        },
+        "type": "collect",
+        "duration": 12,
+        "scenario": "clean",
+        "radius": 6
+      },
+      {
+        "label": "Collect refuse at stop 2",
+        "coords": {
+          "x": 118.06,
+          "y": -1943.96,
+          "z": 20.43,
+          "w": 0
+        },
+        "type": "collect",
+        "duration": 12,
+        "scenario": "clean",
+        "radius": 6
+      },
+      {
+        "label": "Collect refuse at stop 3",
+        "coords": {
+          "x": 297.94,
+          "y": -2018.26,
+          "z": 20.49,
+          "w": 0
+        },
+        "type": "collect",
+        "duration": 12,
+        "scenario": "clean",
+        "radius": 6
+      },
+      {
+        "label": "Collect refuse at stop 4",
+        "coords": {
+          "x": 424.98,
+          "y": -1523.57,
+          "z": 29.28,
+          "w": 0
+        },
+        "type": "collect",
+        "duration": 12,
+        "scenario": "clean",
+        "radius": 6
+      },
+      {
+        "label": "Return to the meeting point",
+        "coords": {
+          "x": -353.1,
+          "y": -1546.22,
+          "z": 26.8,
+          "w": 269.21
+        },
+        "type": "visit",
+        "duration": 3,
+        "scenario": "clipboard",
+        "radius": 8
+      }
+    ]
+  },
+  {
+    "schema": 1,
+    "id": "postop",
+    "name": "24/7 Logistics",
+    "description": "Collect and deliver supply parcels. These are contract objectives, not inventory items.",
+    "hub": {
+      "x": 929.99,
+      "y": -1249.48,
+      "z": 24.5,
+      "w": 32.94
+    },
+    "ped": "s_m_m_gentransport",
+    "enabled": true,
+    "reward": 270,
+    "account": "bank",
+    "minMembers": 1,
+    "maxMembers": 2,
+    "timeoutMinutes": 50,
+    "requiredJob": "",
+    "requirements": [],
+    "steps": [
+      {
+        "label": "Collect the parcels",
+        "coords": {
+          "x": 929.99,
+          "y": -1249.48,
+          "z": 24.5,
+          "w": 0
+        },
+        "type": "collect",
+        "duration": 8,
+        "scenario": "clipboard",
+        "radius": 3
+      },
+      {
+        "label": "Deliver store supplies",
+        "coords": {
+          "x": -43.71,
+          "y": -1750.0,
+          "z": 29.42,
+          "w": 0
+        },
+        "type": "deliver",
+        "duration": 10,
+        "scenario": "clipboard",
+        "radius": 3
+      },
+      {
+        "label": "Deliver store supplies",
+        "coords": {
+          "x": 26.56,
+          "y": -1340.15,
+          "z": 29.5,
+          "w": 0
+        },
+        "type": "deliver",
+        "duration": 10,
+        "scenario": "clipboard",
+        "radius": 3
+      },
+      {
+        "label": "Deliver store supplies",
+        "coords": {
+          "x": 1129.45,
+          "y": -982.13,
+          "z": 46.42,
+          "w": 0
+        },
+        "type": "deliver",
+        "duration": 10,
+        "scenario": "clipboard",
+        "radius": 3
+      },
+      {
+        "label": "Return to the meeting point",
+        "coords": {
+          "x": 929.99,
+          "y": -1249.48,
+          "z": 24.5,
+          "w": 32.94
+        },
+        "type": "visit",
+        "duration": 3,
+        "scenario": "clipboard",
+        "radius": 8
+      }
+    ]
+  },
+  {
+    "schema": 1,
+    "id": "construction",
+    "name": "Construction Worker",
+    "description": "Complete the ordered construction tasks. This portable template does not include the original bespoke tool minigames.",
+    "hub": {
+      "x": 1122.69,
+      "y": -1304.65,
+      "z": 33.72,
+      "w": 356.11
+    },
+    "ped": "s_m_y_construct_02",
+    "enabled": true,
+    "reward": 285,
+    "account": "bank",
+    "minMembers": 1,
+    "maxMembers": 2,
+    "timeoutMinutes": 50,
+    "requiredJob": "",
+    "requirements": [],
+    "steps": [
+      {
+        "label": "Complete hammer work",
+        "coords": {
+          "x": -932.99,
+          "y": 391.59,
+          "z": 79.14,
+          "w": 113.74
+        },
+        "type": "work",
+        "duration": 15,
+        "scenario": "hammer",
+        "radius": 3
+      },
+      {
+        "label": "Complete shovel work",
+        "coords": {
+          "x": -947.89,
+          "y": 378.36,
+          "z": 75.09,
+          "w": 151.08
+        },
+        "type": "work",
+        "duration": 15,
+        "scenario": "clipboard",
+        "radius": 3
+      },
+      {
+        "label": "Complete jackhammer work",
+        "coords": {
+          "x": -961.93,
+          "y": 388.22,
+          "z": 72.93,
+          "w": 25.17
+        },
+        "type": "work",
+        "duration": 15,
+        "scenario": "clipboard",
+        "radius": 3
+      },
+      {
+        "label": "Complete drill work",
+        "coords": {
+          "x": -951.93,
+          "y": 383.57,
+          "z": 73.33,
+          "w": 207.21
+        },
+        "type": "work",
+        "duration": 15,
+        "scenario": "clipboard",
+        "radius": 3
+      },
+      {
+        "label": "Return to the meeting point",
+        "coords": {
+          "x": 1122.69,
+          "y": -1304.65,
+          "z": 33.72,
+          "w": 356.11
+        },
+        "type": "visit",
+        "duration": 3,
+        "scenario": "clipboard",
+        "radius": 8
+      }
+    ]
+  },
+  {
+    "schema": 1,
+    "id": "fishing",
+    "name": "Fishing",
+    "description": "A fishing survey contract. Pays the contract reward, not fish inventory or the original catch/rarity minigame.",
+    "hub": {
+      "x": -1710.39,
+      "y": -1110.89,
+      "z": 12.15,
+      "w": 92.17
+    },
+    "ped": "cs_old_man1a",
+    "enabled": true,
+    "reward": 270,
+    "account": "bank",
+    "minMembers": 1,
+    "maxMembers": 4,
+    "timeoutMinutes": 50,
+    "requiredJob": "",
+    "requirements": [],
+    "steps": [
+      {
+        "label": "Survey the fishing spot",
+        "coords": {
+          "x": -90.34,
+          "y": 4248.4,
+          "z": 31.25,
+          "w": 0
+        },
+        "type": "visit",
+        "duration": 4,
+        "scenario": "none",
+        "radius": 10
+      },
+      {
+        "label": "Work at the fishing spot",
+        "coords": {
+          "x": -90.34,
+          "y": 4248.4,
+          "z": 31.25,
+          "w": 0
+        },
+        "type": "collect",
+        "duration": 35,
+        "scenario": "fish",
+        "radius": 10
+      },
+      {
+        "label": "Return to the meeting point",
+        "coords": {
+          "x": -1710.39,
+          "y": -1110.89,
+          "z": 12.15,
+          "w": 92.17
+        },
+        "type": "visit",
+        "duration": 3,
+        "scenario": "clipboard",
+        "radius": 8
+      }
+    ]
+  },
+  {
+    "schema": 1,
+    "id": "newspaper",
+    "name": "Newspaper Delivery",
+    "description": "Deliver a newspaper route and return. Portable contract version; original XP/daily progression is not imported.",
+    "hub": {
+      "x": 374.6473,
+      "y": -368.6436,
+      "z": 45.783,
+      "w": 155.9597
+    },
+    "ped": "csb_customer",
+    "enabled": true,
+    "reward": 225,
+    "account": "bank",
+    "minMembers": 1,
+    "maxMembers": 1,
+    "timeoutMinutes": 50,
+    "requiredJob": "",
+    "requirements": [],
+    "steps": [
+      {
+        "label": "Pick up newspapers",
+        "coords": {
+          "x": 374.6473,
+          "y": -368.6436,
+          "z": 45.783,
+          "w": 0
+        },
+        "type": "collect",
+        "duration": 6,
+        "scenario": "clipboard",
+        "radius": 3
+      },
+      {
+        "label": "Deliver the newspaper",
+        "coords": {
+          "x": -1005.51,
+          "y": -1154.75,
+          "z": 2.34,
+          "w": 0
+        },
+        "type": "deliver",
+        "duration": 6,
+        "scenario": "clipboard",
+        "radius": 3
+      },
+      {
+        "label": "Deliver the newspaper",
+        "coords": {
+          "x": -1022.82,
+          "y": -1160.67,
+          "z": 2.16,
+          "w": 0
+        },
+        "type": "deliver",
+        "duration": 6,
+        "scenario": "clipboard",
+        "radius": 3
+      },
+      {
+        "label": "Deliver the newspaper",
+        "coords": {
+          "x": -1032.42,
+          "y": -1172.84,
+          "z": 2.16,
+          "w": 0
+        },
+        "type": "deliver",
+        "duration": 6,
+        "scenario": "clipboard",
+        "radius": 3
+      },
+      {
+        "label": "Deliver the newspaper",
+        "coords": {
+          "x": -1064.4,
+          "y": -1187.56,
+          "z": 2.34,
+          "w": 0
+        },
+        "type": "deliver",
+        "duration": 6,
+        "scenario": "clipboard",
+        "radius": 3
+      },
+      {
+        "label": "Deliver the newspaper",
+        "coords": {
+          "x": -1067.94,
+          "y": -1163.46,
+          "z": 2.75,
+          "w": 0
+        },
+        "type": "deliver",
+        "duration": 6,
+        "scenario": "clipboard",
+        "radius": 3
+      },
+      {
+        "label": "Return to the meeting point",
+        "coords": {
+          "x": 374.6473,
+          "y": -368.6436,
+          "z": 45.783,
+          "w": 155.9597
+        },
+        "type": "visit",
+        "duration": 3,
+        "scenario": "clipboard",
+        "radius": 8
+      }
+    ]
+  }
+]

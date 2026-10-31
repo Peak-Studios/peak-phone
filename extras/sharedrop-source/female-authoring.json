@@ -1,0 +1,38 @@
+{
+  "profile": "female",
+  "duration": 3.2,
+  "clips": {
+    "peak_sharedrop_female_send": {
+      "frames": 97,
+      "maxWristSolveError": 7.300048299977713e-08,
+      "target": [
+        0.04736648499965668,
+        0.38845744729042053,
+        0.2780441343784332
+      ],
+      "rootMotion": false
+    },
+    "peak_sharedrop_female_receive": {
+      "frames": 97,
+      "maxWristSolveError": 7.300048299977713e-08,
+      "target": [
+        0.04736648499965668,
+        0.38845744729042053,
+        0.2780441343784332
+      ],
+      "rootMotion": false
+    }
+  },
+  "qualification": "Blender baked and CodeWalker reloaded; two-client FiveM acceptance pending",
+  "phoneTopOffset": [
+    -0.0353664867579937,
+    0.07654255628585815,
+    0.14195585250854492
+  ],
+  "contactPhoneTop": [
+    0.012,
+    0.465,
+    0.42
+  ],
+  "idealPairGapMetres": 0.031240998703626618
+}

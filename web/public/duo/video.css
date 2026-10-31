@@ -1,0 +1,148 @@
+/* FaceTime landing surface; active calls are rendered by call-ui.mjs. */
+#duo .duo-video-app{height:100%;width:100%;min-width:0;overflow:hidden;display:flex;flex-direction:column;padding:0;color:#23342e;background:radial-gradient(ellipse at 100% 0%,#e2f6ed,transparent 65%),#f4f7f5;font:clamp(12px,1.65vh,16px)/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;box-sizing:border-box}
+#duo .duo-video-app *{box-sizing:border-box}#duo .duo-video-app [hidden]{display:none!important}#duo .duo-video-app button{font:inherit;cursor:pointer;border:0}#duo .duo-video-app button:disabled{opacity:.45;cursor:default}#duo .duo-video-app button:focus-visible,#duo .duo-video-app input:focus-visible{outline:2px solid #279e70;outline-offset:3px}
+#duo .ft-header{display:flex;align-items:center;justify-content:space-between;padding:1.4em 1.5em 1em;gap:1em;flex-shrink:0}#duo .ft-brand{display:flex;align-items:center;gap:.7em;min-width:0}#duo .ft-brand-icon{width:2.9em;height:2.9em;display:grid;place-items:center;border-radius:.9em;color:#fff;background:radial-gradient(circle at 15% 0,#ffffff61,transparent 65%),linear-gradient(155deg,#46d992,#1ba664);box-shadow:inset 0 1px 0 #ffffffe0,0 5px 12px #257e6333}#duo .ft-brand-icon .duo-icon{width:1.6em;height:1.6em}#duo .ft-eyebrow{font-size:.58em;letter-spacing:.2em;font-weight:700;color:#6a897e}#duo .ft-brand h1{font-size:1.85em;line-height:1.04;margin:.12em 0 0;letter-spacing:-.065em;color:#1e342b;font-weight:650}#duo .ft-refresh{width:2.4em;height:2.4em;display:grid;place-items:center;border-radius:50%;background:#ffffffb0!important;color:#41675a!important;box-shadow:inset 0 1px 0 #fff,0 2px 9px #26422d09;border:1px solid #fff!important}#duo .ft-refresh .duo-icon{width:1.1em;height:1.1em}
+#duo .ft-scroll{flex:1;min-height:0;overflow:auto;padding:.2em 1.5em 1em;scrollbar-width:thin;scrollbar-color:#bfd5c9 transparent}#duo .ft-hero{display:flex;align-items:center;justify-content:space-between;gap:.8em;border-radius:1.75em;padding:1.35em;background:radial-gradient(ellipse at 94% 14%,#ffffffdd,transparent 50%),linear-gradient(150deg,#e2f2e8,#d5eee0);border:1px solid #ffffffe8;box-shadow:inset 0 -1px 0 #aec8b126,0 9px 20px #46614a09;margin:.1em 0 1.1em;min-height:9em;position:relative;isolation:isolate;overflow:hidden}#duo .ft-hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(130deg,transparent 45%,#ffffff3a 45.5%,transparent 82%);pointer-events:none}#duo .ft-hero h2{font-size:1.65em;font-weight:550;line-height:1.05;letter-spacing:-.055em;margin:.5em 0;color:#203c2d}#duo .ft-hero p{white-space:pre-line;color:#698273;font-size:.73em;margin:0;line-height:1.7}#duo .ft-orb{width:4.5em;height:4.5em;display:grid;place-items:center;flex-shrink:0;border-radius:1.5em;transform:rotate(-9deg);color:#fff;background:radial-gradient(circle at 27% 13%,#b0ffe0,transparent 58%),linear-gradient(145deg,#70d6a9,#1eaa75);box-shadow:inset 0 1px 2px #ffffffd4,inset 0 -5px 12px #16805552,6px 15px 20px #256a4f1f;border:1px solid #ffffffb0}#duo .ft-orb .duo-icon{width:2.2em;height:2.2em;stroke-width:1.5}
+#duo .ft-dial{display:flex;gap:.6em;margin:0 0 1.2em;flex-wrap:wrap}#duo .ft-search{display:flex;align-items:center;gap:.55em;min-width:0;flex:1 1 10em;border-radius:1em;background:#fff;border:1px solid #e5eae6;box-shadow:inset 0 1px 0 #fff;padding:.7em .85em;color:#81938b}#duo .ft-search .duo-icon{width:1.2em;height:1.2em;flex-shrink:0}#duo .ft-search input{font:inherit;font-size:.8em;min-width:0;width:100%;background:transparent;color:#294638;outline:none;border:0;padding:0;margin:0;box-shadow:none}#duo .ft-search input::placeholder{color:#8b9a92}#duo .ft-new{display:flex;align-items:center;justify-content:center;gap:.45em;flex:1 0 auto;background:linear-gradient(145deg,#3fc689,#1fa76e)!important;box-shadow:inset 0 1px 0 #ffffff59,0 3px 10px #18734c14;border-radius:1em!important;padding:.75em 1.1em!important;color:#fff!important;font-size:.8em!important;font-weight:600!important}#duo .ft-new .duo-icon{width:1.1em;height:1.1em}
+#duo .ft-tabs{display:flex;padding:.3em;gap:.25em;background:#e6ede8c4;border:1px solid #fff;border-radius:1.1em}#duo .ft-tabs button{flex:1;display:flex;align-items:center;justify-content:center;gap:.5em;background:transparent;color:#7c8c82;font-size:.76em;padding:.7em;border-radius:.85em;transition:background .15s}#duo .ft-tabs .duo-icon{width:1.1em;height:1.1em}#duo .ft-tabs button[aria-pressed=true]{background:linear-gradient(#fff,#f7faf8);color:#30573f;box-shadow:0 2px 6px #1d512717,inset 0 1px 0 #fff;font-weight:600}#duo .ft-list{margin:.9em 0 0}#duo .ft-list-heading{display:flex;align-items:center;justify-content:space-between;margin:1.2em 0 .5em;padding:0 .15em}#duo .ft-list-heading h2{font-size:.6em;letter-spacing:.13em;font-weight:650;color:#91a097;margin:0}#duo .ft-list-heading>span{font-size:.65em;color:#9aaba1}#duo .ft-person{display:flex;align-items:center;gap:.8em;min-width:0;padding:.8em .1em;border-bottom:1px solid #dae6df9c}#duo .ft-person .nx-avatar{width:2.75em;height:2.75em;font-size:1em;flex-shrink:0;border-radius:50%;background:linear-gradient(135deg,#e4efe7,#bfd9cb);color:#4b795e;box-shadow:inset 0 1px 0 #fff8}#duo .ft-person-name{display:flex;flex-direction:column;gap:.2em;min-width:0;flex:1;text-align:left;padding:.25em 0!important;background:transparent!important;color:#263d2f!important}#duo .ft-person-name strong{font-size:.88em;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:100%;letter-spacing:-.02em}#duo .ft-person-name>span{font-size:.68em;color:#98a49b}#duo .ft-time{font-size:.63em;color:#a3ada6;flex-shrink:0}#duo .ft-person-video{display:grid;place-items:center;border-radius:50%;width:2.5em;height:2.5em;background:#e5f0e9!important;border:1px solid #ffffffed!important;color:#409968!important}#duo .ft-person-video .duo-icon{width:1.15em;height:1.15em}#duo .ft-empty{display:flex;flex-direction:column;align-items:center;padding:2.2em 1em;text-align:center;color:#87998d;font-size:.9em}#duo .ft-empty>.duo-icon{width:2.2em;height:2.2em;color:#88b69b;margin-bottom:.8em}#duo .ft-empty h3{font-size:1.1em;font-weight:500;margin:.3em 0;color:#536b5c;letter-spacing:-.025em}#duo .ft-empty p{font-size:.78em;max-width:25em;line-height:1.7;margin:.4em 0}#duo .ft-footer{display:flex;align-items:center;justify-content:center;gap:.4em;padding:.9em 1em 1em;color:#a2afa5;flex-shrink:0;font-size:.58em;letter-spacing:.01em}#duo .ft-footer .duo-icon{width:1.15em;height:1.15em}#duo .ft-error{color:#954e3d;background:#ffefdf;border:1px solid #f3d3bb;padding:.8em 1em;border-radius:1em;margin:0 1.5em .7em;font-size:.75em;flex-shrink:0;max-height:6em;overflow:auto;overflow-wrap:anywhere}#duo .ft-call-link{display:flex;justify-content:center;align-items:center;gap:.6em;border-radius:2em;margin:0 1.5em .7em;background:#d6ebde!important;color:#397352!important;padding:.6em!important;font-size:.8em!important}#duo .ft-call-link .duo-icon{width:1.1em;height:1.1em}
+@media(max-height:640px){#duo .duo-video-app{font-size:11px}#duo .ft-header{padding:1em 1.3em .8em}#duo .ft-scroll{padding:0 1.3em 1em}#duo .ft-hero{padding:1.1em;min-height:8em}#duo .ft-orb{width:4em;height:4em}#duo .ft-footer{padding:.7em}#duo .ft-brand h1{font-size:1.7em}}
+@media(prefers-reduced-motion:reduce){#duo .duo-video-app *{transition:none!important}}
+.duo-app-unavailable{padding:24px 20px;color:#e5eaf3;font:14px/1.6 system-ui}.duo-app-unavailable h2{font-size:23px;line-height:1.2}.duo-app-unavailable code{display:block;color:#ace0b9;margin-top:12px}.duo-app-button[data-unavailable=true] .duo-icon-tile{filter:saturate(.25);opacity:.7}
+
+/* Keep recent conversations above the fold on the cover display. The list, not
+   the entire application chrome, scrolls when there are more people to show. */
+#duo .duo-video-app[data-compact=true] .ft-header{padding:1em 1.5em .8em}
+#duo .duo-video-app[data-compact=true] .ft-hero{padding:.9em 1.1em;min-height:0;margin-bottom:.8em;border-radius:1.5em}
+#duo .duo-video-app[data-compact=true] .ft-hero .ft-eyebrow{display:none}
+#duo .duo-video-app[data-compact=true] .ft-hero h2{font-size:1.45em;margin:.2em 0 .4em}
+#duo .duo-video-app[data-compact=true] .ft-hero p{font-size:.68em;line-height:1.6}
+#duo .duo-video-app[data-compact=true] .ft-orb{width:3.6em;height:3.6em;border-radius:1.25em}
+#duo .duo-video-app[data-compact=true] .ft-orb .duo-icon{width:1.8em;height:1.8em}
+#duo .duo-video-app[data-compact=true] .ft-dial{margin-bottom:.8em}
+#duo .duo-video-app[data-compact=true] .ft-person{padding:.65em .1em}
+#duo .duo-video-app[data-compact=true] .ft-person .nx-avatar{width:2.4em;height:2.4em}
+#duo .duo-video-app[data-compact=true] .ft-list-heading{margin:.8em 0 .35em}
+
+/* FaceTime history uses compact recency cards; dial/search remains at the top. */
+#duo .duo-video-app{--ft-canvas:#000;--ft-group:#1c1c1e;--ft-raised:#2c2c2e;--ft-label:#f5f5f7;--ft-secondary:#b5b5ba;color:var(--ft-label);background:var(--ft-canvas)}
+#duo .duo-video-app .ft-header{flex:none;min-height:6.8vh;padding:.9em 1.35em .65em;border-bottom:1px solid var(--theme-separator,rgba(84,84,88,.42))}
+#duo .duo-video-app .ft-brand{flex:1;min-width:0}
+#duo .duo-video-app .ft-brand h1{margin:0;color:var(--ft-label);font-size:clamp(24px,3.2vh,38px);font-weight:720;letter-spacing:-.055em;line-height:1.08}
+#duo .duo-video-app .ft-refresh{width:2.65em;height:2.65em;background:var(--ft-group)!important;color:var(--ft-label)!important;border:0!important;box-shadow:none}
+#duo .duo-video-app .ft-scroll{padding:.65em 1.2em .8em;scrollbar-color:var(--theme-separator,rgba(84,84,88,.42)) transparent}
+#duo .duo-video-app .ft-dial{display:flex;flex-wrap:nowrap;align-items:center;gap:.55em;margin:0 0 .65em}
+#duo .duo-video-app .ft-search{min-height:3.6em;flex:1 1 0;padding:.65em .85em;border:0;background:var(--ft-group);box-shadow:none;color:var(--ft-secondary)}
+#duo .duo-video-app .ft-search input{color:var(--ft-label)}
+#duo .duo-video-app .ft-search input::placeholder{color:var(--ft-secondary)}
+#duo .duo-video-app .ft-new{min-height:3.6em;flex:0 0 auto;padding:.65em .9em!important;border-radius:2em!important;background:#34c759!important;box-shadow:none;color:#fff!important;white-space:nowrap}
+#duo .duo-video-app .ft-tabs{padding:.22em;gap:.18em;border:0;border-radius:2em;background:var(--ft-group)}
+#duo .duo-video-app .ft-tabs button{min-height:2.7em;border-radius:2em;color:var(--ft-secondary)}
+#duo .duo-video-app .ft-tabs button[aria-pressed=true]{background:var(--ft-raised);color:var(--ft-label);box-shadow:0 1px 4px #0005;font-weight:620}
+#duo .duo-video-app .ft-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,10em),1fr));gap:.55em;margin:.35em 0 0}
+#duo .duo-video-app .ft-list-heading{grid-column:1/-1;margin:.65em .1em .05em;padding:0 .2em}
+#duo .duo-video-app .ft-list-heading h2{color:var(--ft-secondary);font-size:.72em;letter-spacing:.08em}
+#duo .duo-video-app .ft-list-heading>span{color:var(--ft-secondary);font-size:.74em;font-variant-numeric:tabular-nums}
+#duo .duo-video-app .ft-person{position:relative;display:flex;min-width:0;min-height:10em;flex-direction:column;align-items:stretch;gap:.55em;padding:.85em;border:0;border-radius:1.05em;background:var(--ft-group);box-shadow:inset 0 1px 0 color-mix(in srgb,var(--ft-label) 5%,transparent)}
+#duo .duo-video-app .ft-person .nx-avatar{width:3.8em;height:3.8em;flex:none;border:1px solid color-mix(in srgb,var(--ft-label) 15%,transparent);background:linear-gradient(145deg,#65758a,#39465b);color:#fff;box-shadow:none}
+#duo .duo-video-app .ft-person-name{display:flex;min-width:0;flex:1;flex-direction:column;align-items:flex-start;justify-content:flex-end;gap:.35em;padding:.15em 3.05em .12em 0!important;background:transparent!important;color:var(--ft-label)!important;text-align:left}
+#duo .duo-video-app .ft-person-name strong{max-width:100%;color:var(--ft-label);font-size:1em;font-weight:640;letter-spacing:-.02em}
+#duo .duo-video-app .ft-person-summary{display:flex;width:100%;min-width:0;align-items:center;justify-content:space-between;gap:.4em}
+#duo .duo-video-app .ft-person-status{overflow:hidden;color:var(--ft-secondary);font-size:.72em;text-overflow:ellipsis;white-space:nowrap}
+#duo .duo-video-app .ft-time{color:var(--ft-secondary);font-size:.7em;font-variant-numeric:tabular-nums}
+#duo .duo-video-app .ft-person-video{position:absolute;right:.85em;bottom:.85em;width:2.65em;height:2.65em;background:var(--ft-raised)!important;border:0!important;color:#34c759!important;box-shadow:none}
+#duo .duo-video-app .ft-person-video .duo-icon{width:1.2em;height:1.2em}
+#duo .duo-video-app .ft-footer{flex:none;min-height:3.5vh;padding:.6em .8em;color:var(--ft-secondary);font-size:.63em}
+#duo .duo-video-app .ft-footer .duo-icon{color:var(--ft-secondary)}
+#duo .duo-video-app .ft-error{background:#482529;color:#ffc6ca;border:1px solid #71343a}
+#duo .duo-video-app .ft-call-link{margin:0 .9em .55em;background:var(--ft-group)!important;color:var(--ft-label)!important}
+#duo .duo-video-app .ft-empty{grid-column:1/-1;color:var(--ft-secondary)}
+#duo .duo-video-app .ft-empty>.duo-icon{color:#34c759}
+#duo .duo-video-app .ft-empty h3{color:var(--ft-label)}
+#duo .duo-video-app .ft-empty p{color:var(--ft-secondary)}
+#duo .duo-video-app[data-compact=true] .ft-header{padding:.7em 1.05em .55em}
+#duo .duo-video-app[data-compact=true] .ft-scroll{padding:.45em .85em .6em}
+#duo .duo-video-app[data-compact=true] .ft-person{min-height:9.2em;padding:.7em}
+#duo .duo-video-app[data-compact=true] .ft-person .nx-avatar{width:3.2em;height:3.2em}
+
+/* Match the native FaceTime history hierarchy while keeping all dialing routes. */
+#duo .duo-video-app .ft-header{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);min-height:3.9em;padding:.5em 1em;border-bottom:0}
+#duo .duo-video-app .ft-brand{grid-column:2;grid-row:1;justify-content:center}
+#duo .duo-video-app .ft-brand h1{font-size:clamp(18px,2.2vh,24px);font-weight:650;letter-spacing:-.025em}
+#duo .duo-video-app .ft-refresh{grid-column:3;grid-row:1;justify-self:end;width:2.35em;height:2.35em;background:var(--ft-group)!important}
+#duo .duo-video-app .ft-scroll{padding:.35em 1em .7em}
+#duo .duo-video-app .ft-dial{margin:0 0 .55em}
+#duo .duo-video-app .ft-dial .ft-search{width:100%;flex:1 1 100%;min-height:3.15em;border-radius:1.25em;background:var(--ft-group)}
+#duo .duo-video-app .ft-tabs{margin:0 0 .55em}
+#duo .duo-video-app .ft-tabs button{min-height:2.4em}
+#duo .duo-video-app .ft-list{grid-template-columns:repeat(2,minmax(0,1fr));align-items:stretch;gap:.65em;margin:.15em 0 0}
+#duo .duo-video-app .ft-list-heading{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+#duo .duo-video-app .ft-person{display:grid;grid-template-columns:minmax(0,1fr) 3em;grid-template-rows:auto minmax(5em,1fr) auto;align-items:center;gap:.35em .2em;min-width:0;min-height:10.5em;aspect-ratio:.72;padding:.8em;border:0;border-radius:1.8em;background:linear-gradient(155deg,#29231f,#1d1a19 72%);box-shadow:inset 0 1px 0 #ffffff0b}
+#duo .duo-video-app .ft-person[data-palette="1"]{background:linear-gradient(155deg,#142f20,#102519 72%)}
+#duo .duo-video-app .ft-person[data-palette="2"]{background:linear-gradient(155deg,#252925,#191c1a 72%)}
+#duo .duo-video-app .ft-person[data-palette="3"]{background:linear-gradient(155deg,#332b16,#211d12 72%)}
+#duo .duo-video-app .ft-person[data-palette="4"]{background:linear-gradient(155deg,#22272b,#181b1e 72%)}
+#duo .duo-video-app .ft-person[data-palette="5"]{background:linear-gradient(155deg,#312721,#211c19 72%)}
+#duo .duo-video-app .ft-person-name{grid-column:1/-1;grid-row:1;min-height:1.5em;justify-content:center;padding:0!important}
+#duo .duo-video-app .ft-person-name strong{font-size:.96em;font-weight:650;letter-spacing:-.015em}
+#duo .duo-video-app .ft-person>.nx-avatar{grid-column:1/-1;grid-row:2;justify-self:center;align-self:center;width:5em!important;height:5em!important;aspect-ratio:1;flex:none;font-size:1.9em;box-shadow:none;border:1px solid #ffffff26}
+#duo .duo-video-app .ft-person-summary{grid-column:1;grid-row:3;min-width:0;flex-direction:column;align-items:flex-start;justify-content:center;gap:.12em;padding:0}
+#duo .duo-video-app .ft-person-status{font-size:.74em;line-height:1.25}
+#duo .duo-video-app .ft-time{font-size:.72em;line-height:1.25}
+#duo .duo-video-app .ft-person-video{position:static;grid-column:2;grid-row:3;justify-self:end;align-self:center;width:2.75em;height:2.75em;background:#ffffff25!important;color:#fff!important;border:0!important}
+#duo .duo-video-app .ft-person-video .duo-icon{width:1.25em;height:1.25em;fill:currentColor;stroke-width:1.5}
+#duo .duo-video-app .ft-footer{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.35em;min-height:0;padding:.55em .8em .6em}
+#duo .duo-video-app .ft-new{display:flex;align-items:center;justify-content:center;gap:.45em;min-width:9.3em;min-height:2.9em;padding:.55em 1.15em!important;border-radius:2em!important;background:#30d158!important;color:#fff!important;font-size:.88em!important;font-weight:650!important;box-shadow:none}
+#duo .duo-video-app .ft-new .duo-icon{width:1.05em;height:1.05em;fill:currentColor;stroke-width:1.8}
+#duo .duo-video-app[data-compact=true] .ft-header{padding:.4em .8em}
+#duo .duo-video-app[data-compact=true] .ft-scroll{padding:.3em .7em .55em}
+#duo .duo-video-app[data-compact=true] .ft-person{grid-template-rows:auto minmax(3.8em,1fr) auto;min-height:9.6em;aspect-ratio:.74;padding:.62em;border-radius:1.65em}
+#duo .duo-video-app[data-compact=true] .ft-person>.nx-avatar{width:3.5em!important;height:3.5em!important}
+#duo .duo-video-app[data-compact=true] .ft-footer{padding:.4em .7em .45em}
+#duo .duo-video-app[data-compact=true] .ft-new{min-height:2.6em}
+
+/* Theme tokens are normally imposed on app roots by the global appearance layer.
+   FaceTime history deliberately retains its native black canvas in light mode. */
+#duo[data-theme] .duo-app-instance[data-app="facetime"]{--theme-canvas:#000;--theme-grouped:#1c1c1e;--theme-grouped-secondary:#1c1c1e;--theme-control:#2c2c2e;--theme-elevated:#2c2c2e;--theme-label:#f5f5f7;--theme-secondary:#b5b5ba;--theme-separator:rgba(84,84,88,.55);background:#000!important;color:#f5f5f7!important}
+#duo[data-theme] .duo-app-instance[data-app="facetime"] .duo-video-app{background:#000!important;background-image:none!important;color:#f5f5f7!important}
+#duo[data-theme] .duo-app-instance[data-app="facetime"] .duo-video-app .ft-brand h1{color:#f5f5f7!important}
+#duo[data-theme] .duo-app-instance[data-app="facetime"] .duo-video-app .ft-refresh,#duo[data-theme] .duo-app-instance[data-app="facetime"] .duo-video-app .ft-refresh .duo-icon{color:#f5f5f7!important}
+#duo[data-theme] .duo-app-instance[data-app="facetime"] .duo-video-app .ft-search{background:#1c1c1e!important;border-color:transparent!important;color:#b5b5ba!important}
+#duo[data-theme] .duo-app-instance[data-app="facetime"] .duo-video-app .ft-search input{color:#f5f5f7!important}
+#duo[data-theme] .duo-app-instance[data-app="facetime"] .duo-video-app .ft-search input::placeholder{color:#b5b5ba!important}
+#duo[data-theme] .duo-app-instance[data-app="facetime"] .duo-video-app .ft-tabs{background:#1c1c1e!important;color:#b5b5ba!important}
+#duo[data-theme] .duo-app-instance[data-app="facetime"] .duo-video-app .ft-tabs button{color:#b5b5ba!important}
+#duo[data-theme] .duo-app-instance[data-app="facetime"] .duo-video-app .ft-tabs button[aria-pressed="true"]{background:#3a3a3c!important;color:#f5f5f7!important}
+#duo[data-theme] .duo-app-instance[data-app="facetime"] .duo-video-app .ft-tabs .duo-icon{color:inherit!important}
+#duo[data-theme] .duo-app-instance[data-app="facetime"] .duo-video-app .ft-person-name strong{color:#f5f5f7!important}
+#duo[data-theme] .duo-app-instance[data-app="facetime"] .duo-video-app .ft-person-status,#duo[data-theme] .duo-app-instance[data-app="facetime"] .duo-video-app .ft-time{color:#b5b5ba!important}
+#duo[data-theme] .duo-app-instance[data-app="facetime"] .duo-video-app .ft-person>.nx-avatar:not(:has(img)){background:linear-gradient(145deg,#7b8798,#4b5360)!important;color:#fff!important}
+#duo[data-theme] .duo-app-instance[data-app="facetime"].ios-app .duo-video-app .ft-person-video{background:#ffffff25!important;border:0!important;color:#fff!important}
+#duo[data-theme] .duo-app-instance[data-app="facetime"].ios-app .duo-video-app .ft-new{background:#30d158!important;border-color:#30d158!important;color:#fff!important}
+#duo[data-theme] .duo-app-instance[data-app="facetime"].ios-app .duo-video-app .ft-person-video .duo-icon,#duo[data-theme] .duo-app-instance[data-app="facetime"].ios-app .duo-video-app .ft-new .duo-icon{color:#fff!important}
+#duo[data-theme] .duo-app-instance[data-app="facetime"] .duo-video-app .ft-person>.nx-avatar{width:5em!important;height:5em!important}
+#duo[data-theme] .duo-app-instance[data-app="facetime"] .duo-video-app[data-compact="true"] .ft-person>.nx-avatar{width:3.5em!important;height:3.5em!important}
+#duo .duo-video-app .ft-new{min-width:11em;min-height:3em;padding:.62em 1.25em!important;font-size:.93em!important}
+#duo .duo-video-app[data-compact=true] .ft-new{min-width:10.2em;min-height:2.8em}
+#duo .duo-video-app .ft-dial-composer{gap:.85em;background:linear-gradient(160deg,#202125,#111214 72%);border-color:#ffffff20;color:#f5f5f7}
+#duo .duo-video-app .ft-compose-form{display:flex;min-height:0;flex-direction:column;gap:.75em}
+#duo .duo-video-app .ft-compose-field{gap:.4em;color:#b5b5ba}
+#duo .duo-video-app .ft-compose-field input{min-height:3.5em;border:1px solid #ffffff1c;border-radius:1em;background:#08090b!important;color:#f5f5f7!important}
+#duo .duo-video-app .ft-compose-field input::placeholder{color:#8e8e93}
+#duo .duo-video-app .ft-compose-contacts{display:flex;min-height:2em;max-height:18em;flex-direction:column;gap:.35em;overflow:auto;overscroll-behavior:contain}
+#duo .duo-video-app .ft-compose-contact{display:flex;min-height:3.5em;align-items:center;gap:.75em;padding:.45em .6em!important;border:1px solid #ffffff0d!important;border-radius:.95em!important;background:#ffffff0a!important;color:#f5f5f7!important;text-align:left}
+#duo .duo-video-app .ft-compose-contact .nx-avatar{width:2.45em;height:2.45em;flex:none;border:1px solid #ffffff20;background:linear-gradient(145deg,#7b8798,#4b5360);color:#fff}
+#duo .duo-video-app .ft-compose-contact-copy{display:flex;min-width:0;flex-direction:column;gap:.18em}
+#duo .duo-video-app .ft-compose-contact-copy strong{overflow:hidden;font-size:.82em;font-weight:600;text-overflow:ellipsis;white-space:nowrap}
+#duo .duo-video-app .ft-compose-contact-copy small{color:#b5b5ba;font-size:.68em}
+#duo .duo-video-app .ft-compose-empty,#duo .duo-video-app .ft-compose-status{margin:0;color:#b5b5ba;font-size:.76em;line-height:1.45}
+#duo .duo-video-app .ft-compose-status{min-height:1.45em}
+#duo .duo-video-app .ft-compose-privacy{margin:0;color:#b5b5ba;font-size:clamp(12px,1.5cqh,14px);line-height:1.4}
+#duo .duo-video-app .ft-compose-call{display:flex;min-height:3.2em;align-items:center;justify-content:center;gap:.45em;flex:none;border-radius:2em;background:#30d158!important;color:#fff!important;font-weight:650}
+#duo .duo-video-app .ft-compose-call:disabled{background:#ffffff14!important;color:#88888c!important}
+#duo .duo-video-app{container-type:size;container-name:ft-pane}
+#duo .duo-video-app .ft-footer .ft-new{width:min(100%,9.2em);min-width:0;min-height:44px;flex:none;gap:.55em;padding:.45em 1em!important;font-size:clamp(16px,1.85cqh,18px)!important;white-space:nowrap}
+@container ft-pane (min-width:520px) and (max-height:680px){
+ #duo .duo-video-app .ft-person,#duo .duo-video-app[data-compact=true] .ft-person{aspect-ratio:auto;height:clamp(9.2em,35cqh,11em);min-height:0;grid-template-rows:auto minmax(3.2em,1fr) auto;gap:.25em .2em;padding:.62em}
+ #duo .duo-video-app .ft-person>.nx-avatar,#duo .duo-video-app[data-compact=true] .ft-person>.nx-avatar{width:4em!important;height:4em!important}
+ #duo[data-theme] .duo-app-instance[data-app="facetime"] .duo-video-app .ft-person>.nx-avatar,#duo[data-theme] .duo-app-instance[data-app="facetime"] .duo-video-app[data-compact="true"] .ft-person>.nx-avatar{width:4em!important;height:4em!important}
+}

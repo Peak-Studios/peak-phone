@@ -1,0 +1,30 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import {createPhoneVisibility} from '../web/public/duo/visibility.mjs';
+import cssTool from '../tools/nui-safe-css.cjs';
+const {disableBackdropFilters}=cssTool;
+const read=p=>fs.readFileSync(new URL('../'+p,import.meta.url),'utf8');
+function setup(){
+ const root={dataset:{},hidden:false,inert:false};let reflows=0,n=0;
+ const callbacks=new Map(),cancelled=[];
+ const stage={get offsetWidth(){reflows++;return 300;}};
+ const controller=createPhoneVisibility(root,stage,{schedule:fn=>{callbacks.set(++n,fn);return n;},cancel:id=>cancelled.push(id)});
+ return {root,controller,callbacks,cancelled,reflows:()=>reflows};
+}
+test('startup root is fully hidden/inert before app initialization',()=>{const {root}=setup();assert.equal(root.hidden,true);assert.equal(root.inert,true);assert.equal(root.dataset.visible,'false');});
+test('open retains same root, establishes transform, then marks visible',()=>{const a=setup();a.root.draft='keep';a.controller.set(true);assert.equal(a.root.hidden,false);assert.equal(a.root.inert,false);assert.equal(a.root.dataset.visible,'true');assert.equal(a.reflows(),1);assert.equal(a.root.draft,'keep');a.controller.set(true);assert.equal(a.reflows(),1);});
+test('close animates before disabling painting and leaves data mounted',()=>{const a=setup();a.controller.set(true);a.root.draft='keep';a.controller.set(false);assert.equal(a.root.hidden,false);assert.equal(a.root.inert,true);assert.equal(a.root.dataset.visible,'false');a.callbacks.get(1)();assert.equal(a.root.hidden,true);assert.equal(a.root.draft,'keep');});
+test('store updates do not postpone the end of close animation',()=>{const a=setup();a.controller.set(true);a.controller.set(false);a.controller.set(false);a.controller.set(false);assert.equal(a.callbacks.size,1);a.callbacks.get(1)();assert.equal(a.root.hidden,true);});
+test('stale hide callback cannot hide rapidly reopened phone',()=>{const a=setup();a.controller.set(true);a.controller.set(false);const stale=a.callbacks.get(1);a.controller.set(true);stale();assert.equal(a.root.hidden,false);assert.equal(a.root.dataset.visible,'true');});
+test('repeated close-open-close also rejects an earlier hide callback',()=>{const a=setup();a.controller.set(true);a.controller.set(false);const stale=a.callbacks.get(1);a.controller.set(true);a.controller.set(false);stale();assert.equal(a.root.hidden,false);a.callbacks.get(2)();assert.equal(a.root.hidden,true);});
+test('camera/reset can suppress all painting immediately',()=>{const a=setup();a.controller.set(true);a.controller.set(false,{immediate:true});assert.equal(a.root.hidden,true);assert.equal(a.callbacks.size,0);});
+test('reduced motion skips the exit animation timeout',()=>{const a=setup();a.controller.set(true);a.controller.set(false,{reducedMotion:true});assert.equal(a.root.hidden,true);assert.equal(a.callbacks.size,0);});
+test('dispose cancels timers and rejects reopening',()=>{const a=setup();a.controller.set(true);a.controller.set(false);a.controller.dispose();a.callbacks.get(1)();a.controller.set(true);assert.equal(a.root.hidden,true);assert.equal(a.root.inert,true);});
+test('normalizer removes standard and vendor-prefixed Gaussian backdrop filters',()=>{assert.equal(disableBackdropFilters('.x{backdrop-filter:blur(2vh);-webkit-backdrop-filter:blur(4px)!important}'),'.x{backdrop-filter:none;-webkit-backdrop-filter:none!important}');});
+test('normalizer preserves comments, quoted CSS content and other properties',()=>{const css='/* backdrop-filter:blur(2px); */ .x{content:"backdrop-filter:blur(9px);";filter:blur(2px);background:red}';assert.equal(disableBackdropFilters(css),css);});
+test('normalizer handles comments and case without depending on declaration order',()=>{assert.equal(disableBackdropFilters('.x{ /* hi */ BACKDROP-FILTER /* x */ : blur(2vh) ! important; color:white}'),'.x{ /* hi */ BACKDROP-FILTER /* x */ :none!important; color:white}');});
+test('normalizer leaves supports queries intact and is idempotent',()=>{const css='@supports(backdrop-filter:blur(2px)){.x{backdrop-filter:var(--blur,blur(2px));}}';const safe=disableBackdropFilters(css);assert(safe.includes('@supports(backdrop-filter:blur(2px))'));assert(safe.includes('backdrop-filter:none;'));assert.equal(disableBackdropFilters(safe),safe);});
+test('every served CSS asset has no active backdrop declaration',()=>{const base=new URL('../web/public/',import.meta.url);const walk=dir=>fs.readdirSync(dir,{withFileTypes:true}).flatMap(e=>e.isDirectory()?walk(new URL(e.name+'/',dir)):e.name.endsWith('.css')?[new URL(e.name,dir)]:[]);for(const file of walk(base)){const s=fs.readFileSync(file,'utf8');assert.equal(disableBackdropFilters(s),s,`Unsafe CSS: ${file}`);}});
+test('critical transparency precedes scripts and document dark scheme is absent',()=>{const html=read('web/public/index.html');assert(html.indexOf('id="duo-nui-critical"')<html.indexOf('<script'));assert(!/<meta[^>]*name="color-scheme"/.test(html));assert(html.includes('color-scheme:normal!important'));assert(html.indexOf('./duo/nui-safe.css')>html.indexOf('./duo/video.css'));});
+test('builder applies the same safety to preserved legacy stylesheet',()=>{assert(read('tools/build-duo.cjs').includes('disableBackdropFilters(originalCss.replace'));assert(read('tools/build-preview.cjs').includes("readFileSync(path.join(pub,'index.html')"));assert(read('web/public/duo/shell.mjs').includes("root.hidden=true;root.inert=true"));});

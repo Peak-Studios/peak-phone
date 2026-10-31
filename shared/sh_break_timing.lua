@@ -1,0 +1,1 @@
+PhoneBreakTiming = { Prepare=2800, MinimumEffort=7800, Window=10000, Target=28, Durations={prepare=2800,strain_low=2600,strain_mid=2600,strain_high=2600,brace=1200,snap=4800,inspect=2200,pocket=4200,abort=1800}, Cues={grip=1680,stress=1080,tear=1800,bridge25=1880,bridge55=2120,bridge95=2400,separate=2640,leftPocket=2050,rightPocket=3620} }

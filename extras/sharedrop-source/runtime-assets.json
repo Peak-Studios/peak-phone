@@ -1,0 +1,46 @@
+[
+  {
+    "sha256": "3de92b0cbfb14836716801fc07f84412435560424794e78e71ebc52387dd63ad",
+    "codeWalkerReload": true,
+    "clips": [
+      {
+        "duration": 3.2,
+        "clip": "peak_sharedrop_male_send",
+        "dictionary": "peak_sharedrop_male",
+        "frames": 97,
+        "rightHandRotation": true
+      },
+      {
+        "duration": 3.2,
+        "clip": "peak_sharedrop_male_receive",
+        "dictionary": "peak_sharedrop_male",
+        "frames": 97,
+        "rightHandRotation": true
+      }
+    ],
+    "bytes": 3204,
+    "file": "peak_sharedrop_male.ycd"
+  },
+  {
+    "sha256": "fda68e5c61398723634fc7d9817001b1005aa25ec7f2ffe9827576f05c49a056",
+    "codeWalkerReload": true,
+    "clips": [
+      {
+        "duration": 3.2,
+        "clip": "peak_sharedrop_female_send",
+        "dictionary": "peak_sharedrop_female",
+        "frames": 97,
+        "rightHandRotation": true
+      },
+      {
+        "duration": 3.2,
+        "clip": "peak_sharedrop_female_receive",
+        "dictionary": "peak_sharedrop_female",
+        "frames": 97,
+        "rightHandRotation": true
+      }
+    ],
+    "bytes": 3083,
+    "file": "peak_sharedrop_female.ycd"
+  }
+]

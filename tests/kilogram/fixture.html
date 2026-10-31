@@ -1,0 +1,53 @@
+<!doctype html><html><head><meta charset="utf-8"><base href="../../web/public/"><script>
+const styles=['build/smui','global','build/bundle',...['legacy-icons','apps','duo','ios','music','jobs','continuous','recording','upgrade','social-refresh','utilities','kilogram','native-refresh','video','call','music-glass','control-center','settings-dock','fullscreen-apps','glass-bars','lock-screen','sharedrop','hardware-controls','sheet-system','nui-safe'].map(s=>'duo/'+s)];
+for(const name of styles)document.write(`<link rel="stylesheet" href="../../web/public/${name}.css">`);
+</script><style>html,body{margin:0;width:100%;height:100%;background:#20232a!important}#duo{position:relative!important;width:100%!important;height:100%!important;inset:auto!important;transform:none!important;font-family:Arial,sans-serif}#mount{height:100%;width:100%}.kg-app{height:100%;width:100%}</style></head>
+<body><div id="duo" data-expanded="false" data-layout="full"><div id="mount"></div></div><script type="module">
+import {KilogramApp} from '../../web/public/duo/kilogram-app.mjs?rev=kg-mime-20261008';
+const now=Date.now(),picture='./images/vagos_sultan_whip_1774164749576.png';
+const me={id:1,name:'Alex Morgan',handle:'alex.morgan',bio:'Los Santos, SA\nCollecting little moments. 🌅',avatar:picture,posts:12,followers:159,following:1006,photos:[]};
+const other={id:2,name:'Jordan Lee',handle:'jordan.lee',bio:'Around the city.',avatar:picture,posts:6,followers:230,following:91,followed:true,can_message:true};
+const post=(id,author=other,kind='image')=>({id,kind,caption:'Golden hour in the city. A little moment worth keeping.',media:[{url:picture,type:'image'}],likes:128,comments:4,created_at:now-3600000,expires_at:kind==='story'?now+3600000:0,author,own:author.id===1});
+const stories=[post(20,me,'story'),post(19,me,'story'),post(18,me,'story')]; stories[1].expires_at=now-86400000;
+let highlights=[{id:1,title:'City life',own:true,posts:stories.slice(0,2).map(p=>({...p,highlight:true}))}],walletCoins=100;
+const gifts={rose:{name:'Rose',emoji:'🌹',coins:5},puppy:{name:'Puppy',emoji:'🐶',coins:120},sports_car:{name:'Sports car',emoji:'🏎️',coins:800},jet:{name:'Private jet',emoji:'✈️',coins:2500}};
+let comments=[{id:1,body:'Love this view!',created_at:now,can_delete:true,author:other}];
+window.requests=[];window.notices=[];
+async function send(event,data={}){
+ requests.push({event,data});await new Promise(r=>setTimeout(r,10));const route=event.replace('Social/','');
+ if(event==='KiloLive/List')return {Success:true,streams:[],relay_ready:true,settings:{maxViewers:20,maxSeconds:600,allowMicrophone:true}};
+ if(event==='KiloLive/Wallet')return {Success:true,coins:walletCoins,host:false,giftsEnabled:true,gifts,coinPacks:[{Id:'starter',Coins:100,BankCost:1000,Label:'100 coins'},{Id:'supporter',Coins:550,BankCost:5000,Label:'550 coins'}],cashoutRate:1};
+ if(event==='KiloLive/PurchaseCoins'){const added=data.PackId==='supporter'?550:100;walletCoins+=added;return {Success:true,coins:walletCoins,added};}
+ if(event==='KiloLive/Gift'){const price=gifts[data.GiftId]?.coins||0;if(!price||walletCoins<price)return {Success:false,Msg:'Insufficient coins.'};walletCoins-=price;return {Success:true,coins:walletCoins};}
+ if(event==='KiloLive/CashOut'){walletCoins-=data.Coins;return {Success:true,coins:walletCoins,bankAmount:data.Coins};}
+ let result={};
+ if(route==='GetSession')result={profile:me,story_hours:24,max_photos:5};
+ else if(route==='GetProfile')result={profile:data.Id===2?other:me};
+ else if(route==='GetFeed')result={posts:data.Before?[]:Array.from({length:6},(_,i)=>post(12-i,data.ProfileId===1?me:other,data.Kind||'image'))};
+ else if(route==='GetStories')result={posts:[post(24,other,'story')],server_time:now};
+ else if(route==='GetStoryArchive')result={posts:data.Before?[]:stories,server_time:now};
+ else if(route==='GetHighlights')result={highlights:highlights.map(h=>({...h,own:data.ProfileId!==2}))};
+ else if(route==='SaveHighlight'){const h={id:data.Id||2,title:data.Title,own:true,posts:data.StoryIds.map(id=>({...stories.find(p=>p.id===id),highlight:true}))};highlights=highlights.filter(x=>x.id!==h.id).concat(h);}
+ else if(route==='DeleteHighlight')highlights=highlights.filter(h=>h.id!==data.Id);
+ else if(route==='GetPeople')result={profiles:[other].filter(p=>!data.Query||p.name.toLowerCase().includes(data.Query.toLowerCase()))};
+ else if(route==='GetConversations')result={conversations:[{profile:other,last:{body:'Meet at the pier? 👋'},unread:2}]};
+ else if(route==='GetMessages')result={messages:[{id:1,body:'Hey! Meet at the pier?',created_at:now-120000,own:false},{id:2,body:'On my way 🌅',created_at:now-60000,own:true,read_at:now}]};
+ else if(route==='GetComments')result={comments:comments.slice()};
+ else if(route==='CreateComment'){const comment={id:comments.length+1,body:data.Body,created_at:Date.now(),can_delete:true,author:me};comments.push(comment);result={id:comment.id};}
+ else if(route==='DeleteComment')comments=comments.filter(comment=>comment.id!==data.Id);
+ else if(route==='GetActivity')result={activity:[{id:1,actor:other,kind:'like',created_at:now}]};
+ else if(route==='GetBlocked')result={profiles:[other]};
+ else if(route==='SetLike')result={liked:data.Enabled,count:129};
+ else if(route==='SetSave')result={saved:data.Enabled};
+ else if(route==='SetFollow'||route==='SaveProfile')result={profile:me};
+ else if(event==='Gallery/GetPhotos')return [{photo_url:picture}];
+ else if(event==='Media/List')return {Success:true,Media:[]};
+ return {Success:true,...result};
+}
+window.app=new KilogramApp({target:document.getElementById('mount'),props:{send,notify:text=>notices.push(text),context:{server:'test',identity:'alex'}}});
+await app.boot();window.ready=true;
+if(new URLSearchParams(location.search).has('gift')){
+ app.live.session={id:91,token:'fixture',role:'viewer',author:other};
+ await app.liveWallet();
+}
+</script></body></html>

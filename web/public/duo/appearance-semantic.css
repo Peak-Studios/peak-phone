@@ -1,0 +1,2009 @@
+/*
+ * Peak Phone semantic appearance source.
+ *
+ * Content uses system/grouped/elevated backgrounds. Neutral Liquid Glass is
+ * reserved for floating controls and the clipped wallpaper replica already
+ * managed by frosted-surface.mjs. Keep this file as the authored source; the
+ * generator appends it to appearance.css for the phone and physical mirror.
+ */
+#duo[data-theme="light"],
+.duo-global-overlays[data-theme="light"] {
+  color-scheme: light;
+  --theme-canvas: #f2f2f7;
+  --theme-grouped: #ffffff;
+  --theme-grouped-secondary: #f2f2f7;
+  --theme-elevated: #ffffff;
+  --theme-control: #e5e5ea;
+  --theme-label: #1c1c1e;
+  --theme-secondary: #5e5e64;
+  --theme-tertiary: #6f6f75;
+  --theme-placeholder: #6f6f75;
+  --theme-separator: rgba(60, 60, 67, .18);
+  --theme-accent: #0068d9;
+  --theme-accent-text: #0057b8;
+  --theme-on-accent: #ffffff;
+  --theme-on-dark: #ffffff;
+  --theme-on-warm-accent: #392409;
+  --theme-destructive: #d70015;
+  --theme-success: #16833a;
+  --theme-selection: rgba(0, 104, 217, .10);
+  --theme-glass-control-rgb: 255, 255, 255;
+  --theme-glass-fill: rgba(242, 242, 247, .66);
+  --theme-glass-highlight: rgba(255, 255, 255, .55);
+  --theme-glass-edge: rgba(255, 255, 255, .72);
+  --theme-glass-shadow: rgba(31, 35, 43, .18);
+  --theme-glass-label: #1c1c1e;
+  --theme-wallpaper-glass: rgba(14, 18, 27, .42);
+  --theme-scrim: rgba(0, 0, 0, .28);
+  --theme-scheme: light;
+  --nx-blue: var(--theme-accent);
+  --nx-text: var(--theme-label);
+  --nx-muted: var(--theme-secondary);
+  --ios-bg: var(--theme-canvas);
+  --ios-group: var(--theme-grouped);
+  --ios-raised: var(--theme-elevated);
+  --ios-text: var(--theme-label);
+  --ios-secondary: var(--theme-secondary);
+  --ios-line: var(--theme-separator);
+  --color-background: var(--theme-canvas);
+  --color-background-dark: #e5e5ea;
+  --color-background-light: #ffffff;
+  --color-surface: var(--theme-grouped);
+  --color-surface-elevated: var(--theme-elevated);
+  --color-text-primary: var(--theme-label);
+  --color-text-secondary: var(--theme-secondary);
+}
+
+#duo[data-theme="dark"],
+.duo-global-overlays[data-theme="dark"] {
+  color-scheme: dark;
+  --theme-canvas: #000000;
+  --theme-grouped: #1c1c1e;
+  --theme-grouped-secondary: #2c2c2e;
+  --theme-elevated: #2c2c2e;
+  --theme-control: #3a3a3c;
+  --theme-label: #f5f5f7;
+  --theme-secondary: #b5b5ba;
+  --theme-tertiary: #98989e;
+  --theme-placeholder: #a0a0a5;
+  --theme-separator: rgba(84, 84, 88, .62);
+  --theme-accent: #0068d9;
+  --theme-accent-text: #75b6ff;
+  --theme-on-accent: #ffffff;
+  --theme-on-dark: #ffffff;
+  --theme-on-warm-accent: #392409;
+  --theme-destructive: #ff453a;
+  --theme-success: #30d158;
+  --theme-selection: rgba(10, 132, 255, .22);
+  --theme-glass-control-rgb: 58, 58, 60;
+  --theme-glass-fill: rgba(28, 28, 30, .70);
+  --theme-glass-highlight: rgba(255, 255, 255, .12);
+  --theme-glass-edge: rgba(255, 255, 255, .25);
+  --theme-glass-shadow: rgba(0, 0, 0, .42);
+  --theme-glass-label: #f5f5f7;
+  --theme-wallpaper-glass: rgba(10, 12, 17, .48);
+  --theme-scrim: rgba(0, 0, 0, .52);
+  --theme-scheme: dark;
+  --nx-blue: var(--theme-accent);
+  --nx-text: var(--theme-label);
+  --nx-muted: var(--theme-secondary);
+  --ios-bg: var(--theme-canvas);
+  --ios-group: var(--theme-grouped);
+  --ios-raised: var(--theme-elevated);
+  --ios-text: var(--theme-label);
+  --ios-secondary: var(--theme-secondary);
+  --ios-line: var(--theme-separator);
+  --color-background: var(--theme-canvas);
+  --color-background-dark: #000000;
+  --color-background-light: #1c1c1e;
+  --color-surface: var(--theme-grouped);
+  --color-surface-elevated: var(--theme-elevated);
+  --color-text-primary: var(--theme-label);
+  --color-text-secondary: var(--theme-secondary);
+}
+
+/* NUI remains transparent; only the phone's own app content gets a canvas. */
+#duo[data-theme] {
+  color: var(--theme-label);
+  color-scheme: var(--theme-scheme);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+#duo[data-theme] :is(.duo-app-mount, .duo-app-instance) {
+  background: transparent;
+  color: var(--theme-label);
+}
+#duo[data-theme] .duo-app-instance {
+  --app-bg: var(--theme-canvas);
+  --app-group: var(--theme-grouped);
+  --app-raised: var(--theme-elevated);
+  --app-ink: var(--theme-label);
+  --app-secondary: var(--theme-secondary);
+  --app-separator: var(--theme-separator);
+}
+#duo[data-theme="light"] .duo-app-instance[data-app="messages"] {
+  --theme-canvas: #ffffff;
+  --theme-grouped: #f2f2f7;
+  --theme-grouped-secondary: #f2f2f7;
+}
+#duo[data-theme] .duo-app-instance > :first-child {
+  background-color: var(--theme-canvas) !important;
+  background-image: none !important;
+  color: var(--theme-label) !important;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+}
+#duo[data-theme] .duo-app-instance :where(h1, h2, h3, h4, p, span, small, strong, b, label, li, a, time, dt, dd, button, input, textarea, select):where(:not(i):not(svg):not(.fa):not(.fas):not(.far):not(.fal):not(.fab):not([class^="fa-"]):not([class*=" fa-"])) {
+  color: var(--theme-label) !important;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+}
+#duo[data-theme] .duo-app-instance[data-app] :is(input, textarea, select) {
+  color: var(--theme-label) !important;
+  background: var(--theme-grouped-secondary) !important;
+  background-image: none !important;
+  border-color: var(--theme-separator) !important;
+  color-scheme: var(--theme-scheme) !important;
+}
+#duo[data-theme] .duo-app-instance[data-app] :is(input, textarea, select)::placeholder {
+  color: var(--theme-placeholder) !important;
+  opacity: 1 !important;
+}
+#duo[data-theme] .duo-app-instance :is(button, [role="button"]) {
+  -webkit-tap-highlight-color: transparent;
+}
+#duo[data-theme] .duo-app-instance :is(button, input, textarea, select, a):focus-visible {
+  outline-color: var(--theme-accent) !important;
+}
+#duo[data-theme] .duo-app-instance :is(a, .ps-link, .nx-link, .gx-link, .pm-text-link, .pm-text-button) {
+  color: var(--theme-accent-text) !important;
+}
+#duo[data-theme] .duo-app-instance .ps-link {
+  background: var(--theme-selection) !important;
+  background-image: none !important;
+  border-color: transparent !important;
+}
+
+/* The editable Phone number is a text label on the keypad, not a filled field. */
+#duo[data-theme] .duo-app-instance[data-app="calls"] .nx-dial-number {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="calls"] .nx-dial-caption:empty {
+  display: none !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="calls"] .nx-keypad .nx-dial-key {
+  background: var(--theme-control) !important;
+  background-image: none !important;
+  border-color: var(--theme-separator) !important;
+  box-shadow: none !important;
+  color: var(--theme-label) !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="calls"] .nx-keypad .nx-dial-key :is(.nx-key-digit, small) {
+  color: var(--theme-label) !important;
+  opacity: 1 !important;
+}
+
+/* Ordinary rows are grouped content, with a hairline divider instead of a card outline. */
+#duo[data-theme] .duo-app-instance :is(.glass-row, .gx-row, .nx-call-row, .phone-paperlist, .mail-list, .group-items, .settings-list, .settings-group, .list-group, .list-section) {
+  background: var(--theme-grouped) !important;
+  background-image: none !important;
+  border-color: var(--theme-separator) !important;
+  color: var(--theme-label) !important;
+  box-shadow: none !important;
+}
+#duo[data-theme] .duo-app-instance :is(.glass-row, .gx-row, .nx-call-row, .mail-item, .post, .pj-member, .pj-group-row) {
+  border-radius: 0 !important;
+  border-left: 0 !important;
+  border-right: 0 !important;
+  border-top-color: transparent !important;
+  border-bottom: 1px solid var(--theme-separator) !important;
+}
+#duo[data-theme] .duo-app-instance :is(.mail-item, .post, .pj-member, .pj-group-row) {
+  background: var(--theme-grouped) !important;
+  background-image: none !important;
+  color: var(--theme-label) !important;
+}
+
+/* Review discovered legacy-role changes separately when regenerating; a fresh scan currently classifies unrelated app surfaces. */
+/* Recent calls keep their rounded, transparent rows inside the Phone app. */
+#duo[data-theme] .duo-app-instance .nx-phone .nx-call-row {
+  background: transparent !important;
+  background-image: none !important;
+  border: 1px solid transparent !important;
+  border-radius: 1.45vh !important;
+  box-shadow: none !important;
+}
+#duo[data-theme="dark"] .duo-app-instance .nx-phone .nx-call-row:hover,
+#duo[data-theme="dark"] .duo-app-instance .nx-phone .nx-call-row:focus-within {
+  background: #555d67 !important;
+  border-color: #ffffff1a !important;
+}
+#duo[data-theme="light"] .duo-app-instance .nx-phone .nx-call-row:hover,
+#duo[data-theme="light"] .duo-app-instance .nx-phone .nx-call-row:focus-within {
+  background: #e4e7eb !important;
+  border-color: #d7dce2 !important;
+}
+#duo[data-theme] .duo-app-instance :is(.glass-modal, .glass-dropdown, .bottom-sheet, .nx-sheet, .nx-modal, .gm-body, .input-modal, .phone-dialog, .pj-dialog) {
+  background: var(--theme-elevated) !important;
+  background-image: none !important;
+  color: var(--theme-label) !important;
+  border-color: var(--theme-separator) !important;
+  box-shadow: 0 1.2vh 3.2vh var(--theme-glass-shadow) !important;
+}
+#duo[data-theme] .duo-app-instance :is(.nx-danger, .gx-danger, .pm-danger, .danger-action) {
+  background-color: transparent !important;
+  background-image: none !important;
+  border-color: transparent !important;
+  color: var(--theme-destructive) !important;
+}
+#duo[data-theme] .duo-app-instance :is(.nx-danger, .gx-danger, .pm-danger, .danger-action) :is(span, small, strong, svg, i) {
+  color: var(--theme-destructive) !important;
+}
+#duo[data-theme] .duo-app-instance :is(button, [role="button"]):disabled,
+#duo[data-theme] .duo-app-instance :is(button, [role="button"])[aria-disabled="true"] {
+  opacity: .48 !important;
+}
+
+/* Settings uses continuous grouped lists, with the active section easy to scan. */
+#duo[data-theme] .duo-app-instance[data-app="settings"] .ps-category-list {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0 !important;
+  overflow: hidden;
+  border-radius: 1.5vh;
+  background: var(--theme-grouped) !important;
+  border: 1px solid var(--theme-separator) !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="settings"] .ps-category {
+  display: flex !important;
+  width: 100%;
+  min-height: 5.7vh;
+  padding: .95vh 1.15vh !important;
+  gap: 1vh;
+  text-align: left;
+  border: 0 !important;
+  border-radius: 0 !important;
+  border-bottom: 1px solid var(--theme-separator) !important;
+  background: var(--theme-grouped) !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  color: var(--theme-label) !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="settings"] .ps-category:last-child { border-bottom: 0 !important; }
+#duo[data-theme] .duo-app-instance[data-app="settings"] .ps-category > svg {
+  flex: none;
+  padding: .48vh;
+  border-radius: .8vh;
+  background: var(--theme-selection);
+  color: var(--theme-accent-text) !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="settings"] .ps-category-copy {
+  display: flex;
+  min-width: 0;
+  flex: 1;
+  flex-direction: column;
+  gap: .25vh;
+}
+#duo[data-theme] .duo-app-instance[data-app="settings"] .ps-category small {
+  color: var(--theme-secondary) !important;
+  line-height: 1.35;
+}
+#duo[data-theme] .duo-app-instance :is(.blur-backdrop, .input-modal-overlay, .modal-scrim) {
+  background: var(--theme-scrim) !important;
+}
+
+/* Colored actions, missed calls, and badges use foregrounds chosen for their fill. */
+#duo[data-theme] .duo-app-instance :is(.nx-primary, .primary-btn, .btn-primary, .pj-button.primary, .gx-send, .gx-outgoing, .gx-message-own, .nx-message-bubble.outgoing, .bubble.sent, .msg-bubble-row.sent .bubble, .glass-icon-btn.send) {
+  color: var(--theme-on-accent) !important;
+}
+#duo[data-theme] .duo-app-instance :is(.nx-primary, .primary-btn, .btn-primary, .pj-button.primary, .gx-send, .gx-outgoing, .gx-message-own, .nx-message-bubble.outgoing, .bubble.sent, .msg-bubble-row.sent .bubble, .glass-icon-btn.send) :is(button, span, small, strong, b, svg, i) {
+  color: var(--theme-on-accent) !important;
+}
+#duo[data-theme] .duo-app-instance .nx-badge {
+  background: var(--theme-accent) !important;
+  background-image: none !important;
+  border-color: transparent !important;
+  color: var(--theme-on-accent) !important;
+}
+#duo[data-theme] .duo-app-instance .pj-pill {
+  background: var(--theme-control) !important;
+  background-image: none !important;
+  border-color: transparent !important;
+  color: var(--theme-label) !important;
+}
+#duo[data-theme] .duo-app-instance .nx-call-row[data-missed="true"] .nx-call-main strong {
+  color: var(--theme-destructive) !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="peakify"] { --pm-accent: var(--theme-accent); }
+#duo[data-theme] .duo-app-instance[data-app="messages"] :is(.gx-message, .bubble) {
+  background: var(--theme-grouped) !important;
+  background-image: none !important;
+  color: var(--theme-label) !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="messages"] :is(.gx-message-own, .msg-bubble-row.sent .bubble, .bubble.sent) {
+  background: var(--theme-accent) !important;
+  color: var(--theme-on-accent) !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="messages"] :is(.gx-message-own, .msg-bubble-row.sent .bubble, .bubble.sent) :is(p, span, small, strong, a, button, i, svg) {
+  color: var(--theme-on-accent) !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="messages"] :is(.gx-message-own, .msg-bubble-row.sent .bubble, .bubble.sent) :is(button, .gx-compact) {
+  background: rgba(255, 255, 255, .16) !important;
+  background-image: none !important;
+  border-color: rgba(255, 255, 255, .26) !important;
+  color: var(--theme-on-accent) !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="messages"] :is(.gx-message, .bubble) small {
+  color: var(--theme-secondary) !important;
+  opacity: 1 !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="messages"] :is(.gx-message-own, .bubble.sent) small {
+  color: rgba(255, 255, 255, .9) !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="messages"] .gx-chip-row .gx-compact {
+  background: #ffffff !important;
+  background-image: none !important;
+  border-color: rgba(0, 0, 0, .08) !important;
+  color: var(--theme-accent-text) !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="messages"] .gx-chip-row .gx-compact :is(span, svg, i) {
+  color: var(--theme-accent-text) !important;
+}
+#duo[data-theme] .duo-app-instance .gx-message-own .gx-chip-row .gx-compact {
+  background: var(--theme-control) !important;
+  background-image: none !important;
+  border-color: var(--theme-separator) !important;
+  color: var(--theme-accent-text) !important;
+}
+#duo[data-theme] .duo-app-instance .gx-message-own .gx-chip-row .gx-compact :is(span, svg, i) {
+  color: var(--theme-accent-text) !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="messages"] :is(.gx-chat-compose, .input-bar-glass) {
+  background: var(--theme-canvas) !important;
+  background-image: none !important;
+  border-color: transparent !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="messages"] :is(.gx-chat-compose textarea, .input-wrapper) {
+  background: var(--theme-grouped) !important;
+  color: var(--theme-label) !important;
+  border-color: var(--theme-separator) !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="messages"] .nx-button.gx-row {
+  display: flex !important;
+  width: 100%;
+  justify-content: flex-start !important;
+  text-align: left !important;
+  padding: 1.2vh !important;
+  margin: .7vh 0 !important;
+  gap: .7vh;
+}
+#duo[data-theme] .duo-app-instance[data-app="messages"] .gx-row > div {
+  display: flex;
+  min-width: 0;
+  flex: 1;
+  flex-direction: column;
+  gap: .2vh;
+}
+#duo[data-theme] .duo-app-instance[data-app="messages"] .gx-row .nx-badge {
+  position: static !important;
+  align-self: center;
+  margin-left: auto;
+}
+
+/* Legacy app wrappers carry pre-theme slate fills; normalize structural content only. */
+#duo[data-theme] .duo-app-instance[data-app="gallery"] .phone-app-wrapper,
+#duo[data-theme] .duo-app-instance[data-app="gallery"] .glass-container,
+#duo[data-theme] .duo-app-instance[data-app="racing"] .phone-app-wrapper,
+#duo[data-theme] .duo-app-instance[data-app="racing"] .glass-container,
+#duo[data-theme] .duo-app-instance[data-app="time-trials"] .phone-app-wrapper,
+#duo[data-theme] .duo-app-instance[data-app="time-trials"] .glass-container {
+  background: var(--theme-canvas) !important;
+  background-image: none !important;
+  color: var(--theme-label) !important;
+  box-shadow: none !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="gallery"] :is(.duo-server-photos, .duo-local-videos, .duo-video-viewer, .gallery-empty, .empty-hint, .phone-app-wrapper) {
+  color: var(--theme-label) !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="gallery"] .duo-media-tabs {
+  background: var(--theme-control) !important;
+  border-color: var(--theme-separator) !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="gallery"] .duo-media-tabs [aria-pressed="true"] {
+  background: var(--theme-elevated) !important;
+  color: var(--theme-accent-text) !important;
+}
+
+/* Clock follows its dedicated high-contrast black canvas in either system appearance. */
+#duo[data-theme] .duo-app-instance .u27-clock {
+  --theme-canvas: #050608;
+  --theme-label: #f5f5f7;
+  --theme-secondary: #8d8d93;
+  --theme-separator: #38383a;
+  --theme-grouped: #1c1c1e;
+  --theme-control: #171719;
+  --theme-elevated: #29292c;
+  --theme-accent: #ff9d3d;
+  --theme-accent-text: #ff9d3d;
+  --theme-on-accent: #1d1002;
+  --theme-on-warm-accent: #1d1002;
+  --u27-ink: #f5f5f7;
+  --u27-muted: #8d8d93;
+  --u27-line: #38383a;
+  --u27-card: #1c1c1e;
+  background: #050608 !important;
+  background-image: none !important;
+  color: #f5f5f7 !important;
+  color-scheme: dark !important;
+}
+#duo[data-theme] .duo-app-instance .u27-clock .nx-sheet {
+  color: #f5f5f7 !important;
+  color-scheme: dark !important;
+}
+#duo[data-theme] .duo-app-instance .u27-clock .u27-bottom-tabs {
+  background: var(--theme-control) !important;
+  background-image: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+#duo[data-theme] .duo-app-instance .u27-clock .u27-bottom-tabs > .nx-button {
+  background: transparent !important;
+  color: var(--theme-secondary) !important;
+  box-shadow: none !important;
+}
+#duo[data-theme] .duo-app-instance .u27-clock .u27-bottom-tabs > .nx-button[aria-pressed="true"] {
+  background: var(--theme-elevated) !important;
+  color: var(--theme-accent-text) !important;
+  box-shadow: 0 .1vh .3vh var(--theme-glass-shadow) !important;
+}
+#duo[data-theme] .duo-app-instance .u27-clock .u27-add {
+  background: var(--theme-control) !important;
+  border-color: var(--theme-separator) !important;
+  color: var(--theme-accent-text) !important;
+}
+#duo[data-theme] .duo-app-instance .u27-clock .u27-full-button.nx-primary {
+  color: var(--theme-on-warm-accent) !important;
+}
+#duo[data-theme] .duo-app-instance .u27-clock .u27-full-button.nx-primary :is(span, svg, i) {
+  color: var(--theme-on-warm-accent) !important;
+}
+#duo[data-theme] .duo-app-instance .u27-clock .u27-round-secondary {
+  background: var(--theme-control) !important;
+  border-color: var(--theme-separator) !important;
+  color: var(--theme-label) !important;
+  box-shadow: none !important;
+}
+#duo[data-theme] .duo-app-instance .u27-clock .u27-round-start {
+  background: #18764b !important;
+  border-color: #18764b !important;
+  color: #ffffff !important;
+  box-shadow: none !important;
+}
+
+/* Surface families whose retained CSS intentionally used a dark-only base. */
+#duo[data-theme] .duo-app-instance[data-app="kilogram"] :is(.kg-app, .kg-body, .kg-header, .kg-feed, .kg-post, .kg-stories) {
+  background: var(--theme-canvas) !important;
+  background-image: none !important;
+  border-color: var(--theme-separator) !important;
+  color: var(--theme-label) !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="kilogram"] :is(.kg-header-tools, .kg-story, .kg-story-label, .kg-brand, .kg-author, .kg-nav) {
+  color: var(--theme-label) !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="kilogram"] .kg-story-add {
+  background: var(--theme-accent) !important;
+  border-color: var(--theme-canvas) !important;
+  color: var(--theme-on-accent) !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="settings"] .ps-settings,
+#duo[data-theme] .duo-app-instance[data-app="settings"] .ps-settings > .nx-header {
+  background: var(--theme-canvas) !important;
+  background-image: none !important;
+  color: var(--theme-label) !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="settings"] .ps-settings > .nx-header :is(h1, p) {
+  color: var(--theme-label) !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="settings"] :is(.ps-identity, .gx-section, .gx-device-details, .ps-settings .nx-sheet) {
+  background: var(--theme-grouped) !important;
+  background-image: none !important;
+  border-color: var(--theme-separator) !important;
+  color: var(--theme-label) !important;
+  box-shadow: none !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="settings"] .ps-device-icon {
+  background: var(--theme-accent) !important;
+  color: var(--theme-on-accent) !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="settings"] :is(.gx-copy, .gx-eyebrow, .gx-footnote, .ps-identity small, .ps-category small, .gx-row > div span, .nx-field > span) {
+  color: var(--theme-secondary) !important;
+  opacity: 1 !important;
+}
+
+#duo[data-theme] .duo-app-instance[data-app="store"] .ios-store {
+  background: var(--theme-canvas) !important;
+  background-image: none !important;
+  color: var(--theme-label) !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="store"] :is(.ios-store-header, .ios-store-content, .ios-store-list) {
+  background: var(--theme-canvas) !important;
+  background-image: none !important;
+  color: var(--theme-label) !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="store"] .ios-store-get {
+  background: var(--theme-accent) !important;
+  border-color: var(--theme-accent) !important;
+  color: var(--theme-on-accent) !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="store"] .ios-store-get[data-installed="true"] {
+  background: var(--theme-control) !important;
+  border-color: transparent !important;
+  color: var(--theme-label) !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="store"] .ios-segmented {
+  background: var(--theme-control) !important;
+  border-color: var(--theme-separator) !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="store"] .ios-segmented button {
+  color: var(--theme-secondary) !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="store"] .ios-segmented button[data-active="true"] {
+  background: var(--theme-elevated) !important;
+  color: var(--theme-label) !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="maps"] :is(.u27-map-scale, .u27-map-attribution) {
+  color: #343438 !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="facetime"] .ft-tabs {
+  background: var(--theme-control) !important;
+  border-color: var(--theme-separator) !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="facetime"] .ft-tabs button {
+  color: var(--theme-secondary) !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="facetime"] .ft-tabs button[aria-pressed="true"] {
+  background: var(--theme-elevated) !important;
+  color: #f5f5f7 !important;
+  box-shadow: none !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="facetime"].ios-app .ft-tabs button[aria-pressed="true"] :is(span, svg, i) { color: #f5f5f7 !important; }
+#duo[data-theme] .duo-app-instance[data-app="calendar"] .u27-add {
+  background: var(--theme-control) !important;
+  border-color: var(--theme-separator) !important;
+  color: var(--theme-accent-text) !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="calendar"] .nx-primary {
+  background: var(--theme-accent) !important;
+  background-image: none !important;
+  border-color: var(--theme-accent) !important;
+  color: var(--theme-on-accent) !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="calendar"] .nx-primary :is(span, svg, i) {
+  color: var(--theme-on-accent) !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="peakify"] .pm-button.pm-secondary {
+  background: var(--theme-control) !important;
+  background-image: none !important;
+  border-color: var(--theme-separator) !important;
+  color: var(--theme-label) !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="peakify"] .pm-button.pm-secondary :is(span, svg, i) {
+  color: var(--theme-label) !important;
+}
+#duo[data-theme] .duo-app-instance :is(.nx-header, .glass-header, .glass-header-custom, .app-header, .go-header) {
+  background: var(--theme-canvas) !important;
+  background-image: none !important;
+  border-color: var(--theme-separator) !important;
+  color: var(--theme-label) !important;
+  box-shadow: none !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+#duo[data-theme] .duo-app-instance :is(.nx-header, .glass-header, .glass-header-custom, .app-header, .go-header) :is(h1, h2, h3, p, span, strong, small) {
+  color: var(--theme-label) !important;
+}
+#duo[data-theme] .duo-app-instance :is(.nx-header, .glass-header, .glass-header-custom, .app-header, .go-header) :is(button, .nx-button, .nx-header-action, .icon-btn) {
+  background: var(--theme-control) !important;
+  background-image: none !important;
+  border-color: var(--theme-separator) !important;
+  color: var(--theme-accent-text) !important;
+  box-shadow: none !important;
+}
+#duo[data-theme] .duo-app-instance :is(.nx-header, .glass-header, .glass-header-custom, .app-header, .go-header) :is(button, .nx-button, .nx-header-action, .icon-btn) :is(span, svg, i) {
+  color: var(--theme-accent-text) !important;
+}
+#duo[data-theme] .duo-app-instance :is(.u27-segment, .u27-bottom-tabs, .ios-segmented, .ft-tabs, .glass-tabs, .nav-tabs, .services-tabs, .garage-tabs, .gh-tabs, .notes-filters) {
+  background: var(--theme-control) !important;
+  background-image: none !important;
+  border-color: var(--theme-separator) !important;
+  box-shadow: none !important;
+}
+#duo[data-theme] .duo-app-instance :is(.u27-segment, .u27-bottom-tabs, .ios-segmented, .ft-tabs, .glass-tabs, .nav-tabs, .services-tabs, .garage-tabs, .gh-tabs, .notes-filters) :is(button, .nx-button, .tab-btn) {
+  background: transparent !important;
+  background-image: none !important;
+  border-color: transparent !important;
+  color: var(--theme-secondary) !important;
+  box-shadow: none !important;
+}
+#duo[data-theme] .duo-app-instance :is(.u27-segment, .u27-bottom-tabs, .ios-segmented, .ft-tabs, .glass-tabs, .nav-tabs, .services-tabs, .garage-tabs, .gh-tabs, .notes-filters) :is(button, .nx-button, .tab-btn)[aria-pressed="true"],
+#duo[data-theme] .duo-app-instance :is(.u27-segment, .u27-bottom-tabs, .ios-segmented, .ft-tabs, .glass-tabs, .nav-tabs, .services-tabs, .garage-tabs, .gh-tabs, .notes-filters) :is(button, .nx-button, .tab-btn)[aria-selected="true"],
+#duo[data-theme] .duo-app-instance :is(.u27-segment, .u27-bottom-tabs, .ios-segmented, .ft-tabs, .glass-tabs, .nav-tabs, .services-tabs, .garage-tabs, .gh-tabs, .notes-filters) :is(button, .nx-button, .tab-btn).active,
+#duo[data-theme] .duo-app-instance :is(.u27-segment, .u27-bottom-tabs, .ios-segmented, .ft-tabs, .glass-tabs, .nav-tabs, .services-tabs, .garage-tabs, .gh-tabs, .notes-filters) :is(button, .nx-button, .tab-btn)[data-active="true"] {
+  background: var(--theme-elevated) !important;
+  background-image: none !important;
+  border-color: var(--theme-separator) !important;
+  color: var(--theme-accent-text) !important;
+  box-shadow: 0 .1vh .3vh var(--theme-glass-shadow) !important;
+}
+#duo[data-theme] .duo-app-instance :is(.u27-segment, .u27-bottom-tabs, .ios-segmented, .ft-tabs, .glass-tabs, .nav-tabs, .services-tabs, .garage-tabs, .gh-tabs, .notes-filters) :is(button, .nx-button, .tab-btn):is([aria-pressed="true"], [aria-selected="true"], .active, [data-active="true"]) :is(span, svg, i) {
+  color: var(--theme-accent-text) !important;
+}
+#duo[data-theme] .duo-app-instance .nx-avatar:not(:has(img)) {
+  background: var(--theme-control) !important;
+  background-image: none !important;
+  color: var(--theme-label) !important;
+  border-color: var(--theme-separator) !important;
+}
+#duo[data-theme] .duo-app-instance .nx-avatar:not(:has(img)) > span {
+  color: var(--theme-label) !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="yellowpages"] .gx-yellowpages {
+  background: var(--theme-canvas) !important;
+  background-image: none !important;
+  color: var(--theme-label) !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="yellowpages"] .gx-notice-hero {
+  background: var(--theme-grouped) !important;
+  background-image: none !important;
+  border-color: var(--theme-separator) !important;
+  box-shadow: none !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="yellowpages"] .nx-primary {
+  background: #d29b35 !important;
+  background-image: none !important;
+  border-color: #d29b35 !important;
+  color: var(--theme-on-warm-accent) !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="yellowpages"] .nx-primary :is(span, svg, i) {
+  color: var(--theme-on-warm-accent) !important;
+}
+#duo[data-theme] .duo-app-instance .gx-yellowpages .nx-primary {
+  background: #d29b35 !important;
+  background-image: none !important;
+  border-color: #d29b35 !important;
+  color: var(--theme-on-warm-accent) !important;
+}
+#duo[data-theme] .duo-app-instance .gx-yellowpages .nx-primary :is(span, svg, i) {
+  color: var(--theme-on-warm-accent) !important;
+}
+#duo[data-theme] .duo-app-instance :is(.nx-search, .ios-store-search, .search-container, .glass-search) > input {
+  background: transparent !important;
+  background-image: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Home ink follows local wallpaper luminance, independently for each visual zone. */
+#duo[data-theme] .duo-pane[data-home="true"] {
+  --wallpaper-status-color: #ffffff;
+  --wallpaper-heading-color: #ffffff;
+  --wallpaper-grid-color: #ffffff;
+  --wallpaper-shadow: 0 1px 1px rgba(0, 0, 0, .24);
+}
+#duo[data-theme] .duo-pane[data-home="true"][data-wallpaper-status-ink="dark"] {
+  --wallpaper-status-color: #1c1c1e;
+}
+#duo[data-theme] .duo-pane[data-home="true"][data-wallpaper-heading-ink="dark"] {
+  --wallpaper-heading-color: #1c1c1e;
+}
+#duo[data-theme] .duo-pane[data-home="true"][data-wallpaper-grid-ink="dark"] {
+  --wallpaper-grid-color: #1c1c1e;
+}
+#duo[data-theme] .duo-pane[data-home="true"][data-wallpaper-status-ink="dark"],
+#duo[data-theme] .duo-pane[data-home="true"][data-wallpaper-heading-ink="dark"],
+#duo[data-theme] .duo-pane[data-home="true"][data-wallpaper-grid-ink="dark"] {
+  --wallpaper-shadow: none;
+}
+#duo[data-theme] .duo-pane[data-home="true"] :is(.duo-status, .duo-status-controls, .duo-multitask-control button) {
+  color: var(--wallpaper-status-color) !important;
+  text-shadow: var(--wallpaper-shadow);
+}
+#duo[data-theme] .duo-pane[data-home="true"] .duo-home-gesture span {
+  background: var(--wallpaper-status-color) !important;
+}
+#duo[data-theme] .duo-pane[data-home="true"] .duo-home-heading :is(h1, .duo-eyebrow) {
+  color: var(--wallpaper-heading-color) !important;
+  text-shadow: var(--wallpaper-shadow);
+}
+#duo[data-theme] .duo-pane[data-home="true"] .duo-app-name {
+  color: var(--wallpaper-grid-color) !important;
+  text-shadow: var(--wallpaper-shadow);
+}
+#duo[data-theme] .duo-pane[data-home="true"] .duo-profile {
+  color: var(--wallpaper-heading-color) !important;
+  text-shadow: none;
+}
+#duo[data-theme] .duo-pane[data-home="true"][data-wallpaper-heading-ink="dark"] .duo-profile {
+  background-color: rgba(242, 242, 247, .7);
+}
+#duo[data-theme] .duo-pane[data-home="true"][data-wallpaper-fallback="true"] :is(.duo-clock, .duo-status-controls, .duo-layout-handle, .duo-home-heading > div, .duo-app-name) {
+  border-radius: .65vh;
+  background: rgba(242, 242, 247, .92) !important;
+  color: #1c1c1e !important;
+  text-shadow: none !important;
+}
+#duo[data-theme] .duo-pane[data-home="true"][data-wallpaper-fallback="true"] :is(.duo-clock, .duo-status-controls, .duo-layout-handle) {
+  padding: .2vh .45vh;
+}
+#duo[data-theme] .duo-pane[data-home="true"][data-wallpaper-fallback="true"] .duo-app-name {
+  padding: .08vh .3vh;
+}
+#duo[data-theme] .duo-pane[data-home="true"] .duo-status-controls svg,
+#duo[data-theme] .duo-pane[data-home="true"] .duo-multitask-control svg {
+  filter: none;
+}
+#duo[data-theme] .duo-pane[data-home="true"] :is(.duo-weather-widget, .duo-workspace-widget) {
+  color: #ffffff !important;
+}
+#duo[data-theme] .duo-pane[data-home="true"] :is(.duo-weather-widget, .duo-workspace-widget) :is(.duo-widget-top, .duo-weather-label, .duo-weather-caption, strong, span) {
+  color: #ffffff !important;
+}
+#duo[data-theme] .duo-pane[data-home="true"] :is(.duo-weather-widget, .duo-workspace-widget) {
+  background: linear-gradient(180deg, rgba(10, 12, 17, .34), var(--theme-wallpaper-glass)) !important;
+  background-image: linear-gradient(180deg, rgba(10, 12, 17, .34), var(--theme-wallpaper-glass)) !important;
+  border: 1px solid rgba(255, 255, 255, .28) !important;
+  box-shadow: inset 0 1px rgba(255, 255, 255, .16), 0 .5vh 1.6vh rgba(0, 0, 0, .18) !important;
+}
+#duo[data-theme] .duo-pane[data-home="true"] :is(.duo-dock, .duo-search) {
+  color: var(--theme-glass-label) !important;
+}
+
+/* Liquid Glass belongs on controls that float above content, never on every card. */
+#duo[data-theme] :is(.duo-dock, .duo-search, .duo-control-center, .duo-layout-sheet, .nx-y-bottom, .kg-nav, .pm-mini-player) {
+  background: linear-gradient(180deg, var(--theme-glass-highlight), var(--theme-glass-fill)) !important;
+  background-image: linear-gradient(180deg, var(--theme-glass-highlight), var(--theme-glass-fill)) !important;
+  border-color: var(--theme-glass-edge) !important;
+  color: var(--theme-glass-label) !important;
+  box-shadow: inset 0 1px var(--theme-glass-highlight), 0 .55vh 1.8vh var(--theme-glass-shadow) !important;
+}
+#duo[data-theme] .duo-control-center {
+  color: #f8f9fc !important;
+  border-radius: 2.8vh !important;
+  background: linear-gradient(180deg, rgba(9, 13, 21, .76), rgba(14, 20, 31, .82) 52%, rgba(7, 11, 19, .91)) !important;
+  background-image: linear-gradient(180deg, rgba(9, 13, 21, .76), rgba(14, 20, 31, .82) 52%, rgba(7, 11, 19, .91)) !important;
+  border-color: rgba(255, 255, 255, .24) !important;
+  box-shadow: inset 0 1px rgba(255, 255, 255, .22), 0 .8vh 3vh rgba(0, 0, 0, .44) !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+#duo[data-theme] .duo-control-center :is(.cc-heading, .cc-network-label, .cc-media-titles > span, .cc-focus-caption) {
+  color: rgba(244, 247, 252, .72) !important;
+  opacity: 1 !important;
+}
+#duo[data-theme] .duo-control-center :is(.cc-glass, .cc-circle, .cc-utility, .cc-close) {
+  background: rgba(255, 255, 255, .105) !important;
+  border: 1px solid rgba(255, 255, 255, .17) !important;
+  box-shadow: inset 0 1px rgba(255, 255, 255, .14) !important;
+  color: #f8f9fc !important;
+}
+#duo[data-theme] .duo-control-center :is(.cc-circle[data-on="true"], .cc-utility[data-on="true"]) {
+  background: #0a84ff !important;
+  color: #fff !important;
+  border-color: #0a84ff !important;
+}
+#duo[data-theme] .duo-control-center .cc-cellular[data-on="true"] {
+  background: #30d158 !important;
+  border-color: #30d158 !important;
+}
+#duo[data-theme] .duo-control-center .cc-vpn[data-on="true"] {
+  background: #7a6be8 !important;
+  border-color: #7a6be8 !important;
+}
+#duo[data-theme] .duo-control-center .cc-focus[data-on="true"] > .duo-icon {
+  background: #7867e9 !important;
+  color: #fff !important;
+  border-color: #7867e9 !important;
+}
+#duo[data-theme] .duo-control-center .cc-slider-fill { background: #ffffff !important; }
+#duo[data-theme] .duo-control-center .cc-slider-caption {
+  left: 50%;
+  right: auto;
+  width: max-content;
+  padding: .12vh .45vh;
+  transform: translateX(-50%);
+  border: 1px solid rgba(0, 0, 0, .08);
+  border-radius: 1vh;
+  background: #ffffff !important;
+  color: #242428 !important;
+}
+#duo[data-theme] .duo-control-center .cc-slider-icon { color: #ffffff !important; }
+#duo[data-theme] .duo-control-center .cc-slider-icon > .duo-icon {
+  box-sizing: border-box;
+  width: 3.3vh;
+  height: 3.3vh;
+  padding: .35vh;
+  border: 1px solid rgba(255, 255, 255, .22);
+  border-radius: 50%;
+  background: #292a30;
+}
+#duo[data-theme][data-transparency="reduced"] :is(.duo-dock, .duo-search, .duo-control-center, .duo-layout-sheet, .nx-y-bottom, .kg-nav, .pm-mini-player) {
+  background: var(--theme-elevated) !important;
+  background-image: none !important;
+  border-color: var(--theme-separator) !important;
+  box-shadow: 0 .35vh 1.2vh var(--theme-glass-shadow) !important;
+}
+#duo[data-theme][data-transparency="reduced"] .duo-control-center {
+  background: #131a27 !important;
+  background-image: none !important;
+  border-color: rgba(255, 255, 255, .2) !important;
+  box-shadow: inset 0 1px rgba(255, 255, 255, .12), 0 .8vh 3vh rgba(0, 0, 0, .38) !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+#duo[data-theme][data-transparency="reduced"] .duo-control-center :is(.cc-glass, .cc-circle, .cc-utility, .cc-close) {
+  background: #262f3d !important;
+  border-color: #4a586b !important;
+  box-shadow: none !important;
+  color: #f8f9fc !important;
+}
+#duo[data-theme][data-transparency="reduced"] .duo-control-center :is(.cc-circle[data-on="true"], .cc-utility[data-on="true"]) {
+  background: #0a84ff !important;
+  border-color: #0a84ff !important;
+  color: #fff !important;
+}
+#duo[data-theme][data-transparency="reduced"] .duo-control-center .cc-cellular[data-on="true"] {
+  background: #30d158 !important;
+  border-color: #30d158 !important;
+}
+#duo[data-theme][data-transparency="reduced"] .duo-control-center .cc-vpn[data-on="true"] {
+  background: #7a6be8 !important;
+  border-color: #7a6be8 !important;
+}
+#duo[data-theme][data-transparency="reduced"] .duo-control-center .cc-focus[data-on="true"] > .duo-icon {
+  background: #7867e9 !important;
+  border-color: #7867e9 !important;
+  color: #fff !important;
+}
+#duo[data-theme] .duo-pane-navigation {
+  background: transparent !important;
+  background-image: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+#duo[data-theme] .duo-app-instance :is(.glass-tabs, .nav-tabs, .services-tabs, .garage-tabs, .gh-tabs) {
+  background: var(--theme-control) !important;
+  background-image: none !important;
+  border: 0 !important;
+  border-radius: 1.1vh !important;
+  box-shadow: none !important;
+}
+#duo[data-theme] .duo-app-instance :is(.glass-tabs, .nav-tabs, .services-tabs, .garage-tabs, .gh-tabs) .tab-btn {
+  background: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+  color: var(--theme-secondary) !important;
+}
+#duo[data-theme] .duo-app-instance :is(.glass-tabs, .nav-tabs, .services-tabs, .garage-tabs, .gh-tabs) .tab-btn.active {
+  background: var(--theme-elevated) !important;
+  color: var(--theme-label) !important;
+  box-shadow: 0 .1vh .3vh var(--theme-glass-shadow) !important;
+}
+#duo[data-theme] .duo-app-instance :is([role="tab"][aria-selected="true"], button[aria-pressed="true"], button[data-active="true"]) {
+  color: var(--theme-accent-text) !important;
+  background-color: var(--theme-selection) !important;
+}
+#duo[data-theme] .duo-surface-blur { background: var(--theme-canvas) !important; }
+#duo[data-theme] .duo-surface-blur::after {
+  background: linear-gradient(180deg, var(--theme-glass-highlight), var(--theme-glass-fill)) !important;
+}
+
+/* App chrome retains content contrast rather than borrowing the home wallpaper ink. */
+#duo[data-theme] .duo-pane[data-home="false"][data-app-ink="dark"] :is(.duo-status, .duo-status-controls, .duo-multitask-control button, .duo-home-gesture span) {
+  color: #171719 !important;
+  text-shadow: none;
+}
+#duo[data-theme] .duo-pane[data-home="false"][data-app-ink="light"] :is(.duo-status, .duo-status-controls, .duo-multitask-control button, .duo-home-gesture span) {
+  color: #ffffff !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, .48);
+}
+
+/* Lock-screen wallpaper stays independent of appearance; its fields and sheet adapt. */
+#duo[data-theme] .duo-lock-screen :is(.duo-lock-card, .duo-lock-input, input) {
+  background: var(--theme-elevated) !important;
+  color: var(--theme-label) !important;
+  border-color: var(--theme-separator) !important;
+}
+#duo[data-theme] .duo-lock-screen .duo-lock-card :is(h2, label, label span) {
+  color: var(--theme-label) !important;
+}
+#duo[data-theme] .duo-lock-screen .duo-lock-copy {
+  color: var(--theme-secondary) !important;
+}
+#duo[data-theme] .duo-lock-screen .duo-lock-links button {
+  color: var(--theme-accent-text) !important;
+}
+#duo[data-theme] .duo-lock-screen .duo-lock-error {
+  color: var(--theme-destructive) !important;
+}
+#duo[data-theme] .duo-lock-screen :is(.duo-lock-submit, .duo-lock-screen button[type="submit"]) {
+  background: var(--theme-accent) !important;
+  color: var(--theme-on-accent) !important;
+}
+
+/* Global messages and transient overlays use the same theme tokens in both modes. */
+#duo[data-theme] #duo-notifications .phone-notification,
+#duo[data-theme] .duo-toast,
+.duo-global-overlays[data-theme] :is(#duo-notifications .phone-notification, .glass-dropdown, .dropdown-container, .dropdown-item, .duo-toast, .duo-notification) {
+  background: var(--theme-elevated) !important;
+  background-image: none !important;
+  border-color: var(--theme-separator) !important;
+  color: var(--theme-label) !important;
+  box-shadow: 0 .75vh 2.4vh var(--theme-glass-shadow) !important;
+}
+#duo[data-theme] .duo-global-overlays :is(.glass-dropdown, .dropdown-container, .dropdown-item, .duo-toast, .duo-notification) :is(small, span, p, strong),
+.duo-global-overlays[data-theme] :is(.glass-dropdown, .dropdown-container, .dropdown-item, .duo-toast, .duo-notification) :is(small, span, p, strong) {
+  color: inherit;
+}
+
+/* The replicated page remains a solid NUI canvas; only mirrored content changes. */
+#duo[data-theme] :is(.duo-app-instance, .duo-input-host, .duo-global-overlays) { color-scheme: var(--theme-scheme); }
+.duo-global-overlays[data-theme] { color: var(--theme-label); color-scheme: var(--theme-scheme); }
+
+/* Keep legacy foregrounds paired with the component surface they sit on. */
+#duo[data-theme] .duo-app-instance[data-app="messages"] .gx-chip-row .gx-compact {
+  background: var(--theme-control) !important;
+  background-image: none !important;
+  border-color: var(--theme-separator) !important;
+  color: var(--theme-accent-text) !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="messages"] .gx-chip-row .gx-compact :is(span, svg, i) {
+  color: var(--theme-accent-text) !important;
+}
+
+/* Native tab families include older segmented controls and bottom bars. */
+#duo[data-theme] .duo-app-instance :is(.nx-segment, .nx-tabs) {
+  background: var(--theme-control) !important;
+  background-image: none !important;
+  border-color: var(--theme-separator) !important;
+  box-shadow: none !important;
+}
+#duo[data-theme] .duo-app-instance :is(.nx-segment, .nx-tabs) > :is(button, .nx-button, .tab-btn) {
+  background: transparent !important;
+  background-image: none !important;
+  border-color: transparent !important;
+  color: var(--theme-secondary) !important;
+  box-shadow: none !important;
+}
+#duo[data-theme] .duo-app-instance :is(.nx-segment, .nx-tabs) > :is(button, .nx-button, .tab-btn):is(.active, [aria-pressed="true"], [aria-selected="true"], [aria-current="page"], [data-active="true"]) {
+  background: var(--theme-elevated) !important;
+  color: var(--theme-accent-text) !important;
+  box-shadow: 0 .1vh .3vh var(--theme-glass-shadow) !important;
+}
+#duo[data-theme] .duo-app-instance :is(.nx-segment, .nx-tabs) > :is(button, .nx-button, .tab-btn):is(.active, [aria-pressed="true"], [aria-selected="true"], [aria-current="page"], [data-active="true"]) :is(span, svg, i) {
+  color: var(--theme-accent-text) !important;
+}
+
+/* Header actions stay distinct from their title and inherit the local theme. */
+#duo[data-theme] .duo-app-instance :is(.nx-header, .glass-header, .glass-header-custom, .app-header, .go-header) :is(button, .nx-button, .nx-header-action, .icon-btn) {
+  background: var(--theme-control) !important;
+  background-image: none !important;
+  border-color: var(--theme-separator) !important;
+  color: var(--theme-accent-text) !important;
+  box-shadow: none !important;
+}
+#duo[data-theme] .duo-app-instance :is(.nx-header, .glass-header, .glass-header-custom, .app-header, .go-header) :is(button, .nx-button, .nx-header-action, .icon-btn) :is(span, svg, i) {
+  color: var(--theme-accent-text) !important;
+}
+
+/* Initial-only avatars use a neutral chip; supplied profile artwork is preserved. */
+#duo[data-theme] .duo-app-instance :is(.nx-avatar, .gr-avatar, .mcg-avatar, .member-avatar, .worker-avatar, .driver-avatar, .ctb-avatar, .gmi-avatar, .fn-avatar, .avatar, .avatar-large):not(:has(img)):not([style*="background"]) {
+  background: var(--theme-control) !important;
+  background-image: none !important;
+  border-color: var(--theme-separator) !important;
+  color: var(--theme-label) !important;
+}
+#duo[data-theme] .duo-app-instance :is(.nx-avatar, .gr-avatar, .mcg-avatar, .member-avatar, .worker-avatar, .driver-avatar, .ctb-avatar, .gmi-avatar, .fn-avatar, .avatar, .avatar-large):not(:has(img)):not([style*="background"]) :is(span, strong, b) {
+  color: var(--theme-label) !important;
+}
+
+/* Sheet action tiles used to retain white fills after the sheet changed mode. */
+#duo[data-theme] .duo-app-instance :is(.nx-sheet, .nx-modal, .glass-modal, .bottom-sheet) .gx-action-grid > :is(button, .nx-button):not(.nx-primary):not(.nx-danger) {
+  background: var(--theme-control) !important;
+  background-image: none !important;
+  border-color: var(--theme-separator) !important;
+  color: var(--theme-label) !important;
+}
+#duo[data-theme] .duo-app-instance :is(.nx-sheet, .nx-modal, .glass-modal, .bottom-sheet) .gx-action-grid > :is(button, .nx-button):not(.nx-primary):not(.nx-danger) :is(span, svg, i) {
+  color: var(--theme-label) !important;
+}
+
+/* Clock uses a high-contrast accent action and neutral secondary controls. */
+#duo[data-theme] .duo-app-instance .u27-clock .u27-round-secondary {
+  background: var(--theme-control) !important;
+  border-color: var(--theme-separator) !important;
+  color: var(--theme-label) !important;
+}
+#duo[data-theme] .duo-app-instance .u27-clock .u27-round-start {
+  background: #18764b !important;
+  border-color: #18764b !important;
+  color: var(--theme-on-dark) !important;
+}
+#duo[data-theme] .duo-app-instance .u27-clock .u27-round-secondary :is(span, svg, i),
+#duo[data-theme] .duo-app-instance .u27-clock .u27-round-start :is(span, svg, i) {
+  color: inherit !important;
+}
+#duo[data-theme] .duo-app-instance .u27-clock .u27-full-button.nx-primary {
+  background: #34c759 !important;
+  background-image: none !important;
+  border-color: #34c759 !important;
+  color: #07170d !important;
+}
+#duo[data-theme] .duo-app-instance .u27-clock .u27-full-button.nx-primary :is(span, svg, i) {
+  color: #07170d !important;
+}
+
+/* Preserve foregrounds on fixed brand and media surfaces. */
+#duo[data-theme] .duo-app-instance[data-app="peakify"] .pm-hero,
+#duo[data-theme] .duo-app-instance[data-app="peakify"] .pm-hero :is(.pm-kicker, strong, span, p) {
+  color: var(--theme-on-dark) !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="peakify"] .pm-mini {
+  background: var(--theme-grouped) !important;
+  background-image: none !important;
+  border-color: var(--theme-separator) !important;
+  color: var(--theme-label) !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="peakify"] .pm-mini :is(.pm-mini-info, .pm-row-copy, .pm-row-copy strong, .pm-row-copy small, .pm-mini-toggle, .pm-mini-output) {
+  color: var(--theme-label) !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="peakify"] .pm-mini :is(.pm-mini-toggle, .pm-mini-output) svg {
+  color: var(--theme-accent-text) !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="peakify"] .pm-footer {
+  background: var(--theme-canvas) !important;
+  border-color: var(--theme-separator) !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="peakify"] .pm-tabs {
+  background: var(--theme-control) !important;
+  background-image: none !important;
+  border-color: var(--theme-separator) !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="peakify"] .pm-tab {
+  background: transparent !important;
+  color: var(--theme-secondary) !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="peakify"] .pm-tab[data-active="true"] {
+  background: var(--theme-elevated) !important;
+  color: var(--theme-accent-text) !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="peakify"] .pm-tab :is(svg, span) { color: inherit !important; }
+#duo[data-theme] .duo-app-instance[data-app="peakify"] .pm-promo {
+  background: var(--theme-grouped) !important;
+  border-color: var(--theme-separator) !important;
+  color: var(--theme-label) !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="peakify"] .pm-promo :is(span, strong, small, svg) { color: inherit !important; }
+#duo[data-theme] .duo-app-instance[data-app="peakify"] .pm-promo > svg:first-child { color: var(--theme-accent-text) !important; }
+
+/* Control Center uses dark glass in both appearances, so its media card keeps light ink. */
+#duo[data-theme] .duo-control-center .cc-media-titles > strong,
+#duo[data-theme] .duo-control-center .cc-media-actions :is(button, svg) {
+  color: #f8f9fc !important;
+}
+#duo[data-theme] .duo-control-center .cc-media-titles > span { color: rgba(244, 247, 252, .76) !important; }
+#duo[data-theme] .duo-control-center .cc-media-actions button:disabled,
+#duo[data-theme] .duo-control-center .cc-media-actions button:disabled > .duo-icon { color: #c5cede !important; }
+
+/* Search controls choose ink from the active appearance, not the wallpaper. */
+#duo[data-theme] .duo-pane[data-home="true"] .duo-search {
+  color: var(--theme-glass-label) !important;
+}
+#duo[data-theme] .duo-pane[data-home="true"] .duo-search :is(input, span, svg) {
+  background: transparent !important;
+  color: var(--theme-glass-label) !important;
+}
+#duo[data-theme] .duo-pane[data-home="true"] .duo-search input::placeholder {
+  color: var(--theme-glass-label) !important;
+  opacity: .78 !important;
+}
+#duo[data-theme="dark"] .duo-pane[data-home="true"] .duo-search {
+  background: rgba(28, 28, 30, .9) !important;
+  background-image: none !important;
+  color: var(--theme-label) !important;
+}
+#duo[data-theme][data-transparency="reduced"] .duo-pane[data-home="true"] .duo-search {
+  background: var(--theme-elevated) !important;
+  background-image: none !important;
+  border-color: var(--theme-separator) !important;
+}
+#duo[data-theme][data-transparency="reduced"] .duo-pane[data-home="true"] .duo-search input::placeholder { opacity: 1 !important; }
+
+/* Calculator keys keep their dark material and use the matching light ink. */
+#duo[data-theme] .duo-app-instance[data-app="calculator"] .gx-calc-key {
+  color: var(--theme-on-dark) !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="calculator"] .gx-calc-key :is(span, svg, i) { color: inherit !important; }
+#duo[data-theme] .duo-app-instance[data-app="calculator"] .gx-calc-operator {
+  color: var(--theme-on-warm-accent) !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="calculator"] .gx-calc-operator :is(span, svg, i) { color: inherit !important; }
+
+/* Map actions and full-screen exit share the dock's frosted glass material. */
+#duo .duo-app-instance .u27-maps .u27-map-toolbar {
+  position: absolute;
+  top: 1vh;
+  right: .8vh;
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: .4vh;
+  isolation: isolate;
+  overflow: hidden;
+  border: .1vh solid #ffffff62 !important;
+  border-radius: 2.35vh !important;
+  background: radial-gradient(ellipse at 15% 0%,#ffffff70,transparent 70%),linear-gradient(135deg,#c6e0fa55,#92b4d52e 65%,#ffffff21) !important;
+  box-shadow: inset .1vh .12vh .14vh #ffffff8c,inset -.08vh -.12vh .18vh #18365c6b,0 .65vh 1.7vh #0b1c4338 !important;
+}
+#duo .u27-map-toolbar-glass { position: absolute; z-index: 0; pointer-events: none; filter: blur(1.35vh) saturate(1.2); }
+#duo .u27-maps .u27-map-toolbar::before { content: ''; position: absolute; inset: 0; z-index: 1; border-radius: inherit; background: radial-gradient(ellipse at 15% 0%,#ffffff70,transparent 70%),linear-gradient(135deg,#c6e0fa55,#92b4d52e 65%,#ffffff21); pointer-events: none; }
+#duo .u27-maps .u27-map-toolbar::after { content: ''; position: absolute; inset: .16vh; z-index: 3; border: .08vh solid #ffffff35; border-radius: 2.15vh; pointer-events: none; }
+#duo .u27-maps.u27-map-fullscreen .u27-map-toolbar { top: 3.8vh; right: .8vh; }
+#duo .u27-maps .u27-map-toolbar > .u27-map-exit,
+#duo .u27-maps .u27-map-toolbar > .u27-map-controls > .nx-button {
+  position: relative !important;
+  top: auto !important;
+  right: auto !important;
+  z-index: 2;
+  flex: 0 0 3.35vh;
+  width: 3.35vh;
+  min-width: 3.35vh;
+  min-height: 3.35vh;
+  height: 3.35vh;
+  padding: .7vh;
+  border: 0 !important;
+  border-radius: 1.1vh !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  color: var(--theme-accent-text,#356a94) !important;
+}
+#duo .u27-maps .u27-map-toolbar > .u27-map-exit > svg { width: 1.7vh; height: 1.7vh; min-width: 1.7vh; color: inherit !important; }
+#duo[data-theme] .duo-app-instance .u27-maps .u27-map-toolbar > .u27-map-exit > svg { color: inherit !important; }
+#duo .u27-maps .u27-map-toolbar > .u27-map-controls {
+  position: relative !important;
+  top: auto !important;
+  right: auto !important;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: .2vh 0 0 !important;
+  border: 0 !important;
+  border-top: .08vh solid #ffffff55 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  overflow: visible !important;
+}
+#duo .u27-maps .u27-map-toolbar > .u27-map-controls > .nx-button + .nx-button { border-top: .08vh solid #ffffff55 !important; }
+#duo .u27-maps .u27-map-toolbar > .u27-map-controls > .nx-button > svg { width: 1.7vh; height: 1.7vh; min-width: 1.7vh; color: inherit !important; }
+#duo .u27-maps .u27-map-toolbar > .u27-map-exit:hover,
+#duo .u27-maps .u27-map-toolbar > .u27-map-controls > .nx-button:hover { background: #ffffff30 !important; }
+#duo[data-transparency="reduced"] .u27-map-toolbar-glass { display: none; }
+#duo[data-transparency="reduced"] .u27-app.u27-maps .u27-map-toolbar { background: #4c7098 !important; box-shadow: inset 0 .1vh .1vh #ffffff25 !important; }
+
+/* The recording tray follows the app theme while the record light stays red. */
+#duo[data-theme] .duo-app-instance .u27-memos .u27-recorder {
+  background: var(--theme-elevated) !important;
+  background-image: none !important;
+  border-color: var(--theme-separator) !important;
+  color: var(--theme-label) !important;
+}
+#duo[data-theme] .duo-app-instance .u27-memos .u27-recorder :is(.u27-kicker, .u27-record-time, .u27-storage-note) {
+  color: var(--theme-label) !important;
+}
+
+/* The Store's burgundy feature remains a branded dark tile in either mode. */
+#duo[data-theme] .duo-app-instance[data-app="store"] .ios-store-featured,
+#duo[data-theme] .duo-app-instance[data-app="store"] .ios-store-featured :is(.ios-kicker, strong, p, span) {
+  color: var(--theme-on-dark) !important;
+}
+
+/* Guber keeps its dark ride-mode actions with a foreground chosen for them. */
+#duo[data-theme] .duo-app-instance[data-app="guber"] .guber-app .mode-select .btn,
+#duo[data-theme] .duo-app-instance[data-app="guber"] .guber-app .mode-select .btn :is(span, strong, i, svg) {
+  color: var(--theme-on-dark) !important;
+}
+
+/* Vehicle status cards become grouped surfaces instead of fixed dark blocks. */
+#duo[data-theme] .duo-app-instance[data-app="vehicles"] .nx-health {
+  background: var(--theme-grouped) !important;
+  background-image: none !important;
+  border-color: var(--theme-separator) !important;
+  color: var(--theme-label) !important;
+}
+
+/* Contact action tiles in a sheet use the same raised-control hierarchy. */
+#duo[data-theme] .duo-app-instance .nx-sheet .gx-action-grid > .nx-button {
+  background: var(--theme-control) !important;
+  background-image: none !important;
+  border-color: var(--theme-separator) !important;
+  color: var(--theme-label) !important;
+}
+#duo[data-theme] .duo-app-instance .nx-sheet .gx-action-grid > .nx-button :is(span, svg, i) { color: inherit !important; }
+
+/* Gallery owns a small legacy header inside the themed app shell. */
+#duo[data-theme] .duo-app-instance[data-app="gallery"] :is(.duo-media-gallery, .duo-server-photos, .duo-local-videos, .duo-video-viewer) {
+  background: var(--theme-canvas) !important;
+  background-image: none !important;
+  color: var(--theme-label) !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="gallery"] .gallery-header {
+  background: var(--theme-canvas) !important;
+  background-image: none !important;
+  border-color: var(--theme-separator) !important;
+  color: var(--theme-label) !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="gallery"] .gallery-header :is(.gallery-title, .gallery-count, h1, h2, span) {
+  color: var(--theme-label) !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="gallery"] .gallery-title {
+  background: none !important;
+  background-image: none !important;
+  background-clip: border-box !important;
+  -webkit-background-clip: border-box !important;
+  -webkit-text-fill-color: var(--theme-label) !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="gallery"] .gallery-header-actions :is(button, .gallery-import-btn) {
+  background: var(--theme-control) !important;
+  background-image: none !important;
+  border-color: var(--theme-separator) !important;
+  color: var(--theme-label) !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="gallery"] .gallery-header-actions .gallery-import-btn {
+  background: var(--theme-accent) !important;
+  border-color: var(--theme-accent) !important;
+  color: var(--theme-on-accent) !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="gallery"] .gallery-header-actions :is(button, .gallery-import-btn) :is(span, svg, i) { color: inherit !important; }
+#duo[data-theme] .duo-app-instance[data-app="gallery"] .duo-media-tabs {
+  background: var(--theme-control) !important;
+  background-image: none !important;
+  border-color: var(--theme-separator) !important;
+  color: var(--theme-secondary) !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="gallery"] .duo-media-tabs > :is(button, .nx-button) {
+  background: transparent !important;
+  color: var(--theme-secondary) !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="gallery"] .duo-media-tabs > :is(button, .nx-button)[aria-pressed="true"] {
+  background: var(--theme-elevated) !important;
+  color: var(--theme-accent-text) !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="gallery"] .duo-media-tabs :is(button, .nx-button) :is(span, small, svg, i) { color: inherit !important; }
+
+/* Job tools used fixed pale header and footer bars in dark appearance. */
+#duo[data-theme] .duo-app-instance:is([data-app="jobcenter"], [data-app="jobcreator"]) .peak-jobs {
+  background: var(--theme-canvas) !important;
+  background-image: none !important;
+  color: var(--theme-label) !important;
+}
+#duo[data-theme] .duo-app-instance:is([data-app="jobcenter"], [data-app="jobcreator"]) :is(.pj-card, .pj-live) {
+  background: var(--theme-grouped) !important;
+  background-image: none !important;
+  border-color: var(--theme-separator) !important;
+  color: var(--theme-label) !important;
+  box-shadow: none !important;
+}
+#duo[data-theme] .duo-app-instance:is([data-app="jobcenter"], [data-app="jobcreator"]) .pj-card :is(.pj-muted, .pj-meta) { color: var(--theme-secondary) !important; }
+#duo[data-theme] .duo-app-instance:is([data-app="jobcenter"], [data-app="jobcreator"]) :is(.pj-header, .pj-actions) {
+  background: var(--theme-canvas) !important;
+  background-image: none !important;
+  border-color: var(--theme-separator) !important;
+  color: var(--theme-label) !important;
+}
+#duo[data-theme] .duo-app-instance:is([data-app="jobcenter"], [data-app="jobcreator"]) .pj-header :is(.pj-eyebrow, h1, h2) {
+  color: var(--theme-label) !important;
+}
+#duo[data-theme] .duo-app-instance:is([data-app="jobcenter"], [data-app="jobcreator"]) .pj-actions :is(button, .pj-button):not(.primary):not(.danger) {
+  background: var(--theme-control) !important;
+  background-image: none !important;
+  border-color: var(--theme-separator) !important;
+  color: var(--theme-label) !important;
+}
+#duo[data-theme] .duo-app-instance:is([data-app="jobcenter"], [data-app="jobcreator"]) .pj-actions :is(button, .pj-button).primary {
+  background: var(--theme-accent) !important;
+  background-image: none !important;
+  border-color: var(--theme-accent) !important;
+  color: var(--theme-on-accent) !important;
+}
+#duo[data-theme] .duo-app-instance:is([data-app="jobcenter"], [data-app="jobcreator"]) .pj-actions :is(button, .pj-button) :is(span, svg, i) { color: inherit !important; }
+#duo[data-theme] .duo-app-instance:is([data-app="jobcenter"], [data-app="jobcreator"]) .pj-button:not(.primary):not(.danger) {
+  background: var(--theme-control) !important;
+  background-image: none !important;
+  border-color: var(--theme-separator) !important;
+  color: var(--theme-label) !important;
+}
+#duo[data-theme] .duo-app-instance:is([data-app="jobcenter"], [data-app="jobcreator"]) .pj-button.danger {
+  background: var(--theme-grouped) !important;
+  border-color: var(--theme-separator) !important;
+  color: var(--theme-destructive) !important;
+}
+#duo[data-theme] .duo-app-instance:is([data-app="jobcenter"], [data-app="jobcreator"]) .pj-button.primary {
+  background: var(--theme-accent) !important;
+  border-color: var(--theme-accent) !important;
+  color: var(--theme-on-accent) !important;
+}
+
+/* Legacy Mails keeps its own app header, search field, and message rows. */
+#duo[data-theme] .duo-app-instance[data-app="mails"] .mails-app {
+  background: var(--theme-canvas) !important;
+  background-image: none !important;
+  color: var(--theme-label) !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="mails"] .app-header {
+  background: var(--theme-canvas) !important;
+  background-image: none !important;
+  border-color: var(--theme-separator) !important;
+  color: var(--theme-label) !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="mails"] .app-header :is(h1, h2, span, svg, i) { color: var(--theme-label) !important; }
+#duo[data-theme] .duo-app-instance[data-app="mails"] .header-actions .action-btn {
+  background: var(--theme-control) !important;
+  background-image: none !important;
+  border-color: var(--theme-separator) !important;
+  color: var(--theme-label) !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="mails"] .header-actions .compose-btn {
+  background: var(--theme-accent) !important;
+  background-image: none !important;
+  border-color: var(--theme-accent) !important;
+  color: var(--theme-on-accent) !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="mails"] .header-actions :is(.action-btn, .compose-btn) :is(span, svg, i) { color: inherit !important; }
+#duo[data-theme] .duo-app-instance[data-app="mails"] .search-bar {
+  background: var(--theme-grouped-secondary) !important;
+  background-image: none !important;
+  border-color: var(--theme-separator) !important;
+  color: var(--theme-secondary) !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="mails"] .search-bar input {
+  background: transparent !important;
+  background-image: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  color: var(--theme-label) !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="mails"] .search-bar input::placeholder { color: var(--theme-placeholder) !important; opacity: 1 !important; }
+#duo[data-theme] .duo-app-instance[data-app="mails"] :is(.mail-list, .group-items) {
+  background: var(--theme-grouped) !important;
+  background-image: none !important;
+  color: var(--theme-label) !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="mails"] .group-header {
+  background: var(--theme-canvas) !important;
+  background-image: none !important;
+  color: var(--theme-secondary) !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="mails"] .mail-item {
+  background: var(--theme-grouped) !important;
+  background-image: none !important;
+  border-color: var(--theme-separator) !important;
+  color: var(--theme-label) !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="mails"] .mail-item :is(.sender, .subject) { color: var(--theme-label) !important; }
+#duo[data-theme] .duo-app-instance[data-app="mails"] .mail-item :is(.time, .date, .preview) { color: var(--theme-secondary) !important; }
+
+/* Binge's bottom navigation is an app bar, not wallpaper glass in dark mode. */
+#duo[data-theme="dark"] .duo-app-instance[data-app="binge"] .nx-y-bottom {
+  background: var(--theme-grouped) !important;
+  background-image: none !important;
+  border-color: var(--theme-separator) !important;
+  box-shadow: none !important;
+  color: var(--theme-secondary) !important;
+}
+#duo[data-theme="dark"] .duo-app-instance[data-app="binge"] .nx-y-bottom .duo-surface-blur { display: none !important; }
+#duo[data-theme="dark"] .duo-app-instance[data-app="binge"] .nx-y-bottom > .nx-button {
+  background: transparent !important;
+  color: var(--theme-secondary) !important;
+}
+#duo[data-theme="dark"] .duo-app-instance[data-app="binge"] .nx-y-bottom > .nx-button[aria-pressed="true"] {
+  background: var(--theme-grouped-secondary) !important;
+  color: var(--theme-accent-text) !important;
+}
+#duo[data-theme="dark"] .duo-app-instance[data-app="binge"] .nx-y-bottom > .nx-button :is(span, svg, i) { color: inherit !important; }
+
+/* The Binge-specific bar uses the same class family as the community app. */
+#duo[data-theme="dark"] .duo-app-instance[data-app="binge"] .gx-bottom-tabs {
+  background: var(--theme-grouped) !important;
+  background-image: none !important;
+  border-color: var(--theme-separator) !important;
+  box-shadow: none !important;
+}
+#duo[data-theme="dark"] .duo-app-instance[data-app="binge"] .gx-bottom-tabs .duo-surface-blur { display: none !important; }
+#duo[data-theme="dark"] .duo-app-instance[data-app="binge"] .gx-bottom-tabs > .nx-button {
+  background: transparent !important;
+  color: var(--theme-secondary) !important;
+}
+#duo[data-theme="dark"] .duo-app-instance[data-app="binge"] .gx-bottom-tabs > .nx-button[aria-pressed="true"] {
+  background: var(--theme-grouped-secondary) !important;
+  color: var(--theme-accent-text) !important;
+}
+#duo[data-theme="dark"] .duo-app-instance[data-app="binge"] .gx-bottom-tabs > .nx-button :is(span, svg, i) { color: inherit !important; }
+#duo[data-theme="dark"] .duo-app-instance[data-app="binge"] .gx-binge-card {
+  background: var(--theme-grouped) !important;
+  border-color: var(--theme-separator) !important;
+  color: var(--theme-label) !important;
+}
+#duo[data-theme="dark"] .duo-app-instance[data-app="binge"] :is(.gx-binge-bio, .gx-prompt-card) {
+  background: var(--theme-grouped-secondary) !important;
+  background-image: none !important;
+  border-color: var(--theme-separator) !important;
+  color: var(--theme-label) !important;
+}
+#duo[data-theme="dark"] .duo-app-instance[data-app="binge"] .gx-prompt-card :is(.gx-eyebrow, p) { color: var(--theme-label) !important; }
+#duo[data-theme="dark"] .duo-app-instance[data-app="binge"] .gx-interest {
+  background: var(--theme-control) !important;
+  border-color: var(--theme-separator) !important;
+  color: var(--theme-secondary) !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="binge"] .gx-binge-identity :is(h2, p),
+#duo[data-theme] .duo-app-instance[data-app="binge"] .gx-binge-photo-nav :is(span, button, svg) {
+  color: var(--theme-on-dark) !important;
+}
+
+/* Wenmo's branded wallet button and activity segment need matched surfaces. */
+#duo[data-theme] .duo-app-instance[data-app="wenmo"] .gx-wallet-send {
+  background: var(--theme-accent) !important;
+  background-image: none !important;
+  border-color: var(--theme-accent) !important;
+  color: var(--theme-on-accent) !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="wenmo"] .gx-wallet-send :is(span, svg, i) { color: inherit !important; }
+#duo[data-theme] .duo-app-instance[data-app="wenmo"] .gx-segment {
+  background: var(--theme-control) !important;
+  background-image: none !important;
+  border-color: var(--theme-separator) !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="wenmo"] .gx-segment > .nx-button {
+  background: transparent !important;
+  color: var(--theme-secondary) !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="wenmo"] .gx-segment > .nx-button[aria-pressed="true"] {
+  background: var(--theme-elevated) !important;
+  color: var(--theme-accent-text) !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="wenmo"] .gx-segment > .nx-button :is(span, svg, i) { color: inherit !important; }
+
+/* Legacy Mail's wallpaper-like layer sat above its themed canvas. */
+#duo[data-theme] .duo-app-instance[data-app="mails"] .mails-app .background-glass {
+  background: var(--theme-canvas) !important;
+  background-image: none !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="mails"] .mails-app :is(.detail-header, .compose-header) {
+  background: var(--theme-canvas) !important;
+  background-image: none !important;
+  border-color: var(--theme-separator) !important;
+  color: var(--theme-label) !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="mails"] .mails-app :is(.fields-group, .message-area) {
+  background: var(--theme-grouped) !important;
+  background-image: none !important;
+  border-color: var(--theme-separator) !important;
+  color: var(--theme-label) !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="mails"] .mails-app :is(.field-row label, .timestamp) {
+  color: var(--theme-secondary) !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="mails"] .mails-app :is(.mail-body, .sender-name, .mail-meta .subject) {
+  color: var(--theme-label) !important;
+}
+
+/* Gallery is mounted on the app node itself; its legacy wrapper owns the dark fill. */
+#duo[data-theme] .duo-app-instance[data-app="gallery"].duo-media-gallery {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: .8vh;
+  background: var(--theme-canvas) !important;
+  background-image: none !important;
+  color: var(--theme-label) !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="gallery"] .phone-app-wrapper,
+#duo[data-theme] .duo-app-instance[data-app="gallery"] .phone-app-wrapper::before,
+#duo[data-theme] .duo-app-instance[data-app="gallery"] .phone-app-wrapper::after {
+  background: var(--theme-canvas) !important;
+  background-image: none !important;
+  color: var(--theme-label) !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="gallery"] .duo-server-photos {
+  position: relative;
+  min-height: 0;
+  flex: 1;
+  overflow: hidden;
+}
+#duo[data-theme] .duo-app-instance[data-app="gallery"] .duo-local-videos {
+  min-height: 0;
+  flex: 1;
+  overflow: auto;
+  padding: 1vh;
+  background: var(--theme-canvas) !important;
+  color: var(--theme-label) !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="gallery"] .duo-video-viewer {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+}
+#duo[data-theme] .duo-app-instance[data-app="gallery"] .duo-local-videos :is(.duo-local-note, .duo-local-count, .duo-video-empty p, .duo-video-card small) {
+  color: var(--theme-secondary) !important;
+  opacity: 1 !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="gallery"] :is(.duo-video-empty, .duo-video-card) {
+  background: var(--theme-grouped) !important;
+  background-image: none !important;
+  border: 1px solid var(--theme-separator) !important;
+  color: var(--theme-label) !important;
+  box-shadow: none !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="gallery"] .duo-video-art {
+  background: var(--theme-control) !important;
+  color: var(--theme-accent-text) !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="gallery"] .duo-video-viewer {
+  background: #000000 !important;
+  color: #ffffff !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="gallery"] .duo-video-viewer header :is(span, button) { color: #ffffff !important; }
+
+/* Keep the system back control circular, with its accessible label from aria-label. */
+#duo[data-theme] .duo-app-instance[data-app="settings"] .ps-settings > .nx-header { display: flex !important; }
+#duo[data-theme] .duo-app-instance[data-app="settings"] .ps-settings > .nx-header .ps-back {
+  display: grid !important;
+  place-items: center;
+  flex: 0 0 3.7vh !important;
+  width: 3.7vh !important;
+  min-width: 3.7vh !important;
+  height: 3.7vh !important;
+  padding: .8vh !important;
+  border-radius: 50% !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="settings"] .ps-settings > .nx-header .ps-back > span { display: none !important; }
+#duo[data-theme] .duo-app-instance[data-app="settings"] .ps-settings > .nx-header .nx-heading { min-width: 0; flex: 1 1 auto; }
+#duo[data-theme] .duo-app-instance[data-app="settings"] .ps-settings > .nx-header .nx-heading h1 { min-width: 0; font-size: clamp(19px, 2.4vh, 22px) !important; line-height: 1.1; overflow-wrap: anywhere; }
+
+/* Message actions stay legible on incoming and outgoing bubble fills. */
+#duo[data-theme] .duo-app-instance[data-app="messages"] .gx-chat-messages .gx-message .gx-chip-row > .gx-compact {
+  background: var(--theme-control) !important;
+  background-image: none !important;
+  border-color: var(--theme-separator) !important;
+  color: var(--theme-accent-text) !important;
+  opacity: 1 !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="messages"] .gx-chat-messages .gx-message .gx-chip-row > .gx-compact :is(span, svg, i) { color: inherit !important; }
+
+/* Notifications are outside app mounts, so give their copy explicit theme roles. */
+#duo[data-theme] #duo-notifications .phone-notification {
+  background: var(--theme-elevated) !important;
+  background-image: none !important;
+  border-color: var(--theme-separator) !important;
+  color: var(--theme-label) !important;
+}
+#duo[data-theme] #duo-notifications .phone-notification :is(.phone-notification-title .app > p, .phone-notification-message .text > p) {
+  color: var(--theme-label) !important;
+  opacity: 1 !important;
+}
+#duo[data-theme] #duo-notifications .phone-notification .phone-notification-title > p {
+  color: var(--theme-secondary) !important;
+  opacity: 1 !important;
+}
+
+/* Yellow Pages keeps its warm fill and uses foregrounds chosen for that fill. */
+#duo[data-theme] .duo-app-instance[data-app="yellowpages"] .gx-yellowpages .gx-listing .gx-eyebrow {
+  color: #6f4c10 !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="yellowpages"].gx-yellowpages .gx-listing .gx-eyebrow,
+#duo[data-theme] .duo-app-instance[data-app="yellowpages"] .gx-listing .gx-eyebrow {
+  color: #6f4c10 !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="yellowpages"] .gx-yellowpages .nx-primary {
+  background: #d29b35 !important;
+  background-image: none !important;
+  border-color: #d29b35 !important;
+  color: var(--theme-on-warm-accent) !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="yellowpages"].gx-yellowpages .nx-primary,
+#duo[data-theme] .duo-app-instance[data-app="yellowpages"] .nx-primary {
+  background: #d29b35 !important;
+  background-image: none !important;
+  border-color: #d29b35 !important;
+  color: var(--theme-on-warm-accent) !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="yellowpages"].gx-yellowpages .nx-primary :is(span, svg, i),
+#duo[data-theme] .duo-app-instance[data-app="yellowpages"] .nx-primary :is(span, svg, i) {
+  color: var(--theme-on-warm-accent) !important;
+}
+
+/* Finance and wallet content preserve brand fills while keeping copy readable. */
+#duo[data-theme] .duo-app-instance[data-app="crypto"] .crypto-app {
+  background: var(--theme-canvas) !important;
+  background-image: none !important;
+  color: var(--theme-label) !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="crypto"] .crypto-app .header {
+  background: var(--theme-grouped) !important;
+  border-color: var(--theme-separator) !important;
+  color: var(--theme-label) !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="crypto"] .crypto-item {
+  background: var(--theme-grouped) !important;
+  border-color: var(--theme-separator) !important;
+  color: var(--theme-label) !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="crypto"] .crypto-app :is(.crypto-name, .portfolio-title, .crypto-price, .crypto-held, .empty-state p) {
+  color: var(--theme-secondary) !important;
+  opacity: 1 !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="crypto"] .crypto-app .crypto-name { color: var(--theme-label) !important; }
+#duo[data-theme] .duo-app-instance[data-app="crypto"] .crypto-app .btn-buy {
+  background: var(--theme-accent) !important;
+  background-image: none !important;
+  color: var(--theme-on-accent) !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="crypto"] .crypto-app .action-btn.transfer {
+  background: var(--theme-control) !important;
+  color: var(--theme-label) !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="crypto"] .crypto-app .action-btn.sell {
+  background: var(--theme-selection) !important;
+  color: var(--theme-destructive) !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="wenmo"] .gx-wallet-card :is(.gx-eyebrow, h2) { color: var(--theme-label) !important; }
+#duo[data-theme] .duo-app-instance[data-app="wenmo"] .gx-wallet-watermark { color: var(--theme-secondary) !important; opacity: .22 !important; }
+#duo[data-theme] .duo-app-instance[data-app="kilogram"] .kg-reels-body .kg-post-header .kg-author,
+#duo[data-theme] .duo-app-instance[data-app="kilogram"] .kg-reels-body .kg-post-header .kg-author :is(span, strong),
+#duo[data-theme] .duo-app-instance[data-app="kilogram"] .kg-reels-body .kg-post-actions :is(button, span, svg, i) { color: #ffffff !important; }
+
+/* Job actions sit directly on the grouped card and keep neutral control fills. */
+#duo[data-theme] .duo-app-instance:is([data-app="jobcenter"], [data-app="jobcreator"]) .pj-actions { background: transparent !important; }
+#duo[data-theme] .duo-app-instance:is([data-app="jobcenter"], [data-app="jobcreator"]) .pj-actions .pj-button:not(.primary):not(.danger) {
+  background: var(--theme-control) !important;
+  background-image: none !important;
+  border-color: var(--theme-separator) !important;
+  color: var(--theme-label) !important;
+}
+
+/* Calculator keys use flat neutral materials; only operators keep a warm accent. */
+#duo[data-theme] .duo-app-instance[data-app="calculator"] .gx-calc-key {
+  background: #3a3a3c !important;
+  background-image: none !important;
+  border-color: #57575a !important;
+  box-shadow: none !important;
+  color: #ffffff !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="calculator"] :is(.gx-calc-function, .gx-calc-secondary) {
+  background: #a5a5a9 !important;
+  background-image: none !important;
+  border-color: #a5a5a9 !important;
+  box-shadow: none !important;
+  color: #1c1c1e !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="calculator"] :is(.gx-calc-operator, .gx-calc-key.operator) {
+  background: #d29b35 !important;
+  background-image: none !important;
+  border-color: #d29b35 !important;
+  box-shadow: none !important;
+  color: var(--theme-on-warm-accent) !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="calculator"] :is(.gx-calc-operator, .gx-calc-key.operator) :is(span, svg, i) { color: var(--theme-on-warm-accent) !important; }
+
+/* Keep Yellow Pages listing copy on a theme-aware neutral surface. */
+#duo[data-theme] .duo-app-instance[data-app="yellowpages"].ios-app .gx-yellowpages .gx-listing,
+#duo[data-theme] .duo-app-instance[data-app="yellowpages"].ios-app .gx-yellowpages .gx-listing-copy {
+  background: var(--theme-grouped) !important;
+  background-image: none !important;
+  border-color: var(--theme-separator) !important;
+  color: var(--theme-label) !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="yellowpages"].ios-app .gx-yellowpages .gx-listing-copy h2,
+#duo[data-theme] .duo-app-instance[data-app="yellowpages"].ios-app .gx-yellowpages .gx-listing-copy p { color: var(--theme-label) !important; opacity: 1 !important; }
+#duo[data-theme] .duo-app-instance[data-app="yellowpages"].ios-app .gx-yellowpages .gx-listing-copy :is(.gx-eyebrow, small) { color: var(--theme-secondary) !important; opacity: 1 !important; }
+
+/* Retained Mail and Gallery rules need stronger scoping than native-refresh's fixed dark paints. */
+#duo[data-theme] .duo-app-instance[data-app="mails"].ios-app .mails-app :is(.app-header, .search-bar, .mail-item) {
+  background: var(--theme-grouped) !important;
+  background-image: none !important;
+  border-color: var(--theme-separator) !important;
+  box-shadow: none !important;
+  color: var(--theme-label) !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="mails"].ios-app .mails-app .app-header :is(h1, h2, span, svg, i) { color: var(--theme-label) !important; }
+#duo[data-theme] .duo-app-instance[data-app="mails"].ios-app .mails-app .app-header .header-actions .compose-btn :is(span, svg, i) { color: var(--theme-on-accent) !important; }
+#duo[data-theme] .duo-app-instance[data-app="mails"].ios-app .mails-app .mail-item :is(.sender, .subject) { color: var(--theme-label) !important; }
+#duo[data-theme] .duo-app-instance[data-app="mails"].ios-app .mails-app .mail-item :is(.time, .date, .preview) { color: var(--theme-secondary) !important; opacity: 1 !important; }
+#duo[data-theme] .duo-app-instance[data-app="mails"].ios-app .mails-app .search-bar input { color: var(--theme-label) !important; }
+#duo[data-theme] .duo-app-instance[data-app="mails"].ios-app .mails-app .search-bar input::placeholder { color: var(--theme-placeholder) !important; opacity: 1 !important; }
+#duo[data-theme] .duo-app-instance[data-app="gallery"].ios-app .gallery-container {
+  background: var(--theme-canvas) !important;
+  background-image: none !important;
+  color: var(--theme-label) !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="gallery"].ios-app .gallery-header.gallery-header {
+  background: var(--theme-grouped) !important;
+  background-image: none !important;
+  border-color: var(--theme-separator) !important;
+  color: var(--theme-label) !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="yellowpages"] .nx-sheet .nx-button.nx-primary > span {
+  color: var(--theme-on-warm-accent) !important;
+}
+
+/* Legacy app chrome uses the same solid theme surfaces in both modes. */
+#duo[data-theme] .duo-app-instance.ios-app:not(.nx-native-host):not([data-app="calls"]):not([data-app="messages"]):not([data-app="contacts"]) :is(.glass-header, .app-header, .ios-added-heading) {
+  background: var(--theme-canvas) !important;
+  background-image: none !important;
+  border-color: var(--theme-separator) !important;
+  box-shadow: none !important;
+}
+#duo[data-theme] .duo-app-instance.ios-app:not(.nx-native-host):not([data-app="calls"]):not([data-app="messages"]):not([data-app="contacts"]) :is(.glass-search, .searchbar, .search-bar, .garage-search) {
+  background: var(--theme-grouped-secondary) !important;
+  background-image: none !important;
+  border-color: var(--theme-separator) !important;
+  box-shadow: none !important;
+}
+#duo[data-theme] .duo-app-instance.ios-app:not(.nx-native-host):not([data-app="calls"]):not([data-app="messages"]):not([data-app="contacts"]) :is(.glass-row, .mail-item, .phone-container-paper, .phone-paper, .house-card, .vehicle-card, .job-card, .news-card) {
+  background: var(--theme-grouped) !important;
+  background-image: none !important;
+  border-color: var(--theme-separator) !important;
+  box-shadow: none !important;
+}
+
+/* Documents and race result canvases used to inherit a fixed slate fill. */
+#duo[data-theme] .duo-app-instance[data-app="documents"].ios-app :is(.glass-container, .glass-bg),
+#duo[data-theme] .duo-app-instance[data-app="racing"].ios-app .glass-bg,
+#duo[data-theme] .duo-app-instance[data-app="time-trials"].ios-app .glass-bg {
+  background: var(--theme-canvas) !important;
+  background-image: none !important;
+  color: var(--theme-label) !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="documents"].ios-app .glass-row :is(h1, h2, h3, p, span, strong, small) {
+  color: var(--theme-label) !important;
+  opacity: 1 !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="documents"].ios-app .glass-header .gh-add {
+  background: var(--theme-control) !important;
+  background-image: none !important;
+  border-color: var(--theme-separator) !important;
+  box-shadow: none !important;
+  color: var(--theme-accent-text) !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="documents"].ios-app .glass-header .gh-add :is(span, svg, i) { color: var(--theme-accent-text) !important; }
+#duo[data-theme] .duo-app-instance[data-app="busdriver"].ios-app .progress-section,
+#duo[data-theme] .duo-app-instance[data-app="lumberjack"].ios-app .progress-section {
+  background: var(--theme-grouped) !important;
+  background-image: none !important;
+  border-color: var(--theme-separator) !important;
+  box-shadow: none !important;
+  color: var(--theme-label) !important;
+}
+#duo[data-theme] .duo-app-instance:is([data-app="busdriver"], [data-app="lumberjack"]).ios-app .progress-section :is(h1, h2, h3, p, span, strong, small) {
+  color: var(--theme-label) !important;
+  opacity: 1 !important;
+}
+
+/* Identity actions and balance tiles are neutral controls and grouped cards. */
+#duo[data-theme] .duo-app-instance[data-app="details"].ios-app .gx-action-grid > .nx-button {
+  background: var(--theme-control) !important;
+  background-image: none !important;
+  border-color: var(--theme-separator) !important;
+  box-shadow: none !important;
+  color: var(--theme-label) !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="details"].ios-app .gx-action-grid > .nx-button :is(span, svg, i) { color: var(--theme-label) !important; }
+#duo[data-theme] .duo-app-instance[data-app="details"].ios-app .gx-glass {
+  background: var(--theme-grouped) !important;
+  background-image: none !important;
+  border-color: var(--theme-separator) !important;
+  box-shadow: none !important;
+  color: var(--theme-label) !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="details"].ios-app .gx-glass small { color: var(--theme-secondary) !important; opacity: 1 !important; }
+#duo[data-theme] .duo-app-instance[data-app="details"].ios-app .gx-glass strong { color: var(--theme-label) !important; }
+
+/* The selected Contacts segment uses a solid raised fill, with blue ink. */
+#duo[data-theme] .duo-app-instance[data-app="contacts"].ios-app .gx-segment > .nx-button[aria-pressed="true"] {
+  background: var(--theme-elevated) !important;
+  background-image: none !important;
+  border-color: var(--theme-separator) !important;
+  box-shadow: none !important;
+  color: var(--theme-accent-text) !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="contacts"].ios-app .gx-segment > .nx-button[aria-pressed="true"] :is(span, svg, i) { color: var(--theme-accent-text) !important; }
+
+/* FaceTime keeps its green identity while pairing each control with readable ink. */
+#duo[data-theme="light"] .duo-app-instance[data-app="facetime"].ios-app .ft-hero {
+  background: #d8eee2 !important;
+  background-image: none !important;
+  border-color: #c4ddce !important;
+  box-shadow: none !important;
+  color: #203c2d !important;
+}
+#duo[data-theme="dark"] .duo-app-instance[data-app="facetime"].ios-app .ft-hero {
+  background: #1d3a2e !important;
+  background-image: none !important;
+  border-color: #355846 !important;
+  box-shadow: none !important;
+  color: #f5f5f7 !important;
+}
+#duo[data-theme="light"] .duo-app-instance[data-app="facetime"].ios-app .ft-hero :is(h2, p) { color: #203c2d !important; opacity: 1 !important; }
+#duo[data-theme="dark"] .duo-app-instance[data-app="facetime"].ios-app .ft-hero :is(h2, p) { color: #f5f5f7 !important; opacity: 1 !important; }
+#duo[data-theme] .duo-app-instance[data-app="facetime"].ios-app .ft-hero::after { background: none !important; }
+#duo[data-theme] .duo-app-instance[data-app="facetime"].ios-app .ft-refresh {
+  background: var(--theme-control) !important;
+  background-image: none !important;
+  border-color: var(--theme-separator) !important;
+  box-shadow: none !important;
+  color: var(--theme-accent-text) !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="facetime"].ios-app .ft-refresh :is(svg, i, .duo-icon) { color: #f5f5f7 !important; }
+#duo[data-theme] .duo-app-instance[data-app="facetime"].ios-app .duo-video-app .nx-native-sheet .nx-sheet-heading > .nx-button.nx-sheet-dismiss { color: #f5f5f7 !important; }
+#duo[data-theme] .duo-app-instance[data-app="facetime"].ios-app .duo-video-app .nx-native-sheet .nx-sheet-heading > .nx-button.nx-sheet-dismiss :is(span, svg, i) { color: #f5f5f7 !important; }
+#duo[data-theme] .duo-app-instance[data-app="facetime"].ios-app .duo-video-app .ft-person-video {
+  background: #38383b !important;
+  background-image: none !important;
+  border-color: #38383b !important;
+  box-shadow: none !important;
+  color: #ffffff !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="facetime"].ios-app .duo-video-app .ft-new {
+  background: #167a4a !important;
+  background-image: none !important;
+  border-color: #167a4a !important;
+  box-shadow: none !important;
+  color: #ffffff !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="facetime"].ios-app .duo-video-app .ft-person-video :is(span, svg, i, .duo-icon),
+#duo[data-theme] .duo-app-instance[data-app="facetime"].ios-app .duo-video-app .ft-new :is(span, svg, i, .duo-icon) { color: #ffffff !important; }
+
+/* Binge's pass and profile-menu actions are enabled neutral controls. */
+#duo[data-theme] .duo-app-instance[data-app="binge"].ios-app .gx-binge-actions > .nx-button:not(.gx-like-match) {
+  background: var(--theme-control) !important;
+  background-image: none !important;
+  border-color: var(--theme-separator) !important;
+  box-shadow: none !important;
+  color: var(--theme-label) !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="binge"].ios-app .gx-binge-actions > .nx-button:not(.gx-like-match) :is(span, svg, i) { color: var(--theme-label) !important; }
+#duo[data-theme] .duo-app-instance[data-app="binge"].ios-app .gx-binge-actions > .nx-button.gx-like-match {
+  background: #865a79 !important;
+  background-image: none !important;
+  border-color: #865a79 !important;
+  box-shadow: none !important;
+  color: #ffffff !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="binge"].ios-app .gx-binge-actions > .nx-button.gx-like-match :is(span, svg, i) { color: #ffffff !important; }
+
+/* Clock's Stop action keeps its system red label and SVG mark in both themes. */
+#duo[data-theme] .duo-app-instance[data-app="clock"] { --clock-stop: #ff453a; }
+#duo[data-theme] .duo-app-instance[data-app="clock"] .u27-round-stop,
+#duo[data-theme] .duo-app-instance[data-app="clock"] .u27-round-stop > span,
+#duo[data-theme] .duo-app-instance[data-app="clock"] .u27-round-stop :is(svg, .duo-icon, path) {
+  color: var(--clock-stop) !important;
+  stroke: var(--clock-stop) !important;
+}
+
+/* Clock round actions keep their own semantic hover, pressed, and focus states. */
+#duo[data-theme] .duo-app-instance[data-app="clock"] .u27-clock {
+  --clock-stop-background: #330d0e;
+  --clock-stop-hover-background: #3a1213;
+  --clock-stop-active-background: #401719;
+  --clock-start-background: #18764b;
+  --clock-start-hover-background: #1d8152;
+  --clock-start-active-background: #218558;
+  --clock-secondary-background: #171719;
+  --clock-secondary-hover-background: #29292c;
+  --clock-secondary-active-background: #38383a;
+  --clock-focus-ring: #ff9d3d;
+}
+#duo[data-theme] .duo-app-instance[data-app="clock"] .u27-clock .u27-round-stop:not(:disabled),
+#duo[data-theme] .duo-app-instance[data-app="clock"] .u27-clock .u27-round-stop:focus-visible:not(:disabled):not(:hover):not(:active) {
+  background: var(--clock-stop-background) !important;
+  background-image: none !important;
+  border-color: var(--clock-stop-background) !important;
+  color: var(--clock-stop) !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="clock"] .u27-clock .u27-round-stop:hover:not(:disabled) {
+  background: var(--clock-stop-hover-background) !important;
+  background-image: none !important;
+  border-color: var(--clock-stop-hover-background) !important;
+  color: var(--clock-stop) !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="clock"] .u27-clock .u27-round-stop:active:not(:disabled) {
+  background: var(--clock-stop-active-background) !important;
+  background-image: none !important;
+  border-color: var(--clock-stop-active-background) !important;
+  color: var(--clock-stop) !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="clock"] .u27-clock .u27-round-start:not(:disabled),
+#duo[data-theme] .duo-app-instance[data-app="clock"] .u27-clock .u27-round-start:focus-visible:not(:disabled):not(:hover):not(:active) {
+  background: var(--clock-start-background) !important;
+  background-image: none !important;
+  border-color: var(--clock-start-background) !important;
+  color: #ffffff !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="clock"] .u27-clock .u27-round-start:hover:not(:disabled) {
+  background: var(--clock-start-hover-background) !important;
+  background-image: none !important;
+  border-color: var(--clock-start-hover-background) !important;
+  color: #ffffff !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="clock"] .u27-clock .u27-round-start:active:not(:disabled) {
+  background: var(--clock-start-active-background) !important;
+  background-image: none !important;
+  border-color: var(--clock-start-active-background) !important;
+  color: #ffffff !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="clock"] .u27-clock .u27-round-secondary:not(:disabled),
+#duo[data-theme] .duo-app-instance[data-app="clock"] .u27-clock .u27-round-secondary:focus-visible:not(:disabled):not(:hover):not(:active) {
+  background: var(--clock-secondary-background) !important;
+  background-image: none !important;
+  border-color: var(--theme-separator) !important;
+  color: #f5f5f7 !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="clock"] .u27-clock .u27-round-secondary:hover:not(:disabled) {
+  background: var(--clock-secondary-hover-background) !important;
+  background-image: none !important;
+  border-color: var(--clock-secondary-hover-background) !important;
+  color: #f5f5f7 !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="clock"] .u27-clock .u27-round-secondary:active:not(:disabled) {
+  background: var(--clock-secondary-active-background) !important;
+  background-image: none !important;
+  border-color: var(--clock-secondary-active-background) !important;
+  color: #f5f5f7 !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="clock"] .u27-clock :is(.u27-round-stop, .u27-round-start, .u27-round-secondary):focus-visible:not(:disabled) {
+  outline: .23vh solid var(--clock-focus-ring) !important;
+  outline-offset: .18vh !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="clock"] .u27-clock .u27-storage-note {
+  color: #99999f !important;
+  opacity: 1 !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="clock"] .u27-clock .u27-clock-alarm-editor .u27-clock-editor-nav > .cf-nav-trailing:not(:disabled) {
+  background: transparent !important;
+  background-image: none !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+  color: #ff9d3d !important;
+  opacity: 1 !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="clock"] .u27-clock .u27-clock-alarm-editor .u27-clock-editor-nav > .cf-nav-trailing:not(:disabled):hover {
+  background: #38383a !important;
+  border-color: #38383a !important;
+  color: #ffad59 !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="clock"] .u27-clock .u27-clock-alarm-editor .u27-clock-editor-nav > .cf-nav-trailing:not(:disabled):active {
+  background: #444447 !important;
+  border-color: #444447 !important;
+  color: #ffc17a !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="clock"] .u27-clock .u27-clock-alarm-editor .u27-clock-editor-nav > .cf-nav-trailing:not(:disabled):focus-visible {
+  outline: .23vh solid var(--clock-focus-ring) !important;
+  outline-offset: .18vh !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="clock"] .u27-clock .u27-clock-alarm-editor .u27-clock-editor-nav > .cf-nav-trailing:not(:disabled) :is(span, svg, i) {
+  color: inherit !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="clock"] .u27-clock .u27-round-stop :is(span, svg, i, .duo-icon),
+#duo[data-theme] .duo-app-instance[data-app="clock"] .u27-clock .u27-round-stop :is(svg, .duo-icon, path) {
+  color: var(--clock-stop) !important;
+  stroke: var(--clock-stop) !important;
+}
+#duo[data-theme] .duo-app-instance[data-app="clock"] .u27-clock .u27-round-start :is(span, svg, i, .duo-icon),
+#duo[data-theme] .duo-app-instance[data-app="clock"] .u27-clock .u27-round-secondary :is(span, svg, i, .duo-icon) {
+  color: inherit !important;
+}

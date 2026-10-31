@@ -1,0 +1,47 @@
+/* Peak Duo rc1-cef1. Keep this last in index.html.
+ * FiveM NUI renders on a transparent offscreen surface. Do not enable compositor
+ * backdrop filters, even blur(0), on the phone or its hidden legacy app surfaces.
+ * This stylesheet only affects this resource's NUI document.
+ */
+html, body {
+  background: transparent !important;
+  background-image: none !important;
+  color-scheme: normal !important;
+}
+*, *::before, *::after {
+  
+  
+}
+::backdrop {
+  
+  
+}
+[hidden], .duo-root[hidden] { display: none !important; }
+.duo-root[data-visible="false"], .duo-root[data-visible="false"] * {
+  pointer-events: none !important;
+}
+/* Dark controls belong to components, never the full-screen document canvas. */
+.duo-root, .duo-global-overlays, .duo-camera { color-scheme: dark; }
+.duo-global-overlays, .duo-camera {
+  background: transparent !important;
+  background-image: none !important;
+}
+/* Glass appearance without sampling/compositing the game behind the NUI. */
+.duo-weather-widget { background: linear-gradient(145deg,#b7afc1d9,#707e98d9); }
+.duo-workspace-widget { background: linear-gradient(160deg,#282d3aee,#171c29f2); }
+.duo-dock { background: linear-gradient(145deg,#c9c5d26b,#8e9ab87a); }
+.duo-pane-navigation { background: linear-gradient(0deg,#12141df5,#181e2bea); }
+.duo-input-host { background: #05060999; }
+.duo-control-center { background: linear-gradient(145deg,#242b38fa,#171b24fa); }
+#duo-notifications .phone-notification {
+  background: radial-gradient(circle at 8% -25%,#ffffff6b,transparent 38%),
+              linear-gradient(142deg,#375475ed,#1a2b43f2 56%,#101c2ff5) !important;
+}
+.duo-camera-controls { background: #111720e8; }
+/* Remove a decorative Gaussian filter as well; use its existing gradients. */
+.duo-wallpaper::after { filter: none; }
+/* The labelled browser-only preview is never used for a real NUI connection. */
+body.duo-preview {
+  background: radial-gradient(ellipse at 20% 25%,#354e5d 0,transparent 48%),
+              radial-gradient(ellipse at 80% 85%,#302c4e 0,transparent 55%),#121b25 !important;
+}

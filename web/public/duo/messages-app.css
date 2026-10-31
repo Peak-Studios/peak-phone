@@ -1,0 +1,438 @@
+/* Peak Duo Messages: a native conversation list and focused thread surface. */
+#duo .duo-app-instance[data-app="messages"] .gx-messages {
+ --msg-bg:var(--theme-canvas,#000);--msg-group:var(--theme-grouped,#1c1c1e);--msg-raised:var(--theme-elevated,#2c2c2e);
+ --msg-ink:var(--theme-label,#f5f5f7);--msg-muted:var(--theme-secondary,#b5b5ba);--msg-line:var(--theme-separator,rgba(84,84,88,.62));
+ --msg-blue:#0a84ff;--msg-incoming:#2c2c2e;--msg-unread:#0a84ff;
+ display:flex;flex-direction:column;width:100%;height:100%;min-width:0;min-height:0;overflow:hidden;
+ background:var(--msg-bg)!important;color:var(--msg-ink)!important;color-scheme:dark;
+}
+#duo[data-theme="light"] .duo-app-instance[data-app="messages"] .gx-messages{--msg-bg:#fff;--msg-group:#f2f2f7;--msg-raised:#f2f2f7;--msg-ink:#1c1c1e;--msg-muted:#6b6b70;--msg-line:rgba(60,60,67,.18);--msg-blue:#007aff;--msg-incoming:#e9e9eb;--msg-unread:#007aff;color-scheme:light}
+#duo .duo-app-instance[data-app="messages"] .gx-messages>.nx-header{flex:none;min-height:6.5vh;padding:1.15vh 1.5vh .85vh;gap:.65vh;border:0;border-bottom:1px solid var(--msg-line)!important;background:var(--msg-bg)!important;box-shadow:none;align-items:center}
+#duo .duo-app-instance[data-app="messages"] .gx-messages .nx-heading{min-width:0;flex:1}
+#duo .duo-app-instance[data-app="messages"] .gx-messages .nx-heading h1{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:clamp(22px,3.05vh,38px);line-height:1.03;font-weight:730;letter-spacing:-.055em;color:var(--msg-ink)!important}
+#duo .duo-app-instance[data-app="messages"] .gx-messages .nx-heading p{margin-top:.35vh;color:var(--msg-muted)!important;font-size:clamp(9px,.96vh,13px);line-height:1.3}
+#duo .duo-app-instance[data-app="messages"] .gx-messages>.nx-header>.nx-button{display:grid;place-items:center;width:3.55vh;height:3.55vh;min-width:3.55vh;min-height:3.55vh;padding:.82vh;border:0!important;border-radius:50%;background:transparent!important;color:var(--msg-blue)!important;box-shadow:none}
+#duo .duo-app-instance[data-app="messages"] .gx-messages>.nx-header>.nx-button:hover{background:var(--msg-group)!important}
+#duo .duo-app-instance[data-app="messages"] .gx-messages .nx-header .duo-icon{width:1.55vh;height:1.55vh}
+#duo .duo-app-instance[data-app="messages"] .gx-messages>.nx-header.gx-thread-header{min-height:5.2vh;padding:.55vh .8vh;gap:.35vh}
+#duo .duo-app-instance[data-app="messages"] .gx-messages>.nx-header.gx-thread-header .gx-thread-back{display:grid;place-items:center;flex:none;width:3.35vh;height:3.35vh;min-width:3.35vh;min-height:3.35vh;padding:.72vh;border:0!important;border-radius:50%;background:transparent!important;color:var(--msg-blue)!important;box-shadow:none}
+#duo .duo-app-instance[data-app="messages"] .gx-messages>.nx-header.gx-thread-header .gx-thread-header-avatar{display:grid;flex:none;place-items:center;width:3.25vh;height:3.25vh;border-radius:50%;background:var(--msg-group);color:var(--msg-ink)!important;font-size:clamp(11px,1.35vh,18px);font-weight:650}
+#duo .duo-app-instance[data-app="messages"] .gx-messages>.nx-header.gx-thread-header .nx-heading h1{font-size:clamp(14px,1.65vh,20px);line-height:1.15;font-weight:650;letter-spacing:-.025em}
+#duo .duo-app-instance[data-app="messages"] .gx-messages>.nx-header.gx-thread-header .nx-heading p{margin-top:.12vh;font-size:clamp(10px,.95vh,12px);line-height:1.2}
+#duo .duo-app-instance[data-app="messages"] .gx-messages>.nx-header.gx-thread-header>.nx-button{width:3.15vh;height:3.15vh;min-width:3.15vh;min-height:3.15vh;padding:.72vh}
+#duo .duo-app-instance[data-app="messages"] .gx-messages>.nx-header.gx-thread-header>.nx-button .duo-icon{width:1.35vh;height:1.35vh}
+#duo .duo-app-instance[data-app="messages"] .gx-messages .gx-body{display:flex;flex:1;flex-direction:column;min-width:0;min-height:0;gap:.5vh;padding:.65vh 1.35vh 1vh;overflow:auto;overscroll-behavior:contain;scrollbar-width:thin}
+#duo .duo-app-instance[data-app="messages"] .nx-search{flex:none;min-height:3.6vh;margin:.15vh 0 .5vh;padding:.45vh 1vh;border:0!important;border-radius:1.05vh;background:var(--msg-group)!important;box-shadow:none}
+#duo .duo-app-instance[data-app="messages"] .nx-search svg{width:1.35vh;height:1.35vh;color:var(--msg-muted)!important}
+#duo .duo-app-instance[data-app="messages"] .nx-search input{min-width:0;color:var(--msg-ink)!important;background:transparent!important;font-size:clamp(10px,1.08vh,15px)}
+#duo .duo-app-instance[data-app="messages"] .gx-segment{flex:none;display:flex;gap:.2vh;margin:0 0 .35vh;padding:.25vh;border:0!important;border-radius:.95vh;background:var(--msg-group)!important;box-shadow:none}
+#duo .duo-app-instance[data-app="messages"] .gx-segment>.nx-button{flex:1;min-width:0;min-height:3.1vh;padding:.45vh;border:0!important;border-radius:.75vh;background:transparent!important;color:var(--msg-muted)!important;font-size:clamp(9px,.98vh,14px);font-weight:560}
+#duo .duo-app-instance[data-app="messages"] .gx-segment>.nx-button[aria-pressed="true"]{background:var(--msg-raised)!important;color:var(--msg-blue)!important;box-shadow:0 .12vh .35vh #0002}
+#duo .duo-app-instance[data-app="messages"] .gx-messages-shortcuts{display:flex;gap:1.4vh;padding:.05vh .15vh .35vh}
+#duo .duo-app-instance[data-app="messages"] .gx-messages-shortcut{min-height:2.8vh;padding:.25vh .35vh;border:0;background:transparent!important;color:var(--msg-blue)!important;font-size:clamp(9px,.95vh,13px);font-weight:570}
+#duo .duo-app-instance[data-app="messages"] .gx-message-inbox{display:flex;flex:1;flex-direction:column;min-height:0;overflow:auto;overscroll-behavior:contain;scrollbar-width:thin}
+#duo .duo-app-instance[data-app="messages"] .gx-thread-row{display:flex;align-items:center;gap:1vh;width:100%;min-height:7.05vh;padding:.7vh .25vh;border:0!important;border-bottom:1px solid var(--msg-line)!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;text-align:left;color:var(--msg-ink)!important}
+#duo .duo-app-instance[data-app="messages"] .gx-thread-row:hover,#duo .duo-app-instance[data-app="messages"] .gx-thread-row:focus-visible{background:color-mix(in srgb,var(--msg-group) 68%,transparent)!important}
+#duo .duo-app-instance[data-app="messages"] .gx-thread-avatar{display:grid;flex:none;place-items:center;width:4.65vh;height:4.65vh;border-radius:50%;background:linear-gradient(145deg,#8293a6,#53677c);color:#fff!important;font-size:1.5vh;font-weight:650;letter-spacing:-.05em}
+#duo .duo-app-instance[data-app="messages"] .gx-thread-row:has(.gx-thread-members) .gx-thread-avatar{background:linear-gradient(145deg,#79a9e8,#5e78b9)}
+#duo .duo-app-instance[data-app="messages"] .gx-thread-copy{display:flex;flex:1;min-width:0;flex-direction:column;gap:.28vh;text-align:left}
+#duo .duo-app-instance[data-app="messages"] .gx-thread-copy strong{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--msg-ink)!important;font-size:clamp(14px,1.3vh,17px);font-weight:620}
+#duo .duo-app-instance[data-app="messages"] .gx-thread-preview{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--msg-muted)!important;font-size:clamp(12px,1.1vh,15px);font-weight:400}
+#duo .duo-app-instance[data-app="messages"] .gx-thread-trailing{display:flex;flex:none;min-width:5vh;flex-direction:column;align-items:flex-end;justify-content:center;gap:.45vh;color:var(--msg-muted)!important}
+#duo .duo-app-instance[data-app="messages"] .gx-thread-meta{display:flex;align-items:center;justify-content:flex-end;gap:.55vh;min-height:1.2vh}
+#duo .duo-app-instance[data-app="messages"] .gx-thread-time,#duo .duo-app-instance[data-app="messages"] .gx-thread-members{color:var(--msg-muted)!important;font-size:clamp(10px,.95vh,12px);font-variant-numeric:tabular-nums;white-space:nowrap}
+#duo .duo-app-instance[data-app="messages"] .gx-thread-unread-dot{display:block;width:.75vh;height:.75vh;border-radius:50%;background:var(--msg-unread)}
+#duo .duo-app-instance[data-app="messages"] .gx-messages .nx-empty{margin:auto;text-align:center}
+
+/* Thread messages align as chat rows; time and reactions stay outside each bubble. */
+#duo .duo-app-instance[data-app="messages"] .gx-messages:has(.gx-chat-scroll)>.gx-body{gap:0;padding:0;overflow:hidden}
+#duo .duo-app-instance[data-app="messages"] .gx-chat-scroll{flex:1;min-height:0;overflow:auto;overscroll-behavior:contain;padding:1.1vh 1.2vh .5vh;scrollbar-width:thin;scrollbar-color:var(--msg-line) transparent}
+#duo .duo-app-instance[data-app="messages"] .gx-chat-messages{display:flex;min-height:100%;flex-direction:column;align-items:stretch;gap:.55vh;padding:.3vh 0 1vh}
+#duo .duo-app-instance[data-app="messages"] .gx-chat-messages>.nx-empty{align-self:center;margin:auto}
+#duo .duo-app-instance[data-app="messages"] .gx-message-row{display:flex;max-width:100%;flex-direction:column;align-items:flex-start;gap:.12vh;margin:.12vh 0}
+#duo .duo-app-instance[data-app="messages"] .gx-message-row-own{align-items:flex-end}
+#duo .duo-app-instance[data-app="messages"] .gx-message-sender{display:flex;align-items:center;gap:.42vh;max-width:100%;min-width:0;margin:0 0 .12vh .5vh;color:var(--msg-muted)!important;font-size:clamp(10px,.95vh,12px);overflow-wrap:anywhere}
+#duo .duo-app-instance[data-app="messages"] .gx-message-avatar{display:grid;place-items:center;width:1.7vh;height:1.7vh;border-radius:50%;background:var(--msg-raised);color:var(--msg-ink)!important;font-size:.85vh;font-weight:650}
+#duo .duo-app-instance[data-app="messages"] .gx-message-line{display:flex;align-items:flex-end;gap:.15vh;width:100%;max-width:100%;box-sizing:border-box}
+#duo .duo-app-instance[data-app="messages"] .gx-message-row-own .gx-message-line{flex-direction:row-reverse}
+#duo .duo-app-instance[data-app="messages"] .gx-message{display:flex;position:relative;width:max-content;max-width:min(78%,52vh);flex-direction:column;gap:.3vh;margin:0;padding:.72vh 1.02vh .65vh;border:0!important;border-radius:1.55vh 1.55vh 1.55vh .48vh;background:var(--msg-incoming)!important;box-shadow:none!important;color:var(--msg-ink)!important;overflow-wrap:anywhere}
+#duo .duo-app-instance[data-app="messages"] .gx-message-row-own .gx-message{border-radius:1.55vh 1.55vh .48vh 1.55vh;background:#0068d9!important;background-image:none!important;color:#fff!important}
+#duo[data-theme="light"] .duo-app-instance[data-app="messages"] .gx-messages .gx-message-row-own .gx-message{background:#0068d9!important;background-image:none!important;color:#fff!important}
+#duo .duo-app-instance[data-app="messages"] .gx-message .gx-prewrap{margin:0;color:var(--msg-ink)!important;font-size:clamp(14px,1.3vh,18px);font-weight:400;line-height:1.4;white-space:pre-wrap;overflow-wrap:anywhere}
+#duo .duo-app-instance[data-app="messages"] .gx-message-row-own .gx-message .gx-prewrap{color:#fff!important}
+#duo .duo-app-instance[data-app="messages"] .gx-message-context-button{display:grid;place-items:center;flex:none;width:2.5vh;height:2.5vh;min-width:2.5vh;min-height:2.5vh;padding:.55vh;border:0!important;border-radius:50%;background:transparent!important;color:var(--msg-muted)!important;opacity:.48;box-shadow:none}
+#duo .duo-app-instance[data-app="messages"] .gx-message-context-button>span{display:none}
+#duo .duo-app-instance[data-app="messages"] .gx-message-context-button .duo-icon{width:1.25vh;height:1.25vh}
+#duo .duo-app-instance[data-app="messages"] .gx-message-context-button:hover,#duo .duo-app-instance[data-app="messages"] .gx-message-context-button:focus-visible{background:var(--msg-group)!important;color:var(--msg-blue)!important;opacity:1}
+#duo .duo-app-instance[data-app="messages"] .gx-message-meta{display:flex;align-items:center;gap:.65vh;margin:.12vh .55vh 0;color:var(--msg-muted)!important;font-size:clamp(10px,.95vh,12px);line-height:1.2;font-variant-numeric:tabular-nums}
+#duo .duo-app-instance[data-app="messages"] .gx-reply-quote{padding:.35vh .6vh;margin-bottom:.12vh;border-left:.22vh solid var(--msg-blue);border-radius:.25vh;background:color-mix(in srgb,var(--msg-raised) 70%,transparent);color:var(--msg-muted)!important;font-size:clamp(9px,.92vh,12px)}
+#duo .duo-app-instance[data-app="messages"] .gx-message-row-own .gx-reply-quote{border-left-color:#b9dcff;background:#005fcf;color:#fff!important}
+#duo .duo-app-instance[data-app="messages"] .gx-reaction-row{display:flex;flex-wrap:wrap;align-items:center;gap:.25vh;margin:.14vh .45vh .05vh}
+#duo .duo-app-instance[data-app="messages"] .gx-message-row-own .gx-reaction-row{justify-content:flex-end}
+#duo .duo-app-instance[data-app="messages"] .gx-reaction-chip{min-height:2.3vh;padding:.15vh .55vh;border:1px solid var(--msg-line)!important;border-radius:3vh;background:var(--msg-raised)!important;color:var(--msg-ink)!important;font-size:clamp(9px,.9vh,12px);box-shadow:none}
+#duo .duo-app-instance[data-app="messages"] .gx-reaction-chip.gx-reaction-mine{border-color:var(--msg-blue)!important;color:var(--msg-blue)!important}
+#duo .duo-app-instance[data-app="messages"] .gx-message-highlight{animation:gx-message-highlight 1.8s ease-out}
+@keyframes gx-message-highlight{0%,32%{box-shadow:0 0 0 .24vh #ffcc47b8!important}100%{box-shadow:none}}
+
+/* Audio is represented by a real seek track and media time, not synthetic artwork. */
+#duo .duo-app-instance[data-app="messages"] .gx-audio-message{display:flex;width:clamp(136px,33vh,240px);min-width:0;max-width:100%;box-sizing:border-box;flex-direction:column;gap:.45vh;--gx-audio-progress:0}
+#duo .duo-app-instance[data-app="messages"] .gx-audio-seek{width:100%;height:1.25vh;min-height:1.25vh;margin:0;padding:0;border:0!important;border-radius:2vh;background:transparent!important;accent-color:var(--msg-blue);appearance:none;-webkit-appearance:none;cursor:pointer}
+#duo .duo-app-instance[data-app="messages"] .gx-audio-seek:disabled{cursor:default;opacity:.58}
+#duo .duo-app-instance[data-app="messages"] .gx-audio-seek::-webkit-slider-runnable-track{height:.48vh;border-radius:2vh;background:linear-gradient(90deg,var(--msg-blue) calc(var(--gx-audio-progress)*100%),var(--msg-line) 0)}
+#duo .duo-app-instance[data-app="messages"] .gx-audio-seek::-webkit-slider-thumb{width:1.05vh;height:1.05vh;margin-top:calc((.48vh - 1.05vh)/2);border:1px solid #fff;border-radius:50%;background:var(--msg-blue);box-shadow:0 .08vh .24vh #0004;-webkit-appearance:none}
+#duo .duo-app-instance[data-app="messages"] .gx-audio-seek::-moz-range-track{height:.48vh;border-radius:2vh;background:var(--msg-line)}
+#duo .duo-app-instance[data-app="messages"] .gx-audio-seek::-moz-range-progress{height:.48vh;border-radius:2vh;background:var(--msg-blue)}
+#duo .duo-app-instance[data-app="messages"] .gx-audio-seek::-moz-range-thumb{width:1.05vh;height:1.05vh;border:1px solid #fff;border-radius:50%;background:var(--msg-blue);box-shadow:0 .08vh .24vh #0004}
+#duo .duo-app-instance[data-app="messages"] .gx-message-row-own .gx-audio-seek::-webkit-slider-runnable-track{background:linear-gradient(90deg,#fff calc(var(--gx-audio-progress)*100%),#ffffff59 0)}
+#duo .duo-app-instance[data-app="messages"] .gx-message-row-own .gx-audio-seek::-webkit-slider-thumb,#duo .duo-app-instance[data-app="messages"] .gx-message-row-own .gx-audio-seek::-moz-range-thumb{background:#fff}
+#duo .duo-app-instance[data-app="messages"] .gx-message-row-own .gx-audio-seek::-moz-range-progress{background:#fff}
+#duo .duo-app-instance[data-app="messages"] .gx-audio-controls{display:flex;align-items:center;gap:.4vh;min-width:0;max-width:100%;color:var(--msg-muted)!important;font-size:clamp(11px,1.05vh,14px)}
+#duo .duo-app-instance[data-app="messages"] .gx-audio-label{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:inherit!important;font-size:clamp(11px,1.05vh,14px)}
+#duo .duo-app-instance[data-app="messages"] .gx-audio-time{color:inherit!important;font-size:clamp(10px,.95vh,12px);font-variant-numeric:tabular-nums;white-space:nowrap}
+#duo .duo-app-instance[data-app="messages"] .gx-audio-toggle{display:grid;place-items:center;width:3.25vh;height:3.25vh;min-width:3.25vh;min-height:3.25vh;padding:.72vh;border:0;border-radius:50%;background:var(--msg-blue)!important;color:white!important}
+#duo .duo-app-instance[data-app="messages"] .gx-audio-toggle .duo-icon{width:1.35vh;height:1.35vh}
+#duo .duo-app-instance[data-app="messages"] .gx-message-row-own .gx-audio-toggle{background:#fff!important;color:var(--msg-blue)!important}
+#duo .duo-app-instance[data-app="messages"] .gx-audio-error{color:var(--theme-destructive,#ff453a)!important;font-size:clamp(8px,.78vh,11px)}
+#duo .duo-app-instance[data-app="messages"] .gx-audio-player{display:none!important}
+#duo .duo-app-instance[data-app="messages"] .gx-message-image{display:block;width:min(25vh,100%);max-width:100%;overflow:hidden;border-radius:1.25vh}
+#duo .duo-app-instance[data-app="messages"] .gx-message-image img{display:block;width:100%;max-height:28vh;object-fit:cover}
+#duo .duo-app-instance[data-app="messages"] .gx-message-location{min-height:3.4vh;border:0;background:transparent!important;color:var(--msg-blue)!important;text-align:left;justify-content:flex-start}
+
+/* iFruit Cash receipts remain distinct from message bubbles. */
+#duo .duo-app-instance[data-app="messages"] .gx-cash-card{display:flex;min-width:17vh;flex-direction:column;gap:.3vh;padding:.85vh 1vh;border:1px solid #30d15835;border-radius:1.15vh;background:linear-gradient(145deg,#163226,#12271f)!important;color:#f3fff7!important}
+#duo[data-theme="light"] .duo-app-instance[data-app="messages"] .gx-cash-card{border-color:#248a3d38;background:linear-gradient(145deg,#edfff3,#e0f8e8)!important;color:#173b25!important}
+#duo .duo-app-instance[data-app="messages"] .gx-cash-card>*{color:inherit!important}
+#duo[data-theme="light"] .duo-app-instance[data-app="messages"] .gx-message-line .gx-message-own.gx-message .gx-cash-card :is(p,span,small,strong,b,label,a,button){color:#173b25!important}
+#duo[data-theme="light"] .duo-app-instance[data-app="messages"] .gx-message-line .gx-message-own.gx-message .gx-cash-card .gx-cash-eyebrow{color:#356a45!important}
+#duo .duo-app-instance[data-app="messages"] .gx-cash-eyebrow{color:#8beca8!important;font-size:clamp(10px,.95vh,12px);font-weight:720;letter-spacing:.1em}
+#duo .duo-app-instance[data-app="messages"] .gx-cash-card strong{font-size:clamp(12px,1.1vh,15px);font-weight:650}
+#duo .duo-app-instance[data-app="messages"] .gx-cash-amount{font-size:clamp(17px,2.2vh,30px);line-height:1.05;font-weight:720;letter-spacing:-.045em;font-variant-numeric:tabular-nums}
+#duo .duo-app-instance[data-app="messages"] .gx-cash-comment,#duo .duo-app-instance[data-app="messages"] .gx-cash-status{font-size:clamp(10px,.95vh,13px);opacity:.84}
+#duo .duo-app-instance[data-app="messages"] .gx-cash-actions{display:flex;gap:.5vh;margin-top:.45vh}
+#duo .duo-app-instance[data-app="messages"] .gx-cash-actions>.nx-button{flex:1;min-height:3vh;padding:.45vh;border:0;border-radius:.75vh;background:#ffffff1a!important;color:inherit!important;font-size:clamp(9px,.9vh,12px)}
+#duo .duo-app-instance[data-app="messages"] .gx-cash-recipient-hero{display:flex;flex-direction:column;align-items:center;gap:.48vh;padding:.25vh 0 .4vh;text-align:center}
+#duo .duo-app-instance[data-app="messages"] .gx-cash-recipient-avatar{display:grid;place-items:center;width:5.8vh;height:5.8vh;border-radius:50%;background:linear-gradient(145deg,#8293a6,#53677c);color:#fff!important;font-size:2vh;font-weight:650}
+#duo .duo-app-instance[data-app="messages"] .gx-cash-recipient-copy{display:flex;flex-direction:column;gap:.12vh}
+#duo .duo-app-instance[data-app="messages"] .gx-cash-recipient-copy strong{color:var(--msg-ink)!important;font-size:clamp(15px,1.55vh,20px);font-weight:650}
+#duo .duo-app-instance[data-app="messages"] .gx-cash-recipient-copy small{color:var(--msg-muted)!important;font-size:clamp(11px,1.05vh,14px)}
+#duo .duo-app-instance[data-app="messages"] .gx-cash-form{display:flex;flex-direction:column;gap:.85vh;padding:.35vh 0 .15vh}
+#duo .duo-app-instance[data-app="messages"] .gx-cash-form .gx-cash-amount-field{display:flex;min-height:10vh;flex-direction:column;align-items:center;justify-content:center;gap:.25vh;padding:.2vh 0;border:0!important;background:transparent!important;text-align:center}
+#duo .duo-app-instance[data-app="messages"] .gx-cash-form .gx-cash-amount-field>span{max-width:none;color:var(--msg-muted)!important;font-size:clamp(12px,1.16vh,15px)}
+#duo .duo-app-instance[data-app="messages"] .gx-cash-form .gx-cash-amount-field>input{flex:none;width:100%;min-height:6vh;padding:.1vh .4vh;border:0!important;border-radius:0;background:transparent!important;color:var(--msg-ink)!important;font-size:clamp(34px,4.3vh,50px);font-weight:650;line-height:1;text-align:center!important;font-variant-numeric:tabular-nums;box-shadow:none}
+#duo .duo-app-instance[data-app="messages"] .gx-cash-form>.nx-primary{width:100%;justify-content:center;min-height:4.8vh;margin-top:.3vh;border-radius:1.2vh;font-size:clamp(13px,1.2vh,16px)}
+
+/* Keep transfer confirmation details readable and separated on the narrow phone. */
+#duo .duo-app-instance[data-app="messages"] .gx-cash-confirmation{display:flex;width:100%;min-width:0;box-sizing:border-box;flex-direction:column;align-items:stretch;gap:.62vh;padding:.7vh 0 .2vh;border-top:1px solid var(--msg-line)}
+#duo .duo-app-instance[data-app="messages"] .gx-cash-confirmation>*{display:block;min-width:0;max-width:100%;box-sizing:border-box;margin:0;overflow-wrap:anywhere}
+#duo .duo-app-instance[data-app="messages"] .gx-cash-confirmation>strong{color:var(--msg-ink)!important;font-size:clamp(16px,1.55vh,20px);font-weight:690;line-height:1.2}
+#duo .duo-app-instance[data-app="messages"] .gx-cash-confirmation>.gx-cash-amount{align-self:flex-start;margin-top:.2vh;font-size:clamp(26px,3.3vh,42px);line-height:1;font-weight:740;letter-spacing:-.045em}
+#duo .duo-app-instance[data-app="messages"] .gx-cash-confirmation>.gx-cash-recipient{color:var(--msg-ink)!important;font-size:clamp(13px,1.32vh,17px);font-weight:560;line-height:1.38}
+#duo .duo-app-instance[data-app="messages"] .gx-cash-confirmation>.gx-cash-comment{color:var(--msg-muted)!important;font-size:clamp(12px,1.2vh,16px);line-height:1.4}
+#duo .duo-app-instance[data-app="messages"] .gx-cash-confirmation>.gx-footnote{padding:.8vh 1vh;border-radius:.85vh;background:var(--msg-group)!important;color:var(--msg-muted)!important;font-size:clamp(12px,1.1vh,15px)!important;line-height:1.45}
+#duo .duo-app-instance[data-app="messages"] .gx-cash-confirm-actions{display:flex;align-items:center;justify-content:space-between;gap:.65vh;width:100%;margin-top:.25vh;padding-top:.6vh;border-top:1px solid var(--msg-line)}
+#duo .duo-app-instance[data-app="messages"] .gx-cash-confirm-actions>.nx-button{display:flex;flex:1;align-items:center;justify-content:center;min-width:0;min-height:4.2vh;padding:.8vh 1vh;border-radius:1.05vh;font-size:clamp(12px,1.1vh,15px);white-space:nowrap}
+#duo .duo-app-instance[data-app="messages"] .gx-cash-confirm-actions>.gx-list-button{background:transparent!important;color:var(--msg-blue)!important;box-shadow:none}
+#duo .duo-app-instance[data-app="messages"] .gx-cash-confirmation>.nx-button{width:100%;min-height:4.2vh;margin-top:.25vh;padding:.8vh 1vh;border-radius:1.05vh;font-size:clamp(12px,1.1vh,15px)}
+#duo[data-theme="dark"] .duo-app-instance[data-app="messages"] .nx-modal:has(.gx-cash-form),#duo[data-theme="dark"] .duo-app-instance[data-app="messages"] .nx-modal:has(.gx-cash-confirmation){--msg-raised:#1c1c1e;--msg-line:rgba(84,84,88,.62);--msg-ink:#f5f5f7}
+#duo[data-theme="light"] .duo-app-instance[data-app="messages"] .nx-modal:has(.gx-cash-form),#duo[data-theme="light"] .duo-app-instance[data-app="messages"] .nx-modal:has(.gx-cash-confirmation){--msg-raised:#fff;--msg-line:rgba(60,60,67,.18);--msg-ink:#1c1c1e}
+#duo .duo-app-instance[data-app="messages"] .nx-modal:has(.gx-cash-form)>.nx-sheet,#duo .duo-app-instance[data-app="messages"] .nx-modal:has(.gx-cash-confirmation)>.nx-sheet{background:var(--msg-raised,#fff)!important;border-color:var(--msg-line,rgba(60,60,67,.18))!important;box-shadow:0 -.8vh 3vh #0003,inset 0 .08vh .1vh #ffffff12}
+#duo .duo-app-instance[data-app="messages"] .nx-modal:has(.gx-cash-form) .nx-sheet-heading,#duo .duo-app-instance[data-app="messages"] .nx-modal:has(.gx-cash-confirmation) .nx-sheet-heading{background:var(--msg-raised,#fff)!important;border-bottom:1px solid var(--msg-line,rgba(60,60,67,.18))}
+
+/* One native composer row: add, growing input, then microphone or send. */
+#duo .duo-app-instance[data-app="messages"] .gx-compose-bar{display:flex;flex:none;min-width:0;flex-direction:column;gap:.35vh;margin:0;padding:.55vh .8vh calc(.55vh + env(safe-area-inset-bottom));border-top:1px solid var(--msg-line);background:var(--msg-bg)!important}
+#duo .duo-app-instance[data-app="messages"] .gx-compose-attachments:empty{display:none}
+#duo .duo-app-instance[data-app="messages"] .gx-compose-actions{display:flex;align-items:flex-end;gap:.55vh;min-width:0}
+#duo .duo-app-instance[data-app="messages"] .gx-compose-actions>textarea{flex:1;width:0;min-width:0;min-height:3.45vh;max-height:13vh;resize:none;overflow-x:hidden;padding:.85vh 1.05vh;border:1px solid var(--msg-line)!important;border-radius:1.55vh;background:var(--msg-group)!important;color:var(--msg-ink)!important;font-size:clamp(14px,1.3vh,17px);line-height:1.35;outline:0;box-shadow:none;scrollbar-width:thin}
+#duo .duo-app-instance[data-app="messages"] .gx-compose-actions>textarea::placeholder{color:var(--msg-muted)!important}
+#duo .duo-app-instance[data-app="messages"] .gx-compose-actions>textarea:focus{border-color:color-mix(in srgb,var(--msg-blue) 52%,var(--msg-line))!important}
+#duo .duo-app-instance[data-app="messages"] .gx-compose-tool{display:grid;place-items:center;flex:none;width:3.45vh;height:3.45vh;min-width:3.45vh;min-height:3.45vh;padding:.8vh;border:0;border-radius:50%;background:var(--msg-group)!important;color:var(--msg-blue)!important}
+#duo .duo-app-instance[data-app="messages"] .gx-compose-tool>span,#duo .duo-app-instance[data-app="messages"] .gx-send-button>span{display:none}
+#duo .duo-app-instance[data-app="messages"] .gx-compose-tool .duo-icon,#duo .duo-app-instance[data-app="messages"] .gx-send-button .duo-icon{width:1.55vh;height:1.55vh}
+#duo .duo-app-instance[data-app="messages"] .gx-send-button{display:grid;place-items:center;flex:none;width:3.45vh;height:3.45vh;min-width:3.45vh;min-height:3.45vh;margin:0;padding:.8vh;border:0;border-radius:50%;background:var(--msg-blue)!important;color:#fff!important;box-shadow:none}
+#duo .duo-app-instance[data-app="messages"] .gx-send-button[hidden],#duo .duo-app-instance[data-app="messages"] .gx-compose-mic[hidden]{display:none}
+#duo .duo-app-instance[data-app="messages"] .gx-recording-label{flex:1;min-width:0;color:#ff453a!important;font-size:clamp(9px,.9vh,12px);font-variant-numeric:tabular-nums}
+#duo .duo-app-instance[data-app="messages"] .gx-replying{display:flex;align-items:center;justify-content:space-between;gap:.6vh;padding:.35vh .65vh;color:var(--msg-muted)!important;font-size:clamp(9px,.88vh,12px)}
+#duo .duo-app-instance[data-app="messages"] .gx-replying .nx-button{min-height:2.3vh;padding:.25vh;border:0;background:transparent!important;color:var(--msg-blue)!important}
+#duo .duo-app-instance[data-app="messages"] .gx-voice-review{display:flex;flex:none;flex-direction:column;gap:.65vh;margin:.45vh .8vh;padding:.75vh;border:1px solid var(--msg-line);border-radius:1.2vh;background:var(--msg-group)!important;color:var(--msg-ink)!important}
+#duo .duo-app-instance[data-app="messages"] .gx-voice-review>strong{font-size:clamp(10px,1vh,14px);font-weight:620}
+#duo .duo-app-instance[data-app="messages"] .gx-voice-review-actions{display:flex;justify-content:flex-end;gap:.55vh}
+#duo .duo-app-instance[data-app="messages"] .gx-voice-review-actions .gx-send-button{width:auto;min-width:10vh;height:auto;padding:.55vh 1vh;border-radius:3vh;font-size:clamp(9px,.9vh,12px)}
+#duo .duo-app-instance[data-app="messages"] .gx-voice-review-actions .gx-send-button>span{display:inline}
+#duo .duo-app-instance[data-app="messages"] .gx-voice-review-actions .gx-compose-tool{width:auto;min-width:8vh;height:auto;padding:.55vh .8vh;border-radius:3vh;font-size:clamp(9px,.9vh,12px)}
+#duo .duo-app-instance[data-app="messages"] .gx-voice-review-actions .gx-compose-tool>span{display:inline}
+#duo .duo-app-instance[data-app="messages"] .gx-pending-voice{display:flex;flex:none;align-items:center;gap:.6vh;padding:.5vh .75vh;border-bottom:1px solid var(--msg-line);background:var(--msg-group);color:var(--msg-muted)!important;font-size:clamp(9px,.9vh,12px)}
+#duo .duo-app-instance[data-app="messages"] .gx-pending-voice .nx-button{min-height:2.8vh;padding:.35vh .65vh;border-radius:2vh;color:var(--msg-blue)!important}
+#duo .duo-app-instance[data-app="messages"] .gx-load-more{align-self:center;min-height:2.8vh;padding:.35vh .7vh;border:0;background:transparent!important;color:var(--msg-blue)!important;font-size:clamp(9px,.9vh,12px)}
+#duo .duo-app-instance[data-app="messages"] .gx-message-highlight{scroll-margin-block:35%}
+
+/* Native sheets keep the shared interaction layer legible in both themes. */
+#duo .duo-app-instance[data-app="messages"] .nx-modal{background:#0008!important}
+#duo .duo-app-instance[data-app="messages"] .nx-sheet{border:1px solid var(--msg-line);border-radius:2.5vh 2.5vh 1.4vh 1.4vh;background:var(--msg-bg)!important;color:var(--msg-ink)!important;box-shadow:0 -1vh 4vh #0003}
+#duo .duo-app-instance[data-app="messages"] .nx-sheet-heading{border-bottom:1px solid var(--msg-line);background:var(--msg-bg)!important}
+#duo .duo-app-instance[data-app="messages"] .nx-sheet-heading h2{color:var(--msg-ink)!important}
+#duo .duo-app-instance[data-app="messages"] .gx-field{color:var(--msg-muted)!important}
+#duo .duo-app-instance[data-app="messages"] .nx-field :is(input,textarea,select){min-height:3.8vh;border:1px solid var(--msg-line)!important;border-radius:1.1vh;background:var(--msg-group)!important;color:var(--msg-ink)!important}
+#duo .duo-app-instance[data-app="messages"] .gx-contact-picker,#duo .duo-app-instance[data-app="messages"] .gx-group-members{display:flex;min-width:0;flex-direction:column}
+#duo .duo-app-instance[data-app="messages"] .gx-list-button{display:flex;width:100%;min-height:4.2vh;justify-content:flex-start;text-align:left;border:0;border-bottom:1px solid var(--msg-line)!important;border-radius:0;background:transparent!important;color:var(--msg-ink)!important;box-shadow:none!important}
+#duo .duo-app-instance[data-app="messages"] .gx-list-button[aria-pressed="true"]{color:var(--msg-blue)!important}
+#duo .duo-app-instance[data-app="messages"] .gx-footnote{color:var(--msg-muted)!important;font-size:clamp(12px,1.1vh,15px)!important;line-height:1.45}
+#duo .duo-app-instance[data-app="messages"] .gx-reaction-picker{display:flex;justify-content:space-between;gap:.35vh;padding:.6vh 0}
+#duo .duo-app-instance[data-app="messages"] .gx-reaction-option{width:4.4vh;height:4.4vh;min-width:4.4vh;min-height:4.4vh;padding:.4vh;border:1px solid var(--msg-line);border-radius:50%;background:var(--msg-group)!important;font-size:1.65vh}
+#duo .duo-app-instance[data-app="messages"] .gx-group-member{display:flex;align-items:center;gap:.55vh;padding:.6vh 0;border-bottom:1px solid var(--msg-line)}
+#duo .duo-app-instance[data-app="messages"] .gx-group-avatar{display:grid;flex:none;place-items:center;width:3.2vh;height:3.2vh;border-radius:50%;background:var(--msg-group);color:var(--msg-ink)!important}
+#duo .duo-app-instance[data-app="messages"] .gx-group-member .gx-thread-copy{flex:1;min-width:0}
+#duo .duo-app-instance[data-app="messages"] .gx-group-member small{color:var(--msg-muted)!important;font-size:clamp(8px,.82vh,11px)}
+#duo .duo-app-instance[data-app="messages"] .gx-danger{color:var(--theme-destructive,#ff453a)!important}
+@container glass-app (max-width:300px){
+ #duo .duo-app-instance[data-app="messages"] .gx-messages>.nx-header{min-height:5.8vh;padding-inline:1vh}
+ #duo .duo-app-instance[data-app="messages"] .gx-messages .nx-heading h1{font-size:clamp(19px,2.55vh,30px)}
+ #duo .duo-app-instance[data-app="messages"] .gx-messages .gx-body{padding-inline:.85vh}
+ #duo .duo-app-instance[data-app="messages"] .gx-thread-row{gap:.65vh}
+ #duo .duo-app-instance[data-app="messages"] .gx-thread-avatar{width:3.8vh;height:3.8vh}
+ #duo .duo-app-instance[data-app="messages"] .gx-message{max-width:82%}
+ #duo .duo-app-instance[data-app="messages"] .gx-chat-scroll{padding-inline:.8vh}
+ #duo .duo-app-instance[data-app="messages"] .gx-compose-bar{padding-inline:.55vh}
+}
+@media(prefers-reduced-motion:reduce){#duo .gx-messages *{scroll-behavior:auto!important}}
+
+/* Attachment choices sit above the composer so the conversation stays visible. */
+#duo .duo-app-instance[data-app="messages"] .gx-compose-add-tray{display:flex;justify-content:flex-start;padding:.15vh 0 .25vh}
+#duo .duo-app-instance[data-app="messages"] .gx-compose-add-options{display:grid;width:min(26vh,100%);grid-template-columns:repeat(2,minmax(0,1fr));gap:.55vh;padding:.65vh;border:1px solid var(--msg-line);border-radius:1.4vh;background:var(--msg-group)!important;box-shadow:0 .35vh 1.1vh #0002}
+#duo .duo-app-instance[data-app="messages"] .gx-compose-add-option{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.48vh;min-height:8.8vh;padding:.55vh .35vh;border:0!important;border-radius:1vh;background:transparent!important;color:var(--msg-ink)!important;text-align:center;box-shadow:none}
+#duo .duo-app-instance[data-app="messages"] .gx-compose-add-option .duo-icon{box-sizing:content-box;width:2.1vh;height:2.1vh;padding:.7vh;border-radius:1vh;background:var(--msg-raised)!important;color:var(--msg-blue)!important}
+#duo .duo-app-instance[data-app="messages"] .gx-compose-add-option:nth-child(2) .duo-icon{background:#30d158!important;color:#fff!important}
+#duo .duo-app-instance[data-app="messages"] .gx-compose-add-option>span{font-size:clamp(12px,1.08vh,15px);font-weight:540}
+#duo .duo-app-instance[data-app="messages"] .gx-compose-add-option:hover,#duo .duo-app-instance[data-app="messages"] .gx-compose-add-option:focus-visible{background:color-mix(in srgb,var(--msg-raised) 72%,transparent)!important}
+#duo .duo-app-instance[data-app="messages"] .gx-sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+
+/* The held message remains crisp while a small reaction and action menu follows it. */
+#duo .duo-app-instance[data-app="messages"] .gx-message-context-selected{position:relative;z-index:96}
+#duo .duo-app-instance[data-app="messages"] .gx-message-context-selected .gx-message{outline:1px solid #ffffff95;box-shadow:0 0 0 .38vh #ffffff2a,0 .45vh 1.6vh #0005!important}
+#duo .duo-app-instance[data-app="messages"] .nx-modal.gx-message-action-modal{display:block;overflow:hidden;padding:0;background:#09121f35!important;backdrop-filter:none;-webkit-backdrop-filter:none}
+#duo .duo-app-instance[data-app="messages"] .gx-message-action-sheet{position:absolute;left:var(--gx-menu-x,8px);top:var(--gx-menu-y,8px);width:min(86%,36vh);max-width:38vh;min-height:0;max-height:64%;overflow:auto;margin:0;padding:.45vh .65vh .65vh;gap:.45vh;border:1px solid #ffffff62!important;border-radius:1.85vh;background:linear-gradient(150deg,#edf7ff43,#eaf4ff22)!important;color:var(--msg-ink)!important;box-shadow:inset 0 .12vh .12vh #ffffff55,0 .8vh 2.8vh #0005!important;backdrop-filter:none;-webkit-backdrop-filter:none}
+#duo .duo-app-instance[data-app="messages"] .gx-message-action-sheet .nx-sheet-heading{display:flex;justify-content:flex-end;min-height:2.55vh;padding:0;margin:0;border:0;background:transparent!important}
+#duo .duo-app-instance[data-app="messages"] .gx-message-action-sheet .nx-sheet-heading>.nx-button{width:2.65vh;height:2.65vh;min-width:2.65vh;min-height:2.65vh;padding:.55vh;border:1px solid #ffffff42!important;border-radius:50%;background:#ffffff1b!important;color:var(--msg-ink)!important}
+
+/* Keep cash controls inside the folded display and above its home indicator. */
+#duo .duo-app-instance[data-app="messages"] .gx-cash-sheet{box-sizing:border-box;height:min(54vh,100%);max-height:calc(100% - 1.2vh)!important;padding-bottom:max(5vh,env(safe-area-inset-bottom))!important;overflow:hidden!important}
+#duo .duo-app-instance[data-app="messages"] .gx-cash-sheet>.gx-cash-recipient-hero{flex:none;flex-direction:row;align-items:center;justify-content:flex-start;gap:1vh;margin:0;padding:.2vh 0;text-align:left}
+#duo .duo-app-instance[data-app="messages"] .gx-cash-sheet>.gx-cash-recipient-hero .gx-cash-recipient-avatar{width:4.2vh;height:4.2vh;font-size:1.7vh}
+#duo .duo-app-instance[data-app="messages"] .gx-cash-sheet>.gx-footnote{flex:none;margin:0;padding:.3vh .2vh;font-size:clamp(9px,.85vh,11px)!important;line-height:1.25}
+#duo .duo-app-instance[data-app="messages"] .gx-cash-form{gap:.45vh;padding:.2vh 0 .15vh}
+#duo .duo-app-instance[data-app="messages"] .gx-cash-form{flex:1 1 0;min-height:0;overflow:hidden}
+#duo .duo-app-instance[data-app="messages"] .gx-cash-fields{flex:1 1 auto;min-height:0;overflow-y:auto;padding:0 0 .6vh;scrollbar-width:thin}
+#duo .duo-app-instance[data-app="messages"] .gx-cash-form .gx-cash-amount-field{min-height:6.2vh;margin:0;padding:.1vh 0}
+#duo .duo-app-instance[data-app="messages"] .gx-cash-form .gx-cash-amount-label{max-width:none!important;color:var(--msg-muted)!important;font-size:clamp(10px,.95vh,13px)}
+#duo .duo-app-instance[data-app="messages"] .gx-cash-amount-display{display:flex;align-items:center;justify-content:center;gap:.2vh;width:100%;min-width:0}
+#duo .duo-app-instance[data-app="messages"] .gx-cash-amount-display .gx-cash-dollar-sign{flex:none;color:var(--msg-ink)!important;font-size:clamp(24px,3.7vh,40px);font-weight:650;line-height:1}
+#duo .duo-app-instance[data-app="messages"] .gx-cash-amount-display>input{flex:none;width:15vh;min-height:5vh;padding:.1vh 0;border:0!important;background:transparent!important;color:var(--msg-ink)!important;font-size:clamp(30px,4vh,44px);font-weight:660;line-height:1;text-align:left!important;font-variant-numeric:tabular-nums;box-shadow:none;cursor:default}
+#duo .duo-app-instance[data-app="messages"] .gx-cash-keypad{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.32vh;width:min(100%,34vh);margin:0 auto}
+#duo .duo-app-instance[data-app="messages"] .gx-cash-keypad>.gx-cash-key{display:grid;place-items:center;min-width:0;min-height:3.25vh;padding:.2vh;border:1px solid var(--msg-line)!important;border-radius:.85vh;background:var(--msg-group)!important;color:var(--msg-ink)!important;font-size:clamp(13px,1.35vh,18px);font-weight:560;font-variant-numeric:tabular-nums;box-shadow:inset 0 1px #ffffff0a}
+#duo .duo-app-instance[data-app="messages"] .gx-cash-keypad>.gx-cash-key[data-cash-key="clear"],#duo .duo-app-instance[data-app="messages"] .gx-cash-keypad>.gx-cash-key[data-cash-key="delete"]{color:var(--msg-blue)!important;font-size:clamp(10px,1vh,14px);font-weight:600}
+#duo .duo-app-instance[data-app="messages"] .gx-cash-form-actions,#duo .duo-app-instance[data-app="messages"] .gx-cash-confirm-actions{position:relative;z-index:4;flex:none;margin:0 -1.5vh -1vh;padding:.65vh 1.5vh .8vh;border-top:1px solid var(--msg-line);background:var(--msg-raised,#fff);box-shadow:0 -.7vh 1.3vh color-mix(in srgb,var(--msg-raised,#fff) 85%,transparent)}
+#duo .duo-app-instance[data-app="messages"] .gx-cash-form-actions>.nx-primary{width:100%;min-height:4.4vh;margin:0;justify-content:center;border-radius:1.1vh;font-size:clamp(12px,1.18vh,16px)}
+#duo .duo-app-instance[data-app="messages"] .gx-cash-confirmation>.nx-primary{position:sticky;bottom:0;z-index:4;min-height:4.4vh;margin:0;padding:.7vh 1vh;background:var(--msg-blue)!important;color:#fff!important}
+#duo .duo-app-instance[data-app="messages"] .gx-context-reactions{display:flex;justify-content:space-between;gap:.28vh;padding:.25vh .1vh .55vh;border-bottom:1px solid #ffffff32}
+#duo .duo-app-instance[data-app="messages"] .gx-context-reactions .gx-reaction-option{flex:1;width:auto;height:4.15vh;min-width:0;min-height:4.15vh;padding:.3vh;border:1px solid #ffffff37!important;border-radius:1.1vh;background:#ffffff15!important;font-size:1.55vh;box-shadow:inset 0 .08vh .1vh #ffffff24}
+#duo .duo-app-instance[data-app="messages"] .gx-context-reactions .gx-reaction-option:hover,#duo .duo-app-instance[data-app="messages"] .gx-context-reactions .gx-reaction-option:focus-visible{background:#ffffff35!important;transform:translateY(-.08vh)}
+#duo .duo-app-instance[data-app="messages"] .gx-message-action-sheet .gx-list-button{display:flex;align-items:center;gap:.8vh;min-height:3.75vh;padding:.35vh .75vh;border:0!important;border-radius:.85vh;background:transparent!important;color:var(--msg-ink)!important;box-shadow:none!important;font-size:clamp(12px,1.1vh,15px);text-align:left}
+#duo .duo-app-instance[data-app="messages"] .gx-message-action-sheet .gx-list-button:hover,#duo .duo-app-instance[data-app="messages"] .gx-message-action-sheet .gx-list-button:focus-visible{background:#ffffff21!important}
+#duo .duo-app-instance[data-app="messages"] .gx-message-action-sheet .gx-list-button .duo-icon{width:1.5vh;height:1.5vh;color:var(--msg-blue)!important}
+#duo[data-transparency="reduced"] .duo-app-instance[data-app="messages"] :is(.gx-compose-add-options,.gx-message-action-sheet){background:var(--msg-raised)!important;backdrop-filter:none;-webkit-backdrop-filter:none}
+
+/* Theme rules also style .nx-sheet, so give these floating menus a solid
+   glass base even when the game browser cannot render backdrop-filter. */
+#duo[data-theme="dark"] .duo-app-instance[data-app="messages"] .nx-sheet.gx-message-action-sheet{
+  background-color:rgba(27,28,34,.94)!important;
+  background-image:linear-gradient(145deg,rgba(255,255,255,.12),rgba(255,255,255,.025))!important;
+  color:var(--theme-label)!important;
+  border-color:var(--theme-glass-edge)!important;
+}
+#duo[data-theme="light"] .duo-app-instance[data-app="messages"] .nx-sheet.gx-message-action-sheet{
+  background-color:rgba(248,250,255,.96)!important;
+  background-image:linear-gradient(145deg,rgba(255,255,255,.55),rgba(255,255,255,.08))!important;
+  color:var(--theme-label)!important;
+  border-color:var(--theme-glass-edge)!important;
+}
+
+/* iFruit Cash is its own amount-first surface, separate from native form sheets. */
+#duo .duo-app-instance[data-app="messages"] .nx-modal:has(.gx-cash-sheet){background:#000b!important}
+#duo .duo-app-instance[data-app="messages"] .nx-sheet.gx-cash-sheet{position:absolute!important;left:50%!important;right:auto!important;bottom:.6vh!important;display:flex!important;box-sizing:border-box;width:calc(100% - 1.5vh)!important;height:60%!important;max-height:calc(100% - 1.2vh)!important;min-height:0!important;flex-direction:column!important;gap:.4vh!important;margin:0!important;padding:.65vh 1.35vh max(1.1vh,env(safe-area-inset-bottom))!important;overflow:hidden!important;border:1px solid #ffffff2c!important;border-radius:2.8vh!important;background:#111113!important;background-image:linear-gradient(155deg,#171719,#0e0e10)!important;color:#f5f5f7!important;box-shadow:0 .8vh 2.8vh #0008,inset 0 .08vh .1vh #ffffff16!important;transform:translateX(-50%)!important}
+#duo .duo-app-instance[data-app="messages"] .gx-cash-sheet>.nx-sheet-grip{position:relative!important;top:auto!important;left:auto!important;display:block!important;flex:none!important;width:5vh!important;height:.55vh!important;min-height:4px!important;margin:.15vh auto .55vh!important;border:0!important;border-radius:999px!important;background:#77777c!important;opacity:.8}
+#duo .duo-app-instance[data-app="messages"] .gx-cash-shell{display:flex;min-width:0;min-height:0;flex:1 1 0;flex-direction:column;overflow:hidden}
+#duo .duo-app-instance[data-app="messages"] .gx-cash-entry{display:flex;min-width:0;min-height:0;flex:1 1 0;flex-direction:column;overflow:hidden}
+#duo .duo-app-instance[data-app="messages"] .gx-cash-main{display:flex;min-width:0;min-height:0;flex:1 1 0;flex-direction:column;align-items:center;justify-content:center;gap:1.3vh;overflow:hidden}
+#duo .duo-app-instance[data-app="messages"] .gx-cash-amount-zone{display:flex;min-width:0;flex:none;flex-direction:column;align-items:center;gap:.7vh}
+#duo .duo-app-instance[data-app="messages"] .gx-cash-amount-row{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;justify-items:center;gap:2.2vh;width:min(100%,42vh)}
+#duo .duo-app-instance[data-app="messages"] .gx-cash-amount-large{display:block;min-width:5ch;color:#f5f5f7!important;font-size:clamp(52px,8vh,92px);font-weight:620;line-height:1;letter-spacing:-.055em;text-align:center;font-variant-numeric:tabular-nums}
+#duo .duo-app-instance[data-app="messages"] .gx-cash-step{display:grid!important;place-items:center!important;width:6.4vh!important;height:6.4vh!important;min-width:44px!important;min-height:44px!important;max-width:68px!important;max-height:68px!important;padding:0!important;border:1px solid #ffffff32!important;border-radius:50%!important;background:#242426!important;color:#f5f5f7!important;box-shadow:inset 0 .08vh .1vh #ffffff0d!important}
+#duo .duo-app-instance[data-app="messages"] .gx-cash-step>.duo-icon{width:2.35vh;height:2.35vh;min-width:20px;min-height:20px;color:#f5f5f7!important}
+#duo .duo-app-instance[data-app="messages"] .gx-cash-keypad-toggle{display:block!important;min-height:3.7vh!important;padding:.25vh 1vh!important;border:0!important;border-radius:1vh!important;background:transparent!important;color:#a3a3a8!important;font-size:clamp(13px,1.45vh,18px)!important;font-weight:520!important;box-shadow:none!important}
+#duo .duo-app-instance[data-app="messages"] .gx-cash-keypad-toggle:active{background:#ffffff12!important}
+#duo .duo-app-instance[data-app="messages"] .gx-cash-keypad{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));align-content:center;justify-items:center;gap:.9vh;width:min(74%,34vh);min-height:0;margin:.1vh auto .2vh}
+#duo .duo-app-instance[data-app="messages"] .gx-cash-keypad[hidden]{display:none!important}
+#duo .duo-app-instance[data-app="messages"] .gx-cash-digit{display:grid!important;place-items:center!important;box-sizing:border-box!important;width:6.2vh!important;height:6.2vh!important;min-width:42px!important;min-height:42px!important;max-width:64px!important;max-height:64px!important;padding:0!important;border:1px solid #ffffff30!important;border-radius:50%!important;background:#242426!important;color:#f5f5f7!important;font-size:clamp(17px,2vh,25px)!important;font-weight:520!important;font-variant-numeric:tabular-nums;box-shadow:inset 0 .08vh .1vh #ffffff0d!important}
+#duo .duo-app-instance[data-app="messages"] .gx-cash-digit-spacer{display:block;width:6.2vh;height:6.2vh;min-width:42px;min-height:42px}
+#duo .duo-app-instance[data-app="messages"] .gx-cash-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.9vh;width:100%;flex:none;margin-top:auto;padding:.6vh .15vh .15vh}
+#duo .duo-app-instance[data-app="messages"] .gx-cash-pill{display:flex!important;min-width:0!important;min-height:4.8vh!important;align-items:center!important;justify-content:center!important;padding:.55vh 1vh!important;border:1px solid #ffffff30!important;border-radius:999px!important;background:#252527!important;color:#f5f5f7!important;font-size:clamp(14px,1.55vh,20px)!important;font-weight:560!important;white-space:nowrap;box-shadow:inset 0 .08vh .1vh #ffffff0d!important}
+#duo .duo-app-instance[data-app="messages"] .gx-cash-pill:active{background:#343438!important}
+#duo .duo-app-instance[data-app="messages"] .gx-cash-error{display:block;margin:.2vh .35vh;padding:.65vh .8vh;border:1px solid #82545a;border-radius:1vh;background:#352428;color:#ffd4d8;font-size:clamp(11px,1vh,14px);line-height:1.35}
+#duo .duo-app-instance[data-app="messages"] .gx-cash-error[hidden]{display:none!important}
+#duo .duo-app-instance[data-app="messages"] .gx-cash-recipient-row{display:flex;min-width:0;flex:none;align-items:center;gap:.7vh;margin:.1vh .2vh .35vh;padding:.2vh .2vh .55vh;border-bottom:1px solid #ffffff22}
+#duo .duo-app-instance[data-app="messages"] .gx-cash-recipient-label{flex:none;color:#9b9ba1;font-size:clamp(12px,1.15vh,15px)}
+#duo .duo-app-instance[data-app="messages"] .gx-cash-recipient-pick{display:flex!important;min-width:0!important;min-height:3.8vh!important;align-items:center!important;justify-content:flex-start!important;gap:.5vh!important;padding:.25vh .7vh!important;border:0!important;border-radius:1.2vh!important;background:#242426!important;color:#f5f5f7!important;font-size:clamp(12px,1.1vh,15px)!important;text-align:left;box-shadow:none!important}
+#duo .duo-app-instance[data-app="messages"] .gx-cash-recipient-pick>.duo-icon{width:1.5vh;height:1.5vh;flex:none;color:#a3a3a8}
+#duo .duo-app-instance[data-app="messages"] .gx-cash-recipient-options{display:grid;grid-template-columns:1fr;gap:.25vh;max-height:22vh;flex:none;overflow:auto;padding:.3vh .2vh .45vh;border-bottom:1px solid #ffffff22}
+#duo .duo-app-instance[data-app="messages"] .gx-cash-recipient-choice{display:flex!important;min-height:4.2vh!important;align-items:center!important;justify-content:flex-start!important;padding:.35vh .8vh!important;border:0!important;border-radius:1vh!important;background:#202022!important;color:#f5f5f7!important;font-size:clamp(12px,1.1vh,15px)!important;text-align:left;box-shadow:none!important}
+#duo .duo-app-instance[data-app="messages"] .gx-cash-recipient-choice[aria-pressed="true"]{background:#263850!important;color:#a9d1ff!important}
+#duo .duo-app-instance[data-app="messages"] .gx-cash-hint{margin:.5vh .5vh;color:#a3a3a8;font-size:clamp(11px,1vh,14px)}
+#duo .duo-app-instance[data-app="messages"] .gx-cash-result{display:flex;min-width:0;min-height:0;flex:1 1 0;flex-direction:column;align-items:stretch;justify-content:flex-start;gap:.6vh;overflow:hidden;padding:.35vh .3vh}
+#duo .duo-app-instance[data-app="messages"] .gx-cash-result-amount{color:#f5f5f7!important;font-size:clamp(54px,8.3vh,94px);font-weight:620;line-height:1;letter-spacing:-.055em;font-variant-numeric:tabular-nums;text-align:center}
+#duo .duo-app-instance[data-app="messages"] .gx-cash-result-title{margin:0;color:#f5f5f7!important;font-size:clamp(19px,2vh,25px);font-weight:620;line-height:1.18;text-align:center}
+#duo .duo-app-instance[data-app="messages"] .gx-cash-recipient-line,#duo .duo-app-instance[data-app="messages"] .gx-cash-result-copy,#duo .duo-app-instance[data-app="messages"] .gx-cash-note-preview,#duo .duo-app-instance[data-app="messages"] .gx-cash-reference{max-width:42vh;margin:0;color:#aaaab0!important;font-size:clamp(12px,1.15vh,15px);line-height:1.4;text-align:center}
+#duo .duo-app-instance[data-app="messages"] .gx-cash-reference{font-size:clamp(10px,.95vh,13px);font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+#duo .duo-app-instance[data-app="messages"] .gx-cash-note-toggle{min-height:3.5vh;padding:.3vh .8vh;border:0!important;border-radius:1vh;background:transparent!important;color:#aaaab0!important;font-size:clamp(12px,1.1vh,15px);box-shadow:none!important}
+#duo .duo-app-instance[data-app="messages"] .gx-cash-note-wrap{width:min(100%,38vh)}
+#duo .duo-app-instance[data-app="messages"] .gx-cash-note-wrap[hidden]{display:none!important}
+#duo[data-theme] .duo-app-instance[data-app="messages"] .gx-cash-note{background-color:transparent!important;border:0!important;border-bottom:1px solid #ffffff35!important}
+#duo[data-theme] .duo-app-instance[data-app="messages"] .gx-cash-note:focus-visible,#duo[data-theme] .duo-app-instance[data-app="messages"] .gx-cash-note:focus{outline:0!important;outline-offset:0!important;border-bottom-color:#63a8ff!important;box-shadow:0 .15vh 0 #63a8ff!important}
+#duo .duo-app-instance[data-app="messages"] .gx-cash-note{display:block;box-sizing:border-box;width:100%;min-height:4.5vh;resize:vertical;padding:.55vh .25vh;border:0!important;border-bottom:1px solid #ffffff35!important;border-radius:0;background:transparent!important;color:#f5f5f7!important;font:inherit;font-size:clamp(12px,1.1vh,15px);outline:none;box-shadow:none!important}
+#duo .duo-app-instance[data-app="messages"] .gx-cash-note:focus-visible{border-bottom-color:#63a8ff!important;box-shadow:0 .15vh 0 #63a8ff!important}
+#duo .duo-app-instance[data-app="messages"] .gx-cash-note::placeholder{color:#85858b}
+#duo .duo-app-instance[data-app="messages"] .gx-cash-result-actions{margin-top:auto;padding-top:.5vh}
+#duo .duo-app-instance[data-app="messages"] .gx-cash-confirm-button{background:#333336!important}
+#duo .duo-app-instance[data-app="messages"] .gx-cash-back{background:#202022!important}
+#duo .duo-app-instance[data-app="messages"] .gx-cash-retry .gx-cash-result-copy,#duo .duo-app-instance[data-app="messages"] .gx-cash-failure .gx-cash-result-copy{max-width:48ch}
+#duo .duo-app-instance[data-app="messages"] .gx-cash-retry .gx-cash-error,#duo .duo-app-instance[data-app="messages"] .gx-cash-failure .gx-cash-error{width:100%;box-sizing:border-box}
+#duo .duo-app-instance[data-app="messages"] .gx-cash-confirm .gx-cash-result-copy{margin-top:.4vh}
+@container utility (min-width:60vh){
+ #duo .duo-app-instance[data-app="messages"] .nx-sheet.gx-cash-sheet{width:96%!important;height:72%!important;max-height:calc(100% - 1vh)!important;padding:.7vh 1.5vh max(1vh,env(safe-area-inset-bottom))!important}
+ #duo .duo-app-instance[data-app="messages"] .gx-cash-entry{display:flex}
+ #duo .duo-app-instance[data-app="messages"] .gx-cash-main{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center;justify-items:center;gap:1vh}
+ #duo .duo-app-instance[data-app="messages"] .gx-cash-amount-zone{width:100%;justify-content:center}
+ #duo .duo-app-instance[data-app="messages"] .gx-cash-amount-row{width:100%;gap:1.3vh}
+ #duo .duo-app-instance[data-app="messages"] .gx-cash-amount-large{font-size:clamp(58px,8vh,100px)}
+ #duo .duo-app-instance[data-app="messages"] .gx-cash-keypad{grid-column:2;grid-row:1;width:min(90%,36vh);gap:.7vh}
+ #duo .duo-app-instance[data-app="messages"] .gx-cash-digit{width:5.7vh!important;height:5.7vh!important;min-width:38px!important;min-height:38px!important}
+ #duo .duo-app-instance[data-app="messages"] .gx-cash-digit-spacer{width:5.7vh;height:5.7vh;min-width:38px;min-height:38px}
+ #duo .duo-app-instance[data-app="messages"] .gx-cash-actions{gap:1.1vh;padding:.5vh .35vh .2vh}
+ #duo .duo-app-instance[data-app="messages"] .gx-cash-result{max-width:68vh;margin:0 auto}
+}
+@container utility (min-width:60vh) and (max-height:50vh){
+ #duo .duo-app-instance[data-app="messages"] .nx-sheet.gx-cash-sheet{height:86%!important}
+ #duo .duo-app-instance[data-app="messages"] .gx-cash-main{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr)}
+ #duo .duo-app-instance[data-app="messages"] .gx-cash-amount-large{font-size:clamp(48px,7vh,82px)}
+}
+@container utility (max-width:65vh){
+ #duo .duo-app-instance[data-app="messages"] .gx-cash-sheet:has(.gx-cash-keypad:not([hidden])){height:92%!important}
+ #duo .duo-app-instance[data-app="messages"] .gx-cash-entry:has(.gx-cash-keypad:not([hidden])) .gx-cash-main{justify-content:flex-start;gap:.65vh;padding-top:.35vh}
+ #duo .duo-app-instance[data-app="messages"] .gx-cash-entry:has(.gx-cash-keypad:not([hidden])) .gx-cash-amount-zone{gap:.15vh}
+ #duo .duo-app-instance[data-app="messages"] .gx-cash-entry:has(.gx-cash-keypad:not([hidden])) .gx-cash-amount-large{font-size:clamp(46px,6vh,72px)}
+ #duo .duo-app-instance[data-app="messages"] .gx-cash-entry:has(.gx-cash-keypad:not([hidden])) .gx-cash-step{width:5.1vh!important;height:5.1vh!important}
+ #duo .duo-app-instance[data-app="messages"] .gx-cash-entry:has(.gx-cash-keypad:not([hidden])) .gx-cash-keypad{grid-template-columns:repeat(3,minmax(0,1fr));grid-auto-rows:1fr;width:min(78%,31vh);flex:1 1 0;gap:.4vh;align-content:stretch}
+ #duo .duo-app-instance[data-app="messages"] .gx-cash-entry:has(.gx-cash-keypad:not([hidden])) .gx-cash-digit,#duo .duo-app-instance[data-app="messages"] .gx-cash-entry:has(.gx-cash-keypad:not([hidden])) .gx-cash-digit-spacer{width:min(6.2vh,15vw)!important;height:min(6.2vh,15vw)!important;min-width:34px!important;min-height:34px!important}
+ #duo .duo-app-instance[data-app="messages"] .gx-cash-entry:has(.gx-cash-keypad:not([hidden])) .gx-cash-actions{padding-top:.2vh}
+}
+#duo .duo-app-instance[data-app="messages"] .gx-cash-amount-zone{width:100%;min-width:0}
+#duo .duo-app-instance[data-app="messages"] .gx-cash-amount-row{grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);width:100%;min-width:0;gap:1.1vh}
+#duo .duo-app-instance[data-app="messages"] .gx-cash-amount-large{min-width:0;font-size:clamp(50px,8vh,88px);white-space:nowrap}
+#duo .duo-app-instance[data-app="messages"] .gx-cash-amount-large[data-amount-length="5"]{font-size:clamp(44px,6.6vh,64px)}
+#duo .duo-app-instance[data-app="messages"] .gx-cash-amount-large[data-amount-length="6"],#duo .duo-app-instance[data-app="messages"] .gx-cash-amount-large[data-amount-length="7"]{font-size:clamp(39px,5.4vh,56px)}
+#duo .duo-app-instance[data-app="messages"] .gx-cash-amount-large[data-amount-length="8"],#duo .duo-app-instance[data-app="messages"] .gx-cash-amount-large[data-amount-length="9"],#duo .duo-app-instance[data-app="messages"] .gx-cash-amount-large[data-amount-length="10"],#duo .duo-app-instance[data-app="messages"] .gx-cash-amount-large[data-amount-length="11"]{font-size:clamp(31px,4.3vh,46px)}
+#duo .duo-app-instance[data-app="messages"] .gx-cash-step{width:min(6.4vh,15vw)!important;height:min(6.4vh,15vw)!important}
+@container utility (min-width:60vh){
+ #duo .duo-app-instance[data-app="messages"] .gx-cash-amount-row{gap:1.4vh}
+}
+#duo .duo-app-instance[data-app="messages"] .nx-sheet.gx-cash-sheet{max-width:none!important}
+#duo .duo-app-instance[data-app="messages"] .nx-sheet.gx-cash-sheet{background:#111!important;background-image:none!important}
+#duo[data-orientation="landscape"] .duo-app-instance[data-app="messages"] .nx-sheet.gx-cash-sheet{width:96%!important;height:60%!important}
+#duo[data-orientation="landscape"] .duo-app-instance[data-app="messages"] .nx-sheet.gx-cash-sheet:has(.gx-cash-keypad:not([hidden])){height:88%!important}
+#duo[data-orientation="landscape"] .duo-app-instance[data-app="messages"] .gx-cash-entry:has(.gx-cash-keypad:not([hidden])) .gx-cash-main{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center;justify-items:center;gap:1vh}
+#duo[data-orientation="landscape"] .duo-app-instance[data-app="messages"] .gx-cash-entry:has(.gx-cash-keypad:not([hidden])) .gx-cash-amount-zone{width:100%;justify-content:center}
+#duo[data-orientation="landscape"] .duo-app-instance[data-app="messages"] .gx-cash-entry:has(.gx-cash-keypad:not([hidden])) .gx-cash-keypad{grid-column:2;grid-row:1;grid-template-columns:repeat(3,minmax(0,1fr));grid-auto-rows:auto;align-content:center;width:min(90%,38vh);flex:none;gap:.55vh}
+#duo[data-orientation="landscape"] .duo-app-instance[data-app="messages"] .gx-cash-entry:has(.gx-cash-keypad:not([hidden])) .gx-cash-digit,#duo[data-orientation="landscape"] .duo-app-instance[data-app="messages"] .gx-cash-entry:has(.gx-cash-keypad:not([hidden])) .gx-cash-digit-spacer{width:5.7vh!important;height:5.7vh!important;min-width:38px!important;min-height:38px!important}
+#duo[data-orientation="portrait"] .duo-app-instance[data-app="messages"] .nx-sheet.gx-cash-sheet:has(.gx-cash-keypad:not([hidden])){height:92%!important}
+#duo[data-orientation="portrait"] .duo-app-instance[data-app="messages"] .gx-cash-entry:has(.gx-cash-keypad:not([hidden])) .gx-cash-main{justify-content:flex-start;gap:.65vh;padding-top:.35vh}
+#duo[data-orientation="portrait"] .duo-app-instance[data-app="messages"] .gx-cash-entry:has(.gx-cash-keypad:not([hidden])) .gx-cash-amount-zone{gap:.15vh}
+#duo[data-orientation="portrait"] .duo-app-instance[data-app="messages"] .gx-cash-entry:has(.gx-cash-keypad:not([hidden])) .gx-cash-amount-large{font-size:clamp(46px,6vh,72px)}
+#duo[data-orientation="portrait"] .duo-app-instance[data-app="messages"] .gx-cash-entry:has(.gx-cash-keypad:not([hidden])) .gx-cash-step{width:5.1vh!important;height:5.1vh!important}
+#duo[data-orientation="portrait"] .duo-app-instance[data-app="messages"] .gx-cash-entry:has(.gx-cash-keypad:not([hidden])) .gx-cash-keypad{grid-template-columns:repeat(3,minmax(0,1fr));grid-auto-rows:1fr;width:min(78%,31vh);flex:1 1 0;gap:.4vh;align-content:stretch}
+#duo[data-orientation="portrait"] .duo-app-instance[data-app="messages"] .gx-cash-entry:has(.gx-cash-keypad:not([hidden])) .gx-cash-digit,#duo[data-orientation="portrait"] .duo-app-instance[data-app="messages"] .gx-cash-entry:has(.gx-cash-keypad:not([hidden])) .gx-cash-digit-spacer{width:min(6.2vh,15vw)!important;height:min(6.2vh,15vw)!important;min-width:34px!important;min-height:34px!important}
+#duo[data-orientation="portrait"] .duo-app-instance[data-app="messages"] .gx-cash-entry:has(.gx-cash-keypad:not([hidden])) .gx-cash-actions{padding-top:.2vh}
+
+/* The folded cover is portrait shaped even while its protocol orientation is landscape. */
+#duo[data-expanded="false"] .duo-app-instance[data-app="messages"] .nx-sheet.gx-cash-sheet:has(.gx-cash-keypad:not([hidden])){height:92%!important}
+#duo[data-expanded="false"] .duo-app-instance[data-app="messages"] .gx-cash-entry:has(.gx-cash-keypad:not([hidden])) .gx-cash-main{display:flex;flex-direction:column;align-items:stretch;justify-content:flex-start;gap:.65vh;padding-top:.35vh}
+#duo[data-expanded="false"] .duo-app-instance[data-app="messages"] .gx-cash-entry:has(.gx-cash-keypad:not([hidden])) .gx-cash-amount-zone{width:100%;gap:.15vh}
+#duo[data-expanded="false"] .duo-app-instance[data-app="messages"] .gx-cash-entry:has(.gx-cash-keypad:not([hidden])) .gx-cash-amount-large{font-size:clamp(46px,6vh,72px)}
+#duo[data-expanded="false"] .duo-app-instance[data-app="messages"] .gx-cash-entry:has(.gx-cash-keypad:not([hidden])) .gx-cash-step{width:5.1vh!important;height:5.1vh!important}
+#duo[data-expanded="false"] .duo-app-instance[data-app="messages"] .gx-cash-entry:has(.gx-cash-keypad:not([hidden])) .gx-cash-keypad{grid-column:auto;grid-row:auto;grid-template-columns:repeat(3,minmax(0,1fr));grid-auto-rows:1fr;width:min(78%,31vh);flex:1 1 0;gap:.4vh;align-content:stretch}
+#duo[data-expanded="false"] .duo-app-instance[data-app="messages"] .gx-cash-entry:has(.gx-cash-keypad:not([hidden])) .gx-cash-digit,#duo[data-expanded="false"] .duo-app-instance[data-app="messages"] .gx-cash-entry:has(.gx-cash-keypad:not([hidden])) .gx-cash-digit-spacer{width:min(6.2vh,15vw)!important;height:min(6.2vh,15vw)!important;min-width:34px!important;min-height:34px!important}
+#duo[data-expanded="false"] .duo-app-instance[data-app="messages"] .gx-cash-entry:has(.gx-cash-keypad:not([hidden])) .gx-cash-actions{padding-top:.2vh}
+
+/* Result screens keep the explanation scrollable while the two actions stay clear of the home indicator. */
+#duo .duo-app-instance[data-app="messages"] .nx-sheet.gx-cash-sheet:has(.gx-cash-result){height:86%!important;max-height:calc(100% - 8vh)!important;bottom:5.4vh!important;padding-bottom:max(1.7vh,env(safe-area-inset-bottom))!important}
+#duo .duo-app-instance[data-app="messages"] .gx-cash-result{flex:1 1 0;min-height:0;overflow:hidden}
+#duo .duo-app-instance[data-app="messages"] .gx-cash-result-body{display:flex;min-width:0;min-height:0;flex:1 1 0;flex-direction:column;align-items:center;justify-content:flex-start;gap:.9vh;overflow:auto;padding:.7vh .35vh .5vh;overscroll-behavior:contain}
+#duo .duo-app-instance[data-app="messages"] .gx-cash-result-body>.gx-cash-result-amount{flex:none;margin:.25vh 0 .15vh}
+#duo .duo-app-instance[data-app="messages"] .gx-cash-result-actions{position:relative;z-index:2;flex:none;grid-template-columns:repeat(2,minmax(0,1fr));gap:.9vh;margin:0;padding:.8vh .1vh max(.9vh,env(safe-area-inset-bottom));border-top:1px solid #ffffff20;background:#111!important;box-shadow:0 -.5vh 1.2vh #111c}
+#duo .duo-app-instance[data-app="messages"] .gx-cash-result-actions>.gx-cash-pill{min-height:5vh!important}
+#duo .duo-app-instance[data-app="messages"] .gx-cash-note-wrap{flex:none;width:min(100%,38vh)}
+#duo .duo-app-instance[data-app="messages"] .gx-cash-note-wrap[hidden]{display:none!important}
+
+#duo .duo-app-instance[data-app="messages"] .gx-cash-amount-row.gx-cash-keypad-active{display:flex;grid-template-columns:none;align-items:center;justify-content:center;gap:0}
+#duo .duo-app-instance[data-app="messages"] .gx-cash-amount-row.gx-cash-keypad-active .gx-cash-amount-large{font-size:clamp(54px,7vh,76px)!important;text-align:center}
+
+/* Messages forwarding is a multi-recipient sheet with a visible source preview. */
+#duo .duo-app-instance[data-app="messages"] .nx-sheet.gx-forward-sheet{box-sizing:border-box;width:min(96%,48vh)!important;height:90%!important;max-height:calc(100% - 5vh)!important;gap:.65vh;padding:.8vh 1.4vh 0!important;background:#111!important;background-image:none!important;overflow:hidden!important}
+#duo .duo-app-instance[data-app="messages"] .gx-forward-nav{position:sticky;top:0;z-index:2;display:grid;grid-template-columns:1fr 2fr 1fr;align-items:center;min-height:4vh;border-bottom:1px solid #ffffff1e;background:#111}
+#duo .duo-app-instance[data-app="messages"] .gx-forward-nav h2{grid-column:2;margin:0;color:#f5f5f7;font-size:clamp(14px,1.6vh,19px);font-weight:640;text-align:center}
+#duo .duo-app-instance[data-app="messages"] .gx-forward-cancel{grid-column:1;justify-self:start;min-height:3.3vh;padding:.35vh .4vh;border:0!important;background:transparent!important;color:#71adff!important;font-size:clamp(12px,1.3vh,16px)!important;box-shadow:none!important}
+#duo .duo-app-instance[data-app="messages"] .gx-forward-search{flex:none;min-height:4.1vh;margin:.15vh 0;padding:.25vh .9vh;border:0!important;border-radius:1.1vh;background:#242426!important}
+#duo .duo-app-instance[data-app="messages"] .gx-forward-search input{min-height:3.4vh;border:0!important;background:transparent!important;color:#f5f5f7!important;font-size:clamp(12px,1.2vh,15px)!important;outline:none;box-shadow:none!important}
+#duo .duo-app-instance[data-app="messages"] .gx-forward-recipients{display:flex;flex:none;gap:.55vh;min-height:4.2vh;overflow-x:auto;scrollbar-width:none}
+#duo .duo-app-instance[data-app="messages"] .gx-forward-recipients[hidden]{display:none!important}
+#duo .duo-app-instance[data-app="messages"] .gx-forward-chip{display:inline-flex;flex:none;align-items:center;gap:.4vh;min-height:3.4vh;padding:.35vh .8vh;border:1px solid #3b3b3d!important;border-radius:2vh;background:#252527!important;color:#f5f5f7!important;font-size:clamp(11px,1.1vh,14px)!important;box-shadow:none!important}
+#duo .duo-app-instance[data-app="messages"] .gx-forward-preview{flex:none;max-height:13vh;overflow:hidden;padding:.8vh 1vh;border-radius:1.2vh;background:#1e1e20}
+#duo .duo-app-instance[data-app="messages"] .gx-forward-eyebrow{display:block;color:#96969c;font-size:clamp(9px,.95vh,12px);font-weight:650;letter-spacing:.07em}
+#duo .duo-app-instance[data-app="messages"] .gx-forward-message-copy{display:-webkit-box;overflow:hidden;margin:.35vh 0 0;color:#f5f5f7;font-size:clamp(12px,1.2vh,15px);line-height:1.35;-webkit-box-orient:vertical;-webkit-line-clamp:3}
+#duo .duo-app-instance[data-app="messages"] .gx-forward-attachment{display:inline-flex;margin:.45vh .45vh 0 0;padding:.3vh .65vh;border-radius:1vh;background:#29292b;color:#b7b7bd;font-size:clamp(10px,1vh,12px)}
+#duo .duo-app-instance[data-app="messages"] .gx-forward-list{display:flex;min-height:0;flex:1 1 0;flex-direction:column;overflow:auto;overscroll-behavior:contain;scrollbar-width:thin}
+#duo .duo-app-instance[data-app="messages"] .gx-forward-person{display:flex!important;flex:none;align-items:center;gap:.85vh;min-height:6vh;padding:.45vh .35vh!important;border:0!important;border-bottom:1px solid #ffffff16!important;border-radius:0!important;background:transparent!important;color:#f5f5f7!important;text-align:left;box-shadow:none!important}
+#duo .duo-app-instance[data-app="messages"] .gx-forward-person[data-selected="true"]{background:#1c2a3a!important}
+#duo .duo-app-instance[data-app="messages"] .gx-forward-avatar{display:grid;place-items:center;width:4.3vh;height:4.3vh;flex:none;border-radius:50%;background:#3b526d;color:#fff;font-size:clamp(10px,1.05vh,13px);font-weight:650}
+#duo .duo-app-instance[data-app="messages"] .gx-forward-person-copy{display:flex;min-width:0;flex:1;flex-direction:column;gap:.15vh}
+#duo .duo-app-instance[data-app="messages"] .gx-forward-person-copy strong{overflow:hidden;color:#f5f5f7;font-size:clamp(12px,1.2vh,15px);font-weight:570;text-overflow:ellipsis;white-space:nowrap}
+#duo .duo-app-instance[data-app="messages"] .gx-forward-person-copy small{color:#96969c;font-size:clamp(10px,1vh,12px)}
+#duo .duo-app-instance[data-app="messages"] .gx-forward-check{display:grid;place-items:center;width:2.4vh;height:2.4vh;flex:none;border:1px solid #67676d;border-radius:50%;color:#fff;font-size:clamp(11px,1.1vh,14px)}
+#duo .duo-app-instance[data-app="messages"] .gx-forward-person[data-selected="true"] .gx-forward-check{border-color:#1685ff;background:#1685ff}
+#duo .duo-app-instance[data-app="messages"] .gx-forward-status{flex:none;margin:0;padding:.45vh .7vh;border-radius:.8vh;background:#482729;color:#ffb8bd;font-size:clamp(10px,1.05vh,13px);line-height:1.3}
+#duo .duo-app-instance[data-app="messages"] .gx-forward-status[hidden]{display:none!important}
+
+/* iOS Messages list and conversation hierarchy. */
+#duo .duo-app-instance[data-app="messages"] .gx-messages:has(.gx-message-search-dock)>.gx-body{gap:.55vh;padding:.75vh 1.35vh .8vh;overflow:hidden}
+#duo .duo-app-instance[data-app="messages"] .gx-message-search-dock{display:flex;align-items:center;gap:.7vh;flex:none;padding:.45vh;border:1px solid color-mix(in srgb,var(--msg-line) 72%,transparent);border-radius:2vh;background:var(--msg-group)}
+#duo .duo-app-instance[data-app="messages"] .gx-message-search-dock>.nx-search{flex:1;min-width:0;min-height:4.1vh;margin:0;padding:.5vh 1vh;border:0!important;border-radius:2vh;background:transparent!important}
+#duo .duo-app-instance[data-app="messages"] .gx-message-search-dock>.gx-message-compose-new{display:grid;place-items:center;flex:none;width:4.1vh;height:4.1vh;min-width:4.1vh;min-height:4.1vh;padding:.9vh;border:0!important;border-radius:50%;background:var(--msg-raised)!important;color:var(--msg-blue)!important;box-shadow:inset 0 1px 0 color-mix(in srgb,var(--msg-ink) 8%,transparent)}
+#duo .duo-app-instance[data-app="messages"] .gx-message-search-dock>.gx-message-compose-new>span:not(.duo-icon){display:none}
+#duo .duo-app-instance[data-app="messages"] .gx-message-search-dock>.gx-message-compose-new .duo-icon{width:1.8vh;height:1.8vh}
+#duo .duo-app-instance[data-app="messages"] .gx-messages:has(.gx-message-search-dock) .gx-messages-shortcuts{flex:none;min-height:2.7vh;align-items:center;padding:0 .25vh}
+#duo .duo-app-instance[data-app="messages"] .gx-messages:has(.gx-message-search-dock) .gx-messages-shortcut{min-height:2.7vh}
+#duo .duo-app-instance[data-app="messages"] .gx-messages:has(.gx-message-search-dock) .gx-thread-row{min-height:7.35vh;padding:.8vh .35vh}
+#duo .duo-app-instance[data-app="messages"] .gx-messages:has(.gx-message-search-dock) .gx-thread-avatar{width:5.25vh;height:5.25vh;font-size:1.7vh}
+#duo .duo-app-instance[data-app="messages"] .gx-messages:has(.gx-message-search-dock) .gx-thread-row:not(:last-child){border-bottom:1px solid color-mix(in srgb,var(--msg-line) 72%,transparent)!important}
+#duo .duo-app-instance[data-app="messages"] .gx-messages>.nx-header.gx-thread-header{display:grid;grid-template-columns:auto minmax(0,1fr) auto;grid-template-rows:1fr;align-items:center;min-height:6.6vh;padding:.3vh .7vh;gap:.25vh;border-bottom:1px solid var(--msg-line)!important}
+#duo .duo-app-instance[data-app="messages"] .gx-messages>.nx-header.gx-thread-header>.gx-thread-back{grid-column:1;grid-row:1;justify-self:start}
+#duo .duo-app-instance[data-app="messages"] .gx-messages>.nx-header.gx-thread-header>.gx-thread-controls{grid-column:3;grid-row:1;display:flex;align-items:center;justify-content:flex-end;gap:.05vh;min-width:0}
+#duo .duo-app-instance[data-app="messages"] .gx-messages>.nx-header.gx-thread-header .gx-thread-controls>.nx-button{display:grid;place-items:center;flex:none;width:3.2vh;height:3.2vh;min-width:3.2vh;min-height:3.2vh;padding:.65vh;border:0!important;border-radius:50%;background:transparent!important;color:var(--msg-blue)!important;box-shadow:none}
+#duo .duo-app-instance[data-app="messages"] .gx-messages>.nx-header.gx-thread-header .gx-thread-controls>.nx-button .duo-icon{width:1.4vh;height:1.4vh}
+#duo .duo-app-instance[data-app="messages"] .gx-messages>.nx-header.gx-thread-header>.gx-thread-identity{grid-column:2;grid-row:1;display:flex;flex-direction:row;align-items:center;justify-content:center;gap:.45vh;min-width:0;padding:0}
+#duo .duo-app-instance[data-app="messages"] .gx-messages>.nx-header.gx-thread-header .gx-thread-header-avatar{width:3.1vh;height:3.1vh;font-size:1.15vh}
+#duo .duo-app-instance[data-app="messages"] .gx-messages>.nx-header.gx-thread-header .nx-heading{flex:none;min-width:0;max-width:100%;text-align:center}
+#duo .duo-app-instance[data-app="messages"] .gx-messages>.nx-header.gx-thread-header .nx-heading h1{max-width:100%;font-size:clamp(13px,1.45vh,18px);line-height:1.15}
+#duo .duo-app-instance[data-app="messages"] .gx-messages>.nx-header.gx-thread-header .nx-heading p{font-size:clamp(10px,.88vh,11px)}
+#duo .duo-app-instance[data-app="messages"] .gx-message-search-dock>.gx-message-compose-new:focus-visible,#duo .duo-app-instance[data-app="messages"] .gx-thread-controls>.nx-button:focus-visible{outline:2px solid var(--msg-blue);outline-offset:2px}
+#duo .duo-app-instance[data-app="messages"] .gx-forward-footer{position:sticky;bottom:0;z-index:2;flex:none;margin:0 -1.4vh;padding:.6vh 1.4vh max(5vh,env(safe-area-inset-bottom));border-top:1px solid #ffffff16;background:#111}
+#duo .duo-app-instance[data-app="messages"] .gx-forward-submit{width:100%;min-height:4.4vh;border:0!important;border-radius:3vh;background:#28282a!important;color:#f5f5f7!important;font-size:clamp(13px,1.3vh,16px)!important;font-weight:620;box-shadow:none!important}
+#duo .duo-app-instance[data-app="messages"] .gx-forward-submit:not(:disabled){background:#1677ee!important;color:#fff!important}
+#duo .duo-app-instance[data-app="messages"] .gx-forward-submit:disabled{opacity:.5}
