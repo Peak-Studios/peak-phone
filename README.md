@@ -10,7 +10,7 @@
 ![Version](https://img.shields.io/badge/version-3.1.0-green)
 [![PRs welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
-<img src="docs/images/hero-unfolded.webp" alt="Peak Duo unfolded home screen" width="900">
+<img src="docs/images/showcase.gif" alt="Peak Duo: folding, Split View, apps and the lock screen" width="900">
 
 ### [▶ Try the live demo in your browser](https://peak-studios.github.io/peak-phone/)
 
@@ -84,6 +84,10 @@
 <td align="center"><img src="docs/images/lock-passcode-wrong.webp" width="230"><br><sub>Wrong passcode</sub></td>
 </tr>
 </table>
+
+**Home Screen, unfolded:**
+
+<img src="docs/images/hero-unfolded.webp" alt="Peak Duo unfolded home screen" width="800">
 
 **Split View.** Two apps side by side on the unfolded display:
 
